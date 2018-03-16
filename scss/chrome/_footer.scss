@@ -1,0 +1,125 @@
+//------------
+// footer
+//------------
+
+.footer {
+  padding: 40px 0 0;
+}
+.footer__navigation {
+  margin: 0 0 40px;
+  @include screen-mob {
+    margin: 0 0 32px;
+  }
+}
+.footer__general {
+  padding: 12px 0;
+  @include screen-mob {
+    padding: 24px 0;
+  }
+}
+.footer__border {
+  height: 1px;
+  background: $color-grey-300;
+}
+
+
+// Social
+.footer-social {
+  float: right;
+  @include screen-med {
+    clear: both;
+    float: none;
+    margin: 24px 0 0;
+  }
+  @include screen-mob {
+    margin: 0;
+  }
+}
+.footer-social__link {
+  margin: 0 0 0 12px;
+  display: block;
+  float: left;
+  width: 48px;
+  height: 48px;
+  padding: 4px;
+  background: $color-grey-300;
+  border-radius: 50%;
+  &:before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+  }
+  @include screen-med {
+    margin: 0 12px 0 0;
+  }
+}
+
+
+// Navigation columns
+.footer-navigation {
+  @include screen-mob {
+    margin: 0 0 32px;
+  }
+}
+.footer-navigation__heading {
+  margin-bottom: 16px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid $color-grey-300;
+  color: $color-grey-600;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+.footer-navigation__link {
+  display: block;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 4px 0;
+  @include screen-mob {
+    line-height: 32px;
+  }
+}
+
+
+// Copyright
+.footer-copyright {
+  @include nowrap;
+  line-height: 24px;
+  font-size: 16px;
+  color: $color-grey-700;
+}
+
+
+// Legal
+.footer-legal {
+  float: right;
+  @include screen-mob {
+    float: none;
+  }
+}
+.footer-legal__link {
+  display: block;
+  float: left;
+  line-height: 24px;
+  font-size: 16px;
+}
+.footer-legal__space {
+  display: block;
+  width: 16px;
+  height: 24px;
+  padding: 9px;
+  float: left;
+  margin: 0 12px;
+  &:before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    background: $color-grey-300;
+    border-radius: 50%;
+  }
+}

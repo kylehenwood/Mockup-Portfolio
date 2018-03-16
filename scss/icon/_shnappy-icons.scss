@@ -1,0 +1,100 @@
+// -------------
+// Shnappy icons
+// -------------
+
+.icon--dropdown {
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  display: block;
+  &:before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    background: #333;
+  }
+}
+
+.icon--16 {
+  display: block;
+  width: 16px;
+  height:16px;
+  &:before {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+  }
+}
+
+.icon--16 {
+  display: block;
+  width: 16px;
+  height: 16px;
+  &:before {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+  }
+}
+
+
+
+.icon--test {
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  display: block;
+  &:before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    background: #333;
+  }
+}
+
+
+.icon--test-white {
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  display: block;
+  &:before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    background: #fff;
+  }
+}
+
+// codes
+.icon--arrow-up:before {content: '\e5b0';}
+.icon--arrow-down:before {content: '\e5b1';}
+.icon--arrow-left:before {content: '\e5b2';}
+.icon--arrow-right:before {content: '\e5b3';}
+.icon--cross:before {content: '\e5a3';}
+.icon--microscope:before {content: '\e45a';}
+.icon--menu:before {content: '\e53e';}
+.icon--user:before {content:'\e4b0';}
+
+.icon--maximize:before {content: '\e58e';}
+
+.icon--dropdown-arrow:before {
+  //content: '\e5bd';
+  content: '\e5a5';
+}
+
+
+
+.icon--plus:before {content:'\e5a0';}
+.icon--minus:before {content:'\e5a1';}
+.icon--tick:before {content:'\e5a2';}

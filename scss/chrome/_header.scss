@@ -1,0 +1,162 @@
+// Website Navigation
+.header {
+  position: relative;
+  height: 56px;
+  padding: 0 240px;
+  text-align: center;
+}
+.header__logo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 90px;
+  padding: 8px 0;
+}
+.header__primary {
+  color: white;
+}
+.header__navigation {
+  display: inline-block;
+  margin: 0 auto;
+}
+.header__contact {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px 0;
+}
+
+
+// sub components
+.logo {
+  opacity: 0.8;
+  font-size: 24px;
+  font-weight: bold;
+  display: block;
+  height: 40px;
+  width: 48px;
+  border-radius: 4px;
+  background-color: white;
+  &:hover {
+    opacity: 1;
+  }
+  &:active {
+    opacity: 1;
+    transform: translateY(2px);
+  }
+}
+.logo--active {
+  opacity: 1;
+}
+
+// navigation
+.navigation {
+  height: 56px;
+}
+
+.navigation__item {
+  cursor: pointer;
+  float: left;
+  display: block;
+  height: 56px;
+  position: relative;
+  margin: 0 12px;
+  &:hover {
+    .navigation__item-line {
+      width: 12px;
+      background: white;
+    }
+    .navigation__item-text {
+      color: white;
+    }
+  }
+
+  &:active {
+    .navigation__item-line {
+      width: 8px;
+      background: white;
+    }
+    .navigation__item-text {
+      color: white;
+      transform: translateY(2px);
+    }
+  }
+}
+
+
+// --active state
+.navigation__item--active {
+  .navigation__item-text {
+    color: white!important;
+    transform: none!important;
+  }
+  .navigation__item-line {
+    width: 24px!important;
+    background: white!important;
+  }
+}
+
+// items
+.navigation__item-text {
+  display: block;
+  color: rgba(white,0.8);
+  font-weight: bold;
+  font-size: 14px;
+  font-family: $font-family;
+  line-height: 56px;
+  text-transform: uppercase;
+}
+.navigation__item-line {
+  display: block;
+  margin: -12px auto 0;
+  height: 2px;
+  width: 0;
+  background: transparent;
+  border-radius: 2px;
+  transition: all 120ms ease-out;
+}
+
+// navigation space
+.navigation__space {
+  float: left;
+  display: block;
+  width: 56px;
+  height: 56px;
+  padding: 25px;
+  &:before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    background: rgba(white,0.6);
+    border-radius: 100%;
+  }
+}
+
+// contact me button
+.button-contact {
+  cursor: pointer;
+  float: left;
+  display: block;
+  height: 36px;
+  padding: 4px 24px;
+  //margin: 0 24px 0 0;
+  border: 2px solid rgba(white,0.6);
+  border-radius: (36px/2);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: $font-family;
+  line-height: 24px;
+  &:hover {
+    border-color: white;
+    color: black;
+    background: white;
+  }
+  &:active {
+    border-color: white;
+    color: black;
+    background: white;
+    transform: translateY(2px);
+  }
+}

@@ -1,0 +1,46 @@
+// Icons
+// Using the flaticons stroke icon set
+@font-face {
+  font-family: 'Flaticons Stroke';
+  src: url('../fonts/flaticons-stroke/flaticons-stroke.eot');
+  src: url('../fonts/flaticons-stroke/flaticons-stroke.eot?#iefix') format("embedded-opentype"),
+       url('../fonts/flaticons-stroke/flaticons-stroke.woff') format('woff'),
+       url('../fonts/flaticons-stroke/flaticons-stroke.ttf') format('truetype'),
+       url('../fonts/flaticons-stroke/flaticons-stroke.svg#flaticons-stroke') format('svg');
+}
+
+@font-face {
+  font-family: 'Flaticons Social';
+  src: url('../fonts/flaticons-social/flaticons-social.eot');
+  src: url('../fonts/flaticons-social/flaticons-social.eot?#iefix') format("embedded-opentype"),
+  url('../fonts/flaticons-social/flaticons-social.woff') format('woff'),
+  url('../fonts/flaticons-social/flaticons-social.ttf') format('truetype'),
+  url('../fonts/flaticons-social/flaticons-social.svg#flaticons-social') format('svg');
+}
+
+.social-icon:before {
+  font-family: 'Flaticons Social';
+}
+
+.flat-icon:before {
+  font-family: 'Flaticons Stroke';
+}
+
+
+.flat-icon:before,
+.social-icon:before {
+  line-height: 1;
+  display: block;
+  vertical-align: middle;
+  text-align: center;
+  font-weight: normal!important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+// social icons
+.facebook-icon:before {content:'\e7d0';}
+.twitter-icon:before {content:'\e7d1';}
+.pinterest-icon:before {content:'\e7d5';}
+.googleplus-icon:before {content:'\e7d9';}

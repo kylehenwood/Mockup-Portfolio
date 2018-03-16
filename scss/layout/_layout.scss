@@ -1,0 +1,120 @@
+// layout
+html {
+  height: 100%;
+  min-width: 320px;
+  background: $color-grey-900;
+}
+
+
+// Layout
+.layout {
+  position: relative;
+  overflow-y: scroll;
+  min-height: 100%;
+  background: $color-grey-100;
+  padding: 56px 0 0;
+  @include screen-med() {
+    padding: 0;
+  }
+  @include screen-mob() {
+    background: $color-grey-800;
+  }
+}
+
+
+// Header
+.layout__header {
+  position: absolute;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  height: 56px;
+  width: 100%;
+  padding: 0 24px;
+  background: $color-grey-900;
+  @include screen-med {
+    display: none;
+  }
+}
+
+// Subheader
+.layout__subheader {
+  height: 40px;
+  padding: 0 24px;
+  background: $color-pink-500;
+  //border-bottom: 1px solid $color-pink-300;
+  border-bottom: 1px solid rgba(white,0.3);
+}
+
+
+// Mobile header
+.layout__header-mobile {
+  background: $color-grey-900;
+  display: none;
+  @include screen-med {
+    display: block;
+  }
+}
+
+// Section
+.layout__section {
+  padding: 80px 24px;
+  @include screen-med {
+    padding: 64px 24px;
+  }
+  @include screen-mob {
+    padding: 32px 24px;
+  }
+}
+
+.layout__section--white {
+  background: white;
+}
+.layout__section--grey {
+  background: $color-grey-200;
+}
+
+
+
+
+// Sections with larger padding
+.layout__quote {
+  background: $color-pink-500;
+  background-size: cover;
+  padding: 120px 24px;
+  @include screen-med {
+    padding: 80px 24px;
+  }
+  @include screen-mob {
+    padding: 48px 24px;
+  }
+}
+
+.layout__contact {
+  background: $color-grey-200;
+  background-size: cover;
+  padding: 120px 24px;
+  @include screen-mob {
+    padding: 80px 24px;
+  }
+}
+
+.layout__signup {
+  background: $color-grey-800;
+  background-size: cover;
+  padding: 120px 24px;
+  @include screen-mob {
+    padding: 80px 24px;
+  }
+}
+
+
+// Footer
+.layout__footer {
+  width: 100%;
+  padding: 0 24px;
+  //background: $color-grey-200;
+  background: white;
+  overflow: hidden;
+  //border-top: 1px solid $color-grey-300;
+}

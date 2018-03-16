@@ -1,0 +1,92 @@
+//----------------
+// button creation
+//----------------
+
+.button-primary {
+  @include noselect;
+  @include nowrap;
+  @include font-size(1.6);
+  cursor: pointer;
+  display: block;
+  font-family: $font-family;
+  margin: 0;
+  max-width: 100%;
+  color: $color-grey-800;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid $color-grey-400;
+  background: transparent;
+  outline: none;
+  &:hover {
+    border-color: $color-grey-600;
+    .button-primary__inner-arrow {
+      transform: translateX(4px);
+    }
+  }
+  @include screen-mob {
+    width: 100%;
+  }
+}
+
+.button-primary--inline {
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
+}
+
+
+// sizes
+//--36
+.button-primary--36 {
+  height: 36px;
+  line-height: 24px;
+  padding: 4px 12px;
+  border-radius: (36px/2);
+}
+//--40
+.button-primary--40 {
+  height: 40px;
+  line-height: 24px;
+  padding: 6px 16px;
+  border-radius: (40px/2);
+}
+//--48
+.button-primary--48 {
+  height: 48px;
+  line-height: 24px;
+  padding: 8px 28px;
+  border-radius: (48px/2);
+}
+
+
+// button inner template
+.button-primary__inner {
+  position: relative;
+  display: inline-block;
+  padding-right: 32px;
+}
+.button-primary__text {
+  width: 100%;
+  line-height: 28px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.button-primary__inner-arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  padding: 4px 0 4px 8px;
+  transition: 80ms ease-out;
+}
+.button-primary__inner-arrow--pink {
+  color: $color-pink-600;
+}
+.button-primary__inner-arrow--green {
+  color: $color-green-600;
+}
+.button-primary__inner-arrow--blue {
+  color: $color-blue-600;
+}

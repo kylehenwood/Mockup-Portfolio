@@ -1,0 +1,77 @@
+$steps: 13;
+$shutter-speed: .5s;
+
+
+// size variants
+//--24
+.aperture--24 {
+  width: 24px;
+  height: 24px;
+  //animation: aperture-rotate $shutter-speed*2 linear infinite forwards;
+  .aperture__ring,
+  .aperture__icon {
+    width: 24px;
+    height: 24px;
+    border-width: 2px;
+  }
+  .aperture__icon {
+    background-size: auto 24px;
+    animation: aperture-animation-24 $shutter-speed steps($steps, end) infinite alternate;
+  }
+}
+
+
+// color variants
+//--white
+.aperture--white {
+  .aperture__ring {
+    border-color: white;
+  }
+  .aperture__icon {
+    background-image: url('../images/aperture--24.png');
+    background-image: url('../images/aperture--24.svg');
+  }
+}
+
+
+// Structure
+.aperture {
+  margin: 0 auto;
+  position: relative;
+}
+
+.aperture__ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  border-style: solid;
+}
+.aperture__icon {
+  background-repeat: no-repeat;
+}
+
+
+//-- animation
+@keyframes aperture-animation-24 {
+  000% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -24px*$steps 0;
+  }
+}
+
+
+
+@keyframes aperture-rotate {
+  000% {
+    transform: rotate(0deg);
+  }
+  050% {
+    transform: rotate(16deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

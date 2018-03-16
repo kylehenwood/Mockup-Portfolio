@@ -1,0 +1,40 @@
+// home page
+
+.gallery-grid {
+  margin: -8px;
+}
+.gallery-grid__item {
+  float: left;
+  width: 25%;
+  padding: 8px;
+}
+
+
+.gallery-image {
+  position: relative;
+  display: block;
+  transition: box-shadow 80ms ease-in;
+  border-radius: 8px;
+  background: white;
+  height: 160px;
+  box-shadow: $shadow-100;
+  &:hover {
+    box-shadow: $shadow-300;
+  }
+  &:active {
+    box-shadow: $shadow-200;
+  }
+}
+
+.gallery-image--selected {
+  //z-index: 50;
+}
+
+
+.gallery-image--blue {background: $color-blue-500;}
+.gallery-image--green {background: $color-green-500;}
+.gallery-image--purple {background: $color-purple-500;}
+.gallery-image--pink {background: $color-pink-500;}
+.gallery-image--orange {background: $color-orange-500;}
+.gallery-image--teal {background: $color-teal-500;}
+.gallery-image--black {background: $color-grey-900;}

@@ -1,0 +1,122 @@
+// module
+.module {
+  position: relative;
+}
+.module--sidebar {
+  padding-left: 232px!important;
+}
+.module--margin {
+  margin: 0 0 16px;
+}
+.module--white {
+  border-radius: 4px;
+  background: white;
+  box-shadow: $shadow-100;
+}
+.module--white-even {
+  border-radius: 4px;
+  padding: 16px 32px;
+  background: white;
+  box-shadow: $shadow-100;
+}
+
+// module__children
+.module__header {
+  padding: 12px 32px;
+  border-bottom: 1px solid $color-grey-300;
+}
+
+.module__controls {
+  padding: 24px 32px 0;
+}
+
+.heading-style {
+  color: $text-black;
+  font-weight: 600;
+  line-height: 24px;
+  padding: 4px 0;
+  @include font-size(1.6);
+}
+.heading-style-big {
+  color: $text-black;
+  font-weight: 600;
+  line-height: 40px;
+  padding: 4px 0;
+  @include font-size(3.6);
+}
+
+.module__body {
+  padding: 32px;
+}
+.module__body--margin {
+  margin: 0 0 24px;
+}
+.module__footer {
+  padding: 24px 32px 32px;
+  border-top: 1px solid $color-grey-300;
+}
+
+
+// module seperator
+.module-seperator {
+  position: relative;
+  margin: 32px 0;
+  height: 36px;
+}
+.module-seperator__background {
+  position: absolute;
+  left: 20%;
+  top: 15px;
+  width: 60%;
+  height: 2px;
+  background: $color-pink-500;
+  background: linear-gradient(to right, transparent,$color-pink-500,transparent);
+}
+.module-seperator__count {
+  position: relative;
+  z-index: 2;
+  background: $color-pink-500;
+  border-radius: 16px;
+  height: 32px;
+  width: 160px;
+  padding: 4px 16px;
+  margin: 0 auto;
+
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+}
+
+
+// number-circle
+.module__circle {
+  display: none;
+  position: absolute;
+  left: -20px;
+  top: 12px;
+}
+
+.number-circle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+}
+.number-circle__number {
+  text-align: center;
+  line-height: 40px;
+  font-weight: 600;
+  font-size: 16px;
+}
+.number-circle__circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid $color-grey-500;
+}

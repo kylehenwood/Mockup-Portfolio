@@ -1,0 +1,58 @@
+//---------------
+// Banner Headings
+//---------------
+
+
+// Example Page
+.example-banner {}
+.example-banner__headline {
+  text-align: center;
+  margin: 0 0 24px;
+}
+.example-banner__cards {
+  margin: 0 -24px;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  @include screen-med {
+    overflow: auto;
+  }
+}
+
+// card container
+.card-container {
+  overflow: visible;
+  width: 976px;
+  padding: 0 8px;
+  margin: 0 auto 40px;
+}
+
+.card-container__item {
+  float: left;
+  width: 320px;
+  display: block;
+  padding: 8px;
+  @include screen-med {
+    padding: 0 12px;
+  }
+}
+
+
+//--
+.gallery-description {
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+  padding: 24px 400px 0 0;
+}
+.gallery-description__description {
+  padding: 0 40px 0 0;
+}
+.gallery-description__action {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 400px;
+  padding: 0 0 0 40px;
+  border-left: 2px solid $color-grey-300;
+}

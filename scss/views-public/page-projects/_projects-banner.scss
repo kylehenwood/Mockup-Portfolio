@@ -1,0 +1,19 @@
+//---------------
+// Banner Headings
+//---------------
+
+// Projects Banner
+.projects-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  height: 400px;
+  @include screen-med {
+    display: block;
+    padding: 80px 0 0;
+  }
+  @include screen-mob {
+    padding: 64px 0 0;
+  }
+}

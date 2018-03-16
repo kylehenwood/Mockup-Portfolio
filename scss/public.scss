@@ -1,0 +1,94 @@
+// Public website styles
+
+// _reset
+@import "reset";
+
+// _apply a natural box layout model to all elements
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  background: black;
+}
+
+// _shared imports
+@import "shared/_mixin";
+@import "shared/_color";
+@import "shared/_breakpoints";
+@import "shared/_center";
+@import "shared/_type";
+@import "shared/heading";
+@import "shared/_useful";
+@import "shared/_grid";
+@import "shared/_hr";
+@import "shared/_typography";
+
+
+// _icon
+@import "icon/_icon-loading";
+@import "icon/_shnappy-icons";
+@import "icon/_icon";
+
+
+// _layout
+@import "layout/_layout";
+@import "layout/_layout-mobile";
+@import "layout/_layout-sections";
+@import "layout/_banners";
+@import "layout/_page";
+
+
+// _common
+// common components used repetitively across many pages.
+@import "chrome/_header";
+@import "chrome/_header-mobile";
+@import "chrome/_header-mobile-tray";
+@import "chrome/_footer";
+
+
+// _components
+@import "components/_section-quote";
+@import "components/_section-signup";
+@import "components/_section-help";
+@import "components/_module";
+@import "components/_button";
+@import "components/_button-primary";
+@import "components/_button-pattern";
+@import "components/_dropdown";
+@import "components/_form";
+@import "components/_form-grid";
+@import "components/_form-search";
+@import "components/_form-checkbox";
+@import "components/_breadcrumb";
+@import "components/_switch";
+@import "components/_switch-control";
+@import "components/_page-alert";
+@import "components/_animations";
+
+
+// _views
+//@import "views-public/_web--banner";
+//@import "views-public/_web--content";
+//@import "views-public/_web--headline";
+//@import "views-public/_web--cta";
+@import "views-public/_placeholder";
+
+//---
+// Home
+@import "views-public/page-gallery/_gallery-page";
+@import "views-public/page-gallery/_gallery-banner";
+@import "views-public/page-gallery/_gallery-image";
+
+//---
+// Projects
+@import "views-public/page-projects/_projects-page";
+@import "views-public/page-projects/_projects-banner";
+
+//---
+// Examples
+@import "views-public/page-about/_about-page";
+@import "views-public/page-about/_about-banner";
+@import "views-public/page-about/_card-gallery.scss";
