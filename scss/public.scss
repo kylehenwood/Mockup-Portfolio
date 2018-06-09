@@ -25,6 +25,7 @@ html {
 @import "shared/_grid";
 @import "shared/_hr";
 @import "shared/_typography";
+@import "shared/_text-animation";
 
 
 // _icon
@@ -88,7 +89,6 @@ html {
 @import "views-public/page-projects/_projects-banner";
 
 //---
-// Examples
+// About
 @import "views-public/page-about/_about-page";
 @import "views-public/page-about/_about-banner";
-@import "views-public/page-about/_card-gallery.scss";

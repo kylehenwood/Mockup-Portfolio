@@ -4,6 +4,7 @@ $(document).ready(function(){
   galleryToggle();
   smoothScroll();
   gallery();
+  textAnimation();
 });
 
 
@@ -182,7 +183,6 @@ function galleryToggle() {
 
 }
 
-
 // mobile navigation
 function mobileNavigation() {
   var trigger = $('.js-mobile-button');
@@ -194,6 +194,45 @@ function mobileNavigation() {
     navigation.toggleClass('header-mobile__navigation--visible');
   });
 }
+
+
+
+
+
+
+
+
+function textAnimation() {
+
+  // - get content
+  // - split content into array
+  // - put each character into container div inside a span tag.
+
+  var container = $('.js-text-animation');
+
+  container.each(function(){
+    var container = $(this);
+    var textCharacters = container.html();
+    var textArray = textCharacters.split('');
+
+    // empty container
+    container.html("");
+    container.addClass('text-animation');
+    
+    // fill container
+    for (var i = 0; i < textArray.length; i++) {
+      console.log(textArray[i]);
+      //textArray[i] = "<span>"+textArray[i]+"</span>";
+      container.append("<span class='ta__text'>"+textArray[i]+"</span>")
+    }
+  });
+}
+
+
+
+
+
+
 
 
 // smooth scroll

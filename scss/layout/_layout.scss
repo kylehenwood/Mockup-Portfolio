@@ -12,7 +12,7 @@ html {
   overflow-y: scroll;
   min-height: 100%;
   background: $color-grey-100;
-  padding: 56px 0 0;
+  padding: 64px 0 0;
   @include screen-med() {
     padding: 0;
   }
@@ -21,6 +21,11 @@ html {
   }
 }
 
+.layout--gallery {
+  .layout__header {
+    transform: translateY(-100%);
+  }
+}
 
 // Header
 .layout__header {
@@ -28,10 +33,11 @@ html {
   z-index: 50;
   top: 0;
   left: 0;
-  height: 56px;
+  height: 64px;
   width: 100%;
-  padding: 0 24px;
+  padding: 4px 24px;
   background: $color-grey-900;
+  transition: 200ms all ease-in;
   @include screen-med {
     display: none;
   }
@@ -44,6 +50,12 @@ html {
   background: $color-pink-500;
   //border-bottom: 1px solid $color-pink-300;
   border-bottom: 1px solid rgba(white,0.3);
+}
+
+
+.layout__overlay {
+  position: absolute;
+  height: 100%;
 }
 
 

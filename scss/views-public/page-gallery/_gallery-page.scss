@@ -1,29 +1,36 @@
 // home page
 
 .gallery-grid {
-  margin: -8px;
+  margin: -4px;
 }
 .gallery-grid__item {
   float: left;
   width: 25%;
-  padding: 8px;
+  padding: 4px;
 }
 
 
 .gallery-image {
   position: relative;
   display: block;
+  z-index: 1;
   transition: box-shadow 80ms ease-in;
-  border-radius: 8px;
-  background: white;
+  border-radius: 4px;
+  background: $color-grey-500;
   height: 160px;
   box-shadow: $shadow-100;
   &:hover {
     box-shadow: $shadow-300;
+    z-index: 2;
   }
   &:active {
     box-shadow: $shadow-200;
+    z-index: 2;
   }
+}
+
+.gallery-image--project {
+  height: 320px;
 }
 
 .gallery-image--selected {
@@ -31,10 +38,10 @@
 }
 
 
-.gallery-image--blue {background: $color-blue-500;}
-.gallery-image--green {background: $color-green-500;}
-.gallery-image--purple {background: $color-purple-500;}
-.gallery-image--pink {background: $color-pink-500;}
-.gallery-image--orange {background: $color-orange-500;}
-.gallery-image--teal {background: $color-teal-500;}
-.gallery-image--black {background: $color-grey-900;}
+// .gallery-image--blue {background: $color-blue-500;}
+// .gallery-image--green {background: $color-green-500;}
+// .gallery-image--purple {background: $color-purple-500;}
+// .gallery-image--pink {background: $color-pink-500;}
+// .gallery-image--orange {background: $color-orange-500;}
+// .gallery-image--teal {background: $color-teal-500;}
+// .gallery-image--black {background: $color-grey-900;}

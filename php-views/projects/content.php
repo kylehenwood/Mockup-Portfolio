@@ -5,7 +5,7 @@
     <div class="gallery-grid clearfix">
 
 <?php
-  for ($x = 0; $x <= 6; $x++) {
+  for ($x = 0; $x <= 7; $x++) {
     $color = rand(1,7);
     $colorClass = null;
 
@@ -41,8 +41,8 @@
     }
 ?>
 
-      <div class="gallery-grid__item anim--in-bot anim--delay">
-        <div class="gallery-image <?php echo $colorClass ?>"></div>
+      <div class="gallery-grid__item">
+        <div class="gallery-image gallery-image--project <?php echo $colorClass ?>"></div>
       </div>
 <?php
 }

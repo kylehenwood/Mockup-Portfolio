@@ -41,12 +41,13 @@
         break;
       }
 
-      $animationClass = "anim--in-bot";
-      $addClass = $colorClass." ".$animationClass;
+      //$animationClass = "anim--in-bot";
+      //$addClass = $colorClass." ".$animationClass;
+      $addClass = '';
   ?>
 
         <div class="gallery-grid__item">
-          <a class="gallery-image <?php echo $addClass ?> js-gallery-item" href="#top"></a>
+          <a class="gallery-image <?php echo $addClass ?> js-gallery-item"></a>
         </div>
 
   <?php
