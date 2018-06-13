@@ -167,9 +167,8 @@ function galleryIn() {
   });
 
   // Animate in gallery...
-  var classes = 'anim--delay-280 anim--in-bot';
   galleryHeading.show();
-  galleryHeading.addClass(classes);
+  galleryHeading.addClass('anim--delay-280 anim--in-bot');
   galleryHeading.one(animationEvent,function(event) {
     $(this).removeClass('anim--delay-280 anim--in-bot');
   });
