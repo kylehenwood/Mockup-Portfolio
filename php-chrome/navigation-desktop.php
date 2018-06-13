@@ -1,4 +1,4 @@
-<div class="layout__header">
+<div class="layout__header js-layout-header">
 
   <div class="center center--1120">
 

@@ -1,5 +1,6 @@
 // Gallery
-var pageContainer;
+var layoutContainer;
+var layoutHeader;
 var galleryContainer;
 
 // clickables
@@ -24,7 +25,7 @@ var gallerySimilar;
 function galleryBind() {
   gallerySetup();
   // gallery controls
-  // gallery();
+  //gallery();
 }
 
 
@@ -36,6 +37,7 @@ function galleryUnbind() {
   galleryControlPrev.unbind();
   galleryControlClose.unbind();
   galleryControlImage.unbind();
+  layoutHeader.unbind();
 }
 
 
@@ -99,7 +101,8 @@ function gallery() {
 
 // unbind & rebind TLDR page gallery
 function gallerySetup() {
-  pageContainer = $('.js-layout');
+  layoutContainer = $('.js-layout');
+  layoutHeader = $('.js-layout-header');
   galleryContainer = $('.js-gallery-overlay');
 
   // clickables
@@ -135,15 +138,19 @@ function gallerySetup() {
 // Animate Gallery In && Homepage out
 function galleryIn() {
   // container
-  pageContainer.addClass('layout--gallery');
-  pageContainer.addClass('layout--scroll-lock');
+  layoutContainer.addClass('layout--scroll-lock');
 
   galleryContainer.show();
   setTimeout(function(){
     galleryContainer.addClass('layout__overlay--in');
   },1);
 
-  //return;
+  // layout header (nav)
+  layoutHeader.addClass('anim--out-top');
+  layoutHeader.one(animationEvent,function(event) {
+    //$(this).removeClass('anim--out-top');
+    //$(this).hide();
+  });
 
   // intro heading
   introHeading.addClass('anim--out-top');
@@ -215,8 +222,7 @@ function galleryIn() {
 function galleryOut() {
 
   // container
-  pageContainer.removeClass('layout--scroll-lock');
-  pageContainer.removeClass('layout--gallery');
+  layoutContainer.removeClass('layout--scroll-lock');
 
   // delay because if I hide the layer too quickly the animation end event wont fire and all
   // the elements below will still have their animate out classes attached.
@@ -230,9 +236,13 @@ function galleryOut() {
   });
 
 
-  //return;
+  // layout heading (nav)
+  layoutHeader.removeClass('anim--out-top');
+  layoutHeader.addClass('anim--delay-320 anim--in-top');
+  layoutHeader.one(animationEvent,function(event) {
+    $(this).removeClass('anim--delay-320 anim--in-top');
+  });
 
-  //--
   // intro heading
   introHeading.show();
   introHeading.addClass('anim--delay-320 anim--in-top');
