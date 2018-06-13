@@ -16,10 +16,12 @@
 	<script type="text/javascript" src="js/pjax-connect.js"></script>
 	<link rel="icon" type="image/png" href="mark_favicon.png" />
 
+
+
 	<script type="text/javascript" src="js/useful.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
-	<!-- -->
 	<script type="text/javascript" src="js/gallery.js"></script>
+
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet">

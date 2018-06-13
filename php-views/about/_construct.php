@@ -1,3 +1,6 @@
+<script>
+  currentPage = 'about';
+</script>
 <?php
   include 'banner.php';
   include 'content.php';

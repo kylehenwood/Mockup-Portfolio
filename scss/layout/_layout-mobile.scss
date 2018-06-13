@@ -71,40 +71,40 @@
   }
 }
 
-
-// overlay
-.layout__mobile-overlay {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(black, 0);
-}
-
-.layout__mobile-overlay--active {
-  display: block;
-  background-color: rgba(black, 0.5);
-}
-
-.layout__mobile-overlay--animate-in {
-  display: block;
-  animation: 200ms mobile-overlay-animation ease-out;
-  animation-fill-mode: forwards;
-}
-.layout__mobile-overlay--animate-out {
-  display: block;
-  animation: 160ms mobile-overlay-animation linear;
-  animation-fill-mode: forwards;
-  animation-direction: reverse;
-}
-@keyframes mobile-overlay-animation {
-  000% {
-    background-color: rgba(black, 0);
-  }
-  100% {
-    background-color: rgba(black, 0.5);
-  }
-}
+//
+// // overlay
+// .layout__mobile-overlay {
+//   display: none;
+//   position: fixed;
+//   z-index: 1;
+//   top: 0;
+//   bottom: 0;
+//   left: 0;
+//   right: 0;
+//   background-color: rgba(black, 0);
+// }
+//
+// .layout__mobile-overlay--active {
+//   display: block;
+//   background-color: rgba(black, 0.5);
+// }
+//
+// .layout__mobile-overlay--animate-in {
+//   display: block;
+//   animation: 200ms mobile-overlay-animation ease-out;
+//   animation-fill-mode: forwards;
+// }
+// .layout__mobile-overlay--animate-out {
+//   display: block;
+//   animation: 160ms mobile-overlay-animation linear;
+//   animation-fill-mode: forwards;
+//   animation-direction: reverse;
+// }
+// @keyframes mobile-overlay-animation {
+//   000% {
+//     background-color: rgba(black, 0);
+//   }
+//   100% {
+//     background-color: rgba(black, 0.5);
+//   }
+// }

@@ -1,15 +1,19 @@
-<div class="page js-page-container" id="top">
+<script>
+  // bind
+  $(document).one('page_load',function(){
+    //currentPage = 'gallery';
+    // alert('bind-gallery');
+    galleryBind();
+  });
 
-  <div class="page__content">
-    <?php
-      include 'banner.php';
-      include 'content.php';
-    ?>
-  </div>
-  <div class="page__gallery js-gallery-container" style="display:none;">
-    <?php
-      include 'gallery.php';
-    ?>
-  </div>
+  // unbind
+  $(document).one('pjax:beforeReplace', function() {
+    //alert('unbind-gallery');
+    galleryUnbind();
+  });
+</script>
 
-</div>
+<?php
+  include 'banner.php';
+  include 'content.php';
+?>

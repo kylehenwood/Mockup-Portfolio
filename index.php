@@ -40,10 +40,11 @@ function displayContent()	{
   if(isset($_SERVER['HTTP_X_PJAX']) && $_SERVER['HTTP_X_PJAX'] == 'true'){
   	echo $content;
   	echo "<title>{$title}</title>";
-  } else{
+  } else {
 
     include './php-chrome/navigation.php';
-
+    include './php-components/gallery.php';
+    
     echo '<div id="js-pjax-container">';
     echo $content;
     echo '</div>';
