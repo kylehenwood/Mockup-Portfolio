@@ -21,6 +21,7 @@ function projectBind() {
     card = $(this).clone();
     var projectGrid = $('.js-project-grid');
     var gridLeft = projectGrid.offset().left;
+    var gridWidth = projectGrid.outerWidth();
     //var gridRight = $(window).width() - (projectGrid.offset().left + projectGrid.outerWidth());
 
     var cardPosition = $(this).offset();
@@ -47,7 +48,7 @@ function projectBind() {
         'top': 0,
         'left':gridLeft,
         //'right':gridLeft+15,
-        'width':'1120px',
+        'width':gridWidth,
         // 'left': 0,
         // 'width':'100%',
         'height':'600px',

@@ -2987,6 +2987,27 @@ textarea:disabled:active {
 .gallery-image--project {
   height: 320px; }
 
+.gallery-image--blue {
+  background: #2196F3; }
+
+.gallery-image--green {
+  background: #4CAF50; }
+
+.gallery-image--purple {
+  background: #9C27B0; }
+
+.gallery-image--pink {
+  background: #E91E63; }
+
+.gallery-image--orange {
+  background: #FF9800; }
+
+.gallery-image--teal {
+  background: #009688; }
+
+.gallery-image--black {
+  background: #212121; }
+
 .gallery-banner {
   display: flex;
   align-items: center;
