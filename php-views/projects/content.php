@@ -40,9 +40,8 @@
 
     }
 ?>
-
       <div class="gallery-grid__item">
-        <div class="gallery-image gallery-image--project <?php echo $colorClass ?>"></div>
+        <div class="gallery-image gallery-image--project <?php echo $colorClass ?>  js-project-card"></div>
       </div>
 <?php
 }
