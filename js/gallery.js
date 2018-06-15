@@ -148,68 +148,68 @@ function galleryIn() {
   // layout header (nav)
   layoutHeader.addClass('anim--out-top');
   layoutHeader.one(animationEvent,function(event) {
-    //$(this).removeClass('anim--out-top');
-    //$(this).hide();
+    $(this).removeClass('anim--out-top');
+    $(this).addClass('anim--hidden');
   });
 
   // intro heading
   introHeading.addClass('anim--out-top');
   introHeading.one(animationEvent,function(event) {
     $(this).removeClass('anim--out-top');
-    $(this).hide();
+    $(this).addClass('anim--hidden');
   });
 
   // intro subheading
   introSubheading.addClass('anim--delay-40 anim--out-top');
   introSubheading.one(animationEvent,function(event) {
     $(this).removeClass('anim--delay-40 anim--out-top');
-    $(this).hide();
+    $(this).addClass('anim--hidden');
   });
 
   // Animate in gallery...
-  galleryHeading.show();
+  galleryHeading.removeClass('anim--hidden');
   galleryHeading.addClass('anim--delay-280 anim--in-bot');
   galleryHeading.one(animationEvent,function(event) {
     $(this).removeClass('anim--delay-280 anim--in-bot');
   });
 
-  gallerySubheading.show();
+  gallerySubheading.removeClass('anim--hidden');
   gallerySubheading.addClass('anim--delay-320 anim--in-bot');
   gallerySubheading.one(animationEvent,function(event) {
     $(this).removeClass('anim--delay-320 anim--in-bot');
   });
 
-  galleryControlClose.show();
+  galleryControlClose.removeClass('anim--hidden');
   galleryControlClose.addClass('anim--delay-280 anim--in-bot');
   galleryControlClose.one(animationEvent,function(event) {
     $(this).removeClass('anim--delay-280 anim--in-bot');
   });
 
-  galleryControlPrev.show();
+  galleryControlPrev.removeClass('anim--hidden');
   galleryControlPrev.addClass('anim--delay-320 anim--in-right');
   galleryControlPrev.one(animationEvent,function(event) {
     $(this).removeClass('anim--delay-320 anim--in-right');
   });
 
-  galleryControlNext.show();
+  galleryControlNext.removeClass('anim--hidden');
   galleryControlNext.addClass('anim--delay-320 anim--in-left');
   galleryControlNext.one(animationEvent,function(event) {
     $(this).removeClass('anim--delay-320 anim--in-left');
   });
 
-  galleryControlImage.show();
+  galleryControlImage.removeClass('anim--hidden');
   galleryControlImage.addClass('anim--delay-160 anim--scale-in');
   galleryControlImage.one(animationEvent,function(event) {
     $(this).removeClass('anim--delay-160 anim--scale-in');
   });
 
-  galleryProjects.show();
+  galleryProjects.removeClass('anim--hidden');
   galleryProjects.addClass('anim--in-right anim--delay-320');
   galleryProjects.one(animationEvent,function(event) {
     $(this).removeClass('anim--in-right anim--delay-320');
   });
 
-  gallerySimilar.show();
+  gallerySimilar.removeClass('anim--hidden');
   gallerySimilar.addClass('anim--in-right anim--delay-320');
   gallerySimilar.one(animationEvent,function(event) {
     $(this).removeClass('anim--in-right anim--delay-320');
@@ -236,21 +236,21 @@ function galleryOut() {
 
 
   // layout heading (nav)
-  layoutHeader.removeClass('anim--out-top');
+  layoutHeader.removeClass('anim--hidden');
   layoutHeader.addClass('anim--delay-320 anim--in-top');
   layoutHeader.one(animationEvent,function(event) {
     $(this).removeClass('anim--delay-320 anim--in-top');
   });
 
   // intro heading
-  introHeading.show();
+  introHeading.removeClass('anim--hidden');
   introHeading.addClass('anim--delay-320 anim--in-top');
   introHeading.one(animationEvent,function(event) {
     $(this).removeClass('anim--delay-320 anim--in-top');
   });
 
   // intro subheading
-  introSubheading.show();
+  introSubheading.removeClass('anim--hidden');
   introSubheading.addClass('anim--delay-280 anim--in-top');
   introSubheading.one(animationEvent,function(event) {
     $(this).removeClass('anim--delay-280 anim--in-top');
@@ -260,49 +260,49 @@ function galleryOut() {
   galleryHeading.addClass('anim--delay-80 anim--out-bot');
   galleryHeading.one(animationEvent,function(event) {
     $(this).removeClass('anim--delay-80 anim--out-bot');
-    $(this).hide();
+    $(this).addClass('anim--hidden');
   });
 
   gallerySubheading.addClass('anim--out-bot');
   gallerySubheading.one(animationEvent,function(event) {
     $(this).removeClass('anim--out-bot');
-    $(this).hide();
+    $(this).addClass('anim--hidden');
   });
 
   galleryControlClose.addClass('anim--delay-80 anim--out-bot');
   galleryControlClose.one(animationEvent,function(event) {
     $(this).removeClass('anim--delay-80 anim--out-bot');
-    $(this).hide();
+    $(this).addClass('anim--hidden');
   });
 
   galleryControlPrev.addClass('anim--out-right');
   galleryControlPrev.one(animationEvent,function(event) {
     $(this).removeClass('anim--out-right');
-    $(this).hide();
+    $(this).addClass('anim--hidden');
   });
 
   galleryControlNext.show();
   galleryControlNext.addClass('anim--out-left');
   galleryControlNext.one(animationEvent,function(event) {
     $(this).removeClass('anim--out-left');
-    $(this).hide();
+    $(this).addClass('anim--hidden');
   });
 
   galleryControlImage.addClass('anim--scale-out');
   galleryControlImage.one(animationEvent,function(event) {
     $(this).removeClass('anim--scale-out');
-    $(this).hide();
+    $(this).addClass('anim--hidden');
   });
 
   galleryProjects.addClass('anim--out-right');
   galleryProjects.one(animationEvent,function(event) {
     $(this).removeClass('anim--out-right');
-    $(this).hide();
+    $(this).addClass('anim--hidden');
   });
 
   gallerySimilar.addClass('anim--out-right');
   gallerySimilar.one(animationEvent,function(event) {
     $(this).removeClass('anim--out-right');
-    $(this).hide();
+    $(this).addClass('anim--hidden');
   });
 }

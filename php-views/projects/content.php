@@ -2,12 +2,12 @@
 <div class="layout__section layout__section--grey">
 	<div class="center center--1120">
 
-    <div class="gallery-grid clearfix">
+    <div class="gallery-grid clearfix js-project-grid">
 
 <?php
   for ($x = 0; $x <= 7; $x++) {
     $color = rand(1,7);
-    $colorClass = null;
+    //$colorClass = null;
 
     switch ($color) {
       case $color == 1;

@@ -1,6 +1,13 @@
 // only allow these if modernizr has added the class "cssanimations" to the HTML tag
 .cssanimations {
 
+  // post animation hide
+  .anim--hidden {
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+  }
+
   // staggered animation
   .anim--delay {
     &:nth-child(1) {animation-delay: 080ms;}

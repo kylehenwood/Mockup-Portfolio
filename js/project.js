@@ -19,23 +19,25 @@ function projectBind() {
     projectReveal();
 
     card = $(this).clone();
+    var projectGrid = $('.js-project-grid');
+    var gridLeft = projectGrid.offset().left;
+    //var gridRight = $(window).width() - (projectGrid.offset().left + projectGrid.outerWidth());
+
     var cardPosition = $(this).offset();
     var windowScroll = $(document).scrollTop();
 
     var cardTop = cardPosition.top - windowScroll;
     var cardLeft = cardPosition.left;
 
-    //alert(cardTop+' '+cardLeft);
-
     card.css({
       'zindex':80,
       'position':'fixed',
       'left':cardLeft,
+      'right':cardLeft+274,
       'top':cardTop,
       'width':'274px',
       'box-shadow':'none',
-      'transition':'800ms ease-in-out',
-      'transiton-delay':'160ms'
+      'transition':'400ms ease-out'
     });
     card.appendTo(projectsContainer);
 
@@ -43,12 +45,15 @@ function projectBind() {
     setTimeout(function(){
       card.css({
         'top': 0,
-        'left': 0,
-        'width':'100%',
+        'left':gridLeft,
+        //'right':gridLeft+15,
+        'width':'1120px',
+        // 'left': 0,
+        // 'width':'100%',
         'height':'600px',
         'border-radius':0
       });
-    },1);
+    },240);
 
 
   });
@@ -70,15 +75,22 @@ function projectUnbind() {
 
 // Reveal Project
 function projectReveal() {
+
   // container
-  //layoutContainer.addClass('layout--scroll-lock');
-  layoutHeader.addClass('anim--out-top');
   layoutContainer.addClass('layout--scroll-lock');
+
+  // header
+  layoutHeader.addClass('anim--out-top');
+  layoutHeader.one(animationEvent,function(){
+    $(this).removeClass('anim--out-top');
+    $(this).addClass('anim--hidden');
+  });
+
 
   projectsHeading.addClass('anim--out-top anim--delay-160');
   projectsHeading.one(animationEvent,function(event){
-    $(this).removeClass('anim--out-top');
-    $(this).hide();
+    $(this).removeClass('anim--out-top anim--delay-160');
+    $(this).addClass('anim--hidden');
   });
 
 
@@ -90,17 +102,22 @@ function projectReveal() {
 }
 
 
-// Animate Gallery out && Homepage in
+// Close Project
 function projectClose() {
 
+  // remove clone card
   card.remove();
 
   // container
-  layoutHeader.removeClass('anim--out-top');
-  layoutHeader.addClass('anim--in-top');
+  layoutHeader.removeClass('anim--hidden');
+  layoutHeader.addClass('anim--in-top anim--delay-160');
+  layoutHeader.one(animationEvent,function(event){
+    $(this).removeClass('anim--in-top anim--delay-160');
+  });
+
   layoutContainer.removeClass('layout--scroll-lock');
 
-  projectsHeading.show();
+  projectsHeading.removeClass('anim--hidden');
   projectsHeading.addClass('anim--in-top');
   projectsHeading.one(animationEvent,function(event){
     $(this).removeClass('anim--in-top');
