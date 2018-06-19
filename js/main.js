@@ -21,8 +21,8 @@ function mobileNavigation() {
   var header = $('.js-mobile-header');
 
   trigger.click(function(){
-    header.toggleClass('header-mobile--open');
-    navigation.toggleClass('header-mobile__navigation--visible');
+    header.toggleClass('navigation-mobile--open');
+    navigation.toggleClass('navigation-mobile__navigation--visible');
   });
 }
 

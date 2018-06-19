@@ -1,110 +1,27 @@
-.layout--menu-isopen {
-  overflow: hidden;
+// Mobile header
+.layout__navigation-mobile {
+  background: $color-grey-900;
+  padding: 0 16px;
+  display: none;
+  @include screen-med {
+    display: block;
+  }
 }
-.layout__mobile-account,
+
+
+
 .layout__mobile-menu {
   display: none;
   position: fixed;
   z-index: 100;
   top: 0;
   overflow-y: auto;
-  overflow-x: hidden;
   width: 100%;
   height: 100%;
-  max-width: 320px;
   background: $color-grey-900;
   -webkit-overflow-scrolling: touch;
 }
-.layout__mobile-menu {
-  left: 0;
-}
-.layout__mobile-account {
-  right: 0;
-}
 
-
-// Menu animations
-.layout__mobile-menu--animate-in {
-  display: block;
-  animation: 200ms mobile-menu-animation ease-out;
-  animation-fill-mode: forwards;
-}
-.layout__mobile-menu--animate-out {
-  display: block;
-  animation: 160ms mobile-menu-animation linear;
-  animation-fill-mode: forwards;
-  animation-direction: reverse;
-}
-.layout__mobile-menu--active {
+.layout__mobile-menu--show {
   display: block;
 }
-@keyframes mobile-menu-animation {
-  000% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
-
-// Account animations
-.layout__mobile-account--animate-in {
-  display: block;
-  animation: 200ms mobile-account-animation ease-out;
-  animation-fill-mode: forwards;
-}
-.layout__mobile-account--animate-out {
-  display: block;
-  animation: 160ms mobile-account-animation linear;
-  animation-fill-mode: forwards;
-  animation-direction: reverse;
-}
-.layout__mobile-account--active {
-  display: block;
-}
-@keyframes mobile-account-animation {
-  000% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
-
-//
-// // overlay
-// .layout__mobile-overlay {
-//   display: none;
-//   position: fixed;
-//   z-index: 1;
-//   top: 0;
-//   bottom: 0;
-//   left: 0;
-//   right: 0;
-//   background-color: rgba(black, 0);
-// }
-//
-// .layout__mobile-overlay--active {
-//   display: block;
-//   background-color: rgba(black, 0.5);
-// }
-//
-// .layout__mobile-overlay--animate-in {
-//   display: block;
-//   animation: 200ms mobile-overlay-animation ease-out;
-//   animation-fill-mode: forwards;
-// }
-// .layout__mobile-overlay--animate-out {
-//   display: block;
-//   animation: 160ms mobile-overlay-animation linear;
-//   animation-fill-mode: forwards;
-//   animation-direction: reverse;
-// }
-// @keyframes mobile-overlay-animation {
-//   000% {
-//     background-color: rgba(black, 0);
-//   }
-//   100% {
-//     background-color: rgba(black, 0.5);
-//   }
-// }

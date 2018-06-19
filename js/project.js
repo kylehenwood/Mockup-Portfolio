@@ -3,7 +3,8 @@ var projectCard;
 var projectContainer;
 var projectsHeading;
 var card;
-
+var clickedCard;
+var cardStyles;
 // on page load
 function projectBind() {
   layoutContainer = $('.js-layout');
@@ -17,44 +18,49 @@ function projectBind() {
   // Open Gallery
   projectCard.click(function(){
     projectReveal();
-
+    clickedCard = $(this);
     card = $(this).clone();
+
     var projectGrid = $('.js-project-grid');
     var gridLeft = projectGrid.offset().left;
     var gridWidth = projectGrid.outerWidth();
     //var gridRight = $(window).width() - (projectGrid.offset().left + projectGrid.outerWidth());
 
-    var cardPosition = $(this).offset();
     var windowScroll = $(document).scrollTop();
+    var cardHeight = $(this).outerHeight();
 
+    var cardPosition = $(this).offset();
     var cardTop = cardPosition.top - windowScroll;
     var cardLeft = cardPosition.left;
 
-    card.css({
+
+    cardStyles =  {
       'zindex':80,
       'position':'fixed',
       'left':cardLeft,
       'right':cardLeft+274,
       'top':cardTop,
       'width':'274px',
+      'height':cardHeight,
       'box-shadow':'none',
-      'transition':'400ms ease-out'
-    });
-    card.appendTo(projectsContainer);
+      'transition':'400ms ease-out',
+      'border-radius':'3px'
+    };
 
+
+    card.css(cardStyles);
+    card.appendTo(projectsContainer);
+    clickedCard.addClass('anim--hidden');
     // animate card into banner
     setTimeout(function(){
       card.css({
         'top': 0,
         'left':gridLeft,
-        //'right':gridLeft+15,
         'width':gridWidth,
-        // 'left': 0,
-        // 'width':'100%',
         'height':'600px',
         'border-radius':0
       });
-    },240);
+    },1);
 
 
   });
@@ -107,8 +113,12 @@ function projectReveal() {
 function projectClose() {
 
   // remove clone card
-  card.remove();
-
+  //card.remove();
+  card.css(cardStyles);
+  card.one(transitionEvent,function(){
+    clickedCard.removeClass('anim--hidden');
+    card.remove();
+  });
   // container
   layoutHeader.removeClass('anim--hidden');
   layoutHeader.addClass('anim--in-top anim--delay-160');

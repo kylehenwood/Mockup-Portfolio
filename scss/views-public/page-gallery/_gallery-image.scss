@@ -1,5 +1,8 @@
 .gallery {
   padding: 80px 0;
+  @include screen-mob {
+    padding: 24px 0;
+  }
 }
 
 
@@ -131,11 +134,20 @@
 
 .gallery-image-container {
   background: white;
-  height: 600px;
   width: 800px;
+  height: 600px;
+  max-width: 100%;
   margin: 0 auto;
   border-radius: 8px;
   box-shadow: $shadow-400;
+  @include screen-med {
+    width: 560px;
+    height: 420px;
+  }
+  @include screen-mob {
+    width: 400px;
+    height: 300px;
+  }
 }
 
 // scale in

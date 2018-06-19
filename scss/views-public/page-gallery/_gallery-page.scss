@@ -18,13 +18,16 @@
   border-radius: 4px;
   background: $color-grey-500;
   height: 160px;
-  box-shadow: $shadow-100;
+  transition: 80ms ease-in;
+  box-shadow: 0 0 0 0 white, $shadow-100;
   &:hover {
     box-shadow: $shadow-300;
+    box-shadow: 0 0 0 2px white, $shadow-300;
     z-index: 2;
   }
   &:active {
-    box-shadow: $shadow-200;
+    box-shadow: 0 0 0 2px white, $shadow-200;
+    transform: translateY(2px);
     z-index: 2;
   }
 }
