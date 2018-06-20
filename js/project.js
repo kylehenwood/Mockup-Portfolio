@@ -18,6 +18,9 @@ function projectBind() {
   // Open Gallery
   projectCard.click(function(){
     projectReveal();
+
+    return;
+
     clickedCard = $(this);
     card = $(this).clone();
 
@@ -40,7 +43,7 @@ function projectBind() {
       'left':cardLeft,
       'right':cardLeft+274,
       'top':cardTop,
-      'width':'274px',
+      'width': card.outerWidth(),
       'height':cardHeight,
       'box-shadow':'none',
       'transition':'400ms ease-out',
@@ -114,11 +117,11 @@ function projectClose() {
 
   // remove clone card
   //card.remove();
-  card.css(cardStyles);
-  card.one(transitionEvent,function(){
-    clickedCard.removeClass('anim--hidden');
-    card.remove();
-  });
+  // card.css(cardStyles);
+  // card.one(transitionEvent,function(){
+  //   clickedCard.removeClass('anim--hidden');
+  //   card.remove();
+  // });
   // container
   layoutHeader.removeClass('anim--hidden');
   layoutHeader.addClass('anim--in-top anim--delay-160');

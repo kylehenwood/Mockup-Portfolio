@@ -10,8 +10,11 @@
   font-family: $font-family-heading;
   line-height: 1.2;
   color: $color-grey-800;
-  @include screen-mob {
+  @include screen-med {
     font-size: 28px;
+  }
+  @include screen-mob {
+    font-size: 24px;
   }
 }
 
@@ -20,8 +23,11 @@
   font-weight: bold;
   font-family: $font-family-heading;
   line-height: 1.2;
-  @include screen-mob {
+  @include screen-med {
     font-size: 24px;
+  }
+  @include screen-mob {
+    font-size: 22px;
   }
 }
 

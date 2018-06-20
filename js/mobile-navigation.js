@@ -12,23 +12,25 @@ $(document).ready(function(){
 
   let mobileNavOpen = false;
 
-  mobileNavToggle.click(function(){
+  mobileNavToggle.on('click',function(){
     if (mobileNavOpen === true) {
       mobileNavOpen = false;
       mobileLayout.removeClass('layout--scroll-lock');
       mobileMenu.removeClass('layout__mobile-menu--show');
+      mobileLayout.focus();
     } else {
       mobileNavOpen = true;
       mobileLayout.addClass('layout--scroll-lock');
       mobileMenu.addClass('layout__mobile-menu--show');
+      mobileMenu.focus();
     }
   });
 
 
   // close menus if click not on them
-  mobileMenu.on('click', function(e) {
-    e.stopPropagation();
-  });
+  // mobileMenu.on('click', function(e) {
+  //   e.stopPropagation();
+  // });
 
 
   // button click events
@@ -49,22 +51,18 @@ $(document).ready(function(){
       mobileNavOpen = false;
       mobileLayout.removeClass('layout--scroll-lock');
       mobileMenu.removeClass('layout__mobile-menu--show');
+      mobileMenu.focus();
     }
   });
 
   // close on pjax complete
-  window.addEventListener('complete',function(){
+  $(window).on('pjax:success',function(){
     if (mobileNavOpen === true) {
       mobileNavOpen = false;
       mobileLayout.removeClass('layout--scroll-lock');
       mobileMenu.removeClass('layout__mobile-menu--show');
+      mobileLayout.focus();
     }
   });
-});
 
-function mobileOpen() {
-  console.log('open');
-}
-function mobileClose() {
-  console.log('close');
-}
+});

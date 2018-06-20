@@ -7,7 +7,12 @@
           <div class="gallery-heading__close js-gallery-close">
             <div class="gallery-close">
               <div class="gallery-close__text">Close</div>
-              <div class="gallery-close__icon"></div>
+              <div class="gallery-close__icon">
+                <span class="flat-icon icon--16 icon--cross"></span>
+              </div>
+            </div>
+            <div class="mobile-gallery-close">
+              <span class="flat-icon icon--16 icon--cross"></span>
             </div>
           </div>
           <div class="gallery-heading__title js-gallery-heading">
@@ -38,16 +43,21 @@
           <div class="tile-select__tiles">
             <div class="gallery-grid clearfix">
               <div class="gallery-grid__item">
-                <div class="gallery-image"></div>
+                <div class="gallery-image">
+                  <img src="images/4-3.jpg" width="400" height="300">
+                </div>
               </div>
               <div class="gallery-grid__item">
-                <div class="gallery-image"></div>
+                <div class="gallery-image">
+                <img src="images/4-3.jpg" width="400" height="300"></div>
               </div>
               <div class="gallery-grid__item">
-                <div class="gallery-image"></div>
+                <div class="gallery-image">
+                <img src="images/4-3.jpg" width="400" height="300"></div>
               </div>
               <div class="gallery-grid__item">
-                <div class="gallery-image"></div>
+                <div class="gallery-image">
+                <img src="images/4-3.jpg" width="400" height="300"></div>
               </div>
             </div>
           </div>
@@ -63,16 +73,21 @@
           <div class="tile-select__tiles">
             <div class="gallery-grid clearfix">
               <div class="gallery-grid__item">
-                <div class="gallery-image"></div>
+                <div class="gallery-image">
+                  <img src="images/4-3.jpg" width="400" height="300">
+                </div>
               </div>
               <div class="gallery-grid__item">
-                <div class="gallery-image"></div>
+                <div class="gallery-image">
+                <img src="images/4-3.jpg" width="400" height="300"></div>
               </div>
               <div class="gallery-grid__item">
-                <div class="gallery-image"></div>
+                <div class="gallery-image">
+                <img src="images/4-3.jpg" width="400" height="300"></div>
               </div>
               <div class="gallery-grid__item">
-                <div class="gallery-image"></div>
+                <div class="gallery-image">
+                <img src="images/4-3.jpg" width="400" height="300"></div>
               </div>
             </div>
           </div>

@@ -23,6 +23,7 @@ html {
 @import "shared/heading";
 @import "shared/_useful";
 @import "shared/_grid";
+@import "shared/_grid-custom";
 @import "shared/_hr";
 @import "shared/_typography";
 @import "shared/_text-animation";
@@ -37,8 +38,9 @@ html {
 // _layout
 @import "layout/_layout";
 @import "layout/_layout-mobile";
+@import "layout/_layout-footer";
 @import "layout/_layout-sections";
-@import "layout/_banners";
+@import "layout/_layout-banners";
 
 
 // _common
@@ -80,7 +82,7 @@ html {
 // Home
 @import "views-public/page-gallery/_gallery-page";
 @import "views-public/page-gallery/_gallery-banner";
-@import "views-public/page-gallery/_gallery-image";
+@import "views-public/page-gallery/_gallery-overlay";
 
 //---
 // Projects

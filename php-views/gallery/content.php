@@ -2,11 +2,10 @@
 <div class="layout__section layout__section--grey">
 	<div class="center center--1120">
 
-    <div class="gallery-grid clearfix">
+    <ul class="gallery-grid clearfix">
 
 <?php
   for ($x = 0; $x <= 30; $x++) {
-
 
     $color = rand(1,7);
     $colorClass = null;
@@ -46,9 +45,11 @@
     $addClass = '';
 ?>
 
-      <div class="gallery-grid__item">
-        <a class="gallery-image <?php echo $addClass ?> js-gallery-item"></a>
-      </div>
+      <li class="gallery-grid__item">
+        <a class="gallery-image <?php echo $addClass ?> js-gallery-item">
+					<img src="images/4-3.jpg" width="400" height="300">
+				</a>
+      </li>
 
 <?php } ?>
 

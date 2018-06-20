@@ -1,0 +1,109 @@
+// Gallery Grid
+.gallery-grid {
+  margin: -4px;
+}
+.gallery-grid__item {
+  float: left;
+  width: 25%;
+  padding: 4px;
+  @include screen-med {
+    width: 33%;
+  }
+  @include screen-mob {
+    width: 50%;
+  }
+}
+
+// Project Grid
+.project-grid {
+  margin: -8px;
+}
+.project-grid__item {
+  float: left;
+  padding: 8px;
+  width: 25%;
+  @include screen-med {
+    width: 33%;
+  }
+  @include screen-mob {
+    width: 100%;
+  }
+}
+
+
+// project card
+.project-card {
+  position: relative;
+  display: block;
+  z-index: 1;
+  transition: box-shadow 80ms ease-in;
+  border-radius: 4px;
+  height: 320px;
+  background: $color-grey-500;
+  transition: 80ms ease-in;
+  box-shadow: 0 0 0 0 white, $shadow-100;
+  @include screen-mob {
+    height: 240px;
+  }
+  &:hover {
+    box-shadow: $shadow-300;
+    box-shadow: 0 0 0 2px white, $shadow-300;
+    z-index: 2;
+  }
+  &:active {
+    box-shadow: 0 0 0 2px white, $shadow-200;
+    transform: translateY(2px);
+    z-index: 2;
+  }
+}
+.project-card--blue {background: $color-blue-500;}
+.project-card--green {background: $color-green-500;}
+.project-card--purple {background: $color-purple-500;}
+.project-card--pink {background: $color-pink-500;}
+.project-card--orange {background: $color-orange-500;}
+.project-card--teal {background: $color-teal-500;}
+.project-card--black {background: $color-grey-900;}
+
+
+
+// gallery-image
+.gallery-image {
+  position: relative;
+  display: block;
+  z-index: 1;
+  transition: box-shadow 80ms ease-in;
+  border-radius: 4px;
+  background: $color-grey-500;
+  transition: 80ms ease-in;
+  box-shadow: 0 0 0 0 white, $shadow-100;
+  img {
+    opacity: 0;
+  }
+  &:hover {
+    box-shadow: $shadow-300;
+    box-shadow: 0 0 0 2px white, $shadow-300;
+    z-index: 2;
+  }
+  &:active {
+    box-shadow: 0 0 0 2px white, $shadow-200;
+    transform: translateY(2px);
+    z-index: 2;
+  }
+}
+
+.gallery-image--project {
+  height: 320px;
+}
+
+.gallery-image--selected {
+  //z-index: 50;
+}
+
+
+.gallery-image--blue {background: $color-blue-500;}
+.gallery-image--green {background: $color-green-500;}
+.gallery-image--purple {background: $color-purple-500;}
+.gallery-image--pink {background: $color-pink-500;}
+.gallery-image--orange {background: $color-orange-500;}
+.gallery-image--teal {background: $color-teal-500;}
+.gallery-image--black {background: $color-grey-900;}

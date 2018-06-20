@@ -141,6 +141,7 @@ function galleryIn() {
   layoutContainer.addClass('layout--scroll-lock');
 
   galleryContainer.show();
+  galleryContainer.focus();
   setTimeout(function(){
     galleryContainer.addClass('layout__overlay--in');
   },1);
@@ -222,6 +223,7 @@ function galleryOut() {
 
   // container
   layoutContainer.removeClass('layout--scroll-lock');
+  layoutContainer.focus();
 
   // delay because if I hide the layer too quickly the animation end event wont fire and all
   // the elements below will still have their animate out classes attached.

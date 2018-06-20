@@ -4,6 +4,7 @@ $(document).ready(function(){
   pageController();
   smoothScroll();
   textAnimation();
+  mobileTouch();
 
   // trigger to listen to for page load
   $(document).trigger('page_load');
@@ -12,6 +13,14 @@ $(document).ready(function(){
   });
 });
 
+
+function mobileTouch() {
+//   $(window).on('touchstart', function(e) {
+//     e.preventDefault();
+//     e.stopPropagation();
+//     $(this).trigger('focus');
+// });
+}
 
 
 // mobile navigation

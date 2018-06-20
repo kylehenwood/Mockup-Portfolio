@@ -1,8 +1,7 @@
-<div class="page__content">
 <div class="layout__section layout__section--grey">
 	<div class="center center--1120">
 
-    <div class="gallery-grid clearfix js-project-grid">
+    <div class="project-grid clearfix js-project-grid">
 
 <?php
   for ($x = 0; $x <= 7; $x++) {
@@ -11,37 +10,36 @@
 
     switch ($color) {
       case $color == 1;
-      $colorClass = "gallery-image--blue";
+      $colorClass = "project-card--blue";
       break;
 
       case $color == 2;
-      $colorClass = "gallery-image--green";
+      $colorClass = "project-card--green";
       break;
 
       case $color == 3;
-      $colorClass = "gallery-image--purple";
+      $colorClass = "project-card--purple";
       break;
 
       case $color == 4;
-      $colorClass = "gallery-image--pink";
+      $colorClass = "project-card--pink";
       break;
 
       case $color == 5;
-      $colorClass = "gallery-image--orange";
+      $colorClass = "project-card--orange";
       break;
 
       case $color == 6;
-      $colorClass = "gallery-image--teal";
+      $colorClass = "project-card--teal";
       break;
 
       case $color == 7;
-      $colorClass = "gallery-image--black";
+      $colorClass = "project-card--black";
       break;
-
     }
 ?>
-      <div class="gallery-grid__item">
-        <div class="gallery-image gallery-image--project <?php echo $colorClass ?>  js-project-card"></div>
+      <div class="project-grid__item">
+        <div class="project-card <?php echo $colorClass ?>  js-project-card"></div>
       </div>
 <?php
 }
@@ -49,5 +47,4 @@
 
     </div>
   </div>
-</div>
 </div>

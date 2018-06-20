@@ -21,6 +21,7 @@
 <div class="layout__mobile-menu js-mobile-menu">
 
   <div class="mobile-tray">
+    <div class="mobile-tray__transition"></div>
     <div class="mobile-tray__close">
       <a class="mobile-header-button mobile-header-button--white js-mobile-menu-button">
         <span class="flat-icon icon--16 icon--cross"></span>
@@ -37,6 +38,9 @@
         </a>
         <a class="mobile-navigation__item js-navitem <?php if ($navSelectedAbout) { echo'mobile-navigation__item--active';} ?>" data-pjax="js-pjax-container" activeClass="mobile-navigation__item--active" href="index.php?pageID=about">
           About
+        </a>
+        <a class="mobile-navigation__item js-navitem <?php if ($navSelectedContact) { echo'mobile-navigation__item--active';} ?>" data-pjax="js-pjax-container" activeClass="mobile-navigation__item--active" href="index.php?pageID=contact">
+          Contact
         </a>
       </div>
     </div>
