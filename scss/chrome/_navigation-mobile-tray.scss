@@ -3,19 +3,11 @@
   position: relative;
   width: 100%;
   height: 100%;
-  //background: white;
-  padding: 80px 0 0;
 }
-.mobile-tray__close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 80px;
-  padding: 16px;
-}
-.mobile-tray__navigation {
-  padding: 24px 80px;
-  margin: 0 auto;
+
+.mobile-tray__header {
+  padding: 0 16px;
+  background: $color-grey-200;
 }
 
 .mobile-tray__transition {
@@ -36,33 +28,103 @@
       box-shadow: 0 0 0 0 rgba(white,1);
     }
     100% {
-      box-shadow: 0 0 0 640px rgba(white,1);
+      box-shadow: 0 0 0 640px rgba(white,0);
     }
   }
 }
 
+.mobile-tray__navigation {
+  padding: 0 16px;
+}
 
-
-// Navigation items
-.mobile-navigation {}
+//-- navigation
+.mobile-navigation {
+  padding: 80px 0;
+  max-width: 280px;
+  margin: 0 auto;
+}
 .mobile-navigation__item {
-  position: relative;
-  display: block;
-  padding: 20px 24px;
-  color: rgba(black,0.7);
-  font-weight: 600;
-  font-size: 18px;
-  font-family: $font-family;
-  line-height: 24px;
   border-bottom: 2px solid $color-grey-400;
-  &:hover {
-    color: black;
-  }
-  &:active {
-    color: black;
+  &:last-child {
+    border: none;
   }
 }
-.mobile-navigation__item--active {
+
+
+
+
+
+
+.mobile-navitem {
+  position: relative;
+  display: block;
+  padding: 20px 0 20px 32px;
+  color: $color-grey-800;
+  &:hover {
+    background: $color-grey-200;
+  }
+  &:active {
+    background: $color-grey-300;
+  }
+}
+.mobile-navitem--active {
+  .mobile-navitem__icon {
+    display: block;
+  }
+}
+
+.mobile-navitem__icon {
+  display: none;
+  position: absolute;
+  padding: 4px 0;
+  top: 20px;
+  left: 0;
+  width: 16px;
+  height: 24px;
   color: black;
-  border-color: blue;
+}
+.mobile-navitem__text {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+
+
+//-- contact
+.mobile-contact {
+  padding: 0 0 80px;
+  max-width: 280px;
+  margin: 0 auto;
+}
+.mobile-contact__border {
+  display: block;
+  height: 1px;
+  background: $color-grey-400;
+  margin-bottom: 80px;
+}
+
+.mobile-contact__heading {
+  font-size: 16px;
+  text-align: center;
+  margin: 0 0 16px;
+}
+.mobile-contact__link {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  color: $color-grey-800;
+  padding: 12px 16px;
+  border-radius: 20px;
+  background-color: $color-grey-300;
+  &:hover {
+    background: $color-grey-400;
+  }
+  &:active {
+    background: $color-grey-500;
+  }
+}
+.mobile-contact__link--active {
+  background: $color-blue-500;
 }

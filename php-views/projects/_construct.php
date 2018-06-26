@@ -10,9 +10,8 @@
   });
 </script>
 
-<div class="layout__project js-projects-container"></div>
-
 <?php
+  include 'project-overlay.php';
   include 'banner.php';
   include 'content.php';
 ?>
