@@ -1423,25 +1423,33 @@ html {
   width: 100%;
   min-height: 100%;
   overflow: hidden;
-  clip-path: url(#mobile-mask);
   background: white; }
 
 .mobile-tray__header {
   padding: 0 16px;
   background: #EEEEEE; }
 
-.mobile-tray__navigation {
-  padding: 0 16px; }
-
-.mobile-tray__mask {
+.mobile-tray__transition {
   position: absolute;
   top: 16px;
   right: 16px;
+  width: 48px;
   height: 48px;
-  width: 48px; }
+  background: red;
+  border-radius: 50%;
+  animation-name: mobile-transition;
+  animation-duration: 280ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards; }
 
-.mask-anim {
-  transform: scale(6); }
+@keyframes mobile-transition {
+  000% {
+    box-shadow: 0 0 0 0 white; }
+  100% {
+    box-shadow: 0 0 0 640px rgba(255, 255, 255, 0); } }
+
+.mobile-tray__navigation {
+  padding: 0 16px; }
 
 .mobile-navigation {
   padding: 80px 0;

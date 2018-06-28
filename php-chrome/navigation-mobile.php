@@ -21,15 +21,6 @@
 <div class="layout__mobile-menu js-mobile-menu">
 
   <div class="mobile-tray">
-    <div class="mobile-tray__mask">
-      <!-- mask -->
-      <svg>
-        <clipPath id="mobile-mask">
-          <circle class="js-mobile-mask" cx="24" cy="24" r="24"/>
-        </clipPath>
-      </svg>
-      <!-- mask end -->
-    </div>
     <div class="mobile-tray__transition"></div>
     <div class="mobile-tray__header">
       <div class="navigation-mobile">

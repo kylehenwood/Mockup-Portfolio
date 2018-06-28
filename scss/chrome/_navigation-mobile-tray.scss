@@ -4,7 +4,6 @@
   width: 100%;
   min-height: 100%;
   overflow: hidden;
-  clip-path: url(#mobile-mask);
   background: white;
 }
 
@@ -13,46 +12,31 @@
   background: $color-grey-200;
 }
 
-// .mobile-tray__transition {
-//   position: absolute;
-//   top: 16px;
-//   right: 16px;
-//   width: 48px;
-//   height: 48px;
-//   background: red;
-//   border-radius: 50%;
-//
-//   animation-name: mobile-transition;
-//   animation-duration: 280ms;
-//   animation-timing-function: ease-out;
-//   animation-fill-mode: forwards;
-//   @keyframes mobile-transition {
-//     000% {
-//       box-shadow: 0 0 0 0 rgba(white,1);
-//     }
-//     100% {
-//       box-shadow: 0 0 0 640px rgba(white,0);
-//     }
-//   }
-// }
-
-.mobile-tray__navigation {
-  padding: 0 16px;
-}
-
-.mobile-tray__mask {
+.mobile-tray__transition {
   position: absolute;
   top: 16px;
   right: 16px;
-  height: 48px;
   width: 48px;
-  //background: blue;
+  height: 48px;
+  background: red;
+  border-radius: 50%;
+
+  animation-name: mobile-transition;
+  animation-duration: 280ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  @keyframes mobile-transition {
+    000% {
+      box-shadow: 0 0 0 0 rgba(white,1);
+    }
+    100% {
+      box-shadow: 0 0 0 640px rgba(white,0);
+    }
+  }
 }
 
-.mask-anim {
-  transform: scale(6);
-  &:hover {
-  }
+.mobile-tray__navigation {
+  padding: 0 16px;
 }
 
 //-- navigation
