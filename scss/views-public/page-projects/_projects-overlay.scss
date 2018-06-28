@@ -1,0 +1,21 @@
+//---------------
+// Banner Headings
+//---------------
+
+.project {}
+.project__banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0;
+  height: 400px;
+  background: $color-grey-800;
+}
+.project__description {
+  height: 200px;
+  background: white;
+}
+.project__section {
+  height: 600px;
+  background: $color-grey-200;
+}
