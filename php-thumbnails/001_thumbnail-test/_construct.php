@@ -1,4 +1,5 @@
 <?php
+function constructThumb($path){
   // Information
   $title = 'TLDR Image Test';
   $subtitle = 'This is just a test';
@@ -6,9 +7,31 @@
 
   // Related / Grouping
   $project = 'projectName';
-  $tags = 'UI','UX','Design','Creative';
+  //$tags = array('UI','UX','Design','Creative');
 
   // Sources PictureFrame
-  $thumnail = 'image.jpg';
+  $thumbnail = 'thumbnail.jpg';
   $image = 'image.jpg';
+
+    $array = array(
+      "title" => $title,
+      "subtitle" => $subtitle,
+      "desc" => $description,
+      "project" => $project,
+      //"tags" => $tags,
+      "thumb" => $path.$thumbnail,
+      "image" => $path.$image
+    );
+    return $array;
+  }
+
+  $newArray = constructThumb($galleryDir);
+  echo('<pre>');
+  print_r($newArray);
+  echo('</pre>');
+
+
+  // push this to Gallery Array
+  array_push($galleryArray,$newArray);
+
 ?>

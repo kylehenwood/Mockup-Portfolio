@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors',"1");
 
 function displayContent()	{
   if (isset($_GET['pageID'])) {
@@ -44,13 +45,12 @@ function displayContent()	{
 
     include './php-chrome/navigation.php';
     include './php-components/gallery.php';
-    
+
     echo '<div id="js-pjax-container">';
     echo $content;
     echo '</div>';
 
     include './php-chrome/footer.php';
-
   }
   return false;
 }
@@ -64,5 +64,4 @@ function setContent($filePath) {
 }
 
 displayContent();
-
 ?>

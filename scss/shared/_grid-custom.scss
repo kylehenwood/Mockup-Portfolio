@@ -1,11 +1,11 @@
 // Gallery Grid
 .gallery-grid {
-  margin: -4px;
+  margin: -8px;
 }
 .gallery-grid__item {
   float: left;
   width: 25%;
-  padding: 4px;
+  padding: 8px;
   @include screen-med {
     width: 33%;
   }

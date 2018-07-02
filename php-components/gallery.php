@@ -26,8 +26,10 @@
 
       <div class="gallery__image">
         <div class="gallery-selected">
+          <!--
           <div class="gallery-selected__next js-gallery-next"><div class="gallery-button"></div></div>
           <div class="gallery-selected__prev js-gallery-prev"><div class="gallery-button"></div></div>
+        -->
           <div class="gallery-selected__image js-gallery-image">
   					<div class="gallery-image-container"></div>
   				</div>

@@ -1,14 +1,14 @@
-
 <div class="layout__section layout__section--grey">
 	<div class="center center--1120">
 
     <ul class="gallery-grid clearfix">
 
 <?php
-  for ($x = 0; $x <= 30; $x++) {
-
-    $color = rand(1,7);
+	$animationDelay = 1;
+  for ($x = 1; $x <= 32; $x++) {
+    $color = rand(1,6);
     $colorClass = null;
+		$delayClass = null;
 
     switch ($color) {
       case $color == 1;
@@ -35,14 +35,34 @@
       $colorClass = "gallery-image--teal";
       break;
 
-      case $color == 7;
-      $colorClass = "gallery-image--black";
-      break;
+      // case $color == 7;
+      // $colorClass = "gallery-image--black";
+      // break;
     }
 
-    //$animationClass = "anim--in-bot";
-    //$addClass = $colorClass." ".$animationClass;
-    $addClass = '';
+		// animation delay increment
+		switch ($animationDelay) {
+			case $animationDelay == 1;
+			$delayClass = null;
+			break;
+
+			case $animationDelay == 2;
+			$delayClass = "anim--delay-40";
+			break;
+
+			case $animationDelay== 3;
+			$delayClass = "anim--delay-80";
+			break;
+
+			case $animationDelay == 4;
+			$delayClass = "anim--delay-120";
+			$animationDelay = 0;
+			break;
+		}
+		$animationDelay++;
+
+    $animationClass = "anim--in-top";
+    $addClass = $colorClass." ".$animationClass." ".$delayClass;
 ?>
 
       <li class="gallery-grid__item">
@@ -51,7 +71,9 @@
 				</a>
       </li>
 
-<?php } ?>
+<?php
+}
+?>
 
 
     </div>
