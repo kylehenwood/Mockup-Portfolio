@@ -15,24 +15,30 @@
 
 <?php
 
-  $dir = "php-thumbnails";
-  $galleryItems = array_diff(scandir($dir), array('..', '.'));
-  //$galleryItems = scandir($dir,0);
-
+  $galleryFolder = "php-thumbnails";
+  $galleryItems = array_diff(scandir($galleryFolder), array('..', '.'));
   $galleryArray = array();
 
   foreach ($galleryItems as $galleryItem) {
-    $galleryDir = './'.$dir.'/'.$galleryItem;
-    $thumbConstruct = $galleryDir.'/_construct.php';
+    $thumbDir = './'.$galleryFolder.'/'.$galleryItem;
+    $galleryConstruct = $thumbDir.'/_construct.php';
 
-    include $thumbConstruct;
-    //$galleryThumbnails.push($this);
-
-    // Get the variables / array from easy construct.
-    // Place in another array.
-    // on Gallery page, loop through array=>img
+    // include construct file inside each thumbnail
+    // that then pushed that folders content to the $galleryArray
+    include $galleryConstruct;
   }
 
+
+  // OK, so I have all the image information from the thumbnails stored in $galleryArray
+  echo('<pre>');
+  //print_r($galleryArray);
+
+  // get thumbnail URLS
+  foreach($galleryArray as $galleryFolder) {
+    $thumbnailURL = $galleryFolder['thumb'];
+    echo('<img src="'.$thumbnailURL.'"/>');
+  }
+  echo('</pre>');
 
 
 
