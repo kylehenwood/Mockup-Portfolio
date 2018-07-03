@@ -4,6 +4,22 @@
     <ul class="gallery-grid clearfix">
 
 <?php
+	foreach($galleryArray as $galleryFolder) {
+		$thumbnailURL = $galleryFolder['thumb'];
+?>
+
+<li class="gallery-grid__item">
+	<a class="gallery-image js-gallery-item" data-pjax="js-pjax-gallery" href="/gallery/001">
+		<img src="<?php echo $thumbnailURL ?>" width="400" height="300">
+	</a>
+</li>
+
+<?php
+	}
+?>
+
+
+<?php
 	$animationDelay = 1;
   for ($x = 1; $x <= 32; $x++) {
     $color = rand(1,6);
