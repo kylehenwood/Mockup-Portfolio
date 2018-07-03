@@ -1,7 +1,6 @@
 // javascripts
 $(document).ready(function(){
   mobileNavigation();
-  pageController();
   smoothScroll();
   textAnimation();
   mobileTouch();
@@ -35,8 +34,6 @@ function mobileNavigation() {
   });
 }
 
-
-function pageController() {}
 
 
 
