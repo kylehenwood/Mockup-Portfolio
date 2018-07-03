@@ -1,3 +1,49 @@
+<?php
+  $galleryFolder = "php-thumbnails";
+  $galleryItems = array_diff(scandir($galleryFolder), array('..', '.'));
+  $galleryArray = array();
+
+  foreach ($galleryItems as $galleryItem) {
+    $thumbDir = './'.$galleryFolder.'/'.$galleryItem;
+    $galleryConstruct = $thumbDir.'/_construct.php';
+
+    // include construct file inside each thumbnail
+    // that then pushed that folders content to the $galleryArray
+    include $galleryConstruct;
+
+    // Push folder data to array
+    $tempArray = array(
+      "id" => $id,
+      "title" => $title,
+      "subtitle" => $subtitle,
+      "desc" => $description,
+      "project" => $project,
+      "tags" => $tags,
+      "thumb" => $thumbDir.'/'.$thumbnail,
+      "image" => $thumbDir.'/'.$image
+    );
+    array_push($galleryArray,$tempArray);
+    unset($tempArray);
+  }
+
+	$_SESSION['gallery'] = $galleryArray;
+  // OK, so I have all the image information from the thumbnails stored in $galleryArray
+  //echo('<pre>');
+  // print_r($galleryArray);
+
+	// $key = array_search(2, array_column($galleryArray, 'id'));
+	// print_r($key);
+
+  // get thumbnail URLS
+  // foreach($galleryArray as $galleryFolder) {
+  //   $thumbnailURL = $galleryFolder['thumb'];
+  //   echo('<img src="'.$thumbnailURL.'"/>');
+  // }
+  // echo('</pre>');
+?>
+
+
+
 <div class="layout__section layout__section--grey">
 	<div class="center center--1120">
 
@@ -8,21 +54,26 @@
 ?>
 
 <li class="gallery-grid__item">
-	<a class="gallery-image js-gallery-item" href="index.php?pageID=gallery&postID=001">
+	<a class="gallery-image js-gallery-item" href="index.php?pageID=gallery&postID=<?php echo $galleryFolder['id']; ?>">
 		<img src="<?php echo $galleryFolder['thumb']; ?>" width="400" height="300">
-		<ul class="thumb-hidden">
-			<li class="js-thumb-id"></li>
-			<li class="js-thumb-url"></li>
-			<li class="js-thumb-title"></li>
-			<li class="js-thumb-subtitle"></li>
-			<li class="js-thumb-description"></li>
-			<li class="js-thumb-tags"></li>
-			<li class="js-thumb-image"></li>
-			<li class="js-thumb-related"></li>
-			<li class="js-thumb-similar"></li>
-		</ul>
 	</a>
 </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

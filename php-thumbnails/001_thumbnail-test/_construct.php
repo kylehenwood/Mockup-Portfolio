@@ -1,4 +1,5 @@
 <?php
+  $id = 1;
   // Information
   $title = 'TLDR Image Test';
   $subtitle = 'This is just a test';

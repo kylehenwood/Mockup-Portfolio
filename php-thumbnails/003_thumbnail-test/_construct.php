@@ -1,7 +1,8 @@
 <?php
+  $id = 3;
   // Information
-  $title = 'TLDR Image Test';
-  $subtitle = 'This is just a test';
+  $title = 'Image 3';
+  $subtitle = 'Not the same image as last time';
   $description = 'This description isnt very relevant because this is only a test';
 
   // Related / Grouping

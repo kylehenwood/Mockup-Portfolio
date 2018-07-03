@@ -6,6 +6,40 @@
   });
 </script>
 
+<?php
+  if (isset($_GET['postID'])) {
+    $postID = $_GET['postID'];
+    //find post data based on ID
+    $galleryArray = $_SESSION['gallery'];
+
+    $findPost = array_search($postID, array_column($galleryArray, 'id'));
+
+    $post = $galleryArray[$findPost];
+    // echo("<pre>");
+    // echo 'POST-ID:'.$postID;
+    // echo 'POST-NUMBER:'.$findPost;
+    // print_r($galleryArray[$postID]);
+    // echo "</pre>";
+
+    // content
+    $postTitle = $post['title'];
+    $postSubtitle = $post['subtitle'];
+    $postDescription = $post['desc'];
+    $postProject = $post['project'];
+    $postTags = $post['tags'];
+    $postImage = $post['image'];
+
+  } else {
+    // POST NOT FOUND CONDITION
+    // $postTitle = 'Title';
+    // $postSubtitle = 'Subtitle';
+    // $postDescription = 'Description';
+    // $postProject = 'ProjectName';
+    // $postTags = 'TagsArray';
+    // $postImage = '#';
+  }
+?>
+
 
 <div class="gallery">
   <div class="gallery__heading">
@@ -22,10 +56,10 @@
         </div>
       </div>
       <div class="gallery-heading__title js-gallery-heading">
-        <h1 class="heading-1 text-white">Gallery</h1>
+        <h1 class="heading-1 text-white"><?php echo($postTitle); ?></h1>
       </div>
       <div class="gallery-heading__subheading js-gallery-subheading">
-        <h4 class="heading-subtitle text-white">Subheading to title</h4>
+        <h4 class="heading-subtitle text-white"><?php echo($postSubtitle); ?></h4>
       </div>
     </div>
   </div>

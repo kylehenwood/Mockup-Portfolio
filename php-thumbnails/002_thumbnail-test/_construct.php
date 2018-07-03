@@ -1,7 +1,8 @@
 <?php
+  $id = 2;
   // Information
-  $title = 'TLDR Image Test';
-  $subtitle = 'This is just a test';
+  $title = 'Fake News 2';
+  $subtitle = 'This is not a test';
   $description = 'This description isnt very relevant because this is only a test';
 
   // Related / Grouping
