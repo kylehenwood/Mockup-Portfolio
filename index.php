@@ -6,13 +6,23 @@ function displayContent()	{
     $pageName = $_GET['pageID'];
     $content = null;
     $title = null;
-    $preview = null;
+    $gallery = null;
+    $galleryStandalone = null;
 
     switch ($pageName) {
 
+      // Gallery Switcher
       case $pageName == 'gallery';
-      $title = 'KH - TLDR';
-      $content = setContent('./php-views/gallery/_construct.php');
+      if (isset($_GET['postID'])) {
+        $postID = $_GET['postID'];
+        $title = 'get_title';
+        $gallery = setContent('./php-components/gallery-content.php');
+        $galleryStandalone = setContent('./php-components/gallery-standalone.php');
+        $content = null;
+      } else {
+        $title = 'KH - TLDR';
+        $content = setContent('./php-views/gallery/_construct.php');
+      }
       break;
 
       case $pageName == 'projects';
@@ -23,13 +33,6 @@ function displayContent()	{
       case $pageName == 'about';
       $title = 'KH - About';
       $content = setContent('./php-views/about/_construct.php');
-      break;
-
-      case $pageName == 'gallery-item';
-      $title = 'KH - GalleryItem';
-      $content = null;
-      $preview = setContent('./php-components/gallery-content.php');
-      //$preview = setContent('imgID + galleryPHP');
       break;
 
       // 404 page not found
@@ -44,33 +47,28 @@ function displayContent()	{
     $content = setContent('./php-views/home/_construct.php');
   }
 
+
+
+
+
   // if pjax request, only render the content & set the title, else render the full page
   if(isset($_SERVER['HTTP_X_PJAX']) && $_SERVER['HTTP_X_PJAX'] == 'true'){
-
     if ($content != null) {
       echo $content;
     }
-    if ($preview != null) {
-      echo $preview;
+    if ($gallery != null) {
+      echo $gallery;
     }
   	echo "<title>{$title}</title>";
   } else {
 
     include './php-chrome/navigation.php';
+    include './php-components/gallery.php';
 
-    if ($content != null) {
-      include './php-components/gallery.php';
-      echo '<div id="js-pjax-container">';
-      echo $content;
-      echo '</div>';
-    }
-
-    // if refreshed on a gallery item OR navigated directly to:
-    if ($preview != null) {
-      echo '<div class="center center--1120">';
-      echo $preview;
-      echo '</div>';
-    }
+    echo '<div id="js-pjax-container">';
+    echo $content;
+    echo $galleryStandalone;
+    echo '</div>';
 
     include './php-chrome/footer.php';
   }

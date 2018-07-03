@@ -67,14 +67,16 @@
   border: none;
   color: white;
   box-shadow: inset 0 0 0 2px rgba(white,0.6);
+  transition: all 80ms ease-out;
   &:hover {
-    color: black;
-    background: white;
+    //color: black;
+    //background: white;
+    box-shadow: 0 0 0 2px rgba(white,1);
   }
   &:active {
     color: black;
     background: white;
-    box-shadow: 0 0 0 12px white;
+    box-shadow: 0 0 0 2px rgba(white,1);
   }
 }
 

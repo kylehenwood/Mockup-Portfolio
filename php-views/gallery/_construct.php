@@ -24,8 +24,6 @@
     array_push($galleryArray,$tempArray);
     unset($tempArray);
   }
-
-
   // // OK, so I have all the image information from the thumbnails stored in $galleryArray
   // echo('<pre>');
   // //print_r($galleryArray);
@@ -42,15 +40,17 @@
 <script>
   // bind
   $(document).one('page_load',function(){
+    galleryBindThumbnails();
     //currentPage = 'gallery';
     // alert('bind-gallery');
-    galleryBind();
+    //galleryBind();
   });
 
   // unbind
   $(document).one('pjax:beforeReplace', function() {
+    galleryUnbindThumbnails();
     //alert('unbind-gallery');
-    galleryUnbind();
+    //galleryUnbind();
   });
 </script>
 

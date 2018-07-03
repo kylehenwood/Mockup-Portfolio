@@ -2,6 +2,7 @@
 var layoutContainer;
 var layoutHeader;
 var galleryContainer;
+var galleryOpen = false;
 
 // clickables
 var thumbnail;
@@ -21,12 +22,84 @@ var galleryProjects;
 var gallerySimilar;
 
 
+function galleryBindThumbnails() {
+  console.log('thumbnails-bind');
+  thumbnail = $('.js-gallery-item');
+  // Open Gallery
+  // thumbnail.click(function(e){
+  //   $(document).trigger('gallery-open');
+  // });
+}
+
+
+function galleryUnbindThumbnails() {
+  console.log('thumbnails-unbind');
+}
+
 // on page load
 function galleryBind() {
-  gallerySetup();
+  layoutContainer = $('.js-layout');
+  layoutHeader = $('.js-layout-header');
+  galleryContainer = $('.js-gallery-overlay');
+
+  // clickables
+  galleryControlNext = $('.js-gallery-next');
+  galleryControlPrev = $('.js-gallery-prev');
+  galleryControlClose = $('.js-gallery-close');
+  galleryControlImage = $('.js-gallery-image');
+
+  // intro
+  introHeading = $('.js-intro-heading');
+  introSubheading = $('.js-intro-subheading');
+
+  // gallery
+  galleryHeading = $('.js-gallery-heading');
+  gallerySubheading = $('.js-gallery-subheading');
+  galleryProjects = $('.js-gallery-projects');
+  gallerySimilar = $('.js-gallery-similar');
+
+
+  // Close Gallery
+  galleryControlClose.click(function() {
+    $(document).trigger('gallery-close');
+  });
+
+
   // gallery controls
   //gallery();
 }
+
+$(window).on('hashchange', function(e){
+  if(galleryOpen === false) {
+    return;
+  }
+  galleryOpen = false;
+  $(document).trigger('gallery-close');
+});
+
+$(document).on('gallery-close',function(e){
+  if(galleryOpen === false) {
+    return;
+  }
+  galleryOpen = false;
+  galleryOut();
+  history.pushState({id: 'SOME ID'}, '', 'index.php?pageID=gallery');
+});
+
+$(window).resize(function(){
+  if(galleryOpen === false) {
+    return;
+  }
+  galleryOpen = false;
+  galleryOut();
+  history.pushState({id: 'SOME ID'}, '', 'index.php?pageID=gallery');
+});
+
+$(document).on('gallery-open',function(e){
+  galleryOpen = true;
+  galleryIn();
+});
+
 
 
 // on page leave
@@ -98,52 +171,19 @@ function gallery() {
 
 
 
-
-// unbind & rebind TLDR page gallery
-function gallerySetup() {
-  layoutContainer = $('.js-layout');
-  layoutHeader = $('.js-layout-header');
-  galleryContainer = $('.js-gallery-overlay');
-
-  // clickables
-  thumbnail = $('.js-gallery-item');
-  galleryControlNext = $('.js-gallery-next');
-  galleryControlPrev = $('.js-gallery-prev');
-  galleryControlClose = $('.js-gallery-close');
-  galleryControlImage = $('.js-gallery-image');
-
-  // intro
-  introHeading = $('.js-intro-heading');
-  introSubheading = $('.js-intro-subheading');
-
-  // gallery
-  galleryHeading = $('.js-gallery-heading');
-  gallerySubheading = $('.js-gallery-subheading');
-  galleryProjects = $('.js-gallery-projects');
-  gallerySimilar = $('.js-gallery-similar');
-
-
-  // Open Gallery
-  thumbnail.click(function(){
-    galleryIn();
-  });
-
-  // Close Gallery
-  galleryControlClose.click(function() {
-    galleryOut();
-  });
-}
-
-
 // Animate Gallery In && Homepage out
 function galleryIn() {
+  galleryActive = true;
+  console.log('gallery-in');
   // container
   layoutContainer.addClass('layout--scroll-lock');
 
   galleryContainer.show();
+  //galleryContainer.scrollTop = 0;
   galleryContainer.focus();
   setTimeout(function(){
     galleryContainer.addClass('layout__overlay--in');
+    galleryContainer.scrollTop(0);
   },1);
 
   // layout header (nav)
@@ -220,6 +260,8 @@ function galleryIn() {
 
 // Animate Gallery out && Homepage in
 function galleryOut() {
+
+  console.log('gallery-out');
 
   // container
   layoutContainer.removeClass('layout--scroll-lock');

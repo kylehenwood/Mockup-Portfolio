@@ -19,8 +19,9 @@
 
 
 	<script type="text/javascript" src="js/useful.js"></script>
-	<script type="text/javascript" src="js/animation.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
+
+	<!-- Page specific JS -->
 	<script type="text/javascript" src="js/gallery.js"></script>
 	<script type="text/javascript" src="js/project.js"></script>
 
