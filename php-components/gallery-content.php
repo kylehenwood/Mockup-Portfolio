@@ -9,17 +9,12 @@
 <?php
   if (isset($_GET['postID'])) {
     $postID = $_GET['postID'];
+    
     //find post data based on ID
     $galleryArray = $_SESSION['gallery'];
-
     $findPost = array_search($postID, array_column($galleryArray, 'id'));
-
     $post = $galleryArray[$findPost];
-    // echo("<pre>");
-    // echo 'POST-ID:'.$postID;
-    // echo 'POST-NUMBER:'.$findPost;
-    // print_r($galleryArray[$postID]);
-    // echo "</pre>";
+
 
     // content
     $postTitle = $post['title'];
@@ -31,7 +26,7 @@
 
   } else {
     // POST NOT FOUND CONDITION
-    // $postTitle = 'Title';
+     $postTitle = 'POST NOT FOUND';
     // $postSubtitle = 'Subtitle';
     // $postDescription = 'Description';
     // $postProject = 'ProjectName';

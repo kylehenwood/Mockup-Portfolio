@@ -1,48 +1,3 @@
-<?php
-  $galleryFolder = "php-thumbnails";
-  $galleryItems = array_diff(scandir($galleryFolder), array('..', '.'));
-  $galleryArray = array();
-
-  foreach ($galleryItems as $galleryItem) {
-    $thumbDir = './'.$galleryFolder.'/'.$galleryItem;
-    $galleryConstruct = $thumbDir.'/_construct.php';
-
-    // include construct file inside each thumbnail
-    // that then pushed that folders content to the $galleryArray
-    include $galleryConstruct;
-
-    // Push folder data to array
-    $tempArray = array(
-      "id" => $id,
-      "title" => $title,
-      "subtitle" => $subtitle,
-      "desc" => $description,
-      "project" => $project,
-      "tags" => $tags,
-      "thumb" => $thumbDir.'/'.$thumbnail,
-      "image" => $thumbDir.'/'.$image
-    );
-    array_push($galleryArray,$tempArray);
-    unset($tempArray);
-  }
-
-	$_SESSION['gallery'] = $galleryArray;
-  // OK, so I have all the image information from the thumbnails stored in $galleryArray
-  //echo('<pre>');
-  // print_r($galleryArray);
-
-	// $key = array_search(2, array_column($galleryArray, 'id'));
-	// print_r($key);
-
-  // get thumbnail URLS
-  // foreach($galleryArray as $galleryFolder) {
-  //   $thumbnailURL = $galleryFolder['thumb'];
-  //   echo('<img src="'.$thumbnailURL.'"/>');
-  // }
-  // echo('</pre>');
-?>
-
-
 
 <div class="layout__section layout__section--grey">
 	<div class="center center--1120">
@@ -50,28 +5,20 @@
     <ul class="gallery-grid clearfix">
 
 <?php
-	foreach($galleryArray as $galleryFolder) {
+	$galleryPosts = $_SESSION['gallery'];
+	foreach($galleryPosts as $post) {
+		$postThumbnail = $post['thumb'];
+		$postTags = implode(",",$post['tags']);
 ?>
 
 <li class="gallery-grid__item">
-	<a class="gallery-image js-gallery-item" href="index.php?pageID=gallery&postID=<?php echo $galleryFolder['id']; ?>">
-		<img src="<?php echo $galleryFolder['thumb']; ?>" width="400" height="300">
+	<a class="gallery-thumbnail js-gallery-item" href="index.php?pageID=gallery&postID=<?php echo $galleryFolder['id']; ?>">
+		<img class="gallery-thumbnail__image" src="<?php echo $postThumbnail ?>" width="400" height="300">
+		<ul class="gallery-thumbnail__tags">
+			<li class="js-thumbnail-tags"><?php echo $postTags; ?></li>
+		</ul>
 	</a>
 </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
