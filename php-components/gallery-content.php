@@ -1,13 +1,13 @@
 <script>
   // bind
   $(document).one('page_load',function(){
-    $(document).trigger('gallery-out');
+    $(document).trigger('gallery-animate-to-post');
     $(document).trigger('post-in');
   });
   // unbind
   $(document).one('pjax:beforeReplace', function() {
-    $(document).trigger('post-out');
     animateFromPost = true;
+    $(document).trigger('post-out');
   });
 </script>
 
@@ -51,9 +51,9 @@
             <span class="flat-icon icon--16 icon--cross"></span>
           </div>
         </a>
-        <div class="mobile-gallery-close">
+        <a class="mobile-gallery-close js-pjax-container" href="index.php?pageID=gallery">
           <span class="flat-icon icon--16 icon--cross"></span>
-        </div>
+        </a>
       </div>
       <div class="gallery-heading__title js-gallery-heading">
         <h1 class="heading-1 text-white"><?php echo($postTitle); ?></h1>

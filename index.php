@@ -99,7 +99,7 @@ function displayContent()	{
     include './php-chrome/navigation.php';
     include './php-components/gallery.php';
 
-    echo '<div id="js-pjax-container">';
+    echo '<div id="js-pjax-container" class="js-content-container">';
     echo $content;
     echo $galleryStandalone;
     echo '</div>';

@@ -20,8 +20,9 @@ $(document).on('post-in',function(e){
 // animate out
 $(document).on('post-out',function(e){
   console.log('post--out');
+  postBindElements();
   postAnimateOut();
-  postUnbindElements();
+  //postUnbindElements();
 });
 
 

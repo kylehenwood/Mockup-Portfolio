@@ -2,11 +2,10 @@
 
   // bind
   $(document).one('page_load',function(){
-    // do something
-    // if (animateFromPost === true) {
-    //   animateFromPost = false;
-    //   $(document).trigger('gallery-animate-from-post');
-    // }
+    // only do the animation in from post when loading from a post
+    if (gallery.animateFromPost === true) {
+      $(document).trigger('gallery-animate-from-post');
+    }
   });
 
   // unbind

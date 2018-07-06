@@ -1,8 +1,8 @@
 // Gallery
-var animateFromPost = false;
 var gallery = {
   heading: null,
-  subheading: null
+  subheading: null,
+  animateFromPost: false
 }
 
 // Bind || Unbind
@@ -17,10 +17,14 @@ function galleryUnbind() {
 
 
 $(document).on('gallery-animate-to-post',function(e){
+  gallery.animateFromPost = true;
+  galleryBind();
   galleryAnimateToPost();
 });
 
 $(document).on('gallery-animate-from-post',function(e){
+  gallery.animateFromPost = false;
+  galleryBind();
   galleryAnimateFromPost();
 });
 
@@ -30,6 +34,7 @@ $(document).on('gallery-animate-from-post',function(e){
 function galleryAnimateToPost () {
   console.log('tldr--out');
 
+  layout.navigation.addClass('anim--out-top');
   layout.navigation.one(animationEvent,function(event) {
     $(this).removeClass('anim--out-top');
     $(this).addClass('anim--hidden');
@@ -38,13 +43,15 @@ function galleryAnimateToPost () {
   // intro heading
   gallery.heading.addClass('anim--out-top');
   gallery.heading.one(animationEvent,function(event) {
-    $(this).removeClass('anim--out-top');
+    // $(this).removeClass('anim--out-top');
+    // $(this).addClass('anim--hidden');
   });
 
   // intro subheading
   gallery.subheading.addClass('anim--delay-40 anim--out-top');
   gallery.subheading.one(animationEvent,function(event) {
-    $(this).removeClass('anim--delay-40 anim--out-top');
+    // $(this).removeClass('anim--delay-40 anim--out-top');
+    // $(this).addClass('anim--hidden');
   });
 }
 
@@ -57,7 +64,6 @@ function galleryAnimateFromPost() {
   layout.navigation.removeClass('anim--hidden');
   layout.navigation.addClass('anim--delay-320 anim--in-top');
   layout.navigation.one(animationEvent,function(event) {
-    console.log('working');
     $(this).removeClass('anim--delay-320 anim--in-top');
   });
 

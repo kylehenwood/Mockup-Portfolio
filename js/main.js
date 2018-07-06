@@ -26,17 +26,9 @@ function bindLayout() {
   layout.container = $('.js-layout');
   layout.navigation = $('.js-layout-header');
   layout.post = $('.js-gallery-overlay');
+  layout.content = ('.js-content-container');
 }
 
-
-
-function mobileTouch() {
-//   $(window).on('touchstart', function(e) {
-//     e.preventDefault();
-//     e.stopPropagation();
-//     $(this).trigger('focus');
-// });
-}
 
 // mobile navigation
 function mobileNavigation() {
