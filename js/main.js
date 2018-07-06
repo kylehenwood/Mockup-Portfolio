@@ -3,7 +3,7 @@ $(document).ready(function(){
   mobileNavigation();
   smoothScroll();
   textAnimation();
-  mobileTouch();
+  bindLayout();
 
   // trigger to listen to for page load
   $(document).trigger('page_load');
@@ -13,6 +13,23 @@ $(document).ready(function(){
 });
 
 
+// Since the portfolio is powered by PJAX, these containers
+// get reused alot, having the ref in one place is helpful
+var layout = {
+  container: null,
+  navigation: null,
+  content: null,
+  post: null
+};
+
+function bindLayout() {
+  layout.container = $('.js-layout');
+  layout.navigation = $('.js-layout-header');
+  layout.post = $('.js-gallery-overlay');
+}
+
+
+
 function mobileTouch() {
 //   $(window).on('touchstart', function(e) {
 //     e.preventDefault();
@@ -20,7 +37,6 @@ function mobileTouch() {
 //     $(this).trigger('focus');
 // });
 }
-
 
 // mobile navigation
 function mobileNavigation() {

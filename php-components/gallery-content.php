@@ -1,15 +1,20 @@
 <script>
   // bind
   $(document).one('page_load',function(){
-    galleryBind();
-    $(document).trigger('gallery-open');
+    $(document).trigger('gallery-out');
+    $(document).trigger('post-in');
+  });
+  // unbind
+  $(document).one('pjax:beforeReplace', function() {
+    $(document).trigger('post-out');
+    animateFromPost = true;
   });
 </script>
 
 <?php
   if (isset($_GET['postID'])) {
     $postID = $_GET['postID'];
-    
+
     //find post data based on ID
     $galleryArray = $_SESSION['gallery'];
     $findPost = array_search($postID, array_column($galleryArray, 'id'));
@@ -40,12 +45,12 @@
   <div class="gallery__heading">
     <div class="gallery-heading">
       <div class="gallery-heading__close js-gallery-close">
-        <div class="gallery-close">
+        <a class="gallery-close js-pjax-container" href="index.php?pageID=gallery">
           <div class="gallery-close__text">Close</div>
           <div class="gallery-close__icon">
             <span class="flat-icon icon--16 icon--cross"></span>
           </div>
-        </div>
+        </a>
         <div class="mobile-gallery-close">
           <span class="flat-icon icon--16 icon--cross"></span>
         </div>

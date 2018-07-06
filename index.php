@@ -50,7 +50,7 @@ function displayContent()	{
       case $pageName == 'gallery';
       if (isset($_GET['postID'])) {
         $postID = $_GET['postID'];
-        $title = 'get_title';
+        $title = 'KH - '.$_GET['postID'];
         $gallery = setContent('./php-components/gallery-content.php');
         $galleryStandalone = setContent('./php-components/gallery-standalone.php');
         $content = null;

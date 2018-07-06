@@ -1,7 +1,7 @@
 <?php
   $id = 1;
   // Information
-  $title = 'TLDR Image Test';
+  $title = 'First Post!';
   $subtitle = 'This is just a test';
   $description = 'This description isnt very relevant because this is only a test';
 

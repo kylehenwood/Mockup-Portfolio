@@ -7,12 +7,13 @@
 <?php
 	$galleryPosts = $_SESSION['gallery'];
 	foreach($galleryPosts as $post) {
+		$postURL = "index.php?pageID=gallery&postID=".$post['id'];
 		$postThumbnail = $post['thumb'];
 		$postTags = implode(",",$post['tags']);
 ?>
 
 <li class="gallery-grid__item">
-	<a class="gallery-thumbnail js-gallery-item" href="index.php?pageID=gallery&postID=<?php echo $galleryFolder['id']; ?>">
+	<a class="gallery-thumbnail js-gallery-item" href="<?php echo $postURL ?>">
 		<img class="gallery-thumbnail__image" src="<?php echo $postThumbnail ?>" width="400" height="300">
 		<ul class="gallery-thumbnail__tags">
 			<li class="js-thumbnail-tags"><?php echo $postTags; ?></li>
@@ -26,7 +27,12 @@
 
 <?php
 	}
+?>
 
+
+
+<?php
+	// FAKE BULLSHIT
 	$animationDelay = 1;
   for ($x = 1; $x <= 32; $x++) {
     $color = rand(1,6);

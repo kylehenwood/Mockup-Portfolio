@@ -11,7 +11,6 @@
 
 	<script type="text/javascript" src="js/mobile-navigation.js"></script>
 	<script type="text/javascript" src="js/pjax-nav-switcher.js"></script>
-	<!-- <script type="text/javascript" src="js/vendor/pjax-standalone.js"></script> -->
 	<script type="text/javascript" src="js/vendor/jquery.pjax.js"></script>
 	<script type="text/javascript" src="js/pjax-connect.js"></script>
 	<link rel="icon" type="image/png" href="mark_favicon.png" />
@@ -21,8 +20,12 @@
 	<script type="text/javascript" src="js/useful.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 
+	<!-- components -->
+	<script type="text/javascript" src="js/_gallery.js"></script>
+	<script type="text/javascript" src="js/_filter.js"></script>
+	<script type="text/javascript" src="js/_post.js"></script>
+
 	<!-- Page specific JS -->
-	<script type="text/javascript" src="js/gallery.js"></script>
 	<script type="text/javascript" src="js/project.js"></script>
 
 

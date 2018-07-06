@@ -32,7 +32,6 @@ html {
 // Header
 .layout__header {
   position: relative;
-  z-index: 50;
   top: 0;
   left: 0;
   height: 64px;
@@ -71,6 +70,15 @@ html {
   overflow-y: scroll;
 }
 
+// Post only page
+.layout__post {
+  padding: 0 16px;
+}
+
+// Filter container
+.layout__filter {
+  padding: 0 16px;
+}
 
 // Project overlay
 .layout__project {
