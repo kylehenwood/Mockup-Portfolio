@@ -24,9 +24,7 @@
 	<script type="text/javascript" src="js/_gallery.js"></script>
 	<script type="text/javascript" src="js/_filter.js"></script>
 	<script type="text/javascript" src="js/_post.js"></script>
-
-	<!-- Page specific JS -->
-	<script type="text/javascript" src="js/project.js"></script>
+	<script type="text/javascript" src="js/_project.js"></script>
 
 
 	<!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">

@@ -40,19 +40,19 @@
 
     <ul class="mobile-navigation">
       <li class="mobile-navigation__item anim--in-bot anim--delay-40">
-        <a class="mobile-navitem js-navitem <?php if ($navSelectedGallery) { echo'mobile-navitem--active';} ?>" data-pjax="js-pjax-container" activeClass="mobile-navitem--active" href="index.php?pageID=gallery">
+        <a class="mobile-navitem js-pjax-container <?php if ($navSelectedGallery) { echo'mobile-navitem--active';} ?>" data-pjax="js-pjax-container" activeClass="mobile-navitem--active" href="index.php?pageID=gallery">
           <span class="mobile-navitem__icon"><span class="flat-icon icon--16 icon--arrow-right"></span></span>
           <span class="mobile-navitem__text">TLDR</span>
         </a>
       </li>
       <li class="mobile-navigation__item anim--in-bot anim--delay-80">
-        <a class="mobile-navitem js-navitem <?php if ($navSelectedProjects) { echo'mobile-navitem--active';} ?>" data-pjax="js-pjax-container" activeClass="mobile-navitem--active" href="index.php?pageID=projects">
+        <a class="mobile-navitem js-pjax-container <?php if ($navSelectedProjects) { echo'mobile-navitem--active';} ?>" data-pjax="js-pjax-container" activeClass="mobile-navitem--active" href="index.php?pageID=projects">
           <span class="mobile-navitem__icon"><span class="flat-icon icon--16 icon--arrow-right"></span></span>
           <span class="mobile-navitem__text">Projects</span>
         </a>
       </li>
       <li class="mobile-navigation__item anim--in-bot anim--delay-120">
-        <a class="mobile-navitem js-navitem <?php if ($navSelectedAbout) { echo'mobile-navitem--active';} ?>" data-pjax="js-pjax-container" activeClass="mobile-navitem--active" href="index.php?pageID=about">
+        <a class="mobile-navitem js-pjax-container <?php if ($navSelectedAbout) { echo'mobile-navitem--active';} ?>" data-pjax="js-pjax-container" activeClass="mobile-navitem--active" href="index.php?pageID=about">
           <span class="mobile-navitem__icon"><span class="flat-icon icon--16 icon--arrow-right"></span></span>
           <span class="mobile-navitem__text">About me</span>
         </a>

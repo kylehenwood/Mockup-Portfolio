@@ -13,7 +13,7 @@
 ?>
 
 <li class="gallery-grid__item">
-	<a class="gallery-thumbnail js-gallery-item" href="<?php echo $postURL ?>">
+	<a class="gallery-thumbnail js-pjax-post" href="<?php echo $postURL ?>">
 		<img class="gallery-thumbnail__image" src="<?php echo $postThumbnail ?>" width="400" height="300">
 		<ul class="gallery-thumbnail__tags">
 			<li class="js-thumbnail-tags"><?php echo $postTags; ?></li>

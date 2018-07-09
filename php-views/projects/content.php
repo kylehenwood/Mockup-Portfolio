@@ -64,11 +64,12 @@
 
 
     $animationClass = "anim--in-top";
-    $addClass = $colorClass." ".$animationClass." ".$delayClass;
-
+    $addClass = $colorClass." ".$animationClass;//." ".$delayClass;
+		$projectLink = 'index.php?pageID=projects&projectID=test';
 ?>
       <div class="project-grid__item">
-        <div class="project-card <?php echo $addClass ?> js-project-card"></div>
+        <a class="project-card <?php echo($addClass); ?> js-project-card js-pjax-project" href="<?php echo($projectLink); ?>">
+				</a>
       </div>
 
 <?php

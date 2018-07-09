@@ -5,6 +5,8 @@ var projectsHeading;
 var card;
 var clickedCard;
 var cardStyles;
+
+
 // on page load
 function projectBind() {
   layoutContainer = $('.js-layout');

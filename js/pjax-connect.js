@@ -7,7 +7,7 @@ $.pjax.defaults.scrollTo = false;
 $.pjax.defaults.timeout = 2000;
 
 // Pjax links + containers to load content to
-$(document).pjax('.js-navitem', '#js-pjax-container');
 $(document).pjax('.js-pjax-container', '#js-pjax-container');
-$(document).pjax('.js-pjax-helpLink', '#js-pjax-helpContainer');
-$(document).pjax('.js-gallery-item', '#js-pjax-gallery');
+$(document).pjax('.js-pjax-project', '#js-pjax-project');
+$(document).pjax('.js-pjax-post', '#js-pjax-post');
+$(document).pjax('.js-pjax-contact', '#js-pjax-contact');

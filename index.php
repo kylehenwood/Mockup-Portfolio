@@ -44,6 +44,9 @@ function displayContent()	{
     $gallery = null;
     $galleryStandalone = null;
 
+    $project = null;
+    $projectStandalone = null;
+
     switch ($pageName) {
 
       // Gallery Switcher
@@ -51,8 +54,8 @@ function displayContent()	{
       if (isset($_GET['postID'])) {
         $postID = $_GET['postID'];
         $title = 'KH - '.$_GET['postID'];
-        $gallery = setContent('./php-components/gallery-content.php');
-        $galleryStandalone = setContent('./php-components/gallery-standalone.php');
+        $gallery = setContent('./php-views/gallery-post/post-content.php');
+        $galleryStandalone = setContent('./php-views/gallery-post/post-standalone.php');
         $content = null;
       } else {
         $title = 'KH - TLDR';
@@ -61,8 +64,16 @@ function displayContent()	{
       break;
 
       case $pageName == 'projects';
-      $title = 'KH - Projects';
-      $content = setContent('./php-views/projects/_construct.php');
+      if (isset($_GET['projectID'])) {
+        $projectID = $_GET['projectID'];
+        $title = 'KH - '.$_GET['projectID'];
+        $project = setContent('./php-views/projects-project/project.php');
+        $projectStandalone = setContent('./php-views/projects-project/project-standalone.php');
+        $content = null;
+      } else {
+        $title = 'KH - Projects';
+        $content = setContent('./php-views/projects/_construct.php');
+      }
       break;
 
       case $pageName == 'about';
@@ -93,15 +104,20 @@ function displayContent()	{
     if ($gallery != null) {
       echo $gallery;
     }
+    if ($project != null) {
+      echo $project;
+    }
   	echo "<title>{$title}</title>";
   } else {
 
     include './php-chrome/navigation.php';
-    include './php-components/gallery.php';
+    include './php-views/gallery-post/_shell.php';
+    include './php-views/projects-project/_shell.php';
 
     echo '<div id="js-pjax-container" class="js-content-container">';
     echo $content;
     echo $galleryStandalone;
+    echo $projectStandalone;
     echo '</div>';
 
     include './php-chrome/footer.php';

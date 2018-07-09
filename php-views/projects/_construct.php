@@ -1,17 +1,20 @@
 <script>
-  // bind
-  $(document).one('page_load',function(){
-    projectBind();
+  // in
+  $(document).one('pjax:success',function(){
+    if (project.open === false) {
+      // animate in stagger
+    }
+    if (project.open === true) {
+      project.open = false;
+      $(document).trigger('projects-page-in');
+    }
   });
 
-  // unbind
-  $(document).one('pjax:beforeReplace', function() {
-    projectUnbind();
-  });
+  // out
+  $(document).one('pjax:beforeReplace', function() {});
 </script>
 
 <?php
-  include 'project-overlay.php';
   include 'banner.php';
   include 'content.php';
 ?>
