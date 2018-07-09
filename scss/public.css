@@ -2972,6 +2972,66 @@ textarea:disabled:active {
     opacity: 0;
     transform: translateX(40px); } }
 
+.cssanimations .anim--scale-up-in {
+  opacity: 0;
+  animation-name: scale-up-in;
+  animation-duration: 160ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards; }
+
+@keyframes scale-up-in {
+  000% {
+    opacity: 0.4;
+    transform: scale(0.9); }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+
+.cssanimations .anim--scale-up-out {
+  opacity: 0;
+  animation-name: scale-up-out;
+  animation-duration: 160ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards; }
+
+@keyframes scale-up-out {
+  000% {
+    opacity: 1;
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    transform: scale(1.1); } }
+
+.cssanimations .anim--scale-down-in {
+  opacity: 0;
+  animation-name: scale-down-in;
+  animation-duration: 160ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards; }
+
+@keyframes scale-down-in {
+  000% {
+    opacity: 0.4;
+    transform: scale(1.1); }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+
+.cssanimations .anim--scale-down-out {
+  opacity: 0;
+  animation-name: scale-down-out;
+  animation-duration: 160ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards; }
+
+@keyframes scale-down-out {
+  000% {
+    opacity: 1;
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    transform: scale(0.9); } }
+
 .gallery-image {
   position: relative;
   display: block;
@@ -3355,6 +3415,68 @@ textarea:disabled:active {
 .project__section {
   height: 600px;
   background: #EEEEEE; }
+
+.anim--project-container-in {
+  transform-origin: 50% 200px;
+  opacity: 1;
+  animation-name: project-container-in;
+  animation-duration: 200ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards; }
+
+@keyframes project-container-in {
+  000% {
+    opacity: 0.4;
+    transform: scale(0.9); }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+
+.anim--project-container-out {
+  transform-origin: 50% 200px;
+  opacity: 1;
+  animation-name: project-container-out;
+  animation-duration: 200ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards; }
+
+@keyframes project-container-out {
+  000% {
+    opacity: 1;
+    transform: scale(1); }
+  100% {
+    opacity: 0.4;
+    transform: scale(0.9); } }
+
+.anim--project-in {
+  opacity: 1;
+  animation-name: project-in;
+  animation-duration: 200ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards; }
+
+@keyframes project-in {
+  000% {
+    opacity: 0.4;
+    transform: translateY(-100px); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+.anim--project-out {
+  opacity: 1;
+  animation-name: project-out;
+  animation-duration: 200ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards; }
+
+@keyframes project-out {
+  000% {
+    opacity: 1;
+    transform: translateY(0); }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px); } }
 
 .example-website {
   background: #9E9E9E;
