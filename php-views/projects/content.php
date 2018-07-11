@@ -5,7 +5,7 @@
 
 <?php
 	$animationDelay = 1;
-	for ($x = 1; $x <= 8; $x++) {
+	for ($x = 1; $x <= 16; $x++) {
     $color = rand(1,6);
 		$colorClass = null;
 		$delayClass = null;

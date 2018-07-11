@@ -78,14 +78,17 @@ html {
 @import "views-public/page-gallery/_gallery-page";
 @import "views-public/page-gallery/_gallery-filter";
 @import "views-public/page-gallery/_gallery-banner";
-@import "views-public/page-gallery/_gallery-overlay";
+
+// Post
+@import "views-public/page-post/_post";
 
 //---
 // Projects
 @import "views-public/page-projects/_projects-page";
 @import "views-public/page-projects/_projects-banner";
 
-@import "views-public/page-projects/_projects-overlay";
+// Project
+@import "views-public/page-project/_project";
 
 //---
 // About

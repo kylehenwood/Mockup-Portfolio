@@ -1,6 +1,6 @@
 <script>
   // in
-  $(document).one('pjax:success',function(){
+  $(document).one('page_load',function(){
     if (project.open === false) {
       // animate in stagger
     }
@@ -9,9 +9,10 @@
       $(document).trigger('projects-page-in');
     }
   });
-
   // out
-  $(document).one('pjax:beforeReplace', function() {});
+  $(document).one('pjax:beforeReplace', function() {
+
+  });
 </script>
 
 <?php
