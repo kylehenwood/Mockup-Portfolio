@@ -39,8 +39,8 @@ unset($galleryArray);
 function displayContent()	{
   $content = null;
   $title = null;
-  $gallery = null;
-  $galleryStandalone = null;
+  $post = null;
+  $postStandalone = null;
   $project = null;
   $projectStandalone = null;
 
@@ -54,8 +54,8 @@ function displayContent()	{
       if (isset($_GET['postID'])) {
         $postID = $_GET['postID'];
         $title = 'KH - '.$_GET['postID'];
-        $gallery = setContent('./php-views/gallery-post/post-content.php');
-        $galleryStandalone = setContent('./php-views/gallery-post/post-standalone.php');
+        $post = setContent('./php-views/gallery-post/post.php');
+        $postStandalone = setContent('./php-views/gallery-post/post-standalone.php');
         $content = null;
       } else {
         $title = 'KH - TLDR';
@@ -101,8 +101,8 @@ function displayContent()	{
     if ($content != null) {
       echo $content;
     }
-    if ($gallery != null) {
-      echo $gallery;
+    if ($post != null) {
+      echo $post;
     }
     if ($project != null) {
       echo $project;
@@ -116,7 +116,7 @@ function displayContent()	{
 
     echo '<div id="js-pjax-container" class="js-content-container">';
     echo $content;
-    echo $galleryStandalone;
+    echo $postStandalone;
     echo $projectStandalone;
     echo '</div>';
 

@@ -41,7 +41,6 @@ function projectOverlayIn() {
 
 function projectOverlayOut() {
   layout.container.removeClass('layout--scroll-lock');
-
   project.overlay.addClass('layout__project--scroll-lock');
   project.container.addClass('anim--project-out');
   project.container.one(animationEvent,function(event){

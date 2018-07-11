@@ -1,9 +1,43 @@
 .gallery {
-  padding: 64px 0;
+  min-height: 100%;
+  padding: 16px 0;
+  background: $color-grey-800;
   @include screen-mob {
     padding: 16px 0;
   }
 }
+
+// container animations
+.anim--post-in {
+  animation-name: project-in;
+  animation-duration: 200ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+@keyframes post-in {
+  000% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.anim--post-out {
+  animation-name: post-out;
+  animation-duration: 200ms;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+@keyframes post-out {
+  000% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
 
 
 .gallery__heading {

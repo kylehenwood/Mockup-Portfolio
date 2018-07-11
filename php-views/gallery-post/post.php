@@ -16,9 +16,9 @@
     $postID = $_GET['postID'];
 
     //find post data based on ID
-    $galleryArray = $_SESSION['gallery'];
-    $findPost = array_search($postID, array_column($galleryArray, 'id'));
-    $post = $galleryArray[$findPost];
+    $postArray = $_SESSION['gallery'];
+    $findPost = array_search($postID, array_column($postArray, 'id'));
+    $post = $postArray[$findPost];
 
 
     // content
@@ -41,7 +41,9 @@
 ?>
 
 
-<div class="gallery">
+<div class="gallery js-post-container">
+
+  <div class="center center--1120">
   <div class="gallery__heading">
     <div class="gallery-heading">
       <div class="gallery-heading__close js-gallery-close">
@@ -135,4 +137,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

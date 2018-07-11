@@ -29,7 +29,7 @@
   }
 ?>
 
-<div class="layout__post">
+<div class="layout__content">
 <div class="center center--1120">
 <div class="gallery">
   <div class="gallery__heading">

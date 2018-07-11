@@ -1,5 +1,6 @@
 // Post "Overlay"
 var post = {
+  container: null,
   heading: null,
   subheading: null,
   image: null,
@@ -21,6 +22,7 @@ $(document).on('post-out',function(e){
 
 // Bind || Unbind elements
 function postBindElements() {
+  post.container = $('.js-post-container');
   post.heading = $('.js-gallery-heading');
   post.subheading = $('.js-gallery-subheading');
   post.image = $('.js-gallery-image');
@@ -49,10 +51,11 @@ function postAnimateIn() {
   // it is easy to scroll instead of requiring a tap to focus.
   layout.post.show();
   layout.post.focus();
-  setTimeout(function(){
-    layout.post.addClass('layout__overlay--in');
-    layout.post.scrollTop(0);
-  },1);
+  layout.post.scrollTop(0);
+  post.container.addClass('anim--post-in');
+  post.container.one(animationEvent,function(event){
+    $(this).removeClass('anim--post-in');
+  });
 
   // Animate in gallery...
   post.heading.addClass('anim--delay-280 anim--in-bot');
@@ -93,16 +96,16 @@ function postAnimateOut() {
   layout.container.removeClass('layout--scroll-lock');
   layout.container.focus();
 
-  // delay because if I hide the layer too quickly the animation end event wont fire and all
-  // the elements below will still have their animate out classes attached.
-  layout.post.removeClass('layout__overlay--in');
-  layout.post.addClass('layout__overlay--scroll-lock');
+  layout.post.addClass('layout__post--scroll-lock');
 
   // When animate-out is complete....
-  layout.post.one(transitionEvent,function(event) {
-    $(this).removeClass('layout__overlay--scroll-lock');
-    $(this).hide();
+  post.container.addClass('anim--post-out');
+  post.container.one(animationEvent,function(event){
+    $(this).removeClass('anim--post-out');
+    layout.post.removeClass('layout__post--scroll-lock');
+    layout.post.hide();
   });
+
 
   // Animate in gallery...
   post.heading.addClass('anim--delay-80 anim--out-bot');
