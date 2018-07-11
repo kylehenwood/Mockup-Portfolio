@@ -4,13 +4,13 @@
   $(document).one('page_load',function(){
     // only do the animation in from post when loading from a post
     if (gallery.animateFromPost === true) {
-      $(document).trigger('gallery-animate-from-post');
+      gallery.animateFromPost = false;
+      $(document).trigger('gallery-in');
     }
   });
 
-  // unbind
+  // out
   $(document).one('pjax:beforeReplace', function() {
-
   });
 </script>
 

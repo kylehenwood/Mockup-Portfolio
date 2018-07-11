@@ -63,8 +63,8 @@
 
 
 
-    $animationClass = "anim--in-top";
-    $addClass = $colorClass." ".$animationClass;//." ".$delayClass;
+    //$animationClass = "anim--in-top";
+    $addClass = $colorClass;//." ".$animationClass;//." ".$delayClass;
 		$projectLink = 'index.php?pageID=projects&projectID=test';
 ?>
       <div class="project-grid__item">

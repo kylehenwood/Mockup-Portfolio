@@ -1,8 +1,8 @@
 <script>
   // bind
-  $(document).one('page_load',function(){
-		$(document).trigger('project-overlay-in');
+  $(document).one('pjax:success',function(){
     $(document).trigger('projects-page-out');
+		$(document).trigger('project-overlay-in');
   });
   // unbind
   $(document).one('pjax:beforeReplace', function() {
@@ -12,17 +12,19 @@
 
 
 <div class="project js-project-container">
+  <div class="project__close">
+    <div class="center center--1120">
+      <a class="project-back-button js-pjax-container" href="index.php?pageID=projects">
+        <div class="project-back-button__icon">
+          <span class="flat-icon icon--16 icon--arrow-left"></span>
+        </div>
+        <div class="project-back-button__text">Back to projects</div>
+      </a>
+    </div>
+  </div>
 	<div class="project__banner">
     <div class="center center--1120">
       <div class="project-banner">
-        <div class="project-banner__back">
-          <a class="project-back-button js-pjax-container" href="index.php?pageID=projects">
-            <div class="project-back-button__icon">
-              <span class="flat-icon icon--16 icon--arrow-left"></span>
-            </div>
-            <div class="project-back-button__text">Back to projects</div>
-          </a>
-        </div>
         <div class="project-banner__content">
 		        <h1 class="heading-1 text-white">AIBEK</h1>
         </div>

@@ -20,19 +20,18 @@ $(document).on('projects-page-in',function(){
 $(document).on('projects-page-out',function(){
   projectsPageOut();
 });
-
+$(document).on('project-stagger-in',function(){
+  projectStaggerIn();
+});
 
 
 // Overlay
 function projectOverlayIn() {
-
   layout.container.addClass('layout--scroll-lock');
-
   project.open = true;
   project.container = $('.js-project-container');
   project.overlay = $('.js-project-overlay');
   project.overlay.show();
-
   project.container.addClass('anim--project-in');
   project.container.one(animationEvent,function(event){
     $(this).removeClass('anim--project-in');
@@ -66,4 +65,11 @@ function projectsPageOut() {
     $(this).removeClass('anim--project-container-out');
     $(this).addClass('anim--hidden');
   });
+}
+
+
+// Stagger in
+function projectStaggerIn() {
+  project.cards = $('.js-project-card');
+  project.cards.addClass('anim--slide-down');
 }

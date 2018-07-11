@@ -37,15 +37,15 @@ unset($galleryArray);
 
 
 function displayContent()	{
+  $content = null;
+  $title = null;
+  $gallery = null;
+  $galleryStandalone = null;
+  $project = null;
+  $projectStandalone = null;
+
   if (isset($_GET['pageID'])) {
     $pageName = $_GET['pageID'];
-    $content = null;
-    $title = null;
-    $gallery = null;
-    $galleryStandalone = null;
-
-    $project = null;
-    $projectStandalone = null;
 
     switch ($pageName) {
 
@@ -90,7 +90,7 @@ function displayContent()	{
   } else {
     // no page id set -> home page
     $title = 'KH - TLDR';
-    $content = setContent('./php-views/home/_construct.php');
+    $content = setContent('./php-views/gallery/_construct.php');
   }
 
 

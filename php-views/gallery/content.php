@@ -67,7 +67,7 @@
 ?>
 
       <li class="gallery-grid__item">
-        <a class="gallery-image js-gallery-item <?php echo $colorClass ?>" href="index.php?pageID=gallery&postID=001">
+        <a class="gallery-image js-gallery-item <?php echo $colorClass ?>" href="#index.php?pageID=gallery&postID=001">
 					<img src="images/4-3.jpg" width="400" height="300">
 				</a>
       </li>

@@ -1,7 +1,5 @@
-var layoutContainer;
-
 // Post "Overlay"
-var postElements = {
+var post = {
   heading: null,
   subheading: null,
   image: null,
@@ -12,43 +10,39 @@ var postElements = {
 
 // animate in
 $(document).on('post-in',function(e){
-  console.log('post--in');
-  postBindElements();
   postAnimateIn();
 });
 
 // animate out
 $(document).on('post-out',function(e){
-  console.log('post--out');
-  postBindElements();
   postAnimateOut();
-  //postUnbindElements();
 });
 
 
 // Bind || Unbind elements
 function postBindElements() {
-  postElements.heading = $('.js-gallery-heading');
-  postElements.subheading = $('.js-gallery-subheading');
-  postElements.image = $('.js-gallery-image');
-  postElements.projects = $('.js-gallery-projects');
-  postElements.similar = $('.js-gallery-similar');
-  postElements.close = $('.js-gallery-close');
+  post.heading = $('.js-gallery-heading');
+  post.subheading = $('.js-gallery-subheading');
+  post.image = $('.js-gallery-image');
+  post.projects = $('.js-gallery-projects');
+  post.similar = $('.js-gallery-similar');
+  post.close = $('.js-gallery-close');
 }
 
 function postUnbindElements() {
-  postElements.heading.unbind();
-  postElements.subheading.unbind();
-  postElements.image.unbind()
-  postElements.projects.unbind();
-  postElements.similar.unbind();
-  postElements.close.unbind();
+  post.heading.unbind();
+  post.subheading.unbind();
+  post.image.unbind()
+  post.projects.unbind();
+  post.similar.unbind();
+  post.close.unbind();
 }
 
 
 // Animate in
 function postAnimateIn() {
-
+  postBindElements();
+  console.log('post-in');
   layout.container.addClass('layout--scroll-lock');
 
   // show and focus the post container, focus so that on mobile
@@ -61,40 +55,41 @@ function postAnimateIn() {
   },1);
 
   // Animate in gallery...
-  postElements.heading.addClass('anim--delay-280 anim--in-bot');
-  postElements.heading.one(animationEvent,function(event) {
+  post.heading.addClass('anim--delay-280 anim--in-bot');
+  post.heading.one(animationEvent,function(event) {
     $(this).removeClass('anim--delay-280 anim--in-bot');
   });
 
-  postElements.subheading.addClass('anim--delay-320 anim--in-bot');
-  postElements.subheading.one(animationEvent,function(event) {
+  post.subheading.addClass('anim--delay-320 anim--in-bot');
+  post.subheading.one(animationEvent,function(event) {
     $(this).removeClass('anim--delay-320 anim--in-bot');
   });
 
-  postElements.close.addClass('anim--delay-280 anim--in-bot');
-  postElements.close.one(animationEvent,function(event) {
+  post.close.addClass('anim--delay-280 anim--in-bot');
+  post.close.one(animationEvent,function(event) {
     $(this).removeClass('anim--delay-280 anim--in-bot');
   });
 
-  postElements.image.addClass('anim--delay-160 anim--scale-in');
-  postElements.image.one(animationEvent,function(event) {
+  post.image.addClass('anim--delay-160 anim--scale-in');
+  post.image.one(animationEvent,function(event) {
     $(this).removeClass('anim--delay-160 anim--scale-in');
   });
 
-  postElements.projects.addClass('anim--in-top anim--delay-280');
-  postElements.projects.one(animationEvent,function(event) {
+  post.projects.addClass('anim--in-top anim--delay-280');
+  post.projects.one(animationEvent,function(event) {
     $(this).removeClass('anim--in-top anim--delay-280');
   });
 
-  postElements.similar.addClass('anim--in-top anim--delay-280');
-  postElements.similar.one(animationEvent,function(event) {
+  post.similar.addClass('anim--in-top anim--delay-280');
+  post.similar.one(animationEvent,function(event) {
     $(this).removeClass('anim--in-top anim--delay-280');
   });
 }
 
 // Animate out
 function postAnimateOut() {
-
+  postBindElements();
+  console.log('post-out');
   layout.container.removeClass('layout--scroll-lock');
   layout.container.focus();
 
@@ -110,38 +105,38 @@ function postAnimateOut() {
   });
 
   // Animate in gallery...
-  postElements.heading.addClass('anim--delay-80 anim--out-bot');
-  postElements.heading.one(animationEvent,function(event) {
+  post.heading.addClass('anim--delay-80 anim--out-bot');
+  post.heading.one(animationEvent,function(event) {
     $(this).removeClass('anim--delay-80 anim--out-bot');
     $(this).addClass('anim--hidden');
   });
 
-  postElements.subheading.addClass('anim--out-bot');
-  postElements.subheading.one(animationEvent,function(event) {
+  post.subheading.addClass('anim--out-bot');
+  post.subheading.one(animationEvent,function(event) {
     $(this).removeClass('anim--out-bot');
     $(this).addClass('anim--hidden');
   });
 
-  postElements.close.addClass('anim--delay-80 anim--out-bot');
-  postElements.close.one(animationEvent,function(event) {
+  post.close.addClass('anim--delay-80 anim--out-bot');
+  post.close.one(animationEvent,function(event) {
     $(this).removeClass('anim--delay-80 anim--out-bot');
     $(this).addClass('anim--hidden');
   });
 
-  postElements.image.addClass('anim--scale-out');
-  postElements.image.one(animationEvent,function(event) {
+  post.image.addClass('anim--scale-out');
+  post.image.one(animationEvent,function(event) {
     $(this).removeClass('anim--scale-out');
     $(this).addClass('anim--hidden');
   });
 
-  postElements.projects.addClass('anim--out-top');
-  postElements.projects.one(animationEvent,function(event) {
+  post.projects.addClass('anim--out-top');
+  post.projects.one(animationEvent,function(event) {
     $(this).removeClass('anim--out-top');
     $(this).addClass('anim--hidden');
   });
 
-  postElements.similar.addClass('anim--out-top');
-  postElements.similar.one(animationEvent,function(event) {
+  post.similar.addClass('anim--out-top');
+  post.similar.one(animationEvent,function(event) {
     $(this).removeClass('anim--out-top');
     $(this).addClass('anim--hidden');
   });

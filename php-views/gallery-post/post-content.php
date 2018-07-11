@@ -1,7 +1,7 @@
 <script>
   // bind
-  $(document).one('page_load',function(){
-    $(document).trigger('gallery-animate-to-post');
+  $(document).one('pjax:success',function(){
+    $(document).trigger('gallery-out');
     $(document).trigger('post-in');
   });
   // unbind
