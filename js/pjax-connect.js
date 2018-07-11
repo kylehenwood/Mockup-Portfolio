@@ -6,7 +6,7 @@ $.pjax.defaults.scrollTo = false;
 // Make sure pjax is used for "OK" connections
 $.pjax.defaults.timeout = 2000;
 // Set cache to 0, otherwise PJAX will remember the state of the previous action
-$.pjax.defaults.maxCacheLength = 0;
+//$.pjax.defaults.maxCacheLength = 0;
 
 // Pjax links + containers to load content to
 $(document).pjax('.js-pjax-container', '#js-pjax-container');

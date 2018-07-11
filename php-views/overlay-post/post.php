@@ -87,21 +87,24 @@
       <div class="tile-select__tiles">
         <div class="gallery-grid clearfix">
           <div class="gallery-grid__item">
-            <div class="gallery-image">
+            <a class="gallery-image js-pjax-post" href="index.php?pageID=gallery&postID=3">
               <img src="images/4-3.jpg" width="400" height="300">
-            </div>
+            </a>
           </div>
           <div class="gallery-grid__item">
-            <div class="gallery-image">
-            <img src="images/4-3.jpg" width="400" height="300"></div>
+            <a class="gallery-image js-pjax-post" href="index.php?pageID=gallery&postID=3">
+              <img src="images/4-3.jpg" width="400" height="300">
+            </a>
           </div>
           <div class="gallery-grid__item">
-            <div class="gallery-image">
-            <img src="images/4-3.jpg" width="400" height="300"></div>
+            <a class="gallery-image js-pjax-post" href="index.php?pageID=gallery&postID=3">
+              <img src="images/4-3.jpg" width="400" height="300">
+            </a>
           </div>
           <div class="gallery-grid__item">
-            <div class="gallery-image">
-            <img src="images/4-3.jpg" width="400" height="300"></div>
+            <a class="gallery-image js-pjax-post" href="index.php?pageID=gallery&postID=3">
+              <img src="images/4-3.jpg" width="400" height="300">
+            </a>
           </div>
         </div>
       </div>

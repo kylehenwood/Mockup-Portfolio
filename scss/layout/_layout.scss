@@ -32,6 +32,7 @@ html {
 // Header
 .layout__header {
   position: relative;
+  z-index: 50;
   top: 0;
   left: 0;
   height: 64px;
@@ -54,11 +55,16 @@ html {
 }
 
 // Project/Post overlay
+.layout__post {
+  z-index: 5;
+}
+.layout__project {
+  z-index: 100;
+}
 .layout__post,
 .layout__project {
   display: none;
   position: fixed;
-  z-index: 5;
   top: 0;
   left: 0;
   width: 100%;

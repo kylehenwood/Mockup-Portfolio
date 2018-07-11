@@ -54,8 +54,8 @@ function displayContent()	{
       if (isset($_GET['postID'])) {
         $postID = $_GET['postID'];
         $title = 'KH - '.$_GET['postID'];
-        $post = setContent('./php-views/gallery-post/post.php');
-        $postStandalone = setContent('./php-views/gallery-post/post-standalone.php');
+        $post = setContent('./php-views/overlay-post/post.php');
+        $postStandalone = setContent('./php-views/overlay-post/post-standalone.php');
         $content = null;
       } else {
         $title = 'KH - TLDR';
@@ -67,8 +67,8 @@ function displayContent()	{
       if (isset($_GET['projectID'])) {
         $projectID = $_GET['projectID'];
         $title = 'KH - '.$_GET['projectID'];
-        $project = setContent('./php-views/projects-project/project.php');
-        $projectStandalone = setContent('./php-views/projects-project/project-standalone.php');
+        $project = setContent('./php-views/overlay-project/project.php');
+        $projectStandalone = setContent('./php-views/overlay-project/project-standalone.php');
         $content = null;
       } else {
         $title = 'KH - Projects';
@@ -78,6 +78,11 @@ function displayContent()	{
 
       case $pageName == 'about';
       $title = 'KH - About';
+      $content = setContent('./php-views/about/_construct.php');
+      break;
+
+      case $pageName == 'Contact';
+      $title = 'KH - Contact me';
       $content = setContent('./php-views/about/_construct.php');
       break;
 
@@ -111,8 +116,9 @@ function displayContent()	{
   } else {
 
     include './php-chrome/navigation.php';
-    include './php-views/gallery-post/_shell.php';
-    include './php-views/projects-project/_shell.php';
+    include './php-views/overlay-post/_shell.php';
+    include './php-views/overlay-project/_shell.php';
+    include './php-views/overlay-contact/_shell.php';
 
     echo '<div id="js-pjax-container" class="js-content-container">';
     echo $content;
