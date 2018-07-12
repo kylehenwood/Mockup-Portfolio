@@ -25,7 +25,9 @@ var layout = {
 function bindLayout() {
   layout.container = $('.js-layout');
   layout.navigation = $('.js-layout-header');
-  layout.post = $('.js-post-overlay');
+  layout.post = $('.js-overlay-post');
+  layout.project = $('.js-overlay-project');
+  layout.contact = $('.js-overlay-contact');
   layout.content = $('.js-content-container');
 }
 

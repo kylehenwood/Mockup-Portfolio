@@ -17,6 +17,6 @@
 
 <?php
   include 'banner.php';
-  include 'filter.php';
+  //include 'filter.php';
   include 'content.php';
 ?>

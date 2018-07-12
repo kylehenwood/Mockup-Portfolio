@@ -1,6 +1,6 @@
 // layout
 html {
-  height: 100%;
+  min-height: 100%;
   min-width: 320px;
   background: $color-grey-900;
 }
@@ -22,9 +22,10 @@ html {
 }
 
 .layout--scroll-lock {
+  position: fixed;
   overflow: hidden;
   padding-right: 15px; // scrollbar placement
-  @include screen-mob {
+  @include screen-med {
     padding: 0;
   }
 }
@@ -46,12 +47,12 @@ html {
 }
 
 .layout__content {
-  padding: 0 16px;
+  //padding: 0 16px;
 }
 
 // Filter container
 .layout__filter {
-  padding: 0 16px;
+  //padding: 0 16px;
 }
 
 // Project/Post overlay
@@ -62,7 +63,9 @@ html {
   z-index: 100;
 }
 .layout__post,
-.layout__project {
+.layout__project,
+.layout__contact {
+  background: red;
   display: none;
   position: fixed;
   top: 0;
@@ -70,8 +73,10 @@ html {
   width: 100%;
   height: 100%;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .layout__post--scroll-lock,
-.layout__project--scroll-lock {
+.layout__project--scroll-lock,
+.layout__contact--scroll-lock {
   overflow: hidden;
 }

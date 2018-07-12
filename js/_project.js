@@ -1,7 +1,6 @@
 // variables
 var project = {
   open: false,
-  overlay: null,
   container: null,
   cards: null
 }
@@ -28,10 +27,11 @@ $(document).on('project-stagger-in',function(){
 // Overlay
 function projectOverlayIn() {
   layout.container.addClass('layout--scroll-lock');
+  layout.project.show();
+  layout.project.focus();
+
   project.open = true;
   project.container = $('.js-project-container');
-  project.overlay = $('.js-project-overlay');
-  project.overlay.show();
   project.container.addClass('anim--project-in');
   project.container.one(animationEvent,function(event){
     $(this).removeClass('anim--project-in');
@@ -41,12 +41,12 @@ function projectOverlayIn() {
 
 function projectOverlayOut() {
   layout.container.removeClass('layout--scroll-lock');
-  project.overlay.addClass('layout__project--scroll-lock');
+  layout.project.addClass('layout__project--scroll-lock');
   project.container.addClass('anim--project-out');
   project.container.one(animationEvent,function(event){
     $(this).removeClass('anim--project-out');
-    project.overlay.removeClass('layout__project--scroll-lock');
-    project.overlay.hide();
+    layout.project.removeClass('layout__project--scroll-lock');
+    layout.project.hide();
   });
 }
 

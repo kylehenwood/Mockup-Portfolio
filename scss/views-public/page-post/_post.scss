@@ -1,9 +1,9 @@
 .gallery {
   min-height: 100%;
-  padding: 16px 0;
+  padding: 16px;
   background: $color-grey-800;
   @include screen-mob {
-    padding: 16px 0;
+    padding: 16px;
   }
 }
 

@@ -1,3 +1,3 @@
-<div class="layout__post js-post-overlay">
+<div class="layout__post js-overlay-post">
   <div id="js-pjax-post"></div>
 </div>
