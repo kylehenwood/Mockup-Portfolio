@@ -62,7 +62,7 @@
     <div class="mobile-contact">
       <div class="mobile-contact__border anim--in-bot anim--delay-160"></div>
       <div class="mobile-contact__heading anim--in-bot anim--delay-200">Get in touch?</div>
-      <a class="mobile-contact__link anim--in-bot anim--delay-240 <?php if ($navSelectedContact) { echo'mobile-contact__link--active';} ?>" data-pjax="js-pjax-container" activeClass="mobile-contact__link--active" href="index.php?pageID=contact">
+      <a class="mobile-contact__link anim--in-bot anim--delay-240 <?php if ($navSelectedContact) { echo'mobile-contact__link--active';} ?>" data-pjax="js-pjax-contact" activeClass="mobile-contact__link--active" href="index.php?pageID=contact">
         Contact me
       </a>
     </div>

@@ -28,7 +28,7 @@
       </div>
 
       <div class="header__contact">
-        <a class="button-contact js-no-pjax" href="../_shnappy-application/auth--sign-up.html">Contact Me</a>
+        <a class="button-contact js-no-pjax" href="index.php?pageID=contact">Contact Me</a>
       </div>
     </div>
 
