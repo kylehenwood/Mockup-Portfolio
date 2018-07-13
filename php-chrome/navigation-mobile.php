@@ -1,22 +1,3 @@
-<div class="layout__navigation-mobile">
-  <div class="navigation-mobile">
-    <!-- logo button -->
-    <div class="navigation-mobile__logo">
-      <a class="mobile-logo"></a>
-    </div>
-
-    <!-- menu button -->
-    <div class="navigation-mobile__button">
-      <a class="mobile-header-button js-mobile-menu-button">
-        <span class="flat-icon icon--16 icon--menu"></span>
-      </a>
-    </div>
-
-    <!-- account button -->
-  </div>
-</div>
-
-
 <!-- mobile menu -->
 <div class="layout__mobile-menu js-mobile-menu">
 

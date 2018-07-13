@@ -1,3 +1,3 @@
-<div class="layout__contact js-overlay-contact">
-  <div id="js-pjax-contact"></div>
+<div class="layout__overlay js-overlay-contact">
+  <div class="shell-scroll" id="js-pjax-contact"></div>
 </div>

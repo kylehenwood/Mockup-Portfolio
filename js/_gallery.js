@@ -26,7 +26,7 @@ $(document).on('gallery-in',function(e){
 
 // Gallery animate out
 function galleryOut() {
-  console.log('gallery--out');
+  //console.log('gallery--out');
 
   layout.navigation.addClass('anim--out-top');
   layout.navigation.one(animationEvent,function(event) {});
@@ -43,7 +43,7 @@ function galleryOut() {
 
 // Gallery animate in
 function galleryIn() {
-  console.log('gallery--in');
+  //console.log('gallery--in');
 
   // layout heading (nav)
   layout.navigation.removeClass('anim--out-top');

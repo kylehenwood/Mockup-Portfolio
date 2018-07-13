@@ -1021,9 +1021,13 @@ nowrap,
   content: '\e7d9'; }
 
 html {
-  min-height: 100%;
+  height: 100%;
+  width: 100%;
   min-width: 320px;
   background: #212121; }
+
+.html--scroll-lock {
+  overflow-y: hidden; }
 
 .layout {
   position: relative;
@@ -1038,7 +1042,6 @@ html {
       background: #424242; } }
 
 .layout--scroll-lock {
-  position: fixed;
   overflow: hidden;
   padding-right: 15px; }
   @media screen and (max-width: 960px) {
@@ -1050,38 +1053,9 @@ html {
   z-index: 50;
   top: 0;
   left: 0;
-  height: 64px;
   width: 100%;
-  padding: 4px 24px;
-  background: #212121;
-  transition: 200ms all ease-in; }
-  @media screen and (max-width: 960px) {
-    .layout__header {
-      display: none; } }
-
-.layout__post {
-  z-index: 5; }
-
-.layout__project {
-  z-index: 100; }
-
-.layout__post,
-.layout__project,
-.layout__contact {
-  background: red;
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch; }
-
-.layout__post--scroll-lock,
-.layout__project--scroll-lock,
-.layout__contact--scroll-lock {
-  overflow: hidden; }
+  padding: 0 24px;
+  background: #212121; }
 
 .layout__navigation-mobile {
   background: #212121;
@@ -1090,6 +1064,29 @@ html {
   @media screen and (max-width: 960px) {
     .layout__navigation-mobile {
       display: block; } }
+
+.layout__overlay {
+  z-index: 50;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+.layout__overlay--scroll-lock {
+  overflow: hidden; }
+
+.layout__overlay--background {
+  background: blue; }
+
+.shell-scroll {
+  height: 100%;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch; }
+
+.shell-scroll--lock {
+  overflow: hidden; }
 
 .layout__mobile-menu {
   display: none;
@@ -1153,16 +1150,19 @@ html {
 
 .header {
   position: relative;
-  height: 56px;
-  padding: 0 240px;
+  height: 64px;
+  padding: 4px 240px;
   text-align: center; }
+  @media screen and (max-width: 960px) {
+    .header {
+      display: none; } }
 
 .header__logo {
   position: absolute;
   left: 0;
   top: 0;
   width: 90px;
-  padding: 8px 0; }
+  padding: 12px 0; }
 
 .header__primary {
   color: white; }
@@ -1175,7 +1175,7 @@ html {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 10px 0; }
+  padding: 14px 0; }
 
 .logo {
   opacity: 0.8;

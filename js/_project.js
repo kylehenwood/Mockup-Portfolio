@@ -26,7 +26,8 @@ $(document).on('project-stagger-in',function(){
 
 // Overlay
 function projectOverlayIn() {
-  layout.container.addClass('layout--scroll-lock');
+  bodyScrollDisable(layout.project);
+
   layout.project.show();
   layout.project.focus();
 
@@ -35,12 +36,15 @@ function projectOverlayIn() {
   project.container.addClass('anim--project-in');
   project.container.one(animationEvent,function(event){
     $(this).removeClass('anim--project-in');
-    layout.content.removeClass('anim--hidden');
+    bodyScrollSet(layout.project);
   });
 }
 
 function projectOverlayOut() {
-  layout.container.removeClass('layout--scroll-lock');
+
+  bodyScrollEnable(layout.project);
+
+  layout.project.removeClass('layout__project--background');
   layout.project.addClass('layout__project--scroll-lock');
   project.container.addClass('anim--project-out');
   project.container.one(animationEvent,function(event){
@@ -62,7 +66,6 @@ function projectsPageOut() {
   layout.content.addClass('anim--project-container-out');
   layout.content.one(animationEvent,function(event){
     $(this).removeClass('anim--project-container-out');
-    $(this).addClass('anim--hidden');
   });
 }
 

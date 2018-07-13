@@ -1,16 +1,19 @@
 // Website Navigation
 .header {
   position: relative;
-  height: 56px;
-  padding: 0 240px;
+  height: 64px;
+  padding: 4px 240px;
   text-align: center;
+  @include screen-med {
+    display: none;
+  }
 }
 .header__logo {
   position: absolute;
   left: 0;
   top: 0;
   width: 90px;
-  padding: 8px 0;
+  padding: 12px 0;
 }
 .header__primary {
   color: white;
@@ -23,7 +26,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  padding: 10px 0;
+  padding: 14px 0;
 }
 
 

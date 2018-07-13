@@ -12,23 +12,27 @@ $(document).ready(function(){
   });
 });
 
-
 // Since the portfolio is powered by PJAX, these containers
 // get reused alot, having the ref in one place is helpful
 var layout = {
-  container: null,
+  html: null,
+  body: null,
   navigation: null,
   content: null,
+  footer: null,
   post: null
 };
 
 function bindLayout() {
-  layout.container = $('.js-layout');
+  layout.html = $('.js-html');
+  layout.body = $('.js-layout');
   layout.navigation = $('.js-layout-header');
+  layout.content = $('.js-layout-content');
+  layout.footer = $('.js-layout-footer');
+
   layout.post = $('.js-overlay-post');
   layout.project = $('.js-overlay-project');
   layout.contact = $('.js-overlay-contact');
-  layout.content = $('.js-content-container');
 }
 
 

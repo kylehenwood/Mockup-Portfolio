@@ -11,11 +11,13 @@ var post = {
 
 // animate in
 $(document).on('post-in',function(e){
+  bodyScrollDisable(layout.post);
   postAnimateIn();
 });
 
 // animate out
 $(document).on('post-out',function(e){
+  bodyScrollEnable(layout.post);
   postAnimateOut();
 });
 
@@ -40,12 +42,9 @@ function postUnbindElements() {
   post.close.unbind();
 }
 
-
 // Animate in
 function postAnimateIn() {
   postBindElements();
-  console.log('post-in');
-  layout.container.addClass('layout--scroll-lock');
 
   // show and focus the post container, focus so that on mobile
   // it is easy to scroll instead of requiring a tap to focus.
@@ -55,6 +54,7 @@ function postAnimateIn() {
   post.container.addClass('anim--post-in');
   post.container.one(animationEvent,function(event){
     $(this).removeClass('anim--post-in');
+    bodyScrollSet(layout.post);
   });
 
   // Animate in gallery...
@@ -92,12 +92,8 @@ function postAnimateIn() {
 // Animate out
 function postAnimateOut() {
   postBindElements();
-  console.log('post-out');
-  layout.container.removeClass('layout--scroll-lock');
-  layout.container.focus();
 
-  layout.post.addClass('layout__post--scroll-lock');
-
+  //layout.post.addClass('layout__post--scroll-lock');
   // When animate-out is complete....
   post.container.addClass('anim--post-out');
   post.container.one(animationEvent,function(event){

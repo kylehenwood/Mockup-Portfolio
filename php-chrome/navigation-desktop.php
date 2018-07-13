@@ -1,5 +1,4 @@
 <div class="layout__header js-layout-header">
-
   <div class="center center--1120">
 
     <div class="header">
@@ -28,9 +27,26 @@
       </div>
 
       <div class="header__contact">
-        <a class="button-contact js-no-pjax" href="index.php?pageID=contact">Contact Me</a>
+        <a class="button-contact js-pjax-contact" href="index.php?pageID=contact">Contact Me</a>
       </div>
     </div>
+
+    <div class="navigation-mobile">
+      <!-- logo button -->
+      <div class="navigation-mobile__logo">
+        <a class="mobile-logo"></a>
+      </div>
+
+      <!-- menu button -->
+      <div class="navigation-mobile__button">
+        <a class="mobile-header-button js-mobile-menu-button">
+          <span class="flat-icon icon--16 icon--menu"></span>
+        </a>
+      </div>
+
+      <!-- account button -->
+    </div>
+
 
   </div>
 
