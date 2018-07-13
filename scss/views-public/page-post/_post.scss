@@ -1,10 +1,7 @@
 .gallery {
   min-height: 100%;
-  padding: 16px;
+  padding: 24px 16px;
   background: $color-grey-800;
-  @include screen-mob {
-    padding: 16px;
-  }
 }
 
 // container animations

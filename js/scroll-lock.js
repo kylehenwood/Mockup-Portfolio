@@ -4,7 +4,6 @@
 // Mobile IOS creates the need for this code.
 const scrollLock= {
   bodyPos: null,
-  shell: null
 }
 
 // make the body unscrollable, and the passed element scrollable.
@@ -17,29 +16,24 @@ function bodyScrollDisable(element) {
   layout.body.ontouchend = (e) => {
       e.preventDefault();
   };
+
   element.removeClass('layout__overlay--scroll-lock');
+  element.scrollTop(0);
+  element.focus();
 
-  scrollLock.shell = element.children();
-  scrollLock.shell.removeClass('shell--scroll-lock');
-  scrollLock.shell.focus();
-
-  element.on('touchmove scroll', function(){
-    var allowScroll = isElementScrollMax(element);
-    console.log(allowScroll);
-    if(allowScroll === true) {
-      element.ontouchstart = null;
-      element.ontouchmove = null;
-    } else {
-      element.ontouchstart = (e) => {
-        e.preventDefault();
-      };
-      element.ontouchmove = (e) => {
-        e.preventDefault();
-      };
-    }
-    scrollLock.shell.scrollTop(0);
-    scrollLock.shell.focus();
-  });
+  // element.on('touchmove scroll', function(){
+  //   var allowScroll = isElementScrollMax(element);
+  //   console.log(allowScroll);
+  //   if(allowScroll === true) {
+  //     element.ontouchstart = null;
+  //     element.ontouchmove = null;
+  //     element.ontouchend = null;
+  //   } else {
+  //     element.ontouchend = (e) => {
+  //       e.preventDefault();
+  //     };
+  //   }
+  // });
 }
 
 function bodyScrollSet(element) {
@@ -47,28 +41,23 @@ function bodyScrollSet(element) {
   // layout.navigation.hide();
   // layout.content.hide();
   // layout.footer.hide();
-
-  element.addClass('layout__overlay--background')
 }
 
 // make the body scrollable, and the passed element unscrollable.
 function bodyScrollEnable(element) {
   console.log('body--scrollable');
   element.unbind();
-  element.removeClass('layout__overlay--background')
   element.addClass('layout__overlay--scroll-lock');
-  scrollLock.shell.addClass('shell--scroll-lock');
 
   layout.navigation.show();
   layout.content.show();
   layout.footer.show();
 
   layout.body.removeClass('layout--scroll-lock');
+  layout.html.scrollTop(scrollLock.bodyPos);
   layout.body.focus();
   layout.body.ontouchstart = null;
   layout.body.ontouchmove = null;
-
-  layout.html.scrollTop(scrollLock.bodyPos);
 }
 
 

@@ -65,22 +65,12 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  // overflow-y: scroll;
-  // -webkit-overflow-scrolling: touch;
-}
-.layout__overlay--scroll-lock {
-  overflow: hidden;
-}
-
-.layout__overlay--background {
-  background: blue;
-}
-
-.shell {
-  height: 100%;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
+  @include screen-med {
+    background: black;
+  }
 }
-.shell--scroll-lock {
+.layout__overlay--scroll-lock {
   overflow: hidden;
 }
