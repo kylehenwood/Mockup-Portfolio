@@ -27,10 +27,7 @@ $(document).on('project-stagger-in',function(){
 // Overlay
 function projectOverlayIn() {
   bodyScrollDisable(layout.project);
-
   layout.project.show();
-  layout.project.focus();
-
   project.open = true;
   project.container = $('.js-project-container');
   project.container.addClass('anim--project-in');
@@ -41,9 +38,7 @@ function projectOverlayIn() {
 }
 
 function projectOverlayOut() {
-
   bodyScrollEnable(layout.project);
-
   layout.project.removeClass('layout__project--background');
   layout.project.addClass('layout__project--scroll-lock');
   project.container.addClass('anim--project-out');

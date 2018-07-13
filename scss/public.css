@@ -1026,9 +1026,6 @@ html {
   min-width: 320px;
   background: #212121; }
 
-.html--scroll-lock {
-  overflow-y: hidden; }
-
 .layout {
   position: relative;
   overflow-y: scroll;
@@ -1080,12 +1077,12 @@ html {
 .layout__overlay--background {
   background: blue; }
 
-.shell-scroll {
+.shell {
   height: 100%;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch; }
 
-.shell-scroll--lock {
+.shell--scroll-lock {
   overflow: hidden; }
 
 .layout__mobile-menu {

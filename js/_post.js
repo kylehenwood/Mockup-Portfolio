@@ -49,8 +49,6 @@ function postAnimateIn() {
   // show and focus the post container, focus so that on mobile
   // it is easy to scroll instead of requiring a tap to focus.
   layout.post.show();
-  layout.post.focus();
-  layout.post.scrollTop(0);
   post.container.addClass('anim--post-in');
   post.container.one(animationEvent,function(event){
     $(this).removeClass('anim--post-in');
