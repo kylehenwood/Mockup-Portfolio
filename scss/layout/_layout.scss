@@ -10,26 +10,24 @@ html {
 .layout {
   position: relative;
   overflow-y: scroll;
-  height: 100%;
+  width: 100%;
+  min-height: 100%;
   background: $color-grey-900;
 }
 
 .layout--scroll-lock {
-  position: fixed;
+  //position: fixed;
   //overflow: hidden;
-  padding-right: 15px; // scrollbar placement
+  //padding-right: 15px; // scrollbar placement
   @include screen-med {
     padding: 0;
-  }
-  .layout__content {
-    overflow: hidden;
   }
 }
 
 
 // Header
 .layout__header {
-  position: relative;
+  position: absolute;
   z-index: 50;
   top: 0;
   left: 0;
@@ -42,19 +40,27 @@ html {
 }
 
 
-.layout__content{
+.layout__content {
+  padding: 80px 0 400px;
+  width: 100%;
   background: $color-grey-800;
+}
+.layout__content--scroll-lock {
+  //display: none;
+  position: fixed;
+  overflow: hidden;
 }
 
 // Overlays
 .layout__overlay {
+  position: absolute;
   z-index: 50;
   display: none;
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  //background: red;
   // overflow-y: scroll;
   // -webkit-overflow-scrolling: touch;
   @include screen-med {
@@ -63,5 +69,15 @@ html {
 }
 .layout__overlay--scroll-lock {
   position: static;
+  overflow: hidden;
+}
+
+// Footer
+.layout__footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0 24px;
+  background: $color-grey-900;
   overflow: hidden;
 }

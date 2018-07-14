@@ -1029,20 +1029,16 @@ html {
 .layout {
   position: relative;
   overflow-y: scroll;
-  height: 100%;
+  width: 100%;
+  min-height: 100%;
   background: #212121; }
 
-.layout--scroll-lock {
-  position: fixed;
-  padding-right: 15px; }
-  @media screen and (max-width: 960px) {
-    .layout--scroll-lock {
-      padding: 0; } }
-  .layout--scroll-lock .layout__content {
-    overflow: hidden; }
+@media screen and (max-width: 960px) {
+  .layout--scroll-lock {
+    padding: 0; } }
 
 .layout__header {
-  position: relative;
+  position: absolute;
   z-index: 50;
   top: 0;
   left: 0;
@@ -1054,12 +1050,18 @@ html {
       padding: 0 16px; } }
 
 .layout__content {
+  padding: 80px 0 400px;
+  width: 100%;
   background: #424242; }
 
+.layout__content--scroll-lock {
+  position: fixed;
+  overflow: hidden; }
+
 .layout__overlay {
+  position: absolute;
   z-index: 50;
   display: none;
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -1070,6 +1072,14 @@ html {
 
 .layout__overlay--scroll-lock {
   position: static;
+  overflow: hidden; }
+
+.layout__footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0 24px;
+  background: #212121;
   overflow: hidden; }
 
 .layout__mobile-menu {
@@ -1091,12 +1101,6 @@ html {
     background: rgba(33, 33, 33, 0); }
   100% {
     background: white; } }
-
-.layout__footer {
-  width: 100%;
-  padding: 0 24px;
-  background: #212121;
-  overflow: hidden; }
 
 .layout__section {
   padding: 0 24px 80px 24px; }
