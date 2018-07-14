@@ -5,9 +5,37 @@
     <ul class="gallery-grid clearfix">
 
 <?php
-  for ($x = 0; $x <= 30; $x++) {
+	$galleryPosts = $_SESSION['gallery'];
+	foreach($galleryPosts as $post) {
+		$postURL = "index.php?pageID=gallery&postID=".$post['id'];
+		$postThumbnail = $post['thumb'];
+		$postTags = implode(",",$post['tags']);
+?>
 
-    $color = rand(1,7);
+<li class="gallery-grid__item">
+	<a class="gallery-thumbnail js-pjax-post" href="<?php echo $postURL ?>">
+		<img class="gallery-thumbnail__image" src="<?php echo $postThumbnail ?>" width="400" height="300">
+		<ul class="gallery-thumbnail__tags">
+			<li class="js-thumbnail-tags"><?php echo $postTags; ?></li>
+		</ul>
+	</a>
+</li>
+
+
+
+
+
+<?php
+	}
+?>
+
+
+
+<?php
+	// FAKE BULLSHIT
+	$animationDelay = 1;
+  for ($x = 1; $x <= 32; $x++) {
+    $color = rand(1,6);
     $colorClass = null;
 
     switch ($color) {
@@ -35,24 +63,18 @@
       $colorClass = "gallery-image--teal";
       break;
 
-      case $color == 7;
-      $colorClass = "gallery-image--black";
-      break;
     }
-
-    //$animationClass = "anim--in-bot";
-    //$addClass = $colorClass." ".$animationClass;
-    $addClass = '';
 ?>
 
       <li class="gallery-grid__item">
-        <a class="gallery-image <?php echo $addClass ?> js-gallery-item">
+        <a class="gallery-image js-gallery-item <?php echo $colorClass ?>" href="index.php?pageID=gallery&postID=001">
 					<img src="images/4-3.jpg" width="400" height="300">
 				</a>
       </li>
 
-<?php } ?>
-
+<?php
+}
+?>
 
     </div>
   </div>

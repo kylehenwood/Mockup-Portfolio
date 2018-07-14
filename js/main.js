@@ -1,10 +1,9 @@
 // javascripts
 $(document).ready(function(){
   mobileNavigation();
-  pageController();
   smoothScroll();
   textAnimation();
-  mobileTouch();
+  bindLayout();
 
   // trigger to listen to for page load
   $(document).trigger('page_load');
@@ -13,13 +12,29 @@ $(document).ready(function(){
   });
 });
 
+// Since the portfolio is powered by PJAX, these containers
+// get reused alot, having the ref in one place is helpful
+var layout = {
+  html: null,
+  body: null,
+  mobile: null,
+  navigation: null,
+  content: null,
+  footer: null,
+  post: null
+};
 
-function mobileTouch() {
-//   $(window).on('touchstart', function(e) {
-//     e.preventDefault();
-//     e.stopPropagation();
-//     $(this).trigger('focus');
-// });
+function bindLayout() {
+  layout.html = $('.js-html');
+  layout.body = $('.js-layout');
+  layout.navigation = $('.js-layout-header');
+  layout.content = $('.js-layout-content');
+  layout.footer = $('.js-layout-footer');
+  layout.mobile = $('.js-layout-mobile');
+
+  layout.post = $('.js-overlay-post');
+  layout.project = $('.js-overlay-project');
+  layout.contact = $('.js-overlay-contact');
 }
 
 
@@ -35,8 +50,6 @@ function mobileNavigation() {
   });
 }
 
-
-function pageController() {}
 
 
 

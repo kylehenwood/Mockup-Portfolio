@@ -1,19 +1,22 @@
 <script>
+
   // bind
   $(document).one('page_load',function(){
-    //currentPage = 'gallery';
-    // alert('bind-gallery');
-    galleryBind();
+    // only do the animation in from post when loading from a post
+    if (gallery.animateFromPost === true) {
+      gallery.animateFromPost = false;
+      $(document).trigger('gallery-in');
+    }
   });
 
-  // unbind
+  // out
   $(document).one('pjax:beforeReplace', function() {
-    //alert('unbind-gallery');
-    galleryUnbind();
   });
 </script>
 
+
 <?php
   include 'banner.php';
+  //include 'filter.php';
   include 'content.php';
 ?>

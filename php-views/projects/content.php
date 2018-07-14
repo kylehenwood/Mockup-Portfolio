@@ -4,9 +4,11 @@
     <div class="project-grid clearfix js-project-grid">
 
 <?php
-  for ($x = 0; $x <= 7; $x++) {
-    $color = rand(1,7);
-    //$colorClass = null;
+	$animationDelay = 1;
+	for ($x = 1; $x <= 16; $x++) {
+    $color = rand(1,6);
+		$colorClass = null;
+		$delayClass = null;
 
     switch ($color) {
       case $color == 1;
@@ -37,12 +39,41 @@
       $colorClass = "project-card--black";
       break;
     }
+
+		// animation delay increment
+		switch ($animationDelay) {
+			case $animationDelay == 1;
+			$delayClass = null;
+			break;
+
+			case $animationDelay == 2;
+			$delayClass = "anim--delay-40";
+			break;
+
+			case $animationDelay== 3;
+			$delayClass = "anim--delay-80";
+			break;
+
+			case $animationDelay == 4;
+			$delayClass = "anim--delay-120";
+			$animationDelay = 0;
+			break;
+		}
+		$animationDelay++;
+
+
+
+    //$animationClass = "anim--in-top";
+    $addClass = $colorClass;//." ".$animationClass;//." ".$delayClass;
+		$projectLink = 'index.php?pageID=projects&projectID=test';
 ?>
       <div class="project-grid__item">
-        <div class="project-card <?php echo $colorClass ?>  js-project-card"></div>
+        <a class="project-card <?php echo($addClass); ?> js-project-card js-pjax-project" href="<?php echo($projectLink); ?>">
+				</a>
       </div>
+
 <?php
-}
+	}
 ?>
 
     </div>

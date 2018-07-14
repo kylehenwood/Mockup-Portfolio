@@ -1,0 +1,97 @@
+// Mobile Header
+.navigation-mobile {
+  width: 100%;
+  display: none;
+  position: relative;
+  height: 80px;
+  padding: 16px 0;
+  @include screen-med() {
+    display: block;
+  }
+}
+.navigation-mobile__logo {
+  float: left;
+}
+
+
+.mobile-logo {
+  display: block;
+  opacity: 0.8;
+  height: 48px;
+  width: 56px;
+  background: white;
+  border-radius: 4px;
+  &:hover {
+    opacity: 1;
+  }
+  &:active {
+    opacity: 1;
+    transform: translateY(2px);
+  }
+}
+.mobile-logo--active {
+  opacity: 1;
+}
+.mobile-logo--dark {
+  background: $color-grey-800;
+}
+
+//-- buttons
+.navigation-mobile__button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 80px;
+  padding: 16px 0;
+}
+
+.navigation-mobile__navigation {
+  display: none;
+  background: white;
+  padding: 16px 24px;
+}
+.navigation-mobile__navigation--visible {
+  display: block;
+}
+
+
+
+.mobile-header-button {
+  cursor: pointer;
+  display: block;
+  width: 48px;
+  height: 48px;
+  padding: 16px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  color: white;
+  box-shadow: inset 0 0 0 2px rgba(white,0.6);
+  transition: all 80ms ease-out;
+  &:hover {
+    //color: black;
+    //background: white;
+    box-shadow: 0 0 0 2px rgba(white,1);
+  }
+  &:active {
+    color: black;
+    background: white;
+    box-shadow: 0 0 0 2px rgba(white,1);
+  }
+}
+
+
+
+.mobile-header-button--white {
+  color: white;
+  background: black;
+  box-shadow: none;
+  &:hover {
+    color: black;
+    background: rgba(black,0.1);
+  }
+  &:active {
+    color: white;
+    background: black;
+  }
+}

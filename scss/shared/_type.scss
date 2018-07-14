@@ -25,7 +25,7 @@ body {
   @include font-size(1.4);
   font-family: $font-family;
   line-height: 1.2;
-  color: $text-black;
+  color: white;
   text-rendering: optimizeLegibility;
 }
 
@@ -135,8 +135,9 @@ code {
 pre {
   display: block;
   background: $color-grey-300;
-  border-radius: 4px;
+  //border-radius: 4px;
   font-family: $font-mono;
+  color: black;
   padding: 24px;
   code {
     padding: 2px 0!important;

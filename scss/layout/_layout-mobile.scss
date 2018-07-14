@@ -1,15 +1,4 @@
 // Mobile header
-.layout__navigation-mobile {
-  background: $color-grey-900;
-  padding: 0 16px;
-  display: none;
-  @include screen-med {
-    display: block;
-  }
-}
-
-
-
 .layout__mobile-menu {
   display: none;
   position: fixed;

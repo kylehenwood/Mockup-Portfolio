@@ -1,4 +1,4 @@
-<div class="layout__footer">
+<div class="layout__footer js-layout-footer">
   <div class="center center--1120">
     <div class="footer clearfix">
 

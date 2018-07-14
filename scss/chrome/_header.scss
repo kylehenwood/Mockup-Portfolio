@@ -1,16 +1,19 @@
 // Website Navigation
 .header {
   position: relative;
-  height: 56px;
-  padding: 0 240px;
+  height: 64px;
+  padding: 4px 240px;
   text-align: center;
+  @include screen-med {
+    display: none;
+  }
 }
 .header__logo {
   position: absolute;
   left: 0;
   top: 0;
   width: 90px;
-  padding: 8px 0;
+  padding: 12px 0;
 }
 .header__primary {
   color: white;
@@ -23,7 +26,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  padding: 10px 0;
+  padding: 14px 0;
 }
 
 
@@ -142,21 +145,23 @@
   display: block;
   height: 36px;
   padding: 6px 24px;
-  box-shadow: inset 0 0 0 2px rgba(white,0.6);
+  box-shadow: inset 0 0 0 2px rgba(white,0.6), 0 0 0 0 rgba(white,0.6);
   border-radius: 18px;
   color: white;
   font-size: 14px;
   font-weight: 600;
   font-family: $font-family;
   line-height: 24px;
-  //transition: all 80ms ease-in;
+  transition: all 80ms ease-out;
   &:hover {
-    color: black;
-    background: white;
+    //color: black;
+    background: $color-blue-500;
+    box-shadow: inset 0 0 0 0 rgba(white,0.6), 0 0 0 2px white;
   }
   &:active {
-    color: black;
-    background: white;
-    transform: translateY(2px);
+    //color: black;
+    //background: white;
+    box-shadow: inset 0 0 0 2px rgba(white,1), 0 0 0 0 rgba(white,1);
+    //transform: translateY(2px);
   }
 }

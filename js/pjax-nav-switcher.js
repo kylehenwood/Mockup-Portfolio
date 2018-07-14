@@ -1,7 +1,7 @@
 // Pjax pagechange navigation highlight
 
 $(document).ready(function(){
-  const navItems = $('.js-navitem');
+  const navItems = $('.js-pjax-container');
   let currentItem = null;
 
   $(document).on('pjax:success',function(){
@@ -27,13 +27,3 @@ $(document).ready(function(){
     });
   });
 });
-
-
-// LOADING HANDLERS
-// if inpage link... js-pjax-loading
-
-// pjax:beforeSend
-// fade in loading overlay
-
-// pjax:beforeReplace
-// remove loading overlay

@@ -6,7 +6,7 @@
 .projects-banner {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   padding: 100px 0;
   @include screen-med {
     display: block;
