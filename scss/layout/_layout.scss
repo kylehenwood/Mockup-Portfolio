@@ -9,10 +9,11 @@ html {
 // Layout
 .layout {
   position: relative;
-  overflow-y: scroll;
   width: 100%;
   min-height: 100%;
   background: $color-grey-900;
+  // overflow-y: scroll;
+  // -webkit-overflow-scrolling: touch;
 }
 
 .layout--scroll-lock {
@@ -46,14 +47,14 @@ html {
   background: $color-grey-800;
 }
 .layout__content--scroll-lock {
-  //display: none;
+  // display: none;
   position: fixed;
   overflow: hidden;
 }
 
 // Overlays
 .layout__overlay {
-  position: absolute;
+  //position: absolute;
   z-index: 50;
   display: none;
   top: 0;
@@ -68,13 +69,12 @@ html {
   }
 }
 .layout__overlay--scroll-lock {
-  position: static;
+  position: fixed;
   overflow: hidden;
 }
 
 // Footer
 .layout__footer {
-  position: absolute;
   bottom: 0;
   width: 100%;
   padding: 0 24px;

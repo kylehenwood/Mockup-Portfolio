@@ -1028,7 +1028,6 @@ html {
 
 .layout {
   position: relative;
-  overflow-y: scroll;
   width: 100%;
   min-height: 100%;
   background: #212121; }
@@ -1059,7 +1058,6 @@ html {
   overflow: hidden; }
 
 .layout__overlay {
-  position: absolute;
   z-index: 50;
   display: none;
   top: 0;
@@ -1071,11 +1069,10 @@ html {
       background: black; } }
 
 .layout__overlay--scroll-lock {
-  position: static;
+  position: fixed;
   overflow: hidden; }
 
 .layout__footer {
-  position: absolute;
   bottom: 0;
   width: 100%;
   padding: 0 24px;

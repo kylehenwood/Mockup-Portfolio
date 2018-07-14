@@ -9,17 +9,16 @@ const scrollLock= {
 // make the body unscrollable, and the passed element scrollable.
 function bodyScrollDisable(element) {
   console.log('body--locked');
-  scrollLock.bodyPos = layout.html.scrollTop();
-
-
+  scrollLock.bodyPos = layout.html.scrollTop() || layout.body.scrollTop();
   layout.body.addClass('layout--scroll-lock');
   layout.body.ontouchend = (e) => {
       e.preventDefault();
   };
 
-  //element.removeClass('layout__overlay--scroll-lock');
-  layout.html.scrollTop(0);
-  layout.body.focus();
+  // animate in element (FIXED)
+  element.show();
+  element.addClass('layout__overlay--scroll-lock');
+  //layout.html.scrollTop(0);
 
   // element.on('touchmove scroll', function(){
   //   var allowScroll = isElementScrollMax(element);
@@ -40,6 +39,10 @@ function bodyScrollSet(element) {
   // Since setting scroll top on mobile does not seem to work....
   //element.scrollTop(0);
   //layout.content.addClass('layout__content--scroll-lock');
+  element.removeClass('layout__overlay--scroll-lock');
+  layout.html.scrollTop(0);
+  layout.body.scrollTop(0);
+
   layout.navigation.hide();
   layout.content.hide();
   layout.footer.hide();
@@ -48,16 +51,18 @@ function bodyScrollSet(element) {
 // make the body scrollable, and the passed element unscrollable.
 function bodyScrollEnable(element) {
   console.log('body--scrollable');
-  layout.content.removeClass('layout__content--scroll-lock');
+  // layout.content.addClass('layout__content--scroll-lock');
+  element.addClass('layout__overlay--scroll-lock');
   //element.unbind();
   //element.addClass('layout__overlay--scroll-lock');
 
   layout.navigation.show();
   layout.content.show();
   layout.footer.show();
-
-  layout.body.removeClass('layout--scroll-lock');
   layout.html.scrollTop(scrollLock.bodyPos);
+  layout.body.scrollTop(scrollLock.bodyPos);
+
+  //layout.body.removeClass('layout--scroll-lock');
   layout.body.focus();
   layout.body.ontouchstart = null;
   layout.body.ontouchmove = null;
