@@ -6,18 +6,13 @@
   top: 0;
   width: 100%;
   height: 100%;
-  //background: rgba($color-grey-900,0);
+  background: white;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
-  //transition: background 240ms ease-out;
 }
 
 .layout__mobile-menu--show {
   display: block;
-  // background: rgba(white,1);
-  // animation: 'mobile-navigation-in';
-  // animation-duration: 240ms;
-  // animation-fill-mode: forwards;
 }
 
 @keyframes mobile-navigation-in {

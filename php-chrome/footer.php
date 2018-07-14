@@ -20,7 +20,7 @@
                 <h4 class="footer-navigation__heading">Resources</h4>
                 <a class="footer-navigation__link link-primary" href="index.php?pageID=blog">Blog</a>
                 <a class="footer-navigation__link link-primary" href="index.php?pageID=help">Help center</a>
-                <a class="footer-navigation__link link-primary" href="contact@shnappy.com">contact@shnappy.com</a>
+                <a class="footer-navigation__link link-primary" href="contact@kylehenwood.com">Contact me</a>
               </div>
             </div>
             <div class="col-lg-6 col-md-12">

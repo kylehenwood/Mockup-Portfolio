@@ -1029,21 +1029,17 @@ html {
 .layout {
   position: relative;
   overflow-y: scroll;
-  min-height: 100%;
+  height: 100%;
   background: #212121; }
-  @media screen and (max-width: 960px) {
-    .layout {
-      padding: 0; } }
-  @media screen and (max-width: 720px) {
-    .layout {
-      background: #424242; } }
 
 .layout--scroll-lock {
-  overflow: hidden;
+  position: fixed;
   padding-right: 15px; }
   @media screen and (max-width: 960px) {
     .layout--scroll-lock {
       padding: 0; } }
+  .layout--scroll-lock .layout__content {
+    overflow: hidden; }
 
 .layout__header {
   position: relative;
@@ -1053,14 +1049,9 @@ html {
   width: 100%;
   padding: 0 24px;
   background: #212121; }
-
-.layout__navigation-mobile {
-  background: #212121;
-  padding: 0 16px;
-  display: none; }
   @media screen and (max-width: 960px) {
-    .layout__navigation-mobile {
-      display: block; } }
+    .layout__header {
+      padding: 0 16px; } }
 
 .layout__content {
   background: #424242; }
@@ -1072,14 +1063,13 @@ html {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch; }
+  height: 100%; }
   @media screen and (max-width: 960px) {
     .layout__overlay {
       background: black; } }
 
 .layout__overlay--scroll-lock {
+  position: static;
   overflow: hidden; }
 
 .layout__mobile-menu {
@@ -1089,6 +1079,7 @@ html {
   top: 0;
   width: 100%;
   height: 100%;
+  background: white;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch; }
 
@@ -1353,7 +1344,7 @@ html {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  height: 110%;
   padding: 80px 0 0;
   background: white;
   overflow-y: scroll; }
