@@ -3,8 +3,8 @@
   // bind
   $(document).one('page_load',function(){
     // only do the animation in from post when loading from a post
-    if (gallery.animateFromPost === true) {
-      gallery.animateFromPost = false;
+    if (post.animateFromPost === true) {
+      post.animateFromPost = false;
       $(document).trigger('gallery-in');
     }
   });

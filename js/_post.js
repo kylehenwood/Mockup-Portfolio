@@ -6,7 +6,8 @@ var post = {
   image: null,
   simliar: null,
   related: null,
-  close: null
+  close: null,
+  animateFromPost: false
 };
 
 // animate in

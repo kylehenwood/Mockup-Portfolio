@@ -3,7 +3,6 @@ var gallery = {
   heading: null,
   posts: null,
   subheading: null,
-  animateFromPost: false
 }
 
 
@@ -14,7 +13,6 @@ function galleryBind() {
 }
 
 $(document).on('gallery-out',function(e){
-  gallery.animateFromPost = true;
   galleryBind();
   galleryOut();
 });

@@ -16,6 +16,8 @@
 </script>
 
 <?php
+  echo '<div class="page js-page-projects">';
   include 'banner.php';
   include 'content.php';
+  echo '</div>';
 ?>

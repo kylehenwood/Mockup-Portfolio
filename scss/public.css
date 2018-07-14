@@ -1030,11 +1030,9 @@ html {
   position: relative;
   width: 100%;
   min-height: 100%;
-  background: #212121; }
-
-@media screen and (max-width: 960px) {
-  .layout--scroll-lock {
-    padding: 0; } }
+  background: #212121;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch; }
 
 .layout__header {
   position: absolute;
@@ -1049,7 +1047,7 @@ html {
       padding: 0 16px; } }
 
 .layout__content {
-  padding: 80px 0 400px;
+  padding: 80px 0 0;
   width: 100%;
   background: #424242; }
 
@@ -1058,26 +1056,21 @@ html {
   overflow: hidden; }
 
 .layout__overlay {
-  z-index: 50;
   display: none;
+  z-index: 50;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%; }
-  @media screen and (max-width: 960px) {
-    .layout__overlay {
-      background: black; } }
 
 .layout__overlay--scroll-lock {
   position: fixed;
   overflow: hidden; }
 
 .layout__footer {
-  bottom: 0;
   width: 100%;
   padding: 0 24px;
-  background: #212121;
-  overflow: hidden; }
+  background: #212121; }
 
 .layout__mobile-menu {
   display: none;
@@ -1099,21 +1092,6 @@ html {
   100% {
     background: white; } }
 
-.layout__section {
-  padding: 0 24px 80px 24px; }
-  @media screen and (max-width: 960px) {
-    .layout__section {
-      padding: 64px 24px; } }
-  @media screen and (max-width: 720px) {
-    .layout__section {
-      padding: 32px 16px; } }
-
-.layout__section--white {
-  background: white; }
-
-.layout__section--grey {
-  background: #424242; }
-
 .layout__banner {
   position: relative;
   overflow: hidden;
@@ -1132,6 +1110,21 @@ html {
   background: #E91E63; }
 
 .layout__banner--grey {
+  background: #424242; }
+
+.layout__section {
+  padding: 0 24px 80px 24px; }
+  @media screen and (max-width: 960px) {
+    .layout__section {
+      padding: 64px 24px; } }
+  @media screen and (max-width: 720px) {
+    .layout__section {
+      padding: 32px 16px; } }
+
+.layout__section--white {
+  background: white; }
+
+.layout__section--grey {
   background: #424242; }
 
 .header {
@@ -3423,7 +3416,7 @@ textarea:disabled:active {
   background: #EEEEEE; }
 
 .project__close {
-  position: absolute;
+  position: fixed;
   z-index: 100;
   top: 0;
   left: 0;

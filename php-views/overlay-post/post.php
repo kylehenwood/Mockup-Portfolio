@@ -6,7 +6,7 @@
   });
   // unbind
   $(document).one('pjax:beforeReplace', function() {
-    animateFromPost = true;
+    post.animateFromPost = true;
     $(document).trigger('post-out');
   });
 </script>

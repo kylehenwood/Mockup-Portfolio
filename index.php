@@ -87,10 +87,12 @@ function displayContent()	{
     include './php-views/overlay-project/_shell.php';
     include './php-views/overlay-contact/_shell.php';
 
-    echo '<div id="js-pjax-container" class="layout__content js-layout-content">';
+    echo '<div class="layout__content js-layout-content">';
+    echo '<div id="js-pjax-container">';
     echo $content;
     echo $postStandalone;
     echo $projectStandalone;
+    echo '</div>';
     echo '</div>';
 
     include './php-chrome/footer.php';
