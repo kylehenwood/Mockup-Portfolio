@@ -1,5 +1,5 @@
 <!-- mobile menu -->
-<div class="layout__mobile-menu js-mobile-menu">
+<div class="layout__mobile-menu js-layout-mobile">
 
   <div class="mobile-tray">
     <div class="mobile-tray__transition"></div>

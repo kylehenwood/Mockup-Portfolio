@@ -11,7 +11,7 @@ html {
   position: relative;
   overflow-y: scroll;
   min-height: 100%;
-  background: $color-grey-800;
+  background: $color-grey-900;
   //padding: 64px 0 0;
   @include screen-med() {
     padding: 0;
@@ -53,7 +53,9 @@ html {
   }
 }
 
-.layout__content{}
+.layout__content{
+  background: $color-grey-800;
+}
 .layout__filter {}
 
 // Overlays

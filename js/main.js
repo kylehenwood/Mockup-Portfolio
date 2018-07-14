@@ -17,6 +17,7 @@ $(document).ready(function(){
 var layout = {
   html: null,
   body: null,
+  mobile: null,
   navigation: null,
   content: null,
   footer: null,
@@ -29,6 +30,7 @@ function bindLayout() {
   layout.navigation = $('.js-layout-header');
   layout.content = $('.js-layout-content');
   layout.footer = $('.js-layout-footer');
+  layout.mobile = $('.js-layout-mobile');
 
   layout.post = $('.js-overlay-post');
   layout.project = $('.js-overlay-project');

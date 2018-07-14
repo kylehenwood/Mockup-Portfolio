@@ -1,7 +1,7 @@
 // tray overlay
 .mobile-tray {
   position: relative;
-  display: flex;
+  //display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -46,7 +46,7 @@
 
 .mobile-tray__navigation {
   width: 100%;
-  padding: 40px 16px;
+  padding: 48px 16px;
 }
 
 //-- navigation
@@ -113,6 +113,7 @@
 
 .mobile-contact__heading {
   font-size: 16px;
+  color: black;
   text-align: center;
   margin: 0 0 16px;
 }

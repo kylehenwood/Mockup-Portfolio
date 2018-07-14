@@ -8,7 +8,7 @@
 	<link rel="icon" type="image/png" href="mark_favicon.png" />
 
 	<!-- required -->
-	<script type="text/javascript" src="js/vendor/jquery-3.2.0.min.js"></script>
+	<script type="text/javascript" src="js/vendor/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="js/vendor/modernizr-2.6.2.min.js"></script>
 	<script type="text/javascript" src="js/vendor/jquery.pjax.js"></script>
 

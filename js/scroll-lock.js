@@ -49,9 +49,9 @@ function bodyScrollEnable(element) {
   element.unbind();
   element.addClass('layout__overlay--scroll-lock');
 
-  layout.navigation.show();
-  layout.content.show();
-  layout.footer.show();
+  // layout.navigation.show();
+  // layout.content.show();
+  // layout.footer.show();
 
   layout.body.removeClass('layout--scroll-lock');
   layout.html.scrollTop(scrollLock.bodyPos);

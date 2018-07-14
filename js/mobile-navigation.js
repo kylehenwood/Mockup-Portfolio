@@ -4,11 +4,8 @@
 
 $(document).ready(function(){
 
-
   // Elements
   const mobileNavToggle = $('.js-mobile-menu-button');
-  const mobileMenu = $('.js-mobile-menu');
-  const mobileLayout = $('.js-layout');
 
   let mobileNavOpen = false;
 
@@ -18,28 +15,16 @@ $(document).ready(function(){
 
       // remove classes when animate out completes.
       mobileNavOpen = false;
-      mobileLayout.removeClass('layout--scroll-lock');
-      mobileMenu.removeClass('layout__mobile-menu--show');
-      mobileLayout.focus();
+      layout.mobile.removeClass('layout__mobile-menu--show');
+      bodyScrollEnable(layout.mobile);
+
     } else {
 
       // remove classes when animate out completes.
       mobileNavOpen = true;
-      mobileLayout.addClass('layout--scroll-lock');
-      mobileMenu.addClass('layout__mobile-menu--show');
-      mobileMenu.focus();
-    }
-  });
+      layout.mobile.addClass('layout__mobile-menu--show');
+      bodyScrollDisable(layout.mobile);
 
-
-
-  // close on resize
-  $(window).resize(function(){
-    if (mobileNavOpen === true) {
-      mobileNavOpen = false;
-      mobileLayout.removeClass('layout--scroll-lock');
-      mobileMenu.removeClass('layout__mobile-menu--show');
-      mobileMenu.focus();
     }
   });
 
@@ -47,9 +32,9 @@ $(document).ready(function(){
   $(window).on('pjax:success',function(){
     if (mobileNavOpen === true) {
       mobileNavOpen = false;
-      mobileLayout.removeClass('layout--scroll-lock');
-      mobileMenu.removeClass('layout__mobile-menu--show');
-      mobileLayout.focus();
+      bodyScrollEnable(layout.mobile);
+      layout.mobile.removeClass('layout__mobile-menu--show');
+      layout.body.focus();
     }
   });
 });

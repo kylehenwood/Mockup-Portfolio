@@ -1030,7 +1030,7 @@ html {
   position: relative;
   overflow-y: scroll;
   min-height: 100%;
-  background: #424242; }
+  background: #212121; }
   @media screen and (max-width: 960px) {
     .layout {
       padding: 0; } }
@@ -1061,6 +1061,9 @@ html {
   @media screen and (max-width: 960px) {
     .layout__navigation-mobile {
       display: block; } }
+
+.layout__content {
+  background: #424242; }
 
 .layout__overlay {
   z-index: 50;
@@ -1347,7 +1350,6 @@ html {
 
 .mobile-tray {
   position: relative;
-  display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -1386,7 +1388,7 @@ html {
 
 .mobile-tray__navigation {
   width: 100%;
-  padding: 40px 16px; }
+  padding: 48px 16px; }
 
 .mobile-navigation {
   max-width: 280px;
@@ -1437,6 +1439,7 @@ html {
 
 .mobile-contact__heading {
   font-size: 16px;
+  color: black;
   text-align: center;
   margin: 0 0 16px; }
 
