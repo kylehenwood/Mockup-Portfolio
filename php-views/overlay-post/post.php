@@ -1,10 +1,12 @@
 <script>
   // bind
   $(document).one('pjax:success',function(){
+    console.log(post.animateToPost);
     if (post.animateToPost === true) {
       $(document).trigger('gallery-out');
       $(document).trigger('post-in');
     } else {
+      console.log('post-in--instant');
       $(document).trigger('post-in--instant');
     }
   });

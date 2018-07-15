@@ -1,13 +1,15 @@
 <script>
 
   // bind
-  $(document).one('page_load',function(){
+  $(document).one('pjax:success',function(){
     // only do the animation in from post when loading from a post
     if (post.animateFromPost === true) {
       post.animateFromPost = false;
       $(document).trigger('gallery-in');
+    } else {
+      console.log('gallery-in--instant');
+      $(document).trigger('gallery-in--instant');
     }
-    $(document).trigger('gallery-in--instant');
   });
 
   // out

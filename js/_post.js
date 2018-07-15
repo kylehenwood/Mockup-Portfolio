@@ -14,23 +14,30 @@ var post = {
 
 // animate in
 $(document).on('post-in',function(e){
+  post.animateToPost = false;
+  postBindElements();
   bodyScrollDisable(layout.post);
   postAnimateIn();
   headerFix(post.heading,'post__heading-fixed--scroll');
-  post.animateToPost = false;
+});
+$(document).on('post-in--instant',function(e){
+  postBindElements();
+  postInstantIn();
+  headerFix(post.heading,'post__heading-fixed--scroll');
 });
 
 // animate out
 $(document).on('post-out',function(e){
+  postBindElements();
   bodyScrollEnable(layout.post);
   postAnimateOut();
   headerUnfix(post.heading,'post__heading-fixed--scroll');
 });
 
 $(document).on('post-out--instant',function(e){
-  bodyScrollEnable(layout.post);
-  headerUnfix(post.heading,'post__heading-fixed--scroll');
+  postBindElements();
   postInstantOut();
+  headerUnfix(post.heading,'post__heading-fixed--scroll');
 });
 
 
@@ -62,8 +69,6 @@ function postUnbindElements() {
 
 // Animate in
 function postAnimateIn() {
-  postBindElements();
-
   // show and focus the post container, focus so that on mobile
   // it is easy to scroll instead of requiring a tap to focus.
   layout.post.show();
@@ -105,10 +110,15 @@ function postAnimateIn() {
   });
 }
 
+// Instant In
+function postInstantIn() {
+  layout.post.show();
+  layout.navigation.hide();
+  layout.content.hide();
+}
+
 // Animate out
 function postAnimateOut() {
-  postBindElements();
-
   //layout.post.addClass('layout__post--scroll-lock');
   // When animate-out is complete....
   post.container.addClass('anim--post-out');
@@ -160,6 +170,7 @@ function postAnimateOut() {
 
 // Instant out
 function postInstantOut() {
-  layout.post.removeClass('layout__post--scroll-lock');
+  layout.navigation.hide();
   layout.post.hide();
+  layout.content.show();
 }
