@@ -1,5 +1,5 @@
 
-<div class="layout__section layout__section--grey">
+<div class="page__section page__section--grey">
 	<div class="center center--1120">
 
     <ul class="gallery-grid clearfix">

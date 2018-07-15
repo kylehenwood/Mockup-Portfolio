@@ -1,4 +1,4 @@
-<div class="project js-project-container">
+<div class="project project--standalone">
 	<div class="project__banner">
 		<div class="center center--1120">
 			<div class="project-banner">

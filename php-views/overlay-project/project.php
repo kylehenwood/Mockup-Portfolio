@@ -18,7 +18,7 @@
         <div class="project-back-button__icon">
           <span class="flat-icon icon--16 icon--arrow-left"></span>
         </div>
-        <div class="project-back-button__text">Back to projects</div>
+        <div class="project-back-button__text">All Projects</div>
       </a>
     </div>
   </div>

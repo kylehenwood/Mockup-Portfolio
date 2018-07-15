@@ -13,11 +13,11 @@
 	<script type="text/javascript" src="js/vendor/jquery.pjax.js"></script>
 
 	<!-- ui -->
+	<script type="text/javascript" src="js/pjax-connect.js"></script>
 	<script type="text/javascript" src="js/mobile-navigation.js"></script>
 	<script type="text/javascript" src="js/pjax-nav-switcher.js"></script>
-	<script type="text/javascript" src="js/pjax-connect.js"></script>
 	<script type="text/javascript" src="js/scroll-lock.js"></script>
-
+	<script type="text/javascript" src="js/header-fixed.js"></script>
 	<!-- init -->
 	<script type="text/javascript" src="js/useful.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>

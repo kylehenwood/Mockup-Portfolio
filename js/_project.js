@@ -24,9 +24,9 @@ $(document).on('projects-page-out',function(){
   projectBind();
   projectsPageOut();
 });
-$(document).on('project-stagger-in',function(){
+$(document).on('projects-stagger-in',function(){
   projectBind();
-  projectStaggerIn();
+  projectsStaggerIn();
 });
 
 
@@ -79,6 +79,6 @@ function projectsPageOut() {
 
 
 // Stagger in
-function projectStaggerIn() {
+function projectsStaggerIn() {
   project.cards.addClass('anim--slide-down');
 }

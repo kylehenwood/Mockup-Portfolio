@@ -33,9 +33,12 @@ html {
 
 // Content
 .layout__content {
-  padding: 80px 0 0;
+  padding: 64px 0 0;
   width: 100%;
   background: $color-grey-800;
+  @include screen-med {
+    padding: 80px 0 0;
+  }
 }
 .layout__content--scroll-lock {
   position: fixed;
@@ -48,8 +51,9 @@ html {
   z-index: 50;
   top: 0;
   left: 0;
+  bottom: 0;
   width: 100%;
-  height: 100%;
+  //height: 100%;
 }
 .layout__overlay--scroll-lock {
   position: fixed;

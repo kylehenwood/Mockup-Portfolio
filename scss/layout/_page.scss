@@ -10,17 +10,14 @@
 
 
 // Banner
-.layout__banner {
+.page__banner {
   position: relative;
-  overflow: hidden;
   padding: 0 24px;
 }
 
-.layout__banner--alpha {
+.page__banner--alpha {
   background: $color-pink-500;
   background: linear-gradient(to bottom, $color-pink-500, $color-purple-500); /* Standard syntax */
-  //background-image: url('../images/photos/home-banner-image.jpg');
-  //background-size: cover;
 }
 
 .layout__banner--beta {
@@ -29,20 +26,18 @@
   }
 }
 
-.layout__banner--gamma {}
-
 // colors
-.layout__banner--pink {
+.page__banner--pink {
   background: $color-pink-500;
 }
 
-.layout__banner--grey {
+.page__banner--grey {
   background: $color-grey-800;
 }
 
 
 // Section
-.layout__section {
+.page__section {
   padding: 0 24px 80px 24px;
   @include screen-med {
     padding: 64px 24px;
@@ -52,10 +47,9 @@
   }
 }
 
-.layout__section--white {
+.page__section--white {
   background: white;
 }
-.layout__section--grey {
-  //background: $color-grey-200;
+.page__section--grey {
   background: $color-grey-800;
 }

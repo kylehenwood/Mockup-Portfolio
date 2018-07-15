@@ -4,11 +4,16 @@
 
 .project {
   position: relative;
+  padding: 72px 0 0;
 }
+.project--standalone {
+  padding: 0;
+}
+
 .project__banner {
   padding: 0 16px;
-  height: 640px;
   background: $color-grey-800;
+  background: linear-gradient(to bottom, $color-blue-700, $color-purple-900); /* Standard syntax */
 }
 .project__description {
   padding: 40px 16px;
@@ -27,7 +32,7 @@
   left: 0;
   width: 100%;
   padding: 16px;
-  background: $color-grey-800;
+  background: $color-grey-900;
 }
 
 
@@ -71,7 +76,7 @@
   align-items: center;
   justify-content: center;
   padding: 100px 0;
-  height: 640px;
+  height: 560px;
 }
 
 
@@ -149,7 +154,7 @@
     transform: translateY(0);
   }
   100% {
-    opacity: 0;
+    opacity: 0.4;
     transform: translateY(-80px);
   }
 }

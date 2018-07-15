@@ -29,87 +29,92 @@
   }
 ?>
 
-<div class="layout__content">
-<div class="center center--1120">
-<div class="gallery">
-  <div class="gallery__heading">
-    <div class="gallery-heading">
-      <div class="gallery-heading__title js-gallery-heading">
-        <h1 class="heading-1 text-white"><?php echo($postTitle); ?></h1>
-      </div>
-      <div class="gallery-heading__subheading js-gallery-subheading">
-        <h4 class="heading-subtitle text-white"><?php echo($postSubtitle); ?></h4>
+<div class="post post--standalone">
+
+  <!-- heading start -->
+  <div class="post__heading">
+    <div class="center center--1120">
+      <div class="post-heading">
+        <div class="post-heading__title">
+          <h1 class="heading-1 text-white"><?php echo($postTitle); ?></h1>
+        </div>
       </div>
     </div>
   </div>
+  <!-- heading end -->
 
-  <div class="gallery__image">
-    <div class="gallery-selected">
-      <div class="gallery-selected__image js-gallery-image">
-        <div class="gallery-image-container"></div>
-      </div>
+  <!-- image start -->
+  <div class="post__image">
+    <div class="center center--1120">
+      <div class="post-image-placeholder"></div>
     </div>
   </div>
+  <!-- image end -->
 
-
-  <div class="gallery__project js-gallery-projects">
-    <div class="tile-select">
-      <div class="tile-select__heading">
-        <h2 class="heading-3 text-white">More from this project</h2>
-      </div>
-      <div class="tile-select__tiles">
-        <div class="gallery-grid clearfix">
-          <div class="gallery-grid__item">
-            <div class="gallery-image">
-              <img src="images/4-3.jpg" width="400" height="300">
+  <!-- project start -->
+  <div class="post__project">
+    <div class="center center--1120">
+      <div class="tile-select">
+        <div class="tile-select__heading">
+          <h2 class="heading-3 text-white">More from this project</h2>
+        </div>
+        <div class="tile-select__tiles">
+          <div class="gallery-grid clearfix">
+            <div class="gallery-grid__item">
+              <div class="gallery-image">
+                <img src="images/4-3.jpg" width="400" height="300">
+              </div>
             </div>
-          </div>
-          <div class="gallery-grid__item">
-            <div class="gallery-image">
-            <img src="images/4-3.jpg" width="400" height="300"></div>
-          </div>
-          <div class="gallery-grid__item">
-            <div class="gallery-image">
-            <img src="images/4-3.jpg" width="400" height="300"></div>
-          </div>
-          <div class="gallery-grid__item">
-            <div class="gallery-image">
-            <img src="images/4-3.jpg" width="400" height="300"></div>
+            <div class="gallery-grid__item">
+              <div class="gallery-image">
+              <img src="images/4-3.jpg" width="400" height="300"></div>
+            </div>
+            <div class="gallery-grid__item">
+              <div class="gallery-image">
+              <img src="images/4-3.jpg" width="400" height="300"></div>
+            </div>
+            <div class="gallery-grid__item">
+              <div class="gallery-image">
+              <img src="images/4-3.jpg" width="400" height="300"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <!-- project end -->
 
-
-  <div class="gallery__similar js-gallery-similar">
-    <div class="tile-select">
-      <div class="tile-select__heading">
-        <h2 class="heading-3 text-white">Similar things</h2>
-      </div>
-      <div class="tile-select__tiles">
-        <div class="gallery-grid clearfix">
-          <div class="gallery-grid__item">
-            <div class="gallery-image">
-              <img src="images/4-3.jpg" width="400" height="300">
+  <!-- similar start -->
+  <div class="post__similar">
+    <div class="center center--1120">
+      <div class="tile-select">
+        <div class="tile-select__heading">
+          <h2 class="heading-3 text-white">Similar things</h2>
+        </div>
+        <div class="tile-select__tiles">
+          <div class="gallery-grid clearfix">
+            <div class="gallery-grid__item">
+              <div class="gallery-image">
+                <img src="images/4-3.jpg" width="400" height="300">
+              </div>
             </div>
-          </div>
-          <div class="gallery-grid__item">
-            <div class="gallery-image">
-            <img src="images/4-3.jpg" width="400" height="300"></div>
-          </div>
-          <div class="gallery-grid__item">
-            <div class="gallery-image">
-            <img src="images/4-3.jpg" width="400" height="300"></div>
-          </div>
-          <div class="gallery-grid__item">
-            <div class="gallery-image">
-            <img src="images/4-3.jpg" width="400" height="300"></div>
+            <div class="gallery-grid__item">
+              <div class="gallery-image">
+              <img src="images/4-3.jpg" width="400" height="300"></div>
+            </div>
+            <div class="gallery-grid__item">
+              <div class="gallery-image">
+              <img src="images/4-3.jpg" width="400" height="300"></div>
+            </div>
+            <div class="gallery-grid__item">
+              <div class="gallery-image">
+              <img src="images/4-3.jpg" width="400" height="300"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-</div>
+  <!-- similar end -->
+
 </div>

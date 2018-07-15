@@ -7,6 +7,7 @@
       post.animateFromPost = false;
       $(document).trigger('gallery-in');
     }
+    $(document).trigger('gallery-in--instant');
   });
 
   // out
@@ -16,7 +17,9 @@
 
 
 <?php
+  echo '<div class="page">';
   include 'banner.php';
   //include 'filter.php';
   include 'content.php';
+  echo '</div>';
 ?>
