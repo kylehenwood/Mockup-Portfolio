@@ -4,7 +4,7 @@
 
 .project {
   position: relative;
-  padding: 72px 0 0;
+  //padding: 72px 0 0;
 }
 .project--standalone {
   padding: 0;
@@ -32,6 +32,11 @@
   left: 0;
   width: 100%;
   padding: 16px;
+  //background: $color-grey-900;
+  transition: 200ms background ease-out;
+}
+
+.project__close--scroll {
   background: $color-grey-900;
 }
 

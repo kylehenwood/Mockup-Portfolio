@@ -3,7 +3,8 @@ var project = {
   open: false,
   container: null,
   page: null,
-  cards: null
+  cards: null,
+  fixed: null
 }
 
 
@@ -11,11 +12,14 @@ var project = {
 $(document).on('project-overlay-in',function(){
   projectBind();
   projectOverlayIn();
+  headerFix(project.fixed,'project__close--scroll');
 });
 $(document).on('project-overlay-out',function(){
   projectBind();
   projectOverlayOut();
+  headerUnfix(project.fixed,'project__close--scroll');
 });
+
 $(document).on('projects-page-in',function(){
   projectBind();
   projectsPageIn();
@@ -24,6 +28,7 @@ $(document).on('projects-page-out',function(){
   projectBind();
   projectsPageOut();
 });
+
 $(document).on('projects-stagger-in',function(){
   projectBind();
   projectsStaggerIn();
@@ -35,6 +40,7 @@ function projectBind() {
   project.page = $('.js-page-projects');
   project.cards = $('.js-project-card');
   project.container = $('.js-project-container');
+  project.fixed = $('.js-project-fixed');
 }
 
 

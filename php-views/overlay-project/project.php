@@ -12,7 +12,7 @@
 
 
 <div class="project js-project-container">
-  <div class="project__close">
+  <div class="project__close js-project-fixed">
     <div class="center center--1120">
       <a class="project-back-button js-pjax-container" href="index.php?pageID=projects">
         <div class="project-back-button__icon">

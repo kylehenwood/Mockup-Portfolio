@@ -3401,8 +3401,7 @@ textarea:disabled:active {
       padding: 64px 0 0; } }
 
 .project {
-  position: relative;
-  padding: 72px 0 0; }
+  position: relative; }
 
 .project--standalone {
   padding: 0; }
@@ -3429,6 +3428,9 @@ textarea:disabled:active {
   left: 0;
   width: 100%;
   padding: 16px;
+  transition: 200ms background ease-out; }
+
+.project__close--scroll {
   background: #212121; }
 
 .project-back-button {
