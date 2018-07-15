@@ -24,10 +24,12 @@ $(document).on('post-in',function(e){
 $(document).on('post-out',function(e){
   bodyScrollEnable(layout.post);
   postAnimateOut();
+  headerUnfix(post.heading,'post__heading-fixed--scroll');
 });
 
 $(document).on('post-out--instant',function(e){
   bodyScrollEnable(layout.post);
+  headerUnfix(post.heading,'post__heading-fixed--scroll');
   postInstantOut();
 });
 

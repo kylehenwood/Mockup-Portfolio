@@ -21,5 +21,5 @@ function headerFix(element,fixedClass) {
 
 function headerUnfix(element,fixedClass) {
   element.removeClass(fixedClass);
-  element.unbind();
+  $(window).unbind();
 }
