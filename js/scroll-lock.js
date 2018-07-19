@@ -42,7 +42,4 @@ function bodyScrollEnable(element) {
   layout.footer.show();
   layout.html.scrollTop(scrollLock.scrollPos);
   layout.body.scrollTop(scrollLock.scrollPos);
-
-
-
 }

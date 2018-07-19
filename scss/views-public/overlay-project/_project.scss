@@ -4,7 +4,8 @@
 
 .project {
   position: relative;
-  //padding: 72px 0 0;
+  padding: 72px 0 0;
+  background: $color-grey-900;
 }
 .project--standalone {
   padding: 0;
@@ -32,12 +33,13 @@
   left: 0;
   width: 100%;
   padding: 16px;
-  //background: $color-grey-900;
-  transition: 200ms background ease-out;
+  background: $color-grey-900;
 }
 
 .project__close--scroll {
-  background: $color-grey-900;
+  //position: fixed;
+  //background: linear-gradient(black,transparent);
+  //background: linear-gradient(0deg,rgba(0,0,0,0),rgba(0,0,0,0.4));
 }
 
 
@@ -82,48 +84,6 @@
   justify-content: center;
   padding: 100px 0;
   height: 560px;
-}
-
-
-// container animations
-.anim--project-container-in {
-  transform-origin: 50% 50%;
-  opacity: 1;
-  animation-name: project-container-in;
-  animation-duration: 200ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-}
-@keyframes project-container-in {
-  000% {
-    opacity: 0.4;
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-
-.anim--project-container-out {
-  animation-delay: 100ms;
-  transform-origin: 50% 200px;
-  opacity: 1;
-  animation-name: project-container-out;
-  animation-duration: 200ms;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
-}
-@keyframes project-container-out {
-  000% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0.4;
-    transform: scale(0.9);
-  }
 }
 
 

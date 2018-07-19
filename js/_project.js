@@ -3,52 +3,53 @@ var project = {
   open: false,
   container: null,
   page: null,
-  cards: null,
-  fixed: null
+  animateToProject: false,
+  animateFromProject: false
 }
 
 
 // Triggers
-$(document).on('project-overlay-in',function(){
-  projectBind();
-  projectOverlayIn();
+$(document).on('project-animate-in',function(){
+  project.open = true;
   headerFix(project.fixed,'project__close--scroll');
+  projectAnimateIn();
 });
-$(document).on('project-overlay-out',function(){
-  projectBind();
-  projectOverlayOut();
+$(document).on('project-animate-out',function(){
+  project.open = false;
   headerUnfix(project.fixed,'project__close--scroll');
+  projectAnimateOut();
 });
 
-$(document).on('projects-page-in',function(){
-  projectBind();
-  projectsPageIn();
+$(document).on('project-instant-in',function(){
+  project.open = true;
+  headerFix(project.fixed,'project__close--scroll');
+  projectInstantIn();
 });
-$(document).on('projects-page-out',function(){
-  projectBind();
-  projectsPageOut();
+$(document).on('project-instant-out',function(){
+  project.open = false;
+  headerUnfix(project.fixed,'project__close--scroll');
+  projectInstantOut();
 });
 
-$(document).on('projects-stagger-in',function(){
-  projectBind();
-  projectsStaggerIn();
-});
 
 
 // bindings
 function projectBind() {
-  project.page = $('.js-page-projects');
-  project.cards = $('.js-project-card');
   project.container = $('.js-project-container');
   project.fixed = $('.js-project-fixed');
+  project.close = $('.js-project-close');
+
+  project.close.click(function(){
+    project.open = false;
+    project.animateFromProject = true;
+  });
 }
 
 
 // Overlay
-function projectOverlayIn() {
+function projectAnimateIn() {
   bodyScrollDisable(layout.project);
   layout.project.show();
-  project.open = true;
   project.container.addClass('anim--project-in');
   project.container.one(animationEvent,function(event){
     $(this).removeClass('anim--project-in');
@@ -56,35 +57,23 @@ function projectOverlayIn() {
   });
 }
 
-function projectOverlayOut() {
+function projectAnimateOut() {
   bodyScrollEnable(layout.project);
-  layout.project.removeClass('layout__project--background');
-  layout.project.addClass('layout__project--scroll-lock');
   project.container.addClass('anim--project-out');
   project.container.one(animationEvent,function(event){
     $(this).removeClass('anim--project-out');
-    layout.project.removeClass('layout__project--scroll-lock');
     layout.project.hide();
   });
 }
 
 
-// Page
-function projectsPageIn() {
-  project.page.addClass('anim--project-container-in');
-  project.page.one(animationEvent,function(event){
-    $(this).removeClass('anim--project-container-in');
-  });
-}
-function projectsPageOut() {
-  project.page.addClass('anim--project-container-out');
-  project.page.one(animationEvent,function(event){
-    $(this).removeClass('anim--project-container-out');
-  });
+function projectInstantIn() {
+  bodyScrollDisable(layout.project);
+  layout.project.show();
+  bodyScrollSet(layout.project);
 }
 
-
-// Stagger in
-function projectsStaggerIn() {
-  project.cards.addClass('anim--slide-down');
+function projectInstantOut() {
+  bodyScrollEnable(layout.project);
+  layout.project.hide();
 }

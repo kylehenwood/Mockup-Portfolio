@@ -15,6 +15,9 @@ html {
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
+.layout--white {
+  background: white;
+}
 
 
 // Header
@@ -53,7 +56,6 @@ html {
   left: 0;
   bottom: 0;
   width: 100%;
-  //height: 100%;
 }
 .layout__overlay--scroll-lock {
   position: fixed;

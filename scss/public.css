@@ -1034,6 +1034,9 @@ html {
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch; }
 
+.layout--white {
+  background: white; }
+
 .layout__header {
   position: absolute;
   z-index: 50;
@@ -1074,26 +1077,6 @@ html {
   width: 100%;
   padding: 0 24px;
   background: #212121; }
-
-.layout__mobile-menu {
-  display: none;
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: white;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch; }
-
-.layout__mobile-menu--show {
-  display: block; }
-
-@keyframes mobile-navigation-in {
-  000% {
-    background: rgba(33, 33, 33, 0); }
-  100% {
-    background: white; } }
 
 .page__banner {
   position: relative;
@@ -1340,7 +1323,6 @@ html {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 110%;
   padding: 80px 0 0;
   background: white;
   overflow-y: scroll; }
@@ -1351,27 +1333,7 @@ html {
   left: 0;
   width: 100%;
   height: 80px;
-  padding: 0 16px;
-  background: #EEEEEE; }
-
-.mobile-tray__transition {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 48px;
-  height: 48px;
-  background: red;
-  border-radius: 50%;
-  animation-name: mobile-transition;
-  animation-duration: 280ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards; }
-
-@keyframes mobile-transition {
-  000% {
-    box-shadow: 0 0 0 0 white; }
-  100% {
-    box-shadow: 0 0 0 640px rgba(255, 255, 255, 0); } }
+  padding: 0 16px; }
 
 .mobile-tray__navigation {
   width: 100%;
@@ -3402,8 +3364,43 @@ textarea:disabled:active {
     .projects-banner {
       padding: 64px 0 0; } }
 
+.anim--works-in {
+  transform-origin: 50% 50%;
+  opacity: 1;
+  animation-name: works-in;
+  animation-duration: 200ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards; }
+
+@keyframes works-in {
+  000% {
+    opacity: 0.4;
+    transform: scale(0.9); }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+
+.anim--works-out {
+  animation-delay: 100ms;
+  transform-origin: 50% 200px;
+  opacity: 1;
+  animation-name: works-out;
+  animation-duration: 200ms;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards; }
+
+@keyframes works-out {
+  000% {
+    opacity: 1;
+    transform: scale(1); }
+  100% {
+    opacity: 0.4;
+    transform: scale(0.9); } }
+
 .project {
-  position: relative; }
+  position: relative;
+  padding: 72px 0 0;
+  background: #212121; }
 
 .project--standalone {
   padding: 0; }
@@ -3430,9 +3427,6 @@ textarea:disabled:active {
   left: 0;
   width: 100%;
   padding: 16px;
-  transition: 200ms background ease-out; }
-
-.project__close--scroll {
   background: #212121; }
 
 .project-back-button {
@@ -3468,39 +3462,6 @@ textarea:disabled:active {
   justify-content: center;
   padding: 100px 0;
   height: 560px; }
-
-.anim--project-container-in {
-  transform-origin: 50% 50%;
-  opacity: 1;
-  animation-name: project-container-in;
-  animation-duration: 200ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards; }
-
-@keyframes project-container-in {
-  000% {
-    opacity: 0.4;
-    transform: scale(0.9); }
-  100% {
-    opacity: 1;
-    transform: scale(1); } }
-
-.anim--project-container-out {
-  animation-delay: 100ms;
-  transform-origin: 50% 200px;
-  opacity: 1;
-  animation-name: project-container-out;
-  animation-duration: 200ms;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards; }
-
-@keyframes project-container-out {
-  000% {
-    opacity: 1;
-    transform: scale(1); }
-  100% {
-    opacity: 0.4;
-    transform: scale(0.9); } }
 
 .anim--project-in {
   opacity: 0;

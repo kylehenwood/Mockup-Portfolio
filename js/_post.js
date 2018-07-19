@@ -13,36 +13,32 @@ var post = {
 };
 
 // animate in
-$(document).on('post-in',function(e){
+$(document).on('post-in--animate',function(e){
   post.animateToPost = false;
-  postBindElements();
   bodyScrollDisable(layout.post);
   postAnimateIn();
   headerFix(post.heading,'post__heading-fixed--scroll');
 });
 $(document).on('post-in--instant',function(e){
-  postBindElements();
   postInstantIn();
   headerFix(post.heading,'post__heading-fixed--scroll');
 });
 
 // animate out
-$(document).on('post-out',function(e){
-  postBindElements();
+$(document).on('post-out--animate',function(e){
   bodyScrollEnable(layout.post);
   postAnimateOut();
   headerUnfix(post.heading,'post__heading-fixed--scroll');
 });
 
 $(document).on('post-out--instant',function(e){
-  postBindElements();
   postInstantOut();
   headerUnfix(post.heading,'post__heading-fixed--scroll');
 });
 
 
 // Bind || Unbind elements
-function postBindElements() {
+function postBind() {
   post.container = $('.js-post-container');
   post.heading = $('.js-post-heading');
   post.title = $('.js-post-title');
@@ -57,7 +53,7 @@ function postBindElements() {
   });
 }
 
-function postUnbindElements() {
+function postUnbind() {
   post.heading.unbind();
   post.title.unbind();
   post.subtitle.unbind();
@@ -112,6 +108,7 @@ function postAnimateIn() {
 
 // Instant In
 function postInstantIn() {
+  bodyScrollSet(layout.post);
   layout.post.show();
   layout.navigation.hide();
   layout.content.hide();
@@ -170,6 +167,7 @@ function postAnimateOut() {
 
 // Instant out
 function postInstantOut() {
+  bodyScrollEnable(layout.post);
   layout.navigation.hide();
   layout.post.hide();
   layout.content.show();

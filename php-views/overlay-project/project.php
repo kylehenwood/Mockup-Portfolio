@@ -1,12 +1,26 @@
 <script>
-  // bind
+  //--
+  // In
   $(document).one('pjax:success',function(){
-    $(document).trigger('projects-page-out');
-		$(document).trigger('project-overlay-in');
+    projectBind();
+    // Animate works => project
+    if (project.open === false) {
+      $(document).trigger('project-animate-in');
+    }
   });
-  // unbind
+  //--
+  // Out
   $(document).one('pjax:beforeReplace', function() {
-    $(document).trigger('project-overlay-out');
+    // animate project => works
+    if (project.animateFromProject === true) {
+      project.animateFromProject = false;
+      $(document).trigger('project-animate-out');
+    }
+    // instant project => works
+
+
+    // animate project => project
+    if (project.open === true){}
   });
 </script>
 
@@ -14,7 +28,7 @@
 <div class="project js-project-container">
   <div class="project__close js-project-fixed">
     <div class="center center--1120">
-      <a class="project-back-button js-pjax-container" href="index.php?pageID=projects">
+      <a class="project-back-button js-project-close js-pjax-container" href="index.php?pageID=projects">
         <div class="project-back-button__icon">
           <span class="flat-icon icon--16 icon--arrow-left"></span>
         </div>

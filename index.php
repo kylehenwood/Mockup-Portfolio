@@ -26,7 +26,7 @@ function displayContent()	{
         $content = null;
       } else {
         $title = 'KH - TLDR';
-        $content = setContent('./php-views/gallery/_construct.php');
+        $content = setContent('./php-views/page-gallery/_construct.php');
       }
       break;
 
@@ -39,30 +39,30 @@ function displayContent()	{
         $content = null;
       } else {
         $title = 'KH - Projects';
-        $content = setContent('./php-views/projects/_construct.php');
+        $content = setContent('./php-views/page-works/_construct.php');
       }
       break;
 
       case $pageName == 'about';
       $title = 'KH - About';
-      $content = setContent('./php-views/about/_construct.php');
+      $content = setContent('./php-views/page-about/_construct.php');
       break;
 
       case $pageName == 'Contact';
       $title = 'KH - Contact me';
-      $content = setContent('./php-views/about/_construct.php');
+      $content = setContent('./php-views/page-about/_construct.php');
       break;
 
       // 404 page not found
       default:
       $title = '404 Page not found';
-      $content = setContent('./php-views/404/_construct.php');
+      $content = setContent('./php-views/page-404/_construct.php');
       break;
     }
   } else {
     // no page id set -> home page
     $title = 'KH - TLDR';
-    $content = setContent('./php-views/gallery/_construct.php');
+    $content = setContent('./php-views/page-gallery/_construct.php');
   }
 
 

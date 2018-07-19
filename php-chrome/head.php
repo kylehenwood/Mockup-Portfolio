@@ -25,6 +25,7 @@
 	<!-- components -->
 	<script type="text/javascript" src="js/_gallery.js"></script>
 	<script type="text/javascript" src="js/_filter.js"></script>
+	<script type="text/javascript" src="js/_works.js"></script>
 	<script type="text/javascript" src="js/_post.js"></script>
 	<script type="text/javascript" src="js/_project.js"></script>
 

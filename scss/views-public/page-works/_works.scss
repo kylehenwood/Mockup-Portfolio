@@ -1,0 +1,62 @@
+//---------------
+// Banner Headings
+//---------------
+
+// Projects Banner
+.projects-banner {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 100px 0;
+  @include screen-med {
+    display: block;
+    padding: 80px 0 0;
+  }
+  @include screen-mob {
+    padding: 64px 0 0;
+  }
+}
+
+
+
+
+// works page in/out animations
+.anim--works-in {
+  transform-origin: 50% 50%;
+  opacity: 1;
+  animation-name: works-in;
+  animation-duration: 200ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+@keyframes works-in {
+  000% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+.anim--works-out {
+  animation-delay: 100ms;
+  transform-origin: 50% 200px;
+  opacity: 1;
+  animation-name: works-out;
+  animation-duration: 200ms;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+@keyframes works-out {
+  000% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+}

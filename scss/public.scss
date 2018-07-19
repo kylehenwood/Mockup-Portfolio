@@ -37,7 +37,6 @@ html {
 
 // _layout
 @import "layout/_layout";
-@import "layout/_layout-mobile";
 @import "layout/_page";
 
 
@@ -78,15 +77,16 @@ html {
 @import "views-public/page-gallery/_gallery-banner";
 
 // Post
-@import "views-public/page-post/_post";
+@import "views-public/overlay-post/_post";
+
 
 //---
-// Projects
-@import "views-public/page-projects/_projects-page";
-@import "views-public/page-projects/_projects-banner";
+// Works
+@import "views-public/page-works/_works";
 
 // Project
-@import "views-public/page-project/_project";
+@import "views-public/overlay-project/_project";
+
 
 //---
 // About

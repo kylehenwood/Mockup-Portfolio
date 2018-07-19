@@ -18,7 +18,8 @@ function galleryBind() {
   });
 }
 
-$(document).on('gallery-out',function(e){
+
+$(document).on('gallery-animate-out',function(e){
   galleryBind();
   galleryOut();
 });
@@ -27,7 +28,7 @@ $(document).on('gallery-out--instant',function(e){
   galleryOutInstant();
 });
 
-$(document).on('gallery-in',function(e){
+$(document).on('gallery-animate-in',function(e){
   galleryBind();
   galleryIn();
 });

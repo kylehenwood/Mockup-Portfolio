@@ -2,18 +2,20 @@
 
   // bind
   $(document).one('pjax:success',function(){
+    postBind();
     // only do the animation in from post when loading from a post
     if (post.animateFromPost === true) {
       post.animateFromPost = false;
-      $(document).trigger('gallery-in');
+      $(document).trigger('gallery-animate-in');
     } else {
-      console.log('gallery-in--instant');
-      $(document).trigger('gallery-in--instant');
+      $(document).trigger('gallery-instant-in');
     }
   });
 
   // out
   $(document).one('pjax:beforeReplace', function() {
+    $(document).trigger('gallery-animate-out');
+    $(document).trigger('gallery-instant-out');
   });
 </script>
 

@@ -1,19 +1,19 @@
 <script>
   // bind
   $(document).one('pjax:success',function(){
-    console.log(post.animateToPost);
+    postBind();
+
     if (post.animateToPost === true) {
-      $(document).trigger('gallery-out');
-      $(document).trigger('post-in');
+      post.animateToPost = false;
+      $(document).trigger('post-in--animate');
     } else {
-      console.log('post-in--instant');
       $(document).trigger('post-in--instant');
     }
   });
   // unbind
   $(document).one('pjax:beforeReplace', function() {
     if (post.animateFromPost === true) {
-      $(document).trigger('post-out');
+      $(document).trigger('post-out--animate');
     } else {
       $(document).trigger('post-out--instant');
     }
