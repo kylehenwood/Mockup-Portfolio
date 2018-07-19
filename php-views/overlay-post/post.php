@@ -1,8 +1,8 @@
 <script>
-  // bind
+  //--
+  // In
   $(document).one('pjax:success',function(){
     postBind();
-
     if (post.animateToPost === true) {
       post.animateToPost = false;
       $(document).trigger('post-in--animate');
@@ -10,9 +10,11 @@
       $(document).trigger('post-in--instant');
     }
   });
-  // unbind
+  //--
+  // Out
   $(document).one('pjax:beforeReplace', function() {
-    if (post.animateFromPost === true) {
+    if (post.animateToGallery === true) {
+      post.animateToGallery = false;
       $(document).trigger('post-out--animate');
     } else {
       $(document).trigger('post-out--instant');

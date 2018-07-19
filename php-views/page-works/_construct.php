@@ -4,25 +4,26 @@
   $(document).one('page_load',function(){
     worksBind();
     // animate in stagger
-    if (project.open === false) {
-      $(document).trigger('works-stagger-in');
-    }
-    // animate from project => works
+    // if (works.stagger === false) {
+    //   $(document).trigger('works-stagger-in');
+    // }
+
+    // project => works
     if (works.animate === true) {
       works.animate = false;
-      $(document).trigger('works-animate-in');
+      $(document).trigger('works-in--animate');
     } else {
-      $(document).trigger('works-instant-in');
+      $(document).trigger('works-in--instant');
     }
   });
   //--
   // out
   $(document).one('pjax:beforeReplace', function() {
-    // animate from works => project
+    // works => project
     if (works.animate === true) {
-      $(document).trigger('works-animate-out');
+      $(document).trigger('works-out--animate');
     } else {
-      $(document).trigger('works-instant-out');
+      $(document).trigger('works-out--instant');
     }
   });
 </script>

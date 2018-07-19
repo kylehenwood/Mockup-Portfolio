@@ -4,18 +4,22 @@
   $(document).one('pjax:success',function(){
     postBind();
     // only do the animation in from post when loading from a post
-    if (post.animateFromPost === true) {
-      post.animateFromPost = false;
-      $(document).trigger('gallery-animate-in');
+    if (gallery.animateToGallery === true) {
+      gallery.animateToGallery  = false;
+      $(document).trigger('gallery-in--animate');
     } else {
-      $(document).trigger('gallery-instant-in');
+      $(document).trigger('gallery-in--instant');
     }
   });
 
   // out
   $(document).one('pjax:beforeReplace', function() {
-    $(document).trigger('gallery-animate-out');
-    $(document).trigger('gallery-instant-out');
+    if (gallery.animateToPost === true) {
+      gallery.animateToPost = false;
+      $(document).trigger('gallery-out--animate');
+    } else {
+      $(document).trigger('gallery-out--instant');
+    }
   });
 </script>
 

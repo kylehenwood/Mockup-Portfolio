@@ -3,6 +3,8 @@ var gallery = {
   heading: null,
   posts: null,
   subheading: null,
+  animateToPost: false,
+  animateToGallery: false
 }
 
 
@@ -14,12 +16,12 @@ function galleryBind() {
 
   gallery.posts.click(function(){
     post.animateToPost = true;
-    console.log('ANIMATE TO POST');
+    gallery.animateToPost = true;
   });
 }
 
 
-$(document).on('gallery-animate-out',function(e){
+$(document).on('gallery-out--animate',function(e){
   galleryBind();
   galleryOut();
 });
@@ -28,7 +30,7 @@ $(document).on('gallery-out--instant',function(e){
   galleryOutInstant();
 });
 
-$(document).on('gallery-animate-in',function(e){
+$(document).on('gallery-in--animate',function(e){
   galleryBind();
   galleryIn();
 });

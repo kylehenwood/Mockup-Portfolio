@@ -3,30 +3,25 @@ var project = {
   open: false,
   container: null,
   page: null,
-  animateToProject: false,
-  animateFromProject: false
+  animate: false
 }
 
 
 // Triggers
-$(document).on('project-animate-in',function(){
-  project.open = true;
+$(document).on('project-in--animate',function(){
   headerFix(project.fixed,'project__close--scroll');
   projectAnimateIn();
 });
-$(document).on('project-animate-out',function(){
-  project.open = false;
+$(document).on('project-out--animate',function(){
   headerUnfix(project.fixed,'project__close--scroll');
   projectAnimateOut();
 });
 
-$(document).on('project-instant-in',function(){
-  project.open = true;
+$(document).on('project-in--instant',function(){
   headerFix(project.fixed,'project__close--scroll');
   projectInstantIn();
 });
-$(document).on('project-instant-out',function(){
-  project.open = false;
+$(document).on('project-out--instant',function(){
   headerUnfix(project.fixed,'project__close--scroll');
   projectInstantOut();
 });
@@ -40,8 +35,9 @@ function projectBind() {
   project.close = $('.js-project-close');
 
   project.close.click(function(){
-    project.open = false;
-    project.animateFromProject = true;
+    console.log('close clicked');
+    project.animate = true;
+    works.animate = true;
   });
 }
 

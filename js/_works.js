@@ -7,16 +7,16 @@ var works = {
 
 
 // Triggers
-$(document).on('works-animate-in',function(){
+$(document).on('works-in--stagger',function(){
   worksAnimateIn();
 });
-$(document).on('works-animate-out',function(){
+$(document).on('works-out--stagger',function(){
   worksAnimateOut();
 });
-$(document).on('works-instant-in',function(){
+$(document).on('works-in--instant',function(){
   worksInstantIn();
 });
-$(document).on('works-instant-out',function(){
+$(document).on('works-out--instant',function(){
   worksInstantOut();
 });
 
@@ -30,8 +30,11 @@ $(document).on('works-stagger-in',function(){
 function worksBind() {
   works.page = $('.js-page-works');
   works.cards = $('.js-project-card');
+
+  // Animate transition on card click
   works.cards.click(function(){
     works.animate = true;
+    project.animate = true;
   });
 }
 

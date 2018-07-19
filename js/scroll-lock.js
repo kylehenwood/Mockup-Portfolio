@@ -9,7 +9,7 @@ const scrollLock= {
 
 // make the body unscrollable, and the passed element scrollable.
 function bodyScrollDisable(element) {
-  console.log('body--locked');
+  //console.log('body--locked');
   scrollLock.scrollPos = layout.html.scrollTop() || layout.body.scrollTop();
 
   // animate in element - make element FIXED untill transition complete
@@ -32,7 +32,7 @@ function bodyScrollSet(element) {
 
 // make the body scrollable, and the passed element unscrollable.
 function bodyScrollEnable(element) {
-  console.log('body--scrollable');
+  //console.log('body--scrollable');
   scrollLock.elementPos = layout.html.scrollTop() || layout.body.scrollTop();
   element.addClass('layout__overlay--scroll-lock');
   element.scrollTop(scrollLock.elementPos);

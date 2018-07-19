@@ -3,24 +3,29 @@
   // In
   $(document).one('pjax:success',function(){
     projectBind();
-    // Animate works => project
-    if (project.open === false) {
-      $(document).trigger('project-animate-in');
+    project.open = true;
+    // works => project
+    if (project.animate === true) {
+      project.animate = false;
+      $(document).trigger('project-in--animate');
+    } else {
+      $(document).trigger('project-in--instant');
     }
   });
   //--
   // Out
   $(document).one('pjax:beforeReplace', function() {
-    // animate project => works
-    if (project.animateFromProject === true) {
-      project.animateFromProject = false;
-      $(document).trigger('project-animate-out');
+    //project.open = false;
+    // project => works
+    if (project.animate === true) {
+      project.animate = false;
+      $(document).trigger('project-out--animate');
+    } else {
+      $(document).trigger('project-out--instant');
     }
-    // instant project => works
-
 
     // animate project => project
-    if (project.open === true){}
+    // if (project.open === true){}
   });
 </script>
 

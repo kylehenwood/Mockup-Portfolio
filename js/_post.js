@@ -9,12 +9,11 @@ var post = {
   related: null,
   close: null,
   animateToPost: false,
-  animateFromPost: false
+  animateToGallery: false,
 };
 
 // animate in
 $(document).on('post-in--animate',function(e){
-  post.animateToPost = false;
   bodyScrollDisable(layout.post);
   postAnimateIn();
   headerFix(post.heading,'post__heading-fixed--scroll');
@@ -49,7 +48,8 @@ function postBind() {
   post.close = $('.js-post-close');
 
   post.close.click(function(){
-    post.animateFromPost = true;
+    post.animateToGallery = true;
+    gallery.animateToGallery = true;
   });
 }
 
