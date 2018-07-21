@@ -4,7 +4,7 @@
 
 .project {
   position: relative;
-  padding: 72px 0 0;
+  //padding: 72px 0 0;
   background: $color-grey-900;
 }
 .project--standalone {
@@ -27,19 +27,46 @@
 }
 
 .project__close {
-  position: fixed;
+  position: absolute;
   z-index: 100;
   top: 0;
   left: 0;
   width: 100%;
   padding: 16px;
-  background: $color-grey-900;
+  //background: $color-grey-900;
 }
 
 .project__close--scroll {
   //position: fixed;
+  //background: $color-grey-900;
   //background: linear-gradient(black,transparent);
   //background: linear-gradient(0deg,rgba(0,0,0,0),rgba(0,0,0,0.4));
+}
+
+.project__gallery {
+  background: $color-grey-200;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  padding: 24px 0;
+}
+
+.scroll-list {
+  font-size: 0;
+  padding: 10px;
+  white-space: nowrap;
+}
+.scroll-list__item {
+  display: inline-block;
+  padding: 6px;
+}
+.scroll-card {
+  font-size: 16px;
+  box-shadow: $shadow-300;
+  border-radius: 4px;
+  background: white;
+  //border: 2px solid $color-blue-500;
+  width: 200px;
+  height: 240px;
 }
 
 
@@ -89,16 +116,16 @@
 
 .anim--project-in {
   opacity: 0;
-  animation-delay: 100ms;
+  animation-delay: 80ms;
   animation-name: project-in;
-  animation-duration: 200ms;
-  animation-timing-function: ease-out;
+  animation-duration: 400ms;
+  animation-timing-function: ease-out-cubic;
   animation-fill-mode: forwards;
 }
 @keyframes project-in {
   000% {
     opacity: 0.4;
-    transform: translateY(-80px);
+    transform: translateY(100%);
   }
   100% {
     opacity: 1;
@@ -109,7 +136,7 @@
 .anim--project-out {
   opacity: 1;
   animation-name: project-out;
-  animation-duration: 200ms;
+  animation-duration: 320ms;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
 }
@@ -120,6 +147,6 @@
   }
   100% {
     opacity: 0;
-    transform: translateY(-80px);
+    transform: translateY(50%);
   }
 }

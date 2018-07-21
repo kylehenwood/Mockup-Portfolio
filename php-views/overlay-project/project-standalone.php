@@ -14,6 +14,31 @@
 		</div>
 	</div>
 
+	<div class="project__gallery">
+    <div class="center center--1120">
+      <ul class="scroll-list clearfix">
+        <li class="scroll-list__item">
+          <div class="scroll-card"></div>
+        </li>
+        <li class="scroll-list__item">
+          <div class="scroll-card"></div>
+        </li>
+        <li class="scroll-list__item">
+          <div class="scroll-card"></div>
+        </li>
+        <li class="scroll-list__item">
+          <div class="scroll-card"></div>
+        </li>
+        <li class="scroll-list__item">
+          <div class="scroll-card"></div>
+        </li>
+        <li class="scroll-list__item">
+          <div class="scroll-card"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
 	<div class="project__section">
 		<div class="center center--1120">
 			Section1

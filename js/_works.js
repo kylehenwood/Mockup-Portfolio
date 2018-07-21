@@ -7,10 +7,10 @@ var works = {
 
 
 // Triggers
-$(document).on('works-in--stagger',function(){
+$(document).on('works-in--animate',function(){
   worksAnimateIn();
 });
-$(document).on('works-out--stagger',function(){
+$(document).on('works-out--animate',function(){
   worksAnimateOut();
 });
 $(document).on('works-in--instant',function(){

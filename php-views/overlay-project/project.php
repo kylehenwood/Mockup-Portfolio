@@ -5,6 +5,14 @@
     projectBind();
     project.open = true;
     // works => project
+
+    console.log(1);
+
+    if (layout.project.is(":visible")) {
+      console.log(1);
+      return false;
+    }
+
     if (project.animate === true) {
       project.animate = false;
       $(document).trigger('project-in--animate');
@@ -56,6 +64,32 @@
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent molestie nulla magna, nec auctor massa tempus eget. Integer ac arcu sed ante venenatis lacinia. Aenean eleifend ornare finibus. Vestibulum at nunc nulla. Nulla facilisi. Phasellus quis nulla ut sapien suscipit mollis in a mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus et lacus vel lacus interdum venenatis. Suspendisse tincidunt vitae libero et laoreet. Nulla facilisi. Nunc venenatis ex ipsum, eu rhoncus nisl lobortis non.</p>
     </div>
 	</div>
+
+
+  <div class="project__gallery">
+    <div class="center center--1120">
+      <ul class="scroll-list">
+        <li class="scroll-list__item">
+          <div class="scroll-card"></div>
+        </li>
+        <li class="scroll-list__item">
+          <div class="scroll-card"></div>
+        </li>
+        <li class="scroll-list__item">
+          <div class="scroll-card"></div>
+        </li>
+        <li class="scroll-list__item">
+          <div class="scroll-card"></div>
+        </li>
+        <li class="scroll-list__item">
+          <div class="scroll-card"></div>
+        </li>
+        <li class="scroll-list__item">
+          <div class="scroll-card"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
 
 	<div class="project__section">
 		<div class="center center--1120">

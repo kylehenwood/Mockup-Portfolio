@@ -59,8 +59,8 @@ function galleryOut() {
 }
 
 function galleryOutInstant() {
-  layout.navigation.hide();
-  layout.content.hide();
+  //layout.navigation.hide();
+  //layout.content.hide();
 }
 
 

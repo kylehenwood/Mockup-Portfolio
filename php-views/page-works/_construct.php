@@ -3,6 +3,8 @@
   // in
   $(document).one('page_load',function(){
     worksBind();
+
+    //alert('WAT');
     // animate in stagger
     // if (works.stagger === false) {
     //   $(document).trigger('works-stagger-in');

@@ -121,8 +121,7 @@ function postAnimateOut() {
   post.container.addClass('anim--post-out');
   post.container.one(animationEvent,function(event){
     $(this).removeClass('anim--post-out');
-    layout.post.removeClass('layout__post--scroll-lock');
-    layout.post.hide();
+    bodyScrollComplete(layout.post);
   });
 
 

@@ -43,3 +43,8 @@ function bodyScrollEnable(element) {
   layout.html.scrollTop(scrollLock.scrollPos);
   layout.body.scrollTop(scrollLock.scrollPos);
 }
+
+function bodyScrollComplete(element) {
+  element.removeClass('layout__overlay--scroll-lock');
+  element.hide();
+}

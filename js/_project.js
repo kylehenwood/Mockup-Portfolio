@@ -58,7 +58,7 @@ function projectAnimateOut() {
   project.container.addClass('anim--project-out');
   project.container.one(animationEvent,function(event){
     $(this).removeClass('anim--project-out');
-    layout.project.hide();
+    bodyScrollComplete(layout.project);
   });
 }
 
