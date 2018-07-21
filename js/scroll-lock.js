@@ -14,7 +14,7 @@ function bodyScrollDisable(element) {
 
   // animate in element - make element FIXED untill transition complete
   element.show();
-  element.scrollTop(0);
+  //element.scrollTop(0);
   element.addClass('layout__overlay--scroll-lock');
 }
 
@@ -46,5 +46,6 @@ function bodyScrollEnable(element) {
 
 function bodyScrollComplete(element) {
   element.removeClass('layout__overlay--scroll-lock');
+  //element.scrollTop(0);
   element.hide();
 }

@@ -25,38 +25,43 @@
   transform-origin: 50% 50%;
   opacity: 1;
   animation-name: works-in;
-  animation-duration: 200ms;
+  animation-delay: 80ms;
+  animation-duration: 400ms;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }
 @keyframes works-in {
   000% {
     opacity: 0.4;
-    transform: scale(0.9);
+    transform: translateY(80px);
+    //transform: scale(0.9);
   }
   100% {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
+    //transform: scale(1);
   }
 }
 
 
 .anim--works-out {
-  animation-delay: 100ms;
-  transform-origin: 50% 200px;
+  transform-origin: 50%;
   opacity: 1;
   animation-name: works-out;
-  animation-duration: 200ms;
+  animation-delay: 0;
+  animation-duration: 480ms;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
 }
 @keyframes works-out {
   000% {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
+    //transform: scale(1);
   }
   100% {
     opacity: 0.4;
-    transform: scale(0.9);
+    transform: translateY(80px);
+    //transform: scale(0.9);
   }
 }

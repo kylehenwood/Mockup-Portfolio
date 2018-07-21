@@ -1,8 +1,8 @@
 <script>
 
   // bind
-  $(document).one('pjax:success',function(){
-    postBind();
+  $(document).one('page_load',function(){
+    galleryBind();
     // only do the animation in from post when loading from a post
     if (gallery.animateToGallery === true) {
       gallery.animateToGallery  = false;
