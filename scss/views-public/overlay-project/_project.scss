@@ -116,16 +116,16 @@
 
 .anim--project-in {
   opacity: 0;
-  animation-delay: 80ms;
+  //animation-delay: 80ms;
   animation-name: project-in;
-  animation-duration: 400ms;
+  animation-duration: $transition-duration;
   animation-timing-function: ease-out-cubic;
   animation-fill-mode: forwards;
 }
 @keyframes project-in {
   000% {
     opacity: 0.4;
-    transform: translateY(50%);
+    transform: translateY(80px);
   }
   100% {
     opacity: 1;
@@ -136,7 +136,7 @@
 .anim--project-out {
   opacity: 1;
   animation-name: project-out;
-  animation-duration: 320ms;
+  animation-duration: $transition-duration;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
 }
@@ -147,6 +147,6 @@
   }
   100% {
     opacity: 0;
-    transform: translateY(50%);
+    transform: translateY(80px);
   }
 }

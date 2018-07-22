@@ -3024,6 +3024,8 @@ textarea:disabled:active {
   padding: 16px;
   background: rgba(0, 0, 0, 0.2);
   width: 100%;
+  font-weight: bold;
+  font-size: 14px;
   color: white; }
 
 .filter {
@@ -3138,7 +3140,7 @@ textarea:disabled:active {
 .post {
   position: relative;
   min-height: 100%;
-  background: #424242;
+  background: #C62828;
   padding: 40px 0; }
   @media screen and (max-width: 960px) {
     .post {
@@ -3152,7 +3154,7 @@ textarea:disabled:active {
 
 .anim--post-in {
   animation-name: post-in;
-  animation-duration: 200ms;
+  animation-duration: 800ms;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards; }
 
@@ -3164,7 +3166,7 @@ textarea:disabled:active {
 
 .anim--post-out {
   animation-name: post-out;
-  animation-duration: 200ms;
+  animation-duration: 800ms;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards; }
 
@@ -3180,7 +3182,6 @@ textarea:disabled:active {
 .post__heading-fixed {
   padding: 0 16px;
   width: 100%;
-  background: #424242;
   transition: 200ms background ease-out; }
   @media screen and (max-width: 960px) {
     .post__heading-fixed {
@@ -3307,7 +3308,7 @@ textarea:disabled:active {
 .anim--scale-in {
   opacity: 0;
   animation-name: anim-scale-in;
-  animation-duration: 240ms;
+  animation-duration: 800ms;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards; }
 
@@ -3324,7 +3325,7 @@ textarea:disabled:active {
 .anim--scale-out {
   opacity: 1;
   animation-name: anim-scale-out;
-  animation-duration: 240ms;
+  animation-duration: 800ms;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
   animation-delay: 0; }
@@ -3370,25 +3371,21 @@ textarea:disabled:active {
   transform-origin: 50% 50%;
   opacity: 1;
   animation-name: works-in;
-  animation-delay: 80ms;
-  animation-duration: 400ms;
+  animation-duration: 800ms;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards; }
 
 @keyframes works-in {
   000% {
-    opacity: 0.4;
-    transform: translateY(80px); }
+    opacity: 0.4; }
   100% {
-    opacity: 1;
-    transform: translateY(0); } }
+    opacity: 1; } }
 
 .anim--works-out {
   transform-origin: 50%;
   opacity: 1;
   animation-name: works-out;
-  animation-delay: 0;
-  animation-duration: 480ms;
+  animation-duration: 800ms;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards; }
 
@@ -3489,16 +3486,15 @@ textarea:disabled:active {
 
 .anim--project-in {
   opacity: 0;
-  animation-delay: 80ms;
   animation-name: project-in;
-  animation-duration: 400ms;
+  animation-duration: 800ms;
   animation-timing-function: ease-out-cubic;
   animation-fill-mode: forwards; }
 
 @keyframes project-in {
   000% {
     opacity: 0.4;
-    transform: translateY(50%); }
+    transform: translateY(80px); }
   100% {
     opacity: 1;
     transform: translateY(0); } }
@@ -3506,7 +3502,7 @@ textarea:disabled:active {
 .anim--project-out {
   opacity: 1;
   animation-name: project-out;
-  animation-duration: 320ms;
+  animation-duration: 800ms;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards; }
 
@@ -3516,7 +3512,7 @@ textarea:disabled:active {
     transform: translateY(0); }
   100% {
     opacity: 0;
-    transform: translateY(50%); } }
+    transform: translateY(80px); } }
 
 .example-website {
   background: #9E9E9E;

@@ -35,7 +35,6 @@ function projectBind() {
   project.close = $('.js-project-close');
 
   project.close.click(function(){
-    console.log('close clicked');
     project.animate = true;
     works.animate = true;
   });

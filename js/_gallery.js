@@ -3,8 +3,7 @@ var gallery = {
   heading: null,
   posts: null,
   subheading: null,
-  animateToPost: false,
-  animateToGallery: false
+  animate: false
 }
 
 
@@ -15,8 +14,8 @@ function galleryBind() {
   gallery.posts = $('.js-pjax-post');
 
   gallery.posts.click(function(){
-    post.animateToPost = true;
-    gallery.animateToPost = true;
+    post.animate = true;
+    gallery.animate = true;
   });
 }
 

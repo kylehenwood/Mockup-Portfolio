@@ -8,8 +8,8 @@ var post = {
   simliar: null,
   related: null,
   close: null,
-  animateToPost: false,
-  animateToGallery: false,
+  animate: false
+
 };
 
 // animate in
@@ -48,8 +48,8 @@ function postBind() {
   post.close = $('.js-post-close');
 
   post.close.click(function(){
-    post.animateToGallery = true;
-    gallery.animateToGallery = true;
+    post.animate = true;
+    gallery.animate = true;
   });
 }
 
@@ -68,10 +68,17 @@ function postAnimateIn() {
   // show and focus the post container, focus so that on mobile
   // it is easy to scroll instead of requiring a tap to focus.
   layout.post.show();
+
+  // PROBLEM these events propogate, and listening for event end on the container is
+  // firing multiple times
   post.container.addClass('anim--post-in');
-  post.container.one(animationEvent,function(event){
-    $(this).removeClass('anim--post-in');
-    bodyScrollSet(layout.post);
+  post.container.on(animationEvent,function(event){
+    if ($(event.target).hasClass('anim--post-in')) {
+      console.log("container complete");
+      $(this).removeClass('anim--post-in');
+      $(this).unbind();
+      bodyScrollSet(layout.post);
+    }
   });
 
   // Animate in gallery...
@@ -119,9 +126,12 @@ function postAnimateOut() {
   //layout.post.addClass('layout__post--scroll-lock');
   // When animate-out is complete....
   post.container.addClass('anim--post-out');
-  post.container.one(animationEvent,function(event){
-    $(this).removeClass('anim--post-out');
-    bodyScrollComplete(layout.post);
+  post.container.on(animationEvent,function(event){
+    if ($(event.target).hasClass('anim--post-out')) {
+      $(this).removeClass('anim--post-out');
+      $(this).unbind();
+      bodyScrollComplete(layout.post);
+    }
   });
 
 

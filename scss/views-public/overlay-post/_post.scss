@@ -1,7 +1,7 @@
 .post {
   position: relative;
   min-height: 100%;
-  background: $color-grey-800;
+  background: $color-red-800;
   padding: 40px 0;
   @include screen-med {
     padding: 72px 0 40px;
@@ -18,7 +18,7 @@
 // container animations
 .anim--post-in {
   animation-name: post-in;
-  animation-duration: 200ms;
+  animation-duration: $transition-duration;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }
@@ -32,7 +32,7 @@
 }
 .anim--post-out {
   animation-name: post-out;
-  animation-duration: 200ms;
+  animation-duration: $transition-duration;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
 }
@@ -52,7 +52,6 @@
 .post__heading-fixed {
   padding: 0 16px;
   width: 100%;
-  background: $color-grey-800;
   transition: 200ms background ease-out;
   @include screen-med {
     position: fixed;
@@ -210,7 +209,7 @@
 .anim--scale-in {
   opacity: 0;
   animation-name: anim-scale-in;
-  animation-duration: 240ms;
+  animation-duration: $transition-duration;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }
@@ -233,7 +232,7 @@
 .anim--scale-out {
   opacity: 1;
   animation-name: anim-scale-out;
-  animation-duration: 240ms;
+  animation-duration: $transition-duration;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
   animation-delay: 0;

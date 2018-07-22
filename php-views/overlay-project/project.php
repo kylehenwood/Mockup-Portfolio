@@ -6,10 +6,10 @@
     project.open = true;
     // works => project
 
-    console.log(1);
+    //console.log(1);
 
     if (layout.project.is(":visible")) {
-      console.log(1);
+      console.log(2);
       return false;
     }
 

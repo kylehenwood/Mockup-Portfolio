@@ -3,8 +3,8 @@
   // In
   $(document).one('pjax:success',function(){
     postBind();
-    if (post.animateToPost === true) {
-      post.animateToPost = false;
+    if (post.animate === true) {
+      post.animate = false;
       $(document).trigger('post-in--animate');
     } else {
       $(document).trigger('post-in--instant');
@@ -13,8 +13,8 @@
   //--
   // Out
   $(document).one('pjax:beforeReplace', function() {
-    if (post.animateToGallery === true) {
-      post.animateToGallery = false;
+    if (post.animate === true) {
+      post.animate = false;
       $(document).trigger('post-out--animate');
     } else {
       $(document).trigger('post-out--instant');
