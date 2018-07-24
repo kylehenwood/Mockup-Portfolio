@@ -18,7 +18,7 @@
       gallery.animate = false;
       $(document).trigger('gallery-out--animate');
     } else {
-      //$(document).trigger('gallery-out--instant');
+      $(document).trigger('gallery-out--instant');
     }
   });
 </script>

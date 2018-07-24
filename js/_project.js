@@ -46,18 +46,24 @@ function projectAnimateIn() {
   bodyScrollDisable(layout.project);
   layout.project.show();
   project.container.addClass('anim--project-in');
-  project.container.one(animationEvent,function(event){
-    $(this).removeClass('anim--project-in');
-    bodyScrollSet(layout.project);
+  project.container.on(animationEvent,function(event){
+    if ($(event.target).hasClass('anim--project-in')) {
+      $(this).unbind();
+      $(this).removeClass('anim--project-in');
+      bodyScrollSet(layout.project);
+    }
   });
 }
 
 function projectAnimateOut() {
   bodyScrollEnable(layout.project);
   project.container.addClass('anim--project-out');
-  project.container.one(animationEvent,function(event){
-    $(this).removeClass('anim--project-out');
-    bodyScrollComplete(layout.project);
+  project.container.on(animationEvent,function(event){
+    if ($(event.target).hasClass('anim--project-out')) {
+      $(this).unbind();
+      $(this).removeClass('anim--project-out');
+      bodyScrollComplete(layout.project);
+    }
   });
 }
 

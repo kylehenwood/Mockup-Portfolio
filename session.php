@@ -2,6 +2,13 @@
 
 session_start();
 
+$colorYellow = '#FF9800';
+$colorPurple = '#9C27B0';
+$colorBlue = '#2196F3';
+$colorGreen = '#4CAF50';
+$colorTeal = '#009688';
+$colorPink = '#E91E63';
+
 // get all gallery content into an array
 $galleryFolder = "php-thumbnails";
 $galleryItems = array_diff(scandir($galleryFolder), array('..', '.'));
@@ -23,7 +30,8 @@ foreach ($galleryItems as $galleryItem) {
     "project" => $project,
     "tags" => $tags,
     "thumb" => $thumbDir.'/'.$thumbnail,
-    "image" => $thumbDir.'/'.$image
+    "image" => $thumbDir.'/'.$image,
+    "color" => $color
   );
 
   // that then pushed that folders content to the $galleryArray

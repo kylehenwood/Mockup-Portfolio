@@ -82,6 +82,7 @@ function displayContent()	{
   	echo "<title>{$title}</title>";
   } else {
 
+    include './php-chrome/head.php';
     include './php-views/overlay-post/_shell.php';
     include './php-views/overlay-project/_shell.php';
     include './php-views/overlay-contact/_shell.php';

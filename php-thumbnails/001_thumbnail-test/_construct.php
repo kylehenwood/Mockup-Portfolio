@@ -4,6 +4,7 @@
   $title = 'First Post!';
   $subtitle = 'This is just a test';
   $description = 'This description isnt very relevant because this is only a test';
+  $color = $colorGreen;
 
   // Related / Grouping
   $project = 'projectName';

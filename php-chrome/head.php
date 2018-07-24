@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html class="js-html svg">
+
 <head lang="en">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">

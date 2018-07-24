@@ -4,6 +4,7 @@
   $title = 'Image 4';
   $subtitle = 'Not the same image as last time';
   $description = 'This description isnt very relevant because this is only a test';
+  $color = $colorYellow;
 
   // Related / Grouping
   $project = 'projectName';

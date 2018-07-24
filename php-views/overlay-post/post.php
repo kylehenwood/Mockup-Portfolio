@@ -39,6 +39,7 @@
     $postProject = $post['project'];
     $postTags = $post['tags'];
     $postImage = $post['image'];
+    $postColor = "style=background-color:".$post['color'];
 
   } else {
     // POST NOT FOUND CONDITION
@@ -82,7 +83,7 @@
   </div>
   <div class="post__image">
     <div class="center center--1120">
-      <div class="post-image-placeholder js-post-image"></div>
+      <div class="post-image-placeholder js-post-image" <?php echo $postColor ?> ></div>
     </div>
   </div>
   <div class="post__description">
