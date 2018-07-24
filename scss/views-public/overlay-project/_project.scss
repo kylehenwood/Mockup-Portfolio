@@ -14,7 +14,6 @@
 .project__banner {
   padding: 0 16px;
   background: $color-grey-800;
-  background: linear-gradient(to bottom, $color-blue-700, $color-purple-900); /* Standard syntax */
 }
 .project__description {
   padding: 40px 16px;
@@ -110,7 +109,10 @@
   align-items: center;
   justify-content: center;
   padding: 100px 0;
-  height: 560px;
+  height: 800px;
+  @include screen-med {
+    height: 560px;
+  }
 }
 
 

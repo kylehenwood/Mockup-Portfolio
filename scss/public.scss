@@ -85,6 +85,7 @@ $transition-duration: 320ms;
 //---
 // Works
 @import "views-public/page-works/_works";
+@import "views-public/page-works/_project-card";
 
 // Project
 @import "views-public/overlay-project/_project";
@@ -94,3 +95,11 @@ $transition-duration: 320ms;
 // About
 @import "views-public/page-about/_about-page";
 @import "views-public/page-about/_about-banner";
+
+
+
+
+
+//-----
+// _projects
+@import "projects/_aibek";
