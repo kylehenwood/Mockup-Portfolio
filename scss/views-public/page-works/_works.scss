@@ -33,11 +33,13 @@
 @keyframes works-in {
   000% {
     opacity: 0.4;
-    transform: scale(0.9);
+    //transform: translateX(80px);
+    //transform: scale(0.9);
   }
   100% {
     opacity: 1;
-    transform: scale(1);
+    //transform: translateX(0);
+    //transform: scale(1);
   }
 }
 
@@ -54,10 +56,12 @@
 @keyframes works-out {
   000% {
     opacity: 1;
-    transform: scale(1);
+    //transform: translateX(0);
+    //transform: scale(1);
   }
   100% {
     opacity: 0.4;
-    transform: scale(0.9);
+    //transform: translateX(80px);
+    //transform: scale(0.9);
   }
 }

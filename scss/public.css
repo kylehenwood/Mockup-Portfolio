@@ -994,6 +994,9 @@ html {
 .layout--white {
   background: white; }
 
+.layout--grey {
+  background: #424242; }
+
 .layout__header {
   position: absolute;
   top: 0;
@@ -1225,9 +1228,6 @@ html {
 
 .mobile-logo--active {
   opacity: 1; }
-
-.mobile-logo--dark {
-  background: #424242; }
 
 .navigation-mobile__button {
   position: absolute;
@@ -3101,17 +3101,11 @@ textarea:disabled:active {
   padding: 40px 0; }
   @media screen and (max-width: 960px) {
     .post {
-      padding: 72px 0 40px; } }
-
-.post--standalone {
-  padding: 80px 0; }
-  @media screen and (max-width: 960px) {
-    .post--standalone {
-      padding: 24px 0; } }
+      padding: 0 0 40px; } }
 
 .anim--post-in {
   animation-name: post-in;
-  animation-duration: 320ms;
+  animation-duration: 240ms;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards; }
 
@@ -3123,7 +3117,7 @@ textarea:disabled:active {
 
 .anim--post-out {
   animation-name: post-out;
-  animation-duration: 320ms;
+  animation-duration: 240ms;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards; }
 
@@ -3134,22 +3128,25 @@ textarea:disabled:active {
     opacity: 0; } }
 
 .post__heading {
-  padding: 0 16px; }
-
-.post__heading-fixed {
   padding: 0 16px;
-  width: 100%;
-  transition: 200ms background ease-out; }
-  @media screen and (max-width: 960px) {
-    .post__heading-fixed {
-      position: fixed;
-      z-index: 100;
-      top: 0;
-      left: 0; } }
+  top: 0;
+  left: 0;
+  width: 100%; }
 
-@media screen and (max-width: 960px) {
-  .post__heading-fixed--scroll {
-    background: #212121; } }
+.post__close {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  padding: 16px;
+  border-radius: 0 0 0 40px; }
+  @media screen and (max-width: 960px) {
+    .post__close {
+      display: block; } }
+
+.post__close--scroll {
+  background: #212121; }
 
 .post__image {
   padding: 0 16px;
@@ -3187,20 +3184,9 @@ textarea:disabled:active {
   position: absolute;
   right: 0;
   top: 0; }
-
-.post-close__desktop {
-  display: block;
-  padding: 16px 0; }
   @media screen and (max-width: 960px) {
-    .post-close__desktop {
+    .post-heading__close {
       display: none; } }
-
-.post-close__mobile {
-  display: none;
-  padding: 16px 0; }
-  @media screen and (max-width: 960px) {
-    .post-close__mobile {
-      display: block; } }
 
 .post-button-back {
   position: relative;
@@ -3265,7 +3251,7 @@ textarea:disabled:active {
 .anim--scale-in {
   opacity: 0;
   animation-name: anim-scale-in;
-  animation-duration: 320ms;
+  animation-duration: 240ms;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards; }
 
@@ -3282,7 +3268,7 @@ textarea:disabled:active {
 .anim--scale-out {
   opacity: 1;
   animation-name: anim-scale-out;
-  animation-duration: 320ms;
+  animation-duration: 240ms;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
   animation-delay: 0; }
@@ -3328,33 +3314,29 @@ textarea:disabled:active {
   transform-origin: 50% 50%;
   opacity: 1;
   animation-name: works-in;
-  animation-duration: 320ms;
+  animation-duration: 240ms;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards; }
 
 @keyframes works-in {
   000% {
-    opacity: 0.4;
-    transform: scale(0.9); }
+    opacity: 0.4; }
   100% {
-    opacity: 1;
-    transform: scale(1); } }
+    opacity: 1; } }
 
 .anim--works-out {
   transform-origin: 50%;
   opacity: 1;
   animation-name: works-out;
-  animation-duration: 320ms;
+  animation-duration: 240ms;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards; }
 
 @keyframes works-out {
   000% {
-    opacity: 1;
-    transform: scale(1); }
+    opacity: 1; }
   100% {
-    opacity: 0.4;
-    transform: scale(0.9); } }
+    opacity: 0.4; } }
 
 .project-card {
   position: relative;
@@ -3478,7 +3460,7 @@ textarea:disabled:active {
 .anim--project-in {
   opacity: 0;
   animation-name: project-in;
-  animation-duration: 320ms;
+  animation-duration: 240ms;
   animation-timing-function: ease-out-cubic;
   animation-fill-mode: forwards; }
 
@@ -3493,7 +3475,7 @@ textarea:disabled:active {
 .anim--project-out {
   opacity: 1;
   animation-name: project-out;
-  animation-duration: 320ms;
+  animation-duration: 240ms;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards; }
 

@@ -16,30 +16,33 @@ var post = {
 $(document).on('post-in--animate',function(e){
   bodyScrollDisable(layout.post);
   postAnimateIn();
-  headerFix(post.heading,'post__heading-fixed--scroll');
+  headerFix(post.close,'post__close--scroll');
+  layout.body.addClass('layout--grey');
 });
 $(document).on('post-in--instant',function(e){
   postInstantIn();
-  headerFix(post.heading,'post__heading-fixed--scroll');
+  headerFix(post.close,'post__close--scroll');
+  layout.body.addClass('layout--grey');
 });
 
 // animate out
 $(document).on('post-out--animate',function(e){
   bodyScrollEnable(layout.post);
   postAnimateOut();
-  headerUnfix(post.heading,'post__heading-fixed--scroll');
+  headerUnfix(post.close,'post__close--scroll');
+  layout.body.removeClass('layout--grey');
 });
 
 $(document).on('post-out--instant',function(e){
   postInstantOut();
-  headerUnfix(post.heading,'post__heading-fixed--scroll');
+  headerUnfix(post.close,'post__close--scroll');
+  layout.body.removeClass('layout--grey');
 });
 
 
 // Bind || Unbind elements
 function postBind() {
   post.container = $('.js-post-container');
-  post.heading = $('.js-post-heading');
   post.title = $('.js-post-title');
   post.subtitle = $('.js-post-subtitle');
   post.image = $('.js-post-image');
@@ -68,7 +71,6 @@ function postAnimateIn() {
   // show and focus the post container, focus so that on mobile
   // it is easy to scroll instead of requiring a tap to focus.
   layout.post.show();
-
   // PROBLEM these events propogate, and listening for event end on the container is
   // firing multiple times
   post.container.addClass('anim--post-in');

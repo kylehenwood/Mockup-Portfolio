@@ -18,7 +18,9 @@ html {
 .layout--white {
   background: white;
 }
-
+.layout--grey {
+  background: $color-grey-800;
+}
 
 // Header
 .layout__header {

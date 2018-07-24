@@ -30,7 +30,7 @@
   }
 ?>
 
-<div class="post post--standalone">
+<div class="post">
 
   <!-- heading start -->
   <div class="post__heading">

@@ -41,5 +41,5 @@ function closeMobileMenu() {
   mobileOpen = false;;
   bodyScrollEnable(layout.mobile);
   layout.mobile.hide();
-  layout.body.removeClass('layout--white')
+  layout.body.removeClass('layout--white');
 }

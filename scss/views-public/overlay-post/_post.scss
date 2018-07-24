@@ -4,14 +4,7 @@
   background: $color-grey-800;
   padding: 40px 0;
   @include screen-med {
-    padding: 72px 0 40px;
-  }
-}
-
-.post--standalone {
-  padding: 80px 0;
-  @include screen-med {
-    padding: 24px 0;
+    padding: 0 0 40px;
   }
 }
 
@@ -47,23 +40,25 @@
 
 .post__heading {
   padding: 0 16px;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
-.post__heading-fixed {
-  padding: 0 16px;
-  width: 100%;
-  transition: 200ms background ease-out;
+.post__close {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  padding: 16px;
+  border-radius: 0 0 0 40px;
   @include screen-med {
-    position: fixed;
-    z-index: 100;
-    top: 0;
-    left: 0;
+    display: block;
   }
 }
-.post__heading-fixed--scroll {
-  @include screen-med {
-    background: $color-grey-900;
-  }
+.post__close--scroll {
+  background: $color-grey-900;
 }
 
 .post__image {
@@ -107,22 +102,8 @@
   position: absolute;
   right: 0;
   top: 0;
-}
-
-// post close button containers
-.post-close {}
-.post-close__desktop {
-  display: block;
-  padding: 16px 0;
   @include screen-med {
     display: none;
-  }
-}
-.post-close__mobile {
-  display: none;
-  padding: 16px 0;
-  @include screen-med {
-    display: block;
   }
 }
 
