@@ -62,12 +62,44 @@
 }
 
 .post__image {
+  overflow: hidden;
+  position: relative;
   padding: 0 16px;
   margin: 40px 0 80px;
   @include screen-med {
     margin: 24px 0 80px;
   }
 }
+
+.post__image-before {
+  transition: all 160ms ease-out;
+  position: absolute;
+  top: 0;
+  left: -40px;
+  width: 80px;
+  height: 100%;
+  border-radius: 0 8px 8px 0;
+  background: $color-grey-600;
+  &:hover {
+    left: 0;
+    background: $color-grey-500;
+  }
+}
+.post__image-after {
+  transition: all 160ms ease-out;
+  position: absolute;
+  top: 0;
+  right: -40px;
+  width: 80px;
+  height: 100%;
+  border-radius: 8px 0 0 8px;
+  background: $color-grey-600;
+  &:hover {
+    right: 0;
+    background: $color-grey-500;
+  }
+}
+
 
 .post__description {
   display: none;

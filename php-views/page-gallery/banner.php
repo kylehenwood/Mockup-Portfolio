@@ -1,5 +1,5 @@
 <!-- Banner -->
-<div class="page__banner page__banner--grey">
+<div class="page__banner">
 	<div class="center center--1120">
 
 

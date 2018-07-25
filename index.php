@@ -23,7 +23,6 @@ function displayContent()	{
         $title = 'KH - '.$_GET['postID'];
         $post = setContent('./php-views/overlay-post/post.php');
         $postStandalone = setContent('./php-views/overlay-post/post-standalone.php');
-        $content = null;
       } else {
         $title = 'KH - TLDR';
         $content = setContent('./php-views/page-gallery/_construct.php');
@@ -36,7 +35,6 @@ function displayContent()	{
         $title = 'KH - '.$_GET['projectID'];
         $project = setContent('./php-views/overlay-project/project.php');
         $projectStandalone = setContent('./php-views/overlay-project/project-standalone.php');
-        $content = null;
       } else {
         $title = 'KH - Projects';
         $content = setContent('./php-views/page-works/_construct.php');

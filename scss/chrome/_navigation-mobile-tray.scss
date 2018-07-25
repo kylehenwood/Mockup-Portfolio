@@ -1,12 +1,9 @@
 // tray overlay
 .mobile-tray {
   position: relative;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   padding: 80px 0 0;
   background: white;
-  overflow-y: scroll;
 }
 
 .mobile-tray__header {
