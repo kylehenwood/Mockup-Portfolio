@@ -4,15 +4,82 @@
 }
 .gallery-grid__item {
   float: left;
-  width: 25%;
   padding: 8px;
+
+  width: 25%;
+  &:nth-child(4n+1) {
+    background: yellow;
+    animation-delay: 0;
+  }
+  &:nth-child(4n+2) {
+    background: white;
+    animation-delay: 40ms;
+  }
+  &:nth-child(4n+3) {
+    background: blue;
+    animation-delay: 80ms;
+  }
+  &:nth-child(4n+4) {
+    background: red;
+    animation-delay: 120ms;
+  }
+
   @include screen-med {
     width: 33%;
+    &:nth-child(3n+1) {
+      background: yellow;
+      animation-delay: 0;
+    }
+    &:nth-child(3n+2) {
+      background: white;
+      animation-delay: 40ms;
+    }
+    &:nth-child(3n+3) {
+      background: blue;
+      animation-delay: 80ms;
+    }
   }
+
   @include screen-mob {
     width: 50%;
+    &:nth-child(2n+1) {
+      background: yellow;
+      animation-delay: 0;
+    }
+    &:nth-child(2n+2) {
+      background: white;
+      animation-delay: 40ms;
+    }
   }
 }
+
+
+.gallery-grid--animate-in {
+  .gallery-grid__item {
+    opacity: 0;
+    animation-name: slide-in-bottom;
+    animation-duration: 160ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  }
+}
+
+
+// @keyframes slide-in-right {
+//   000% {
+//     opacity: 0;
+//     transform: translateX(40px);
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: translateX(0);
+//   }
+// }
+//
+
+
+
+
 
 // Project Grid
 .project-grid {

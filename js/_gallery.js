@@ -3,7 +3,8 @@ var gallery = {
   heading: null,
   posts: null,
   subheading: null,
-  animate: false
+  animate: false,
+  grid: null
 }
 
 
@@ -12,6 +13,7 @@ function galleryBind() {
   gallery.heading = $('.js-gallery-heading');
   gallery.subheading = $('.js-gallery-subheading');
   gallery.posts = $('.js-pjax-post');
+  gallery.grid = $('.js-gallery-grid');
 
   gallery.posts.click(function(){
     post.animate = true;
@@ -97,57 +99,6 @@ function galleryInInstant() {
   gallery.heading.removeClass('anim--out-top');
   gallery.subheading.removeClass('anim--delay-40 anim--out-top');
 
-
-  var postStagger = [];
-  var postColumns = {};
-  // Stagger cards animation.
-  gallery.posts.each(function(){
-    var left = $(this).offset().left;
-    var post = $(this);
-    postColumns[left] = [];
-    postStagger.push({'col':left,'obj':post});
-  });
-
-  for (var i = 0; i < postStagger.length; i++) {
-    post = postStagger[i].obj;
-    column = postStagger[i].col;
-    postColumns[column].push(post);
-  }
-
-  var columnIncrement = 0;
-  for (var key in postColumns) {
-    //console.log(key);
-    for (var i = 0; i < postColumns[key].length; i++) {
-      var postClass = 'anim--in-top anim--hidden';
-      switch(columnIncrement) {
-        case 0:
-          postClass = 'anim--in-top anim--hidden';
-          break;
-        case 1:
-          postClass = 'anim--in-top anim--delay-40 anim--hidden';
-          break;
-        case 2:
-          postClass = 'anim--in-top anim--delay-80 anim--hidden';
-          break;
-        case 3:
-          postClass = 'anim--in-top anim--delay-120 anim--hidden';
-          break;
-        case 4:
-          postClass = 'anim--in-top anim--delay-160 anim--hidden';
-          break;
-        default:
-          //code block
-      }
-      // add class
-      postColumns[key][i].addClass(postClass);
-      postColumns[key][i].one(animationEvent,function(){
-        $(this).removeClass(postClass);
-      });
-    }
-    columnIncrement++;
-  }
-
-  //console.log(postColumns);
-
+  gallery.grid.addClass('gallery-grid--animate-in');
 
 }

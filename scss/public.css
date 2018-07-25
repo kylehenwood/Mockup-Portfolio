@@ -549,14 +549,48 @@ nowrap,
 
 .gallery-grid__item {
   float: left;
-  width: 25%;
-  padding: 8px; }
+  padding: 8px;
+  width: 25%; }
+  .gallery-grid__item:nth-child(4n+1) {
+    background: yellow;
+    animation-delay: 0; }
+  .gallery-grid__item:nth-child(4n+2) {
+    background: white;
+    animation-delay: 40ms; }
+  .gallery-grid__item:nth-child(4n+3) {
+    background: blue;
+    animation-delay: 80ms; }
+  .gallery-grid__item:nth-child(4n+4) {
+    background: red;
+    animation-delay: 120ms; }
   @media screen and (max-width: 960px) {
     .gallery-grid__item {
-      width: 33%; } }
+      width: 33%; }
+      .gallery-grid__item:nth-child(3n+1) {
+        background: yellow;
+        animation-delay: 0; }
+      .gallery-grid__item:nth-child(3n+2) {
+        background: white;
+        animation-delay: 40ms; }
+      .gallery-grid__item:nth-child(3n+3) {
+        background: blue;
+        animation-delay: 80ms; } }
   @media screen and (max-width: 720px) {
     .gallery-grid__item {
-      width: 50%; } }
+      width: 50%; }
+      .gallery-grid__item:nth-child(2n+1) {
+        background: yellow;
+        animation-delay: 0; }
+      .gallery-grid__item:nth-child(2n+2) {
+        background: white;
+        animation-delay: 40ms; } }
+
+.gallery-grid--animate-in .gallery-grid__item {
+  opacity: 0;
+  animation-name: slide-in-bottom;
+  animation-duration: 160ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards; }
 
 .project-grid {
   margin: -8px; }
@@ -2972,6 +3006,7 @@ textarea:disabled:active {
     z-index: 2; }
 
 .gallery-thumbnail__tags {
+  display: none;
   position: absolute;
   bottom: 0;
   left: 0;
