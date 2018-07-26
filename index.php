@@ -80,7 +80,13 @@ function displayContent()	{
   	echo "<title>{$title}</title>";
   } else {
 
+    echo '<!DOCTYPE html>';
+    echo '<html class="js-html svg">';
+
     include './php-chrome/head.php';
+
+    echo '<body class="layout js-layout">';
+
     include './php-views/overlay-post/_shell.php';
     include './php-views/overlay-project/_shell.php';
     include './php-views/overlay-contact/_shell.php';
@@ -95,6 +101,8 @@ function displayContent()	{
     echo '</div>';
 
     include './php-chrome/footer.php';
+
+    echo '</body>';
   }
   return false;
 }

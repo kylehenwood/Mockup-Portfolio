@@ -8,19 +8,9 @@
           <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-12">
               <div class="footer-navigation">
-                <h4 class="footer-navigation__heading">Product</h4>
+                <h4 class="footer-navigation__heading">Please don't steal my work.</h4>
                 <a class="footer-navigation__link link-primary" href="index.php">Introduction</a>
                 <a class="footer-navigation__link link-primary" href="index.php?pageID=features">Features</a>
-                <a class="footer-navigation__link link-primary" href="index.php?pageID=examples">Examples</a>
-                <a class="footer-navigation__link link-primary" href="index.php?pageID=pricing">Pricing</a>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-              <div class="footer-navigation">
-                <h4 class="footer-navigation__heading">Resources</h4>
-                <a class="footer-navigation__link link-primary" href="index.php?pageID=blog">Blog</a>
-                <a class="footer-navigation__link link-primary" href="index.php?pageID=help">Help center</a>
-                <a class="footer-navigation__link link-primary" href="contact@kylehenwood.com">Contact me</a>
               </div>
             </div>
             <div class="col-lg-6 col-md-12">
@@ -41,7 +31,7 @@
         <div class="grid">
           <div class="row">
             <div class="col-lg-6 col-sm-12">
-              <div class="footer-copyright">&copy; Shnappy {{Year}}</div>
+              <div class="footer-copyright">&copy; Copyright Me. {{Year}}</div>
             </div>
             <div class="col-lg-6 col-sm-12">
               <div class="footer-legal clearfix">
@@ -57,4 +47,3 @@
     </div>
   </div>
 </div>
-</body>

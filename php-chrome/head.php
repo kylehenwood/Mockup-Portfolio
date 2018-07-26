@@ -36,5 +36,3 @@
 	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:900" rel="stylesheet"> -->
 
 </head>
-
-<body class="layout js-layout">
