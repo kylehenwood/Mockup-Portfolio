@@ -552,59 +552,103 @@ nowrap,
   padding: 8px;
   width: 25%; }
   .gallery-grid__item:nth-child(4n+1) {
-    background: yellow;
-    animation-delay: 0; }
+    animation-duration: 520ms;
+    animation-delay: 0ms; }
   .gallery-grid__item:nth-child(4n+2) {
-    background: white;
-    animation-delay: 40ms; }
-  .gallery-grid__item:nth-child(4n+3) {
-    background: blue;
+    animation-duration: 440ms;
     animation-delay: 80ms; }
+  .gallery-grid__item:nth-child(4n+3) {
+    animation-duration: 360ms;
+    animation-delay: 160ms; }
   .gallery-grid__item:nth-child(4n+4) {
-    background: red;
-    animation-delay: 120ms; }
+    animation-duration: 280ms;
+    animation-delay: 240ms; }
   @media screen and (max-width: 960px) {
     .gallery-grid__item {
       width: 33%; }
       .gallery-grid__item:nth-child(3n+1) {
-        background: yellow;
-        animation-delay: 0; }
+        animation-duration: 520ms;
+        animation-delay: 0ms; }
       .gallery-grid__item:nth-child(3n+2) {
-        background: white;
-        animation-delay: 40ms; }
+        animation-duration: 440ms;
+        animation-delay: 80ms; }
       .gallery-grid__item:nth-child(3n+3) {
-        background: blue;
-        animation-delay: 80ms; } }
+        animation-duration: 360ms;
+        animation-delay: 160ms; } }
   @media screen and (max-width: 720px) {
     .gallery-grid__item {
       width: 50%; }
       .gallery-grid__item:nth-child(2n+1) {
-        background: yellow;
-        animation-delay: 0; }
+        animation-duration: 520ms;
+        animation-delay: 0ms; }
       .gallery-grid__item:nth-child(2n+2) {
-        background: white;
-        animation-delay: 40ms; } }
+        animation-duration: 440ms;
+        animation-delay: 80ms; } }
 
-.gallery-grid--animate-in .gallery-grid__item {
-  opacity: 0;
-  animation-name: slide-in-bottom;
-  animation-duration: 160ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards; }
+.gallery-grid--animate-in {
+  transform-style: preserve-3d;
+  perspective: 800px; }
+  .gallery-grid--animate-in .gallery-grid__item {
+    opacity: 0;
+    animation-name: card-in;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    transform-origin: 50%; }
+
+@keyframes card-in {
+  000% {
+    opacity: 0;
+    transform: translateY(80px) rotateX(90deg); }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotateX(0deg); } }
 
 .project-grid {
-  margin: -8px; }
+  margin: -8px;
+  transform-style: preserve-3d;
+  perspective: 800px; }
 
 .project-grid__item {
+  opacity: 0;
+  animation-name: card-in;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
   float: left;
   padding: 8px;
   width: 25%; }
+  .project-grid__item:nth-child(4n+1) {
+    animation-duration: 520ms;
+    animation-delay: 0ms; }
+  .project-grid__item:nth-child(4n+2) {
+    animation-duration: 440ms;
+    animation-delay: 80ms; }
+  .project-grid__item:nth-child(4n+3) {
+    animation-duration: 360ms;
+    animation-delay: 160ms; }
+  .project-grid__item:nth-child(4n+4) {
+    animation-duration: 280ms;
+    animation-delay: 240ms; }
   @media screen and (max-width: 960px) {
     .project-grid__item {
-      width: 33%; } }
+      width: 33%; }
+      .project-grid__item:nth-child(3n+1) {
+        animation-duration: 520ms;
+        animation-delay: 0ms; }
+      .project-grid__item:nth-child(3n+2) {
+        animation-duration: 440ms;
+        animation-delay: 80ms; }
+      .project-grid__item:nth-child(3n+3) {
+        animation-duration: 360ms;
+        animation-delay: 160ms; } }
   @media screen and (max-width: 720px) {
     .project-grid__item {
-      width: 100%; } }
+      width: 50%; }
+      .project-grid__item:nth-child(2n+1) {
+        animation-duration: 520ms;
+        animation-delay: 0ms; }
+      .project-grid__item:nth-child(2n+2) {
+        animation-duration: 440ms;
+        animation-delay: 80ms; } }
 
 .hr {
   margin: 80px 0;
@@ -3625,6 +3669,8 @@ textarea:disabled:active {
 
 .banner--aibek {
   background: linear-gradient(to bottom, #1976D2, #4A148C);
+  /* Standard syntax */
+  background: linear-gradient(to bottom, #3D325A, #42396E, #484593, #4C58B9, #4682DA, #32DCFB);
   /* Standard syntax */ }
 
 .banner--raygun {

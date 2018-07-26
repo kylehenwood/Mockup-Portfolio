@@ -1,8 +1,18 @@
+$aibek-000: #3D325A;
+$aibek-100: #42396E;
+$aibek-200: #484593;
+$aibek-300: #4C58B9;
+$aibek-400: #4682DA;
+$aibek-500: #32DCFB;
+
 .banner--aibek {
   background: linear-gradient(to bottom, $color-blue-700, $color-purple-900); /* Standard syntax */
+  background: linear-gradient(to bottom, $aibek-000,$aibek-100,$aibek-200,$aibek-300,$aibek-400,$aibek-500); /* Standard syntax */
 }
+
+$raygun-blue: #1E88E5;
 .banner--raygun {
-  background: $color-blue-600;
+  background: $raygun-blue;
 }
 .banner--siteshot {
   background: $color-teal-600;

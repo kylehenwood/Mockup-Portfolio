@@ -80,8 +80,10 @@
     </div>
   </div>
   <div class="post__image">
-    <div class="post__image-before"></div>
-    <div class="post__image-after"></div>
+    <!--
+    <div class="post__image-before anim--in-left anim--delay-240"></div>
+    <div class="post__image-after anim--in-right anim--delay-240"></div>
+    -->
     <div class="center center--1120">
       <div class="post-image-placeholder js-post-image" <?php echo $postColor ?> ></div>
     </div>
