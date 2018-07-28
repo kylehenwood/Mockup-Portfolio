@@ -15,15 +15,6 @@
   padding: 0 16px;
   background: $color-grey-800;
 }
-.project__description {
-  padding: 40px 16px;
-  background: white;
-}
-.project__section {
-  padding: 40px 16px;
-  height: 1200px;
-  background: $color-grey-200;
-}
 
 .project__close {
   position: absolute;
@@ -41,33 +32,6 @@
   //background: linear-gradient(black,transparent);
   //background: linear-gradient(0deg,rgba(0,0,0,0),rgba(0,0,0,0.4));
 }
-
-.project__gallery {
-  background: $color-grey-200;
-  overflow-x: scroll;
-  -webkit-overflow-scrolling: touch;
-  padding: 24px 0;
-}
-
-.scroll-list {
-  font-size: 0;
-  padding: 10px;
-  white-space: nowrap;
-}
-.scroll-list__item {
-  display: inline-block;
-  padding: 6px;
-}
-.scroll-card {
-  font-size: 16px;
-  box-shadow: $shadow-300;
-  border-radius: 4px;
-  background: white;
-  //border: 2px solid $color-blue-500;
-  width: 200px;
-  height: 240px;
-}
-
 
 // Button
 .project-back-button {

@@ -1,0 +1,21 @@
+.project__container {
+  padding: 80px 0;
+}
+
+.project__container--grey {
+  background: $color-grey-200;
+}
+.project__container--blue {
+  background: $color-blue-500;
+}
+
+.project__container--white {
+  background: white;
+}
+
+.padding__container--padding-bot {
+  padding-bottom: 80px;
+}
+.project__container--showcase {
+  padding: 0;
+}

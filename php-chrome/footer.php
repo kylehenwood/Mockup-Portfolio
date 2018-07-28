@@ -6,7 +6,7 @@
         <!-- footer navigation -->
         <div class="grid">
           <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="col-lg-6 col-md-6 col-sm-12">
               <div class="footer-navigation">
                 <h4 class="footer-navigation__heading">Please don't steal my work.</h4>
                 <a class="footer-navigation__link link-primary" href="index.php">Introduction</a>

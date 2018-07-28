@@ -1,0 +1,12 @@
+.project-description {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+.project-description__about {
+  width: 720px;
+  padding-right: 40px;
+}
+.project-description__roles {
+  width: 400px;
+}

@@ -1,0 +1,27 @@
+.project-showcase {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  @include screen-med {
+    flex-direction: column-reverse;
+  }
+}
+.project-showcase__image {
+  margin: -40px 0;
+}
+.project-showcase__content {
+  max-width: 400px;
+  padding: 80px 0;
+}
+
+
+.showcase-image {
+  width: 640px;
+  height: 800px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: $shadow-300;
+}

@@ -97,7 +97,9 @@ function galleryInInstant() {
   layout.navigation.removeClass('anim--out-top');
   layout.navigation.show();
   gallery.heading.removeClass('anim--out-top');
+  gallery.heading.addClass('anim--in-right');
   gallery.subheading.removeClass('anim--delay-40 anim--out-top');
+  gallery.subheading.addClass('anim--in-right anim--delay-120');
 
   gallery.grid.addClass('gallery-grid--animate-in');
 
