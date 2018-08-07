@@ -15,7 +15,9 @@ function galleryBind() {
   gallery.posts = $('.js-pjax-post');
   gallery.grid = $('.js-gallery-grid');
 
+
   gallery.posts.click(function(){
+    post.card = $(this);
     post.animate = true;
     gallery.animate = true;
   });
@@ -96,10 +98,8 @@ function galleryIn() {
 function galleryInInstant() {
   layout.navigation.removeClass('anim--out-top');
   layout.navigation.show();
-  gallery.heading.removeClass('anim--out-top');
-  gallery.heading.addClass('anim--in-right');
-  gallery.subheading.removeClass('anim--delay-40 anim--out-top');
-  gallery.subheading.addClass('anim--in-right anim--delay-120');
+  gallery.heading.addClass('anim--in-bot');
+  gallery.subheading.addClass('anim--in-bot anim--delay-80');
 
   gallery.grid.addClass('gallery-grid--animate-in');
 

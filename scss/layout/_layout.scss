@@ -22,6 +22,14 @@ html {
   background: $color-grey-800;
 }
 
+.layout--overlay {
+  .layout__header,
+  .layout__content,
+  .layout__footer {
+    display: none;
+  }
+}
+
 // Header
 .layout__header {
   position: absolute;

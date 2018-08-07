@@ -73,11 +73,11 @@
 @keyframes card-in {
   000% {
     opacity: 0;
-    transform: translateY(80px) rotateX(90deg);
+    transform: translateY(80px);// rotateX(90deg);
   }
   100% {
     opacity: 1;
-    transform: translateX(0) rotateX(0deg);
+    transform: translateX(0);// rotateX(0deg);
   }
 }
 

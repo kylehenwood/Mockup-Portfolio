@@ -34,6 +34,7 @@ function projectBind() {
   project.fixed = $('.js-project-fixed');
   project.close = $('.js-project-close');
 
+
   project.close.click(function(){
     project.animate = true;
     works.animate = true;

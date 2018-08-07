@@ -8,8 +8,8 @@ var post = {
   simliar: null,
   related: null,
   close: null,
-  animate: false
-
+  animate: false,
+  card: null
 };
 
 // animate in
@@ -18,7 +18,11 @@ $(document).on('post-in--animate',function(e){
   postAnimateIn();
   headerFix(post.close,'post__close--scroll');
   layout.body.addClass('layout--grey');
+
+  // scaleCard
+  scaleCard(post.card);
 });
+
 $(document).on('post-in--instant',function(e){
   postInstantIn();
   headerFix(post.close,'post__close--scroll');
@@ -31,12 +35,14 @@ $(document).on('post-out--animate',function(e){
   postAnimateOut();
   headerUnfix(post.close,'post__close--scroll');
   layout.body.removeClass('layout--grey');
+  removeCard();
 });
 
 $(document).on('post-out--instant',function(e){
   postInstantOut();
   headerUnfix(post.close,'post__close--scroll');
   layout.body.removeClass('layout--grey');
+  removeCard();
 });
 
 
@@ -119,8 +125,6 @@ function postAnimateIn() {
 function postInstantIn() {
   bodyScrollSet(layout.post);
   layout.post.show();
-  layout.navigation.hide();
-  layout.content.hide();
 }
 
 // Animate out

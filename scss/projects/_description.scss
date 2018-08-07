@@ -2,11 +2,22 @@
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
+  @include screen-med {
+    flex-direction: column;
+  }
 }
 .project-description__about {
   width: 720px;
   padding-right: 40px;
+  @include screen-med {
+    width: 100%;
+    padding: 0;
+    margin: 0 0 40px;
+  }
 }
 .project-description__roles {
   width: 400px;
+  @include screen-med {
+    width: 100%;
+  }
 }

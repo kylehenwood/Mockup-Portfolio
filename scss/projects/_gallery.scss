@@ -1,6 +1,6 @@
 .project-gallery {
   position: relative;
-  overflow: hidden;
+  margin: 0 -24px;
 }
 .project-gallery__overlay {
   position: absolute;
@@ -14,23 +14,26 @@
 }
 .project-gallery__list {
   overflow-x: hidden;
-  //overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
+  padding: 0 24px;
+  @include screen-med {
+    overflow-x: scroll;
+  }
 }
 
 
 
 .scroll-list {
   position: relative;
-  font-size: 0;
   white-space: nowrap;
+  font-size: 0;
   padding: 40px 0;
 }
 .scroll-list__item {
   display: inline-block;
   margin: 0 8px 0 0;
   &:last-child {
-    margin: 0 16px 0 0;
+    margin: 0 24px 0 0;
   }
 }
 .scroll-list__item--fade-1 {
@@ -83,4 +86,7 @@
   border-radius: 50%;
   background: white;
   box-shadow: $shadow-300;
+  @include screen-med {
+    margin-right: 24px;
+  }
 }

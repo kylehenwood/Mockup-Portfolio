@@ -28,9 +28,10 @@ function bodyScrollSet(element) {
   layout.html.scrollTop(0);
   layout.body.scrollTop(0);
 
-  layout.navigation.hide();
-  layout.content.hide();
-  layout.footer.hide();
+  layout.body.addClass('layout--overlay');
+  // layout.navigation.hide();
+  // layout.content.hide();
+  // layout.footer.hide();
 }
 
 // make the body scrollable, and the passed element unscrollable.
@@ -40,10 +41,10 @@ function bodyScrollEnable(element) {
   //scrollLock.elementPos = layout.html.scrollTop() || layout.body.scrollTop();
   element.addClass('layout__overlay--scroll-lock');
   element.scrollTop(scrollLock.elementPos);
-
-  layout.navigation.show();
-  layout.content.show();
-  layout.footer.show();
+  // layout.navigation.show();
+  // layout.content.show();
+  // layout.footer.show();
+  layout.body.removeClass('layout--overlay');
   layout.html.scrollTop(scrollLock.scrollPos);
   layout.body.scrollTop(scrollLock.scrollPos);
 }

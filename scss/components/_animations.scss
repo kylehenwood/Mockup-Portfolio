@@ -1,4 +1,6 @@
 // only allow these if modernizr has added the class "cssanimations" to the HTML tag
+$animation-speed: 240ms;
+
 .cssanimations {
 
   // post animation hide
@@ -30,7 +32,7 @@
   .anim--in-right {
     opacity: 0;
     animation-name: slide-in-right;
-    animation-duration: 160ms;
+    animation-duration: $animation-speed;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
   }
@@ -50,7 +52,7 @@
   .anim--in-left {
     opacity: 0;
     animation-name: slide-in-left;
-    animation-duration: 160ms;
+    animation-duration: $animation-speed;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
   }
@@ -70,7 +72,7 @@
   .anim--in-top {
     opacity: 0;
     animation-name: slide-in-top;
-    animation-duration: 160ms;
+    animation-duration: $animation-speed;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
   }
@@ -89,7 +91,7 @@
   .anim--in-bot {
     opacity: 0;
     animation-name: slide-in-bottom;
-    animation-duration: 160ms;
+    animation-duration: $animation-speed;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
   }
@@ -108,7 +110,7 @@
   .anim--out-top {
     opacity: 1;
     animation-name: slide-out-top;
-    animation-duration: 200ms;
+    animation-duration: $animation-speed;
     animation-timing-function: ease-in;
     animation-fill-mode: forwards;
   }
@@ -127,7 +129,7 @@
   .anim--out-bot {
     opacity: 1;
     animation-name: slide-out-bot;
-    animation-duration: 200ms;
+    animation-duration: $animation-speed;
     animation-timing-function: ease-in;
     animation-fill-mode: forwards;
   }
@@ -146,7 +148,7 @@
   .anim--out-left {
     opacity: 1;
     animation-name: slide-out-left;
-    animation-duration: 200ms;
+    animation-duration: $animation-speed;
     animation-timing-function: ease-in;
     animation-fill-mode: forwards;
   }
@@ -165,7 +167,7 @@
   .anim--out-right {
     opacity: 1;
     animation-name: slide-out-right;
-    animation-duration: 200ms;
+    animation-duration: $animation-speed;
     animation-timing-function: ease-in;
     animation-fill-mode: forwards;
   }
@@ -185,7 +187,7 @@
   .anim--scale-up-in {
     opacity: 0;
     animation-name: scale-up-in;
-    animation-duration: 160ms;
+    animation-duration: $animation-speed;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
   }
@@ -203,7 +205,7 @@
   .anim--scale-up-out {
     opacity: 0;
     animation-name: scale-up-out;
-    animation-duration: 160ms;
+    animation-duration: $animation-speed;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
   }
@@ -222,7 +224,7 @@
   .anim--scale-down-in {
     opacity: 0;
     animation-name: scale-down-in;
-    animation-duration: 160ms;
+    animation-duration: 320ms;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
   }
@@ -240,7 +242,7 @@
   .anim--scale-down-out {
     opacity: 0;
     animation-name: scale-down-out;
-    animation-duration: 160ms;
+    animation-duration: $animation-speed;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
   }

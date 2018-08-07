@@ -1,5 +1,5 @@
 <div class="project__container project__container--white project__container--padding-bot">
-  <div class="center center--1120">
+  <div class="center center--1120 js-scroll-reveal">
 
     <div class="project-description">
       <div class="project-description__about">

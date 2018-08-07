@@ -16,6 +16,8 @@ html {
 
 $transition-duration: 240ms;
 
+// _vendor
+
 // _shared imports
 @import "shared/_mixin";
 @import "shared/_color";
@@ -24,11 +26,8 @@ $transition-duration: 240ms;
 @import "shared/_type";
 @import "shared/heading";
 @import "shared/_useful";
-@import "shared/_grid";
-@import "shared/_grid-custom";
 @import "shared/_hr";
 @import "shared/_typography";
-@import "shared/_text-animation";
 
 
 // _icon
@@ -51,9 +50,10 @@ $transition-duration: 240ms;
 
 
 // _components
-@import "components/_section-quote";
-@import "components/_section-signup";
-@import "components/_section-help";
+@import "components/_grid";
+@import "components/_grid-custom";
+@import "components/_text-animation";
+
 @import "components/_module";
 @import "components/_button";
 @import "components/_button-primary";
@@ -66,7 +66,6 @@ $transition-duration: 240ms;
 @import "components/_breadcrumb";
 @import "components/_switch";
 @import "components/_switch-control";
-@import "components/_page-alert";
 @import "components/_animations";
 
 

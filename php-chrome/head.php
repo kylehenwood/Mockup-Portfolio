@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html class="js-html svg">
-
 <head lang="en">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -8,10 +5,11 @@
 	<link rel="stylesheet" type="text/css" href="scss/public.css" />
 	<link rel="icon" type="image/png" href="mark_favicon.png" />
 
-	<!-- required -->
+	<!-- vendor || required -->
 	<script type="text/javascript" src="js/vendor/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="js/vendor/modernizr-2.6.2.min.js"></script>
 	<script type="text/javascript" src="js/vendor/jquery.pjax.js"></script>
+	<script type="text/javascript" src="js/vendor/scrollreveal.js"></script>
 
 	<!-- ui -->
 	<script type="text/javascript" src="js/pjax-connect.js"></script>
@@ -29,6 +27,8 @@
 	<script type="text/javascript" src="js/_works.js"></script>
 	<script type="text/javascript" src="js/_post.js"></script>
 	<script type="text/javascript" src="js/_project.js"></script>
+
+	<script type="text/javascript" src="js/_scale-card.js"></script>
 
 
 	<!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
