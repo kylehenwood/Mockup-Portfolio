@@ -2,56 +2,96 @@
 var card = {
   orig: null,
   clone: null,
-  styles: null
+  styles: null,
+  grid: null
 };
 
+var image = {
+  orig: null,
+  container: null
+}
 
 // on page load
 function scaleCard(elem) {
+  console.log('-----');
   // Open Gallery
   elem.unbind();
   card.orig = elem;
-  card.clone = elem.clone();
 
+  // set
+  image.orig = $('.js-post-image');
+  image.container = $('.js-post-image-container');
 
+  // post card
   var scroll = $(document).scrollTop();
   var cardHeight = card.orig.outerHeight();
-
+  var cardWidth = card.orig.outerWidth();
   var cardPosition = card.orig.offset();
   var cardTop = cardPosition.top - scroll;
   var cardLeft = cardPosition.left;
 
+  // console.log(cardTop);
+  // console.log('scroll:'+scroll);
 
-  card.styles =  {
-    'zindex':80,
-    'position':'absolute',
-    'left':cardLeft,
-    'right':cardLeft+274,
-    'top':cardTop,
-    'width': card.orig.outerWidth(),
+  // get the values of the post image before changing it for calculations
+  var imageHeight = image.orig.outerHeight();
+  var imageWidth = image.orig.outerWidth();
+  var containerHeight = image.container.outerHeight();
+
+  image.container.css({
+    'min-height':containerHeight
+  });
+  image.orig.css({
+    'width':cardWidth,
+    'height':cardHeight
+  });
+  // post image
+  var imagePosition = image.orig.offset();
+  var imageTop = imagePosition.top - scroll;
+  var imageLeft = imagePosition.left;
+
+  console.log('imgtop:'+imageTop);
+
+  // positions
+  var offsetTop = cardTop - imageTop;
+  var offsetLeft = cardLeft - imageLeft;
+
+  console.log(imageTop);
+  console.log('offset:'+offsetTop);
+
+  image.orig.css({
+    'left': offsetLeft,
+    'top':offsetTop
+  });
+
+  // hide clicked hard from visible
+  card.orig.css({
+    'opacity':0
+  });
+
+  card.styles = {
+    'left': offsetLeft,
+    'top':offsetTop,
+    'width': cardWidth,
     'height':cardHeight,
-    'box-shadow':'none',
-    'transition':'400ms ease-out',
-    'border-radius':'3px'
+    'opacity': 0
   };
 
-  card.clone.css(card.styles);
-  card.clone.appendTo(layout.post);
-  card.orig.hide();
-  // animate card into banner
   setTimeout(function(){
-    card.clone.css({
+    image.orig.css({
+      'transition':'480ms ease-out',
       'top': 0,
       'left':0,
-      'width':'auto',
-      'max-width':'800px',
-      'height':'600px',
-      'border-radius':0
+      'width':'800px',
+      'height':'600px'
     });
   },1);
 }
 
+function scaleResize() {
+  // container
+}
 
-function removeCard() {
-  card.clone.remove();
+function scaleCardOut() {
+  image.orig.css(card.styles);
 }

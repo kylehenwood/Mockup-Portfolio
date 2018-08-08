@@ -21,7 +21,9 @@ html {
 .layout--grey {
   background: $color-grey-800;
 }
-
+.layout--scroll-lock {
+  overflow: hidden;
+}
 .layout--overlay {
   .layout__header,
   .layout__content,
@@ -57,6 +59,14 @@ html {
   overflow: hidden;
 }
 
+// Footer
+.layout__footer {
+  width: 100%;
+  padding: 40px 24px;
+  background: $color-grey-900;
+}
+
+//------------
 // Overlay
 .layout__overlay {
   display: none;
@@ -69,11 +79,4 @@ html {
 .layout__overlay--scroll-lock {
   position: fixed;
   overflow: hidden;
-}
-
-// Footer
-.layout__footer {
-  width: 100%;
-  padding: 0 24px;
-  background: $color-grey-900;
 }

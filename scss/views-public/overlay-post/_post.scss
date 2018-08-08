@@ -17,10 +17,10 @@
 }
 @keyframes post-in {
   000% {
-    opacity: 0;
+    background: rgba($color-grey-800,0);
   }
   100% {
-    opacity: 1;
+    background: $color-grey-800;
   }
 }
 .anim--post-out {
@@ -31,18 +31,22 @@
 }
 @keyframes post-out {
   000% {
-    opacity: 1;
+    background: $color-grey-800;
   }
   100% {
-    opacity: 0;
+    background: rgba($color-grey-800,0);
   }
 }
 
+
+
+// children
 .post__heading {
   padding: 0 16px;
   top: 0;
   left: 0;
   width: 100%;
+  margin: 0 0 40px;
 }
 
 .post__close {
@@ -57,59 +61,17 @@
     display: block;
   }
 }
-.post__close--scroll {
-  background: $color-grey-900;
-}
 
 .post__image {
   position: relative;
   padding: 0 16px;
-  margin: 40px 0 80px;
-  @include screen-med {
-    margin: 24px 0 80px;
-  }
-}
-
-.post__image-before {
-  transition: all 160ms ease-out;
-  position: absolute;
-  top: 0;
-  left: -40px;
-  width: 80px;
-  height: 100%;
-  border-radius: 0 8px 8px 0;
-  background: $color-grey-600;
-  &:hover {
-    left: 0;
-    background: $color-grey-500;
-  }
-}
-.post__image-after {
-  transition: all 160ms ease-out;
-  position: absolute;
-  top: 0;
-  right: -40px;
-  width: 80px;
-  height: 100%;
-  border-radius: 8px 0 0 8px;
-  background: $color-grey-600;
-  &:hover {
-    right: 0;
-    background: $color-grey-500;
-  }
-}
-
-
-.post__description {
-  display: none;
-}
-
-.post__description,
-.post__project {
-  padding: 0 16px;
   margin: 0 0 80px;
+  @include screen-med {
+    margin: 0 0 40px;
+  }
 }
-.post__similar {
+
+.post__extras {
   padding: 0 16px;
 }
 
@@ -119,8 +81,7 @@
   position: relative;
 }
 .post-heading__title {
-  padding: 24px 0;
-  line-height: 32px;
+  line-height: 40px;
   font-size: 28px;
   font-weight: bold;
   color: white;
@@ -200,6 +161,8 @@
 
 //-- image
 .post-image-placeholder {
+  position: relative;
+  z-index: 100;
   background: white;
   width: 800px;
   height: 600px;
@@ -217,54 +180,11 @@
   }
 }
 
-// scale in
-.anim--scale-in {
-  opacity: 0;
-  animation-name: anim-scale-in;
-  animation-duration: $transition-duration;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-}
-
-@keyframes anim-scale-in {
-  000% {
-    opacity: 0.4;
-    transform: translateX(40px);
-    transform: scale(0.4);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-    transform: scale(1);
-  }
-}
-
-
-// scale out
-.anim--scale-out {
-  opacity: 1;
-  animation-name: anim-scale-out;
-  animation-duration: $transition-duration;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
-  animation-delay: 0;
-}
-@keyframes anim-scale-out {
-  000% {
-    opacity: 1;
-    transform: translateX(0);
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(40px);
-    transform: scale(0.4);
-  }
-}
-
 
 //-- tile group
-.tile-select {}
+.tile-select {
+  margin: 0 0 80px;
+}
 .tile-select__heading {
   position: relative;
   margin: 0 0 32px;

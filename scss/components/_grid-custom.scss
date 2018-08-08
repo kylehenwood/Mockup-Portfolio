@@ -1,10 +1,10 @@
 // Gallery Grid
 .gallery-grid {
-  margin: -8px;
+  margin: -4px;
 }
 .gallery-grid__item {
   float: left;
-  padding: 8px;
+  padding: 4px;
 
   width: 25%;
   &:nth-child(4n+1) {
@@ -86,7 +86,7 @@
 
 // Project Grid
 .project-grid {
-  margin: -8px;
+  margin: -4px;
   transform-style: preserve-3d;
   perspective: 800px;
 }
@@ -97,7 +97,7 @@
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
   float: left;
-  padding: 8px;
+  padding: 4px;
   width: 25%;
   &:nth-child(4n+1) {
     //background: yellow;

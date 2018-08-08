@@ -36,9 +36,9 @@
   <div class="post__heading">
     <div class="center center--1120">
       <div class="post-heading">
-        <div class="post-heading__title">
-          <h1 class="heading-1 text-white"><?php echo($postTitle); ?></h1>
-        </div>
+        <h2 class="post-heading__title">
+          <?php echo($postTitle); ?>
+        </h2>
       </div>
     </div>
   </div>
@@ -53,7 +53,7 @@
   <!-- image end -->
 
   <!-- project start -->
-  <div class="post__project">
+  <div class="post__extras">
     <div class="center center--1120">
       <div class="tile-select">
         <div class="tile-select__heading">
@@ -81,13 +81,9 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <!-- project end -->
+      <!-- project end -->
 
-  <!-- similar start -->
-  <div class="post__similar">
-    <div class="center center--1120">
+      <!-- similar start -->
       <div class="tile-select">
         <div class="tile-select__heading">
           <h2 class="heading-3 text-white">Similar things</h2>

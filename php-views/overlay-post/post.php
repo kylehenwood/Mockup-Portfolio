@@ -79,23 +79,19 @@
 
     </div>
   </div>
-  <div class="post__image">
-    <!--
-    <div class="post__image-before anim--in-left anim--delay-240"></div>
-    <div class="post__image-after anim--in-right anim--delay-240"></div>
-    -->
+  <div class="post__image js-post-image-container">
     <div class="center center--1120">
       <div class="post-image-placeholder js-post-image" <?php echo $postColor ?> ></div>
     </div>
   </div>
-  <div class="post__description">
+  <!-- <div class="post__description">
     <div class="center center--1120">
       <div class="typography">
         <?php echo($postDescription) ?>
       </div>
     </div>
-  </div>
-  <div class="post__project js-post-projects">
+  </div> -->
+  <div class="post__extras js-post-extras">
     <div class="center center--1120">
       <div class="tile-select">
       <div class="tile-select__heading">
@@ -125,11 +121,8 @@
           </div>
         </div>
       </div>
-    </div></div>
     </div>
-  <div class="post__similar js-post-similar">
-    <div class="center center--1120">
-      <div class="tile-select">
+    <div class="tile-select">
       <div class="tile-select__heading">
         <h2 class="heading-3 text-white">More from this project</h2>
       </div>
