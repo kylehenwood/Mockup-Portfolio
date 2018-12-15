@@ -32,10 +32,16 @@ function worksBind() {
   works.cards = $('.js-project-card');
 
   // Animate transition on card click
-  works.cards.click(function(){
+  works.cards.click(function(e){
     works.animate = true;
     project.animate = true;
+    project.maskX = e.pageX;
+    project.maskY = e.pageY;
   });
+
+  // works get mouse click position on card click.
+
+
 }
 
 // Animations

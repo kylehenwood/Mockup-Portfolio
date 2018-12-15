@@ -1,15 +1,18 @@
 // variables
-var project = {
+let project = {
   open: false,
   container: null,
   page: null,
-  animate: false
+  animate: false,
+  maskX: null,
+  maskY: null
 }
 
 
 // Triggers
 $(document).on('project-in--animate',function(){
   headerFix(project.fixed,'project__close--scroll');
+  console.log('GOOOO');
   projectAnimateIn();
 });
 $(document).on('project-out--animate',function(){
@@ -44,6 +47,24 @@ function projectBind() {
 
 // Overlay
 function projectAnimateIn() {
+
+  const circle = $('.js-circle-mask');
+
+  // console.log(project.maskY);
+  // console.log(project.maskX);
+
+  circle.attr({
+    'cx':project.maskX,
+    'cy':project.maskY,
+    'r':4
+  });
+
+  setTimeout(function(){
+    circle.attr({
+      'r':$(window).width()/3
+    });
+  },1)
+
   bodyScrollDisable(layout.project);
   layout.project.show();
   project.container.addClass('anim--project-in');
