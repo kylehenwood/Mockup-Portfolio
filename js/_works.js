@@ -36,7 +36,7 @@ function worksBind() {
     works.animate = true;
     project.animate = true;
     project.maskX = e.pageX;
-    project.maskY = e.pageY;
+    project.maskY = e.pageY - $(document).scrollTop();
   });
 
   // works get mouse click position on card click.

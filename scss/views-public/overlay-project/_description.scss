@@ -1,7 +1,14 @@
 .project-description {
+  position: relative;
+  z-index: 5;
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: $shadow-100;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
+  margin: -160px 0 80px 0;
   @include screen-med {
     flex-direction: column;
   }

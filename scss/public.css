@@ -329,7 +329,7 @@ nowrap,
 
 .typography {
   font-family: "Open Sans", Open-Sans, helvetica, arial;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.4;
   color: #424242; }
   .typography a {
@@ -616,17 +616,17 @@ html {
 
 .layout__header {
   position: absolute;
+  z-index: 10;
   top: 0;
   left: 0;
   width: 100%;
   padding: 0 24px;
-  background: #212121; }
+  background: rgba(0, 0, 0, 0.2); }
   @media screen and (max-width: 960px) {
     .layout__header {
       padding: 0 16px; } }
 
 .layout__content {
-  padding: 64px 0 0;
   width: 100%;
   background: #424242; }
   @media screen and (max-width: 960px) {
@@ -3001,10 +3001,7 @@ textarea:disabled:active {
   color: white; }
 
 .project-mask {
-  clip-path: url(#projectMask); }
-
-.project-mask__circle {
-  transition: 400ms ease-out; }
+  transition: 640ms cubic-bezier(0.68, 0.04, 1, 1); }
 
 .project {
   position: relative;
@@ -3166,6 +3163,93 @@ textarea:disabled:active {
   padding: 0 0 0 40px;
   border-left: 2px solid #E0E0E0; }
 
+.project-mask {
+  transition: 640ms cubic-bezier(0.68, 0.04, 1, 1); }
+
+.project {
+  position: relative;
+  background: #212121; }
+
+.project--standalone {
+  padding: 0; }
+
+.project__banner {
+  padding: 0 16px;
+  background: #424242; }
+
+.project__close {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px; }
+
+.project-back-button {
+  position: relative;
+  border-radius: 20px;
+  font-weight: bold;
+  line-height: 16px;
+  color: white;
+  display: inline-block;
+  padding: 12px 24px 12px 40px;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.6), 0 0 0 0 rgba(255, 255, 255, 0.6);
+  transition: all 80ms ease-out; }
+  .project-back-button:hover {
+    box-shadow: inset 0 0 0 0 white, 0 0 0 2px white;
+    background: #4CAF50; }
+  .project-back-button:active {
+    box-shadow: inset 0 0 0 2px white, 0 0 0 0 white;
+    background: #388E3C; }
+
+.project-back-button__icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40px;
+  padding: 12px 16px; }
+
+.project-banner {
+  position: relative; }
+
+.project-banner__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0;
+  height: 800px; }
+  @media screen and (max-width: 960px) {
+    .project-banner__content {
+      height: 560px; } }
+
+.anim--project-in {
+  opacity: 0;
+  animation-name: project-in;
+  animation-duration: 240ms;
+  animation-timing-function: ease-out-cubic;
+  animation-fill-mode: forwards; }
+
+@keyframes project-in {
+  000% {
+    opacity: 0.4; }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+.anim--project-out {
+  opacity: 1;
+  animation-name: project-out;
+  animation-duration: 240ms;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards; }
+
+@keyframes project-out {
+  000% {
+    opacity: 1;
+    transform: translateY(0); }
+  100% {
+    opacity: 0; } }
+
 .banner--aibek {
   background: linear-gradient(to bottom, #1976D2, #4A148C);
   /* Standard syntax */
@@ -3191,28 +3275,17 @@ textarea:disabled:active {
 .banner--hunchbuzz {
   background: #FB8C00; }
 
-.project__container {
-  padding: 80px 24px; }
-
-.project__container--grey {
-  background: #EEEEEE; }
-
-.project__container--blue {
-  background: #2196F3; }
-
-.project__container--white {
-  background: white; }
-
-.padding__container--padding-bot {
-  padding-bottom: 120px !important; }
-
-.project__container--showcase {
-  padding: 0 24px; }
-
 .project-description {
+  position: relative;
+  z-index: 5;
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   display: flex;
   flex-wrap: nowrap;
-  flex-direction: row; }
+  flex-direction: row;
+  margin: -160px 0 80px 0; }
   @media screen and (max-width: 960px) {
     .project-description {
       flex-direction: column; } }

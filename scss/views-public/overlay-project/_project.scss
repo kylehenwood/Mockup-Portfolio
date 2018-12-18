@@ -3,12 +3,10 @@
 //---------------
 
 .project-mask {
-  clip-path: url(#projectMask);
-  //clip-path: ellipse(60px 40px at 75px 30px);
+  transition: 640ms cubic-bezier(0.68, 0.04, 1, 1);
 }
-.project-mask__circle {
-  transition: 400ms ease-out;
-}
+
+//--
 
 .project {
   position: relative;

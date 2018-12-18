@@ -37,8 +37,8 @@ $transition-duration: 240ms;
 
 
 // _layout
-@import "layout/_layout";
-@import "layout/_page";
+@import "chrome/_layout";
+@import "chrome/_page";
 
 
 // _common
@@ -100,11 +100,9 @@ $transition-duration: 240ms;
 
 //-----
 // _projects
-@import "projects/_aibek";
-
-
-@import "projects/_project";
-@import "projects/_description";
-@import "projects/_brand";
-@import "projects/_showcase";
-@import "projects/_gallery";
+@import "views-public/overlay-project/_project";
+@import "views-public/overlay-project/_aibek";
+@import "views-public/overlay-project/_description";
+@import "views-public/overlay-project/_brand";
+@import "views-public/overlay-project/_showcase";
+@import "views-public/overlay-project/_gallery";
