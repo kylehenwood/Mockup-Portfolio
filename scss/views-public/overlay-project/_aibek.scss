@@ -8,10 +8,9 @@ $aibek-500: #32DCFB;
 .project--aibek {
   background: $aibek-000;
 }
-
 .banner--aibek {
-  background: linear-gradient(to bottom, $color-blue-700, $color-purple-900); /* Standard syntax */
-  background: linear-gradient(to bottom, $aibek-000,$aibek-100,$aibek-200,$aibek-300,$aibek-400,$aibek-500); /* Standard syntax */
+  background: $aibek-000;
+  //background: linear-gradient(to bottom, $color-blue-700, $color-purple-900); /* Standard syntax */
 }
 
 $raygun-blue: #1E88E5;
@@ -42,4 +41,40 @@ $raygun-blue: #1E88E5;
 .project--hunchbuzz,
 .banner--hunchbuzz {
   background: $color-orange-600;
+}
+
+
+
+
+.banner-aibek {
+  position: relative;
+  height: 800px;
+}
+.banner-aibek__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, $aibek-000,$aibek-100,$aibek-200,$aibek-300,$aibek-400,$aibek-500); /* Standard syntax */
+  opacity: 0;
+  animation-delay: 400ms;
+  animation-name: aibek-background-in;
+  animation-duration: 1000ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+@keyframes aibek-background-in {
+  000% {
+    opacity: 0;
+    transform: translateY(120px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.banner-aibek__title {
+
 }

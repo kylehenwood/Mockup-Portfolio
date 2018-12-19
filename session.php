@@ -46,6 +46,8 @@ $_SESSION['gallery'] = $galleryArray;
 unset($galleryArray);
 
 
+
+
 // ---
 // PROJECTS
 // - Gather all projects from the projects folder and construct an array.
@@ -74,6 +76,5 @@ foreach ($projects as $project) {
 
 $_SESSION['projects'] = $projectArray;
 unset($projectArray);
-
 
 ?>
