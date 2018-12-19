@@ -10,6 +10,7 @@ $colorTeal = '#009688';
 $colorPink = '#E91E63';
 
 
+// ---
 // GALLERY => POST
 // get all gallery content into an array
 $galleryFolder = "archive-posts";
@@ -45,8 +46,9 @@ $_SESSION['gallery'] = $galleryArray;
 unset($galleryArray);
 
 
-
+// ---
 // PROJECTS
+// - Gather all projects from the projects folder and construct an array.
 $projectFolder = "archive-projects";
 $projects = array_diff(scandir($projectFolder), array('..', '.'));
 $projectArray = array();
@@ -61,7 +63,7 @@ foreach ($projects as $project) {
   // Push folder data to array
   $tempArray = array(
     "id" => $id,
-    "title" => $title,
+    "cardTitle" => $cardTitle,
     "color" => $color,
     "page" => $page
   );

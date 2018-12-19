@@ -40,7 +40,7 @@ html {
   left: 0;
   width: 100%;
   padding: 0 24px;
-  background: rgba(black,0.2);
+  background: rgba(black,0.1);
   //box-shadow: inset 0 -1px 0 rgba(white,0.3);
   @include screen-med {
     padding: 0 16px;
@@ -49,7 +49,6 @@ html {
 
 // Content
 .layout__content {
-  //padding: 64px 0 0;
   width: 100%;
   background: $color-grey-800;
   @include screen-med {

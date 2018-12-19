@@ -1,4 +1,4 @@
-<div class="project__container project__container--grey">
+<div class="project__container project__container--grey anim--in-bot anim--delay-480">
 
   <div class="center center--1120">
 

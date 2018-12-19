@@ -37,18 +37,7 @@
   });
 </script>
 
-<div class="project js-project-container">
 
-  <div class="project__close js-project-fixed">
-    <div class="center center--1120">
-      <a class="project-back-button js-project-close js-pjax-container" href="index.php?pageID=projects">
-        <div class="project-back-button__icon">
-          <span class="flat-icon icon--16 icon--arrow-left"></span>
-        </div>
-        <div class="project-back-button__text">All Projects</div>
-      </a>
-    </div>
-  </div>
 
 <?php
   if (isset($_GET['projectID'])) {
@@ -58,6 +47,7 @@
     $projectArray = $_SESSION['projects'];
     $findProject = array_search($projectID, array_column($projectArray, 'id'));
     $project = $projectArray[$findProject];
+    $projectStandalone = false;
 
     include $project['page'];
   } else {
@@ -65,4 +55,3 @@
     // include 404 project not found;
   }
 ?>
-</div>

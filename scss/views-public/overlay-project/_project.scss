@@ -3,7 +3,7 @@
 //---------------
 
 .project-mask {
-  transition: 640ms cubic-bezier(0.68, 0.04, 1, 1);
+  transition: 640ms cubic-bezier(0.72, 0.29, 0.51, 0.78);
 }
 
 //--
@@ -28,7 +28,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: 16px;
+  padding: 12px;
   //background: $color-grey-900;
 }
 
@@ -121,4 +121,27 @@
     opacity: 0;
     //transform: translateY(80px);
   }
+}
+
+
+.project__container {
+  padding: 24px 24px;
+}
+
+.project__container--grey {
+  background: $color-grey-200;
+}
+.project__container--blue {
+  background: $color-blue-500;
+}
+
+.project__container--white {
+  background: white;
+}
+
+.padding__container--padding-bot {
+  padding-bottom: 120px!important;
+}
+.project__container--showcase {
+  padding: 0 24px;
 }

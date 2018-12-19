@@ -8,9 +8,13 @@
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
-  margin: -160px 0 80px 0;
+  margin: -120px 0 80px 0;
   @include screen-med {
     flex-direction: column;
+    margin: 0 -24px 40px;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 40px 24px;
   }
 }
 .project-description__about {

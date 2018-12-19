@@ -374,7 +374,7 @@ nowrap,
   .typography h6 {
     margin: 16px 0 0; }
   .typography h1, .typography h2, .typography h3, .typography h4, .typography h5, .typography h6 {
-    font-weight: normal;
+    font-weight: bold;
     line-height: 1.2; }
     .typography h1:first-child, .typography h2:first-child, .typography h3:first-child, .typography h4:first-child, .typography h5:first-child, .typography h6:first-child {
       margin-top: 0; }
@@ -621,7 +621,7 @@ html {
   left: 0;
   width: 100%;
   padding: 0 24px;
-  background: rgba(0, 0, 0, 0.2); }
+  background: rgba(0, 0, 0, 0.1); }
   @media screen and (max-width: 960px) {
     .layout__header {
       padding: 0 16px; } }
@@ -653,6 +653,9 @@ html {
 .layout__overlay--scroll-lock {
   position: fixed;
   overflow: hidden; }
+
+.page {
+  padding: 64px 0 0; }
 
 .page__banner {
   position: relative;
@@ -794,7 +797,7 @@ html {
     display: block;
     width: 6px;
     height: 6px;
-    background: #424242;
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 100%; }
 
 .button-contact {
@@ -2400,6 +2403,18 @@ textarea:disabled:active {
 .cssanimations .anim--delay-320 {
   animation-delay: 320ms; }
 
+.cssanimations .anim--delay-360 {
+  animation-delay: 460ms; }
+
+.cssanimations .anim--delay-400 {
+  animation-delay: 400ms; }
+
+.cssanimations .anim--delay-440 {
+  animation-delay: 440ms; }
+
+.cssanimations .anim--delay-480 {
+  animation-delay: 480ms; }
+
 .cssanimations .anim--in-right {
   opacity: 0;
   animation-name: slide-in-right;
@@ -3001,7 +3016,7 @@ textarea:disabled:active {
   color: white; }
 
 .project-mask {
-  transition: 640ms cubic-bezier(0.68, 0.04, 1, 1); }
+  transition: 640ms cubic-bezier(0.72, 0.29, 0.51, 0.78); }
 
 .project {
   position: relative;
@@ -3020,7 +3035,7 @@ textarea:disabled:active {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 16px; }
+  padding: 12px; }
 
 .project-back-button {
   position: relative;
@@ -3086,6 +3101,24 @@ textarea:disabled:active {
     transform: translateY(0); }
   100% {
     opacity: 0; } }
+
+.project__container {
+  padding: 24px 24px; }
+
+.project__container--grey {
+  background: #EEEEEE; }
+
+.project__container--blue {
+  background: #2196F3; }
+
+.project__container--white {
+  background: white; }
+
+.padding__container--padding-bot {
+  padding-bottom: 120px !important; }
+
+.project__container--showcase {
+  padding: 0 24px; }
 
 .example-website {
   background: #9E9E9E;
@@ -3164,7 +3197,7 @@ textarea:disabled:active {
   border-left: 2px solid #E0E0E0; }
 
 .project-mask {
-  transition: 640ms cubic-bezier(0.68, 0.04, 1, 1); }
+  transition: 640ms cubic-bezier(0.72, 0.29, 0.51, 0.78); }
 
 .project {
   position: relative;
@@ -3183,7 +3216,7 @@ textarea:disabled:active {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 16px; }
+  padding: 12px; }
 
 .project-back-button {
   position: relative;
@@ -3250,28 +3283,55 @@ textarea:disabled:active {
   100% {
     opacity: 0; } }
 
+.project__container {
+  padding: 24px 24px; }
+
+.project__container--grey {
+  background: #EEEEEE; }
+
+.project__container--blue {
+  background: #2196F3; }
+
+.project__container--white {
+  background: white; }
+
+.padding__container--padding-bot {
+  padding-bottom: 120px !important; }
+
+.project__container--showcase {
+  padding: 0 24px; }
+
+.project--aibek {
+  background: #3D325A; }
+
 .banner--aibek {
   background: linear-gradient(to bottom, #1976D2, #4A148C);
   /* Standard syntax */
   background: linear-gradient(to bottom, #3D325A, #42396E, #484593, #4C58B9, #4682DA, #32DCFB);
   /* Standard syntax */ }
 
+.project--raygun,
 .banner--raygun {
   background: #1E88E5; }
 
+.project--siteshot,
 .banner--siteshot {
   background: #00897B; }
 
+.project--shnappy,
 .banner--shnappy {
   background: #E91E63; }
 
+.project--mindscape,
 .banner--mindscape {
   background: #7B1FA2; }
 
+.project--vanimator,
 .banner--vanimator {
   background: linear-gradient(to right, #8D3BFC, #00B9F7);
   /* Standard syntax */ }
 
+.project--hunchbuzz,
 .banner--hunchbuzz {
   background: #FB8C00; }
 
@@ -3285,10 +3345,14 @@ textarea:disabled:active {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
-  margin: -160px 0 80px 0; }
+  margin: -120px 0 80px 0; }
   @media screen and (max-width: 960px) {
     .project-description {
-      flex-direction: column; } }
+      flex-direction: column;
+      margin: 0 -24px 40px;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 40px 24px; } }
 
 .project-description__about {
   width: 720px;
@@ -3319,7 +3383,7 @@ textarea:disabled:active {
       flex-direction: column-reverse; } }
 
 .project-showcase__image {
-  margin: -40px 0; }
+  margin: 80px 0; }
 
 .project-showcase__content {
   max-width: 400px;

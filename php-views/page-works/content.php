@@ -7,7 +7,7 @@ $galleryProjects = $_SESSION['projects'];
 foreach($galleryProjects as $project) {
 	$projectColor = "style=background-color:".$project['color'];
 	$projectURL = "href='index.php?pageID=projects&projectID=".$project['id']."'";
-	$projectTitle = $project['title'];
+	$projectTitle = $project['cardTitle'];
 ?>
 
 <li class="project-grid__item">
@@ -19,53 +19,6 @@ foreach($galleryProjects as $project) {
 <?php
 }
 ?>
-<li class="project-grid__item">
-	<a class="project-card js-project-card js-pjax-project"<?php echo($projectURL); echo($projectColor); ?>>
-		<div class="project-card__title"><?php echo($projectTitle); ?></div>
-	</a>
-</li>
-
-<li class="project-grid__item">
-	<a class="project-card js-project-card js-pjax-project"<?php echo($projectURL); echo($projectColor); ?>>
-		<div class="project-card__title"><?php echo($projectTitle); ?></div>
-	</a>
-</li>
-<li class="project-grid__item">
-	<a class="project-card js-project-card js-pjax-project"<?php echo($projectURL); echo($projectColor); ?>>
-		<div class="project-card__title"><?php echo($projectTitle); ?></div>
-	</a>
-</li>
-<li class="project-grid__item">
-	<a class="project-card js-project-card js-pjax-project"<?php echo($projectURL); echo($projectColor); ?>>
-		<div class="project-card__title"><?php echo($projectTitle); ?></div>
-	</a>
-</li>
-<li class="project-grid__item">
-	<a class="project-card js-project-card js-pjax-project"<?php echo($projectURL); echo($projectColor); ?>>
-		<div class="project-card__title"><?php echo($projectTitle); ?></div>
-	</a>
-</li>
-<li class="project-grid__item">
-	<a class="project-card js-project-card js-pjax-project"<?php echo($projectURL); echo($projectColor); ?>>
-		<div class="project-card__title"><?php echo($projectTitle); ?></div>
-	</a>
-</li>
-<li class="project-grid__item">
-	<a class="project-card js-project-card js-pjax-project"<?php echo($projectURL); echo($projectColor); ?>>
-		<div class="project-card__title"><?php echo($projectTitle); ?></div>
-	</a>
-</li>
-<li class="project-grid__item">
-	<a class="project-card js-project-card js-pjax-project"<?php echo($projectURL); echo($projectColor); ?>>
-		<div class="project-card__title"><?php echo($projectTitle); ?></div>
-	</a>
-</li>
-<li class="project-grid__item">
-	<a class="project-card js-project-card js-pjax-project"<?php echo($projectURL); echo($projectColor); ?>>
-		<div class="project-card__title"><?php echo($projectTitle); ?></div>
-	</a>
-</li>
-
 		</ul>
   </div>
 </div>

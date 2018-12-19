@@ -1,4 +1,3 @@
-<div class="project project--standalone">
 <?php
   if (isset($_GET['projectID'])) {
     $projectID = $_GET['projectID'];
@@ -7,6 +6,7 @@
     $projectArray = $_SESSION['projects'];
     $findProject = array_search($projectID, array_column($projectArray, 'id'));
     $project = $projectArray[$findProject];
+    $projectStandalone = true;
 
     include $project['page'];
   } else {
@@ -14,4 +14,3 @@
     // include 404 project not found;
   }
 ?>
-</div>
