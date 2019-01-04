@@ -74,5 +74,5 @@ function worksInstantOut() {
 
 // Stagger in
 function worksStaggerIn() {
-  works.cards.addClass('anim--slide-down');
+  //works.cards.addClass('anim--slide-down');
 }

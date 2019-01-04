@@ -53,18 +53,18 @@ $transition-duration: 240ms;
 @import "components/_grid-custom";
 @import "components/_text-animation";
 
-@import "components/_module";
+// @import "components/_module";
 @import "components/_button";
-@import "components/_button-primary";
-@import "components/_button-pattern";
-@import "components/_dropdown";
-@import "components/_form";
-@import "components/_form-grid";
-@import "components/_form-search";
-@import "components/_form-checkbox";
-@import "components/_breadcrumb";
-@import "components/_switch";
-@import "components/_switch-control";
+// @import "components/_button-primary";
+// @import "components/_button-pattern";
+// @import "components/_dropdown";
+// @import "components/_form";
+// @import "components/_form-grid";
+// @import "components/_form-search";
+// @import "components/_form-checkbox";
+// @import "components/_breadcrumb";
+// @import "components/_switch";
+// @import "components/_switch-control";
 @import "components/_animations";
 
 
@@ -98,11 +98,17 @@ $transition-duration: 240ms;
 
 
 
-//-----
+//---
 // _projects
 @import "views-public/overlay-project/_project";
-@import "views-public/overlay-project/_aibek";
+@import "views-public/overlay-project/_banners";
 @import "views-public/overlay-project/_description";
 @import "views-public/overlay-project/_brand";
 @import "views-public/overlay-project/_showcase";
 @import "views-public/overlay-project/_gallery";
+
+
+
+//---
+// Project specific CSS
+@import "views-public/project-aibek/_aibek-banner";

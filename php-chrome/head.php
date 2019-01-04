@@ -30,9 +30,4 @@
 
 	<script type="text/javascript" src="js/_scale-card.js"></script>
 
-
-	<!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:900" rel="stylesheet"> -->
-
 </head>
