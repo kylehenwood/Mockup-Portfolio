@@ -7,10 +7,11 @@
 
 	<!-- vendor || required -->
 	<script type="text/javascript" src="js/vendor/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="js/vendor/modernizr-2.6.2.min.js"></script>
 	<script type="text/javascript" src="js/vendor/jquery.pjax.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+	<script type="text/javascript" src="js/vendor/jquery.fluidbox.js"></script>
+	<script type="text/javascript" src="js/vendor/modernizr-2.6.2.min.js"></script>
 	<script type="text/javascript" src="js/vendor/scrollreveal.js"></script>
-
 	<!-- ui -->
 	<script type="text/javascript" src="js/pjax-connect.js"></script>
 	<script type="text/javascript" src="js/mobile-navigation.js"></script>
@@ -22,11 +23,10 @@
 	<script type="text/javascript" src="js/main.js"></script>
 
 	<!-- components -->
-	<script type="text/javascript" src="js/_gallery.js"></script>
-	<script type="text/javascript" src="js/_filter.js"></script>
-	<script type="text/javascript" src="js/_works.js"></script>
-	<script type="text/javascript" src="js/_post.js"></script>
-	<script type="text/javascript" src="js/_project.js"></script>
+	<script type="text/javascript" src="js/views/_gallery.js"></script>
+	<script type="text/javascript" src="js/views/_works.js"></script>
+	<script type="text/javascript" src="js/views/_post.js"></script>
+	<script type="text/javascript" src="js/views/_project.js"></script>
 
 	<script type="text/javascript" src="js/_scale-card.js"></script>
 

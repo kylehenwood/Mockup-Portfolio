@@ -16,11 +16,22 @@ function galleryBind() {
   gallery.grid = $('.js-gallery-grid');
 
 
+
+
+
   gallery.posts.click(function(){
     post.card = $(this);
     post.animate = true;
     gallery.animate = true;
   });
+
+  setTimeout(function(){
+    gallery.grid.removeClass('gallery-grid--animate-in');
+    // Fluidbox init
+    $('.js-fluidbox').fluidbox();
+    $(window).scroll().fluidbox('close');
+    $('.js-fluidbox').on('openstart.fluidbox',function(){});
+  },480);
 }
 
 

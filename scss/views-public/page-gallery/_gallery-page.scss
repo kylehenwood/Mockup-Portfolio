@@ -1,16 +1,38 @@
 // gallery-image
-.gallery-image {
-  position: relative;
+// .gallery-image {
+//   position: relative;
+//   display: block;
+//   z-index: 1;
+//   transition: box-shadow 80ms ease-in;
+//   border-radius: 4px;
+//   background: $color-grey-500;
+//   transition: 80ms ease-in;
+//   box-shadow: 0 0 0 0 white, $shadow-100;
+//   &:hover {
+//     box-shadow: $shadow-300;
+//     box-shadow: 0 0 0 2px white, $shadow-300;
+//     z-index: 2;
+//   }
+//   &:active {
+//     box-shadow: 0 0 0 2px white, $shadow-200;
+//     transform: translateY(2px);
+//     z-index: 2;
+//   }
+// }
+// .gallery-image--blue {background: $color-blue-500;}
+// .gallery-image--green {background: $color-green-500;}
+// .gallery-image--purple {background: $color-purple-500;}
+// .gallery-image--pink {background: $color-pink-500;}
+// .gallery-image--orange {background: $color-orange-500;}
+// .gallery-image--teal {background: $color-teal-500;}
+// .gallery-image--black {background: $color-grey-900;}
+
+
+
+.gallery-border {
   display: block;
-  z-index: 1;
-  transition: box-shadow 80ms ease-in;
-  border-radius: 4px;
-  background: $color-grey-500;
   transition: 80ms ease-in;
   box-shadow: 0 0 0 0 white, $shadow-100;
-  img {
-    opacity: 0;
-  }
   &:hover {
     box-shadow: $shadow-300;
     box-shadow: 0 0 0 2px white, $shadow-300;
@@ -22,16 +44,6 @@
     z-index: 2;
   }
 }
-.gallery-image--blue {background: $color-blue-500;}
-.gallery-image--green {background: $color-green-500;}
-.gallery-image--purple {background: $color-purple-500;}
-.gallery-image--pink {background: $color-pink-500;}
-.gallery-image--orange {background: $color-orange-500;}
-.gallery-image--teal {background: $color-teal-500;}
-.gallery-image--black {background: $color-grey-900;}
-
-
-
 
 
 // gallery-image
@@ -42,21 +54,6 @@
   transition: box-shadow 80ms ease-in;
   border-radius: 4px;
   background: $color-grey-500;
-  transition: 80ms ease-in;
-  box-shadow: 0 0 0 0 white, $shadow-100;
-  img {
-    opacity: 0;
-  }
-  &:hover {
-    box-shadow: $shadow-300;
-    box-shadow: 0 0 0 2px white, $shadow-300;
-    z-index: 2;
-  }
-  &:active {
-    box-shadow: 0 0 0 2px white, $shadow-200;
-    transform: translateY(2px);
-    z-index: 2;
-  }
 }
 .gallery-thumbnail__image {}
 .gallery-thumbnail__tags {

@@ -2,7 +2,7 @@
 // but still allow the element passed to be scrollable.
 //
 // Mobile IOS creates the need for this code.
-const scrollLock= {
+const scrollLock = {
   scrollPos: null,
   elementPos: null
 }

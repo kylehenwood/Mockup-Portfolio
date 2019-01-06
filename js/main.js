@@ -96,9 +96,6 @@ function textAnimation() {
 
 
 
-
-
-
 // smooth scroll
 function smoothScroll() {
 // smooth scroll

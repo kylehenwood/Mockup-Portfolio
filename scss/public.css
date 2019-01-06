@@ -53,6 +53,94 @@ table {
 html {
   background: black; }
 
+@keyframes fluidboxLoading {
+  0% {
+    transform: translate(-50%, -50%) rotateX(0) rotateY(0); }
+  50% {
+    transform: translate(-50%, -50%) rotateX(-180deg) rotateY(0); }
+  100% {
+    transform: translate(-50%, -50%) rotateX(-180deg) rotateY(-180deg); } }
+
+.fluidbox {
+  outline: none; }
+
+.fluidbox__overlay {
+  background-color: rgba(33, 33, 33, 0.85);
+  cursor: pointer;
+  cursor: zoom-out;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  z-index: 10000;
+  top: -100%;
+  /* Negative top and bottom is to fix some Safari cases where image got blurry */
+  left: 0;
+  bottom: -100%;
+  /* Negative top and bottom is to fix some Safari cases where image got blurry */
+  right: 0;
+  /* Transition time for overlay is halved to ensure that flickering doesn't happen */
+  transition: all 0.5s ease-in-out; }
+  .fluidbox--opened .fluidbox__overlay {
+    pointer-events: auto; }
+
+.fluidbox__wrap {
+  background-position: center center;
+  background-size: cover;
+  margin: 0 auto;
+  position: relative;
+  transition: all 0.5s ease-in-out; }
+
+.fluidbox__thumb {
+  transition: opacity 0s ease-in-out 0s;
+  /* To prevent flickering, we delay the showing of the image */ }
+  .fluidbox--closed .fluidbox__thumb {
+    transition: opacity 0s ease-in-out 0s; }
+
+.fluidbox__ghost {
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: 11000;
+  transition: opacity 0s 0s, transform 0.5s 0s; }
+  .fluidbox--opened .fluidbox__ghost {
+    cursor: pointer;
+    cursor: -webkit-zoom-out;
+    cursor: -moz-zoom-out;
+    cursor: zoom-out; }
+  .fluidbox--closed .fluidbox__ghost {
+    transition: opacity 0s 0.5s, transform 0.5s 0s; }
+
+.fluidbox__loader {
+  opacity: 0;
+  perspective: 200px;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0; }
+  .fluidbox__loader::before {
+    /* You can replace this with any color you want, or even a loading gif if desired */
+    background-color: rgba(33, 33, 33, 0.85);
+    content: '';
+    transform-style: preserve-3d;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20%;
+    padding-bottom: 20%;
+    transform: translate(-50%, -50%);
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transition-delay: 0s; }
+
+.fluidbox--loading .fluidbox__loader {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out 0.5s; }
+  .fluidbox--loading .fluidbox__loader::before {
+    animation: fluidboxLoading 1s 0s infinite ease-in-out forwards; }
+
 .clearfix:after {
   content: '';
   display: block;
@@ -616,7 +704,7 @@ html {
 
 .layout__header {
   position: absolute;
-  z-index: 1000;
+  z-index: 5;
   top: 0;
   left: 0;
   width: 100%;
@@ -1049,11 +1137,11 @@ html {
       margin: 0 12px 0 0; } }
 
 .gallery-grid {
-  margin: -8px; }
+  margin: -4px; }
 
 .gallery-grid__item {
   float: left;
-  padding: 8px;
+  padding: 4px;
   width: 25%; }
   .gallery-grid__item:nth-child(4n+1) {
     animation-duration: 520ms;
@@ -1089,15 +1177,12 @@ html {
         animation-duration: 440ms;
         animation-delay: 80ms; } }
 
-.gallery-grid--animate-in {
-  transform-style: preserve-3d;
-  perspective: 800px; }
-  .gallery-grid--animate-in .gallery-grid__item {
-    opacity: 0;
-    animation-name: card-in;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
-    transform-origin: 50%; }
+.gallery-grid--animate-in .gallery-grid__item {
+  opacity: 0;
+  animation-name: card-in;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  transform-origin: 50%; }
 
 @keyframes card-in {
   000% {
@@ -1108,7 +1193,7 @@ html {
     transform: translateX(0); } }
 
 .project-grid {
-  margin: -8px;
+  margin: -4px;
   transform-style: preserve-3d;
   perspective: 800px; }
 
@@ -1118,7 +1203,7 @@ html {
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
   float: left;
-  padding: 8px;
+  padding: 4px;
   width: 25%; }
   .project-grid__item:nth-child(4n+1) {
     animation-duration: 520ms;
@@ -1834,46 +1919,18 @@ html {
     opacity: 0;
     transform: scale(0.9); } }
 
-.gallery-image {
-  position: relative;
+.gallery-border {
   display: block;
-  z-index: 1;
-  transition: box-shadow 80ms ease-in;
-  border-radius: 4px;
-  background: #9E9E9E;
   transition: 80ms ease-in;
   box-shadow: 0 0 0 0 white, 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
-  .gallery-image img {
-    opacity: 0; }
-  .gallery-image:hover {
+  .gallery-border:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     box-shadow: 0 0 0 2px white, 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     z-index: 2; }
-  .gallery-image:active {
+  .gallery-border:active {
     box-shadow: 0 0 0 2px white, 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     transform: translateY(2px);
     z-index: 2; }
-
-.gallery-image--blue {
-  background: #2196F3; }
-
-.gallery-image--green {
-  background: #4CAF50; }
-
-.gallery-image--purple {
-  background: #9C27B0; }
-
-.gallery-image--pink {
-  background: #E91E63; }
-
-.gallery-image--orange {
-  background: #FF9800; }
-
-.gallery-image--teal {
-  background: #009688; }
-
-.gallery-image--black {
-  background: #212121; }
 
 .gallery-thumbnail {
   position: relative;
@@ -1881,19 +1938,7 @@ html {
   z-index: 1;
   transition: box-shadow 80ms ease-in;
   border-radius: 4px;
-  background: #9E9E9E;
-  transition: 80ms ease-in;
-  box-shadow: 0 0 0 0 white, 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
-  .gallery-thumbnail img {
-    opacity: 0; }
-  .gallery-thumbnail:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    box-shadow: 0 0 0 2px white, 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    z-index: 2; }
-  .gallery-thumbnail:active {
-    box-shadow: 0 0 0 2px white, 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    transform: translateY(2px);
-    z-index: 2; }
+  background: #9E9E9E; }
 
 .gallery-thumbnail__tags {
   display: none;
