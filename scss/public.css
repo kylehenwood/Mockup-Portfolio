@@ -1049,11 +1049,11 @@ html {
       margin: 0 12px 0 0; } }
 
 .gallery-grid {
-  margin: -4px; }
+  margin: -8px; }
 
 .gallery-grid__item {
   float: left;
-  padding: 4px;
+  padding: 8px;
   width: 25%; }
   .gallery-grid__item:nth-child(4n+1) {
     animation-duration: 520ms;
@@ -1108,7 +1108,7 @@ html {
     transform: translateX(0); } }
 
 .project-grid {
-  margin: -4px;
+  margin: -8px;
   transform-style: preserve-3d;
   perspective: 800px; }
 
@@ -1118,7 +1118,7 @@ html {
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
   float: left;
-  padding: 4px;
+  padding: 8px;
   width: 25%; }
   .project-grid__item:nth-child(4n+1) {
     animation-duration: 520ms;
@@ -2008,19 +2008,17 @@ html {
       padding: 64px 0; } }
 
 .gallery-banner__headline {
-  overflow: hidden;
   max-width: 600px;
   margin: 0 0 16px; }
 
 .gallery-banner__subheading {
-  overflow: hidden;
   max-width: 600px; }
 
 .post {
   position: relative;
   min-height: 100%;
   background: #424242;
-  padding: 40px 0; }
+  padding: 120px 0; }
   @media screen and (max-width: 960px) {
     .post {
       padding: 0 0 40px; } }
@@ -2102,27 +2100,34 @@ html {
 
 .post-button-back {
   position: relative;
-  border-radius: 20px;
+  border-radius: 24px;
+  width: 48px;
+  height: 48px;
   font-weight: bold;
   line-height: 16px;
   color: white;
-  display: inline-block;
-  padding: 12px 40px 12px 24px;
+  display: block;
+  padding: 12px;
   box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.6), 0 0 0 0 rgba(255, 255, 255, 0.6);
   transition: all 80ms ease-out; }
   .post-button-back:hover {
     box-shadow: inset 0 0 0 0 white, 0 0 0 2px white;
-    background: #F44336; }
+    background: white;
+    color: #212121; }
   .post-button-back:active {
     box-shadow: inset 0 0 0 2px white, 0 0 0 0 white;
-    background: #D32F2F; }
+    background: white;
+    color: #212121; }
 
 .post-button-back__icon {
   position: absolute;
   top: 0;
   right: 0;
-  height: 40px;
-  padding: 12px 16px; }
+  height: 48px;
+  padding: 16px; }
+
+.post-button-back__text {
+  display: none; }
 
 .post-button-mobile {
   width: 48px;
@@ -2135,10 +2140,12 @@ html {
   transition: all 80ms ease-out; }
   .post-button-mobile:hover {
     box-shadow: inset 0 0 0 0 white, 0 0 0 2px white;
-    background: #F44336; }
+    background: white;
+    color: #212121; }
   .post-button-mobile:active {
     box-shadow: inset 0 0 0 2px white, 0 0 0 0 white;
-    background: #D32F2F; }
+    background: white;
+    color: #212121; }
 
 .post-heading__title h1 {
   line-height: 48px; }
@@ -2191,9 +2198,6 @@ html {
   @media screen and (max-width: 720px) {
     .works-banner {
       padding: 64px 0 0; } }
-
-.works-banner__heading {
-  overflow: hidden; }
 
 .anim--works-in {
   transform-origin: 50% 50%;
@@ -2264,39 +2268,29 @@ html {
 .project--standalone {
   padding: 0; }
 
-.project__close {
-  position: absolute;
+.project__navigation {
+  position: fixed;
   z-index: 100;
   top: 0;
   left: 0;
   width: 100%;
   padding: 12px; }
 
-.project-back-button {
-  position: relative;
-  border-radius: 20px;
-  font-weight: bold;
-  line-height: 16px;
-  color: white;
-  display: inline-block;
-  padding: 12px 24px 12px 40px;
-  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.6), 0 0 0 0 rgba(255, 255, 255, 0.6);
-  transition: all 80ms ease-out; }
-  .project-back-button:hover {
-    box-shadow: inset 0 0 0 0 white, 0 0 0 2px white;
-    background: white;
-    color: #616161; }
-  .project-back-button:active {
-    box-shadow: inset 0 0 0 2px white, 0 0 0 0 white;
-    background: white;
-    color: #616161; }
-
-.project-back-button__icon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 40px;
-  padding: 12px 16px; }
+.project-close-button {
+  display: block;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: all 80ms ease-in; }
+  .project-close-button:hover {
+    color: #1976D2;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+  .project-close-button:active {
+    color: #1976D2;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
 
 .project-banner {
   position: relative; }
@@ -2334,11 +2328,9 @@ html {
 
 @keyframes project-out {
   000% {
-    opacity: 1;
-    transform: translateY(0); }
+    opacity: 1; }
   100% {
-    opacity: 0;
-    transform: translateY(80px); } }
+    opacity: 0; } }
 
 .project__container {
   padding: 24px 24px; }
@@ -2384,39 +2376,29 @@ html {
 .project--standalone {
   padding: 0; }
 
-.project__close {
-  position: absolute;
+.project__navigation {
+  position: fixed;
   z-index: 100;
   top: 0;
   left: 0;
   width: 100%;
   padding: 12px; }
 
-.project-back-button {
-  position: relative;
-  border-radius: 20px;
-  font-weight: bold;
-  line-height: 16px;
-  color: white;
-  display: inline-block;
-  padding: 12px 24px 12px 40px;
-  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.6), 0 0 0 0 rgba(255, 255, 255, 0.6);
-  transition: all 80ms ease-out; }
-  .project-back-button:hover {
-    box-shadow: inset 0 0 0 0 white, 0 0 0 2px white;
-    background: white;
-    color: #616161; }
-  .project-back-button:active {
-    box-shadow: inset 0 0 0 2px white, 0 0 0 0 white;
-    background: white;
-    color: #616161; }
-
-.project-back-button__icon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 40px;
-  padding: 12px 16px; }
+.project-close-button {
+  display: block;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: all 80ms ease-in; }
+  .project-close-button:hover {
+    color: #1976D2;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+  .project-close-button:active {
+    color: #1976D2;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
 
 .project-banner {
   position: relative; }
@@ -2454,11 +2436,9 @@ html {
 
 @keyframes project-out {
   000% {
-    opacity: 1;
-    transform: translateY(0); }
+    opacity: 1; }
   100% {
-    opacity: 0;
-    transform: translateY(80px); } }
+    opacity: 0; } }
 
 .project__container {
   padding: 24px 24px; }
@@ -2735,7 +2715,7 @@ html {
   height: 100%; }
 
 .banner-aibek__content {
-  max-width: 800px;
+  max-width: 960px;
   margin: 0 auto; }
 
 .aibek-art {
@@ -2744,15 +2724,18 @@ html {
   z-index: 500; }
 
 .aibek-art__logo {
-  width: 400px;
-  height: 160px;
-  background: white;
+  width: 272px;
+  height: 120px;
   border-radius: 16px;
-  margin: 120px auto;
+  margin: 120px auto 0;
   animation-name: aibek-logo-in;
   animation-duration: 1500ms;
   animation-timing-function: ease-out;
-  animation-fill-mode: forwards; }
+  animation-fill-mode: forwards;
+  background-image: url("../images/projects/aibek/title-white.svg");
+  background-size: 272px 120px;
+  background-position: center;
+  background-repeat: no-repeat; }
 
 .aibek-art__islands {
   margin: 100px 0 0;
@@ -2762,35 +2745,44 @@ html {
   position: absolute;
   left: 0;
   top: 0;
-  width: 120px;
-  height: 160px;
-  background: white;
+  width: 220px;
+  height: 320px;
   animation-name: aibek-islands-background;
   animation-duration: 1500ms;
   animation-timing-function: ease-out;
-  animation-fill-mode: forwards; }
+  animation-fill-mode: forwards;
+  background-image: url("../images/projects/aibek/island-left.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%; }
 
 .aibek-art__island-2 {
-  width: 240px;
-  height: 160px;
-  background: white;
-  margin: 0 auto;
-  animation-name: aibek-islands-foreground;
-  animation-duration: 1500ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards; }
+  position: absolute;
+  left: 50%;
+  top: -160px;
+  transform: translateX(-50%);
+  z-index: 4;
+  width: 430px;
+  height: 560px;
+  background-image: url("../images/projects/aibek/island-middle.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%; }
 
 .aibek-art__island-3 {
   position: absolute;
   right: 0;
   top: 0;
-  width: 120px;
-  height: 160px;
-  background: white;
+  width: 400px;
+  height: 280px;
   animation-name: aibek-islands-background;
   animation-duration: 1500ms;
   animation-timing-function: ease-out;
-  animation-fill-mode: forwards; }
+  animation-fill-mode: forwards;
+  background-image: url("../images/projects/aibek/island-right.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%; }
 
 @keyframes aibek-islands-background {
   000% {
@@ -2798,7 +2790,7 @@ html {
     transform: translateY(80px); }
   100% {
     opacity: 1;
-    transform: translateX(0); } }
+    transform: translateY(0); } }
 
 @keyframes aibek-islands-foreground {
   000% {
@@ -2806,7 +2798,7 @@ html {
     transform: translateY(120px); }
   100% {
     opacity: 1;
-    transform: translateX(0); } }
+    transform: translateY(0); } }
 
 @keyframes aibek-logo-in {
   000% {
@@ -2814,6 +2806,6 @@ html {
     transform: translateY(40px); }
   100% {
     opacity: 1;
-    transform: translateX(0); } }
+    transform: translateY(0); } }
 
 /*# sourceMappingURL=public.css.map */
