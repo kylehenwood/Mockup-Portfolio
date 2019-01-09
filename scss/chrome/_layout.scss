@@ -3,7 +3,7 @@ html {
   height: 100%;
   width: 100%;
   min-width: 320px;
-  background: $color-grey-900;
+  background: $color-grey-800;
 }
 
 // Layout
@@ -11,7 +11,6 @@ html {
   position: relative;
   width: 100%;
   min-height: 100%;
-  background: $color-grey-900;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
@@ -34,10 +33,6 @@ html {
 
 // Header
 .layout__header {
-  position: absolute;
-  z-index: 5;
-  top: 0;
-  left: 0;
   width: 100%;
   padding: 0 24px;
   background: $color-grey-900;

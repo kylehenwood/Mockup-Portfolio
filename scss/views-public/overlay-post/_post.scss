@@ -2,7 +2,7 @@
   position: relative;
   min-height: 100%;
   background: $color-grey-800;
-  padding: 40px 0;
+  padding: 64px 0;
   @include screen-med {
     padding: 0 0 40px;
   }
@@ -79,8 +79,14 @@
 //--
 .post-heading {
   position: relative;
+  padding: 0 48px 0 0;
+  @include screen-mob {
+    padding: 48px 0 0 0;
+  }
 }
 .post-heading__title {
+  padding: 4px 0;
+  margin: 0 16px 0 0;
   line-height: 40px;
   font-size: 28px;
   font-weight: bold;
@@ -94,9 +100,6 @@
   position: absolute;
   right: 0;
   top: 0;
-  @include screen-med {
-    display: none;
-  }
 }
 
 
@@ -104,58 +107,32 @@
 // Button
 .post-button-back {
   position: relative;
-  border-radius: 20px;
+  border-radius: 50%;
   font-weight: bold;
   line-height: 16px;
   color: white;
-  display: inline-block;
-  padding: 12px 40px 12px 24px;
-  box-shadow: inset 0 0 0 2px rgba(white,0.6),0 0 0 0 rgba(white,0.6);
-  transition: all 80ms ease-out;
-  &:hover {
-    box-shadow: inset 0 0 0 0 rgba(white,1),0 0 0 2px rgba(white,1);
-    background: $color-red-500;
-  }
-  &:active {
-    box-shadow: inset 0 0 0 2px rgba(white,1),0 0 0 0 rgba(white,1);
-    background: $color-red-700;
-  }
-}
-.post-button-back__icon {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 40px;
-  padding: 12px 16px;
-}
-.post-button-back__text {}
-
-// small button
-.post-button-mobile {
-  width: 48px;
-  height: 48px;
-  border-radius: 24px;
   display: block;
   padding: 16px;
-  color: white;
-  box-shadow: inset 0 0 0 2px rgba(white,0.6),0 0 0 0 rgba(white,0.6);
+  background: rgba(black,0.6);
+  box-shadow: inset 0 0 0 0 white,0 0 0 0 rgba(black,0.6);
   transition: all 80ms ease-out;
   &:hover {
-    box-shadow: inset 0 0 0 0 rgba(white,1),0 0 0 2px rgba(white,1);
-    background: $color-red-500;
+    box-shadow: inset 0 0 0 0 white,0 0 0 2px white;
+    background: white;
+    color: black;
   }
   &:active {
-    box-shadow: inset 0 0 0 2px rgba(white,1),0 0 0 0 rgba(white,1);
-    background: $color-red-700;
+    box-shadow: inset 0 0 0 2px white,0 0 0 0 white;
+    background: white;
+    color: black;
   }
 }
+
 
 
 
 //---
-.post-heading__title {
-  h1 {line-height: 48px;}
-}
+.post-heading__title {}
 
 
 

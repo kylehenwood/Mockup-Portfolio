@@ -54,12 +54,6 @@
 
 <div class="post js-post-container">
 
-  <div class="post__close js-post-close">
-    <a class="post-button-mobile js-pjax-container" href="index.php?pageID=gallery">
-      <span class="flat-icon icon--16 icon--cross"></span>
-    </a>
-  </div>
-
   <div class="post__heading">
     <div class="center center--1120">
 
@@ -69,10 +63,7 @@
         </h2>
         <div class="post-heading__close">
           <a class="post-button-back js-post-close js-pjax-container" href="index.php?pageID=gallery">
-            <div class="post-button-back__icon">
-              <span class="flat-icon icon--16 icon--cross"></span>
-            </div>
-            <div class="post-button-back__text">Close</div>
+            <span class="flat-icon icon--16 icon--cross"></span>
           </a>
         </div>
       </div>
