@@ -12,6 +12,7 @@ let project = {
 // Triggers
 $(document).on('project-in--animate',function(){
   headerFix(project.fixed,'project__close--scroll');
+  console.log('GOOOO');
   projectAnimateIn();
 });
 $(document).on('project-out--animate',function(){
