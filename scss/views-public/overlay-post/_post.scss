@@ -1,7 +1,7 @@
 .post {
   position: relative;
   min-height: 100%;
-  background: $color-grey-800;
+  //background: $color-grey-800;
   padding: 64px 0;
   @include screen-med {
     padding: 0 0 40px;
@@ -16,12 +16,12 @@
   animation-fill-mode: forwards;
 }
 @keyframes post-in {
-  000% {
-    background: rgba($color-grey-800,0);
-  }
-  100% {
-    background: $color-grey-800;
-  }
+  // 000% {
+  //   background: rgba($color-grey-800,0);
+  // }
+  // 100% {
+  //   background: $color-grey-800;
+  // }
 }
 .anim--post-out {
   animation-name: post-out;
@@ -30,12 +30,12 @@
   animation-fill-mode: forwards;
 }
 @keyframes post-out {
-  000% {
-    background: $color-grey-800;
-  }
-  100% {
-    background: rgba($color-grey-800,0);
-  }
+  // 000% {
+  //   background: $color-grey-800;
+  // }
+  // 100% {
+  //   background: rgba($color-grey-800,0);
+  // }
 }
 
 
@@ -71,9 +71,6 @@
   }
 }
 
-.post__extras {
-  padding: 0 16px;
-}
 
 
 //--
@@ -156,25 +153,3 @@
     height: 300px;
   }
 }
-
-
-//-- tile group
-.tile-select {
-  margin: 0 0 80px;
-}
-.tile-select__heading {
-  position: relative;
-  margin: 0 0 32px;
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    height: 2px;
-    width: 80px;
-    border-radius: 2px;
-    background: rgba(white,0.6);
-  }
-}
-.tile-select__tiles {}

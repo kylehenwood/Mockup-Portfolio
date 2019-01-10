@@ -678,47 +678,35 @@ html {
   height: 100%;
   width: 100%;
   min-width: 320px;
-  background: #424242; }
+  background: #212121; }
 
 .layout {
   position: relative;
   width: 100%;
   min-height: 100%;
+  background: #424242;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch; }
 
-.layout--white {
-  background: white; }
-
-.layout--grey {
-  background: #424242; }
-
-.layout--scroll-lock {
-  overflow: hidden; }
-
-.layout--overlay .layout__header,
-.layout--overlay .layout__content,
-.layout--overlay .layout__footer {
-  display: none; }
+.layout--overlay {
+  overflow: hidden;
+  padding: 0 15px 0 0; }
 
 .layout__header {
   width: 100%;
   padding: 0 24px;
-  background: #212121; }
+  background: #212121;
+  transition: all 400ms ease-out; }
   @media screen and (max-width: 960px) {
     .layout__header {
       padding: 0 16px; } }
 
+.layout__header--hidden {
+  transform: translateY(-100%); }
+
 .layout__content {
   width: 100%;
   background: #424242; }
-  @media screen and (max-width: 960px) {
-    .layout__content {
-      padding: 80px 0 0; } }
-
-.layout__content--scroll-lock {
-  position: fixed;
-  overflow: hidden; }
 
 .layout__footer {
   width: 100%;
@@ -727,11 +715,17 @@ html {
 
 .layout__overlay {
   display: none;
+  position: fixed;
+  overflow-y: scroll;
   z-index: 50;
   top: 0;
   left: 0;
   bottom: 0;
-  width: 100%; }
+  width: 100%;
+  background: rgba(66, 66, 66, 0.8); }
+
+.layout__overlay--static {
+  position: static; }
 
 .layout__overlay--scroll-lock {
   position: fixed;
@@ -820,7 +814,6 @@ html {
     height: 36px;
     background-color: white;
     background: url("../images/logo/khd-emblem-1.svg");
-    background: url("../images/logo/khd-emblem-2.svg");
     background-size: 32px 36px;
     background-repeat: no-repeat; }
 
@@ -2074,9 +2067,6 @@ html {
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4); }
 
 .gallery-banner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding: 100px 0; }
   @media screen and (max-width: 960px) {
     .gallery-banner {
@@ -2098,7 +2088,6 @@ html {
 .post {
   position: relative;
   min-height: 100%;
-  background: #424242;
   padding: 64px 0; }
   @media screen and (max-width: 960px) {
     .post {
@@ -2110,25 +2099,13 @@ html {
   animation-timing-function: ease-out;
   animation-fill-mode: forwards; }
 
-@keyframes post-in {
-  000% {
-    background: rgba(66, 66, 66, 0); }
-  100% {
-    background: #424242; } }
-
-.anim--post-out {
+@keyframes post-in {}.anim--post-out {
   animation-name: post-out;
   animation-duration: 240ms;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards; }
 
-@keyframes post-out {
-  000% {
-    background: #424242; }
-  100% {
-    background: rgba(66, 66, 66, 0); } }
-
-.post__heading {
+@keyframes post-out {}.post__heading {
   padding: 0 16px;
   top: 0;
   left: 0;
@@ -2154,9 +2131,6 @@ html {
   @media screen and (max-width: 960px) {
     .post__image {
       margin: 0 0 40px; } }
-
-.post__extras {
-  padding: 0 16px; }
 
 .post-heading {
   position: relative;
@@ -2220,23 +2194,6 @@ html {
     .post-image-placeholder {
       width: 400px;
       height: 300px; } }
-
-.tile-select {
-  margin: 0 0 80px; }
-
-.tile-select__heading {
-  position: relative;
-  margin: 0 0 32px; }
-  .tile-select__heading:before {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    height: 2px;
-    width: 80px;
-    border-radius: 2px;
-    background: rgba(255, 255, 255, 0.6); }
 
 .works-banner {
   display: flex;
@@ -2330,9 +2287,6 @@ html {
   left: 0;
   width: 100%;
   padding: 12px; }
-
-.project__close--scroll {
-  position: fixed; }
 
 .project-back-button {
   position: relative;
@@ -2454,9 +2408,6 @@ html {
   left: 0;
   width: 100%;
   padding: 12px; }
-
-.project__close--scroll {
-  position: fixed; }
 
 .project-back-button {
   position: relative;

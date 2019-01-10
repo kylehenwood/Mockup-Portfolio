@@ -16,8 +16,6 @@ var post = {
 $(document).on('post-in--animate',function(e){
   bodyScrollDisable(layout.post);
   postAnimateIn();
-  headerFix(post.close,'post__close--scroll');
-  layout.body.addClass('layout--grey');
 
   // scaleCard
   scaleCard(post.card);
@@ -25,23 +23,17 @@ $(document).on('post-in--animate',function(e){
 
 $(document).on('post-in--instant',function(e){
   postInstantIn();
-  headerFix(post.close,'post__close--scroll');
-  layout.body.addClass('layout--grey');
 });
 
 // animate out
 $(document).on('post-out--animate',function(e){
   bodyScrollEnable(layout.post);
   postAnimateOut();
-  headerUnfix(post.close,'post__close--scroll');
-  layout.body.removeClass('layout--grey');
   scaleCardOut();
 });
 
 $(document).on('post-out--instant',function(e){
   postInstantOut();
-  headerUnfix(post.close,'post__close--scroll');
-  layout.body.removeClass('layout--grey');
 });
 
 
@@ -54,7 +46,7 @@ function postBind() {
   post.extras = $('.js-post-extras');
   post.close = $('.js-post-close');
 
-  post.close.click(function(){
+  post.close.click(function(event){
     post.animate = true;
     gallery.animate = true;
   });
@@ -102,11 +94,6 @@ function postAnimateIn() {
   post.close.one(animationEvent,function(event) {
     $(this).removeClass('anim--delay-280 anim--in-bot');
   });
-
-  post.extras.addClass('anim--in-bot anim--delay-240');
-  post.extras.one(animationEvent,function(event) {
-    $(this).removeClass('anim--in-bot anim--delay-240');
-  });
 }
 
 // Instant In
@@ -145,12 +132,6 @@ function postAnimateOut() {
   post.close.addClass('anim--delay-80 anim--out-bot');
   post.close.one(animationEvent,function(event) {
     $(this).removeClass('anim--delay-80 anim--out-bot');
-    $(this).addClass('anim--hidden');
-  });
-
-  post.extras.addClass('anim--out-bot');
-  post.extras.one(animationEvent,function(event) {
-    $(this).removeClass('anim--out-bot');
     $(this).addClass('anim--hidden');
   });
 }

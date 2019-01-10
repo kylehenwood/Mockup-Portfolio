@@ -25,8 +25,8 @@ function bodyScrollDisable(element) {
 function bodyScrollSet(element) {
   //alert('SET');
   element.removeClass('layout__overlay--scroll-lock');
-  layout.html.scrollTop(0);
-  layout.body.scrollTop(0);
+  //layout.html.scrollTop(0);
+  //layout.body.scrollTop(0);
 
   layout.body.addClass('layout--overlay');
   // layout.navigation.hide();

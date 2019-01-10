@@ -10,7 +10,6 @@
 
 .project {
   position: relative;
-  //padding: 72px 0 0;
   background: $color-grey-900;
 }
 .project--standalone {
@@ -33,7 +32,7 @@
 }
 
 .project__close--scroll {
-  position: fixed;
+  //position: fixed;
   //background: $color-grey-900;
   //background: linear-gradient(black,transparent);
   //background: linear-gradient(0deg,rgba(0,0,0,0),rgba(0,0,0,0.4));

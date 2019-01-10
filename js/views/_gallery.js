@@ -16,22 +16,12 @@ function galleryBind() {
   gallery.grid = $('.js-gallery-grid');
 
 
-
-
-
   gallery.posts.click(function(){
     post.card = $(this);
     post.animate = true;
     gallery.animate = true;
   });
 
-  setTimeout(function(){
-    gallery.grid.removeClass('gallery-grid--animate-in');
-    // Fluidbox init
-    $('.js-fluidbox').fluidbox();
-    $(window).scroll().fluidbox('close');
-    $('.js-fluidbox').on('openstart.fluidbox',function(){});
-  },480);
 }
 
 
@@ -57,11 +47,11 @@ $(document).on('gallery-in--instant',function(e){
 // Gallery animate out
 function galleryOut() {
   //console.log('gallery--out');
-  layout.navigation.addClass('anim--out-top');
-  layout.navigation.one(animationEvent,function(event) {
-    $(this).removeClass('anim--out-top');
-    $(this).hide();
-  });
+  layout.navigation.addClass('layout__header--hidden');
+  // layout.navigation.one(animationEvent,function(event) {
+  //   $(this).removeClass('anim--out-top');
+  //   //$(this).hide();
+  // });
 
   // intro heading
   gallery.heading.addClass('anim--out-top');
@@ -84,11 +74,11 @@ function galleryIn() {
   //console.log('gallery--in');
 
   // layout heading (nav)
-  layout.navigation.show();
-  layout.navigation.addClass('anim--delay-320 anim--in-top');
-  layout.navigation.one(animationEvent,function(event) {
-    $(this).removeClass('anim--delay-320 anim--in-top');
-  });
+  //layout.navigation.show();
+  layout.navigation.removeClass('layout__header--hidden');
+  // layout.navigation.one(transitionEvent,function(event) {
+  //   $(this).removeClass('navigation--hidden');
+  // });
 
   // TLDR heading
   //gallery.heading.removeClass('anim--out-top');
