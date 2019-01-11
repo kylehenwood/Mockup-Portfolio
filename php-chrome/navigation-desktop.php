@@ -1,5 +1,5 @@
 <div class="layout__header js-layout-header">
-  <div class="center center--1120">
+  <div class="center center--full">
 
     <div class="header">
       <div class="header__logo">

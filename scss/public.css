@@ -159,6 +159,9 @@ html {
   width: 100%;
   max-width: 1120px; }
 
+.center--full {
+  max-width: 100%; }
+
 .center--1400 {
   max-width: 1400px; }
 
@@ -486,6 +489,9 @@ nowrap,
 .typography ol:last-child {
   margin: 0; }
 
+.typography--on-dark {
+  color: #EEEEEE; }
+
 .typography--large {
   font-size: 18px; }
 
@@ -678,19 +684,14 @@ html {
   height: 100%;
   width: 100%;
   min-width: 320px;
-  background: #212121; }
+  background: #212121;
+  overflow-y: scroll; }
 
 .layout {
   position: relative;
   width: 100%;
-  min-height: 100%;
-  background: #424242;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch; }
-
-.layout--overlay {
-  overflow: hidden;
-  padding: 0 15px 0 0; }
+  height: 100%;
+  background: #424242; }
 
 .layout__header {
   width: 100%;
@@ -713,23 +714,26 @@ html {
   padding: 40px 24px;
   background: #212121; }
 
+.layout__wrapper {
+  width: 100%; }
+
+.layout__wrapper--lock {
+  position: fixed; }
+
 .layout__overlay {
   display: none;
-  position: fixed;
-  overflow-y: scroll;
+  position: relative;
   z-index: 50;
-  top: 0;
-  left: 0;
-  bottom: 0;
+  min-height: 100%;
   width: 100%;
+  background: rgba(66, 66, 66, 0);
+  transition: 200ms ease-in; }
+
+.layout__overlay--background {
   background: rgba(66, 66, 66, 0.8); }
 
 .layout__overlay--static {
-  position: static; }
-
-.layout__overlay--scroll-lock {
-  position: fixed;
-  overflow: hidden; }
+  position: relative; }
 
 .page__banner {
   position: relative;
@@ -1944,24 +1948,23 @@ html {
   background: #212121; }
 
 .gallery-thumbnail {
-  display: block;
   transition: 80ms ease-in;
-  box-shadow: 0 0 0 0 white, 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border: 2px solid rgba(255, 255, 255, 0); }
   .gallery-thumbnail:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    box-shadow: 0 0 0 2px white, 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    border: 2px solid white;
     z-index: 2; }
   .gallery-thumbnail:active {
-    box-shadow: 0 0 0 2px white, 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    transform: translateY(2px);
-    z-index: 2; }
+    z-index: 2;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transform: scale(0.98) translateY(2px); }
 
 .gallery-thumbnail {
   position: relative;
   display: block;
   overflow: hidden;
   z-index: 1;
-  transition: box-shadow 80ms ease-in;
   border-radius: 4px;
   background: #9E9E9E; }
   .gallery-thumbnail img {
@@ -2077,12 +2080,10 @@ html {
       padding: 64px 0; } }
 
 .gallery-banner__headline {
-  overflow: hidden;
   max-width: 600px;
   margin: 0 0 16px; }
 
 .gallery-banner__subheading {
-  overflow: hidden;
   max-width: 600px; }
 
 .post {
@@ -2093,19 +2094,7 @@ html {
     .post {
       padding: 0 0 40px; } }
 
-.anim--post-in {
-  animation-name: post-in;
-  animation-duration: 240ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards; }
-
-@keyframes post-in {}.anim--post-out {
-  animation-name: post-out;
-  animation-duration: 240ms;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards; }
-
-@keyframes post-out {}.post__heading {
+.post__heading {
   padding: 0 16px;
   top: 0;
   left: 0;
@@ -2131,6 +2120,9 @@ html {
   @media screen and (max-width: 960px) {
     .post__image {
       margin: 0 0 40px; } }
+
+.post__description {
+  padding: 0 16px; }
 
 .post-heading {
   position: relative;
@@ -2164,8 +2156,8 @@ html {
   color: white;
   display: block;
   padding: 16px;
-  background: rgba(0, 0, 0, 0.6);
-  box-shadow: inset 0 0 0 0 white, 0 0 0 0 rgba(0, 0, 0, 0.6);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 0 0 white, 0 0 0 0 rgba(255, 255, 255, 0.2);
   transition: all 80ms ease-out; }
   .post-button-back:hover {
     box-shadow: inset 0 0 0 0 white,0 0 0 2px white;
@@ -2207,9 +2199,6 @@ html {
   @media screen and (max-width: 720px) {
     .works-banner {
       padding: 64px 0 0; } }
-
-.works-banner__heading {
-  overflow: hidden; }
 
 .anim--works-in {
   transform-origin: 50% 50%;

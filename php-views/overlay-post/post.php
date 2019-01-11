@@ -55,9 +55,9 @@
 <div class="post js-post-container">
   <div class="center center--800">
 
-    <div class="post__heading">
+    <div class="post__heading js-post-heading">
       <div class="post-heading">
-        <h2 class="post-heading__title js-post-title">
+        <h2 class="post-heading__title">
         <?php echo($postTitle); ?>
         </h2>
         <div class="post-heading__close">
@@ -68,12 +68,12 @@
       </div>
     </div>
 
-    <div class="post__image js-post-image-container">
-      <div class="post-image-placeholder js-post-image" <?php echo $postColor ?>></div>
+    <div class="post__image js-post-image">
+      <div class="post-image-placeholder" <?php echo $postColor ?>></div>
     </div>
 
-    <div class="post__description">
-      <div class="typography">
+    <div class="post__description js-post-description">
+      <div class="typography typography--on-dark">
       <?php echo($postDescription) ?>
       </div>
     </div>

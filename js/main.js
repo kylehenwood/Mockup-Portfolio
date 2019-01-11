@@ -32,6 +32,7 @@ var layout = {
   body: null,
   mobile: null,
   navigation: null,
+  wrapper: null,
   content: null,
   footer: null,
   post: null
@@ -41,6 +42,7 @@ function bindLayout() {
   layout.html = $('.js-html');
   layout.body = $('.js-layout');
   layout.navigation = $('.js-layout-header');
+  layout.wrapper = $('.js-layout-wrapper');
   layout.content = $('.js-layout-content');
   layout.footer = $('.js-layout-footer');
   layout.mobile = $('.js-layout-mobile');

@@ -11,21 +11,21 @@ let project = {
 
 // Triggers
 $(document).on('project-in--animate',function(){
-  headerFix(project.fixed,'project__close--scroll');
+  //headerFix(project.fixed,'project__close--scroll');
   console.log('GOOOO');
   projectAnimateIn();
 });
 $(document).on('project-out--animate',function(){
-  headerUnfix(project.fixed,'project__close--scroll');
+  //headerUnfix(project.fixed,'project__close--scroll');
   projectAnimateOut();
 });
 
 $(document).on('project-in--instant',function(){
-  headerFix(project.fixed,'project__close--scroll');
+  //headerFix(project.fixed,'project__close--scroll');
   projectInstantIn();
 });
 $(document).on('project-out--instant',function(){
-  headerUnfix(project.fixed,'project__close--scroll');
+  //headerUnfix(project.fixed,'project__close--scroll');
   projectInstantOut();
 });
 

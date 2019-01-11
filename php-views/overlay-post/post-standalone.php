@@ -15,7 +15,6 @@
     $findPost = array_search($postID, array_column($galleryArray, 'id'));
     $post = $galleryArray[$findPost];
 
-
     // content
     $postTitle = $post['title'];
     $postSubtitle = $post['subtitle'];
@@ -32,20 +31,27 @@
 
 <div class="post post--standalone">
   <div class="center center--800">
-    <!-- heading start -->
-    <div class="post__heading">
-        <div class="post-heading">
-          <h2 class="post-heading__title">
-            <?php echo($postTitle); ?>
-          </h2>
-        </div>
-      </div>
-    <!-- heading end -->
 
-    <!-- image start -->
-    <div class="post__image">
-      <div class="post-image-placeholder js-post-image" <?php echo $postColor ?> ></div>
+    <!-- heading-->
+    <div class="post__heading js-post-heading">
+      <div class="post-heading">
+        <h2 class="post-heading__title">
+          <?php echo($postTitle); ?>
+        </h2>
+      </div>
     </div>
-    <!-- image end -->
+
+    <!-- image -->
+    <div class="post__image js-post-image">
+      <div class="post-image-placeholder" <?php echo $postColor ?> ></div>
+    </div>
+
+    <!-- description -->
+    <div class="post__description js-post-description">
+      <div class="typography typography--on-dark">
+      <?php echo($postDescription) ?>
+      </div>
+    </div>
+
   </div>
 </div>
