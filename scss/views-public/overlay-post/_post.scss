@@ -2,15 +2,14 @@
   position: relative;
   min-height: 100%;
   //background: rgba($color-grey-800,0.9);
-  padding: 64px 0;
+  padding: 64px 16px;
   @include screen-med {
-    padding: 0 0 40px;
+    padding: 0 12px 40px;
   }
 }
 
 // children
 .post__heading {
-  padding: 0 16px;
   top: 0;
   left: 0;
   width: 100%;
@@ -32,7 +31,6 @@
 
 .post__image {
   position: relative;
-  padding: 0 16px;
   margin: 0 0 80px;
   @include screen-med {
     margin: 0 0 40px;
@@ -40,7 +38,8 @@
 }
 
 .post__description {
-  padding: 0 16px;
+  height: 800px;
+  border: 2px solid white;
 }
 
 

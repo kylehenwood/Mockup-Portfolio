@@ -126,20 +126,21 @@ function projectAnimateIn() {
   //   });
   // },1)
 
-  bodyScrollDisable(layout.project);
+  scrollLock(layout.project,layout.wrapper);
+  //scrollEnable(layout.project);
+
   layout.project.show();
   project.container.addClass('anim--project-in');
   project.container.on(animationEvent,function(event){
     if ($(event.target).hasClass('anim--project-in')) {
       $(this).unbind();
       $(this).removeClass('anim--project-in');
-      bodyScrollSet(layout.project);
     }
   });
 }
 
 function projectAnimateOut() {
-  bodyScrollEnable(layout.project);
+  scrollLockResume(layout.wrapper,layout.project);
   project.container.addClass('anim--project-out');
   project.container.on(animationEvent,function(event){
     if ($(event.target).hasClass('anim--project-out')) {
@@ -157,12 +158,12 @@ function pythagorean(sideA, sideB){
 
 
 function projectInstantIn() {
-  bodyScrollDisable(layout.project);
+  //bodyScrollDisable(layout.project);
   layout.project.show();
-  bodyScrollSet(layout.project);
+  //bodyScrollSet(layout.project);
 }
 
 function projectInstantOut() {
-  bodyScrollEnable(layout.project);
+  //bodyScrollEnable(layout.project);
   layout.project.hide();
 }

@@ -1,8 +1,9 @@
 // Simple function to disable the scroll of the body & html elements,
 // but still allow the element passed to be scrollable.
 //
+
 // Mobile IOS creates the need for this code.
-const scrollLock = {
+let scrollLockx = {
   scrollPos: null,
   elementPos: null
 }
@@ -13,76 +14,70 @@ const scrollLock = {
 
 
 // make the body unscrollable, and the passed element scrollable.
-function bodyScrollDisable(element) {
-  //console.log('body--locked');
-  scrollLock.scrollPos = layout.html.scrollTop() || layout.body.scrollTop();
+function scrollLock(elementScroll,elementFixed) {
 
-  layout.wrapper.addClass('layout__wrapper--fixed');
-  const scrollOffset = $(window).scrollTop()*-1;
+  scrollLockx.scrollPos = layout.html.scrollTop() || layout.body.scrollTop();
+  const scrollOffset = scrollLockx.scrollPos;
 
-  layout.wrapper.addClass('layout__wrapper--lock');
-  layout.wrapper.css({
-    'top': scrollOffset
+  //Fixed element
+  elementFixed.css({
+    'position':'fixed',
+    'top': scrollOffset*-1
+  });
+  elementFixed.attr({
+    'sl-position':'fixed',
+    'sl-offset':scrollOffset
   });
 
-  console.log(scrollOffset);
-
-
-  // show overlay
-  element.show();
-  element.addClass('layout__overlay--background');
-  element.css({
+  //Scrollable Element
+  elementScroll.show();
+  //elementScroll.addClass('layout__overlay--background');
+  elementScroll.css({
+    'display': 'block',
     'position':'relative',
     'top':0
   });
-  //element.addClass('layout__overlay--static');
 
+  // scroll body to top (fixed element in the background looks as if page is still scrolled)
+  layout.html.scrollTop(0);
+  layout.body.scrollTop(0);
 
-
-
-  // },1);
-  // console.log('L:'+layout.html.scrollTop());
-  // console.log('B:'+layout.body.scrollTop());
-  // console.log('W:'+element.outerHeight());
+  console.log(1);
 }
 
-// When overlay transition complete call this function - unfixes overlay and hides content,
-// scrolls window to top etc.
-function bodyScrollSet(element) {
-  //alert('SET');
-  //element.removeClass('layout__overlay--scroll-lock');
-  //layout.body.addClass('layout--overlay');
-}
 
-// make the body scrollable, and the passed element unscrollable.
-function bodyScrollEnable(element,wrapper) {
-  //alert('ENABLE');
-  //console.log('body--scrollable');
-  //scrollLock.elementPos = layout.html.scrollTop() || layout.body.scrollTop();
-  //element.addClass('layout__overlay--scroll-lock');
-  //element.scrollTop(scrollLock.elementPos);
-  const scrollOffset = $(window).scrollTop()*-1;
+function scrollLockResume(elementScroll,elementFixed) {
 
-  element.css({
+  scrollLockx.scrollPos = layout.html.scrollTop() || layout.body.scrollTop();
+  const scrollOffset = scrollLockx.scrollPos;
+
+  let data = {
+    scrollOffset: elementScroll.attr('sl-offset'),
+    position: elementScroll.attr('sl-position')
+  }
+
+  //scrollableElement
+  elementScroll.css({
+    'position':'relative',
+    'top':0
+  });
+
+  //Fixed element
+  elementFixed.css({
+    'display': 'none',
     'position':'fixed',
-    'top':scrollOffset
+    'top': scrollOffset,
   });
-  element.hide();
-
-  //layout.body.removeClass('layout--overlay');
-  layout.html.scrollTop(scrollLock.scrollPos);
-  layout.body.scrollTop(scrollLock.scrollPos);
-
-  layout.wrapper.removeClass('layout__wrapper--lock');
-  layout.wrapper.css({
-    'top': 0
+  elementFixed.attr({
+    'sl-position':'fixed',
+    'sl-offset':scrollOffset,
   });
+
+
+  // scroll page to where it should be.
+  layout.html.scrollTop(data.scrollOffset);
+  layout.body.scrollTop(data.scrollOffset);
+
+  console.log(data.scrollOffset);
+  console.log(2);
 }
-
-// function bodyScrollComplete(element) {
-//   //alert('COMPLETE');
-//   element.scrollTop(0);
-//   element.removeClass('layout__overlay--scroll-lock');
-//   element.removeClass('layout__overlay--background');
-//   element.hide();
-// }

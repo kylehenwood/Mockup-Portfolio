@@ -2089,13 +2089,12 @@ html {
 .post {
   position: relative;
   min-height: 100%;
-  padding: 64px 0; }
+  padding: 64px 16px; }
   @media screen and (max-width: 960px) {
     .post {
-      padding: 0 0 40px; } }
+      padding: 0 12px 40px; } }
 
 .post__heading {
-  padding: 0 16px;
   top: 0;
   left: 0;
   width: 100%;
@@ -2115,14 +2114,14 @@ html {
 
 .post__image {
   position: relative;
-  padding: 0 16px;
   margin: 0 0 80px; }
   @media screen and (max-width: 960px) {
     .post__image {
       margin: 0 0 40px; } }
 
 .post__description {
-  padding: 0 16px; }
+  height: 800px;
+  border: 2px solid white; }
 
 .post-heading {
   position: relative;

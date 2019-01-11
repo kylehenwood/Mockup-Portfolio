@@ -12,11 +12,7 @@ var post = {
 
 // animate in
 $(document).on('post-in--animate',function(e){
-  bodyScrollDisable(layout.post);
   postAnimateIn();
-
-  // scaleCard
-  //scaleCard(post.card);
 });
 
 $(document).on('post-in--instant',function(e){
@@ -25,7 +21,6 @@ $(document).on('post-in--instant',function(e){
 
 // animate out
 $(document).on('post-out--animate',function(e){
-  bodyScrollEnable(layout.post);
   postAnimateOut();
   //scaleCardOut();
 });
@@ -59,8 +54,7 @@ function postUnbind() {
 function postAnimateIn() {
   // show and focus the post container, focus so that on mobile
   // it is easy to scroll instead of requiring a tap to focus.
-  layout.post.show();
-  bodyScrollSet(layout.post);
+  scrollLock(layout.post,layout.wrapper);
 
   // });
 
@@ -88,8 +82,7 @@ function postAnimateIn() {
 
 // Instant In
 function postInstantIn() {
-  bodyScrollSet(layout.post);
-  layout.post.show();
+  scrollLock(layout.post,layout.wrapper);
 }
 
 // Animate out
@@ -97,7 +90,7 @@ function postAnimateOut() {
 
   // set scroll element back to wrapper
   //bodyScrollComplete(layout.post);
-  bodyScrollEnable(layout.post,layout.wrapper);
+  scrollLockResume(layout.wrapper,layout.post);
 
   // Animate post out...
   post.heading.addClass('anim--delay-120 anim--out-bot');
@@ -127,8 +120,8 @@ function postAnimateOut() {
 
 // Instant out
 function postInstantOut() {
-  bodyScrollEnable(layout.post);
-  layout.navigation.hide();
-  layout.post.hide();
-  layout.content.show();
+  scrollLockResume(layout.wrapper,layout.post);
+  //layout.navigation.hide();
+  //layout.post.hide();
+  //layout.content.show();
 }

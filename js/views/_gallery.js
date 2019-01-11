@@ -101,7 +101,6 @@ function galleryInInstant() {
   layout.navigation.show();
   gallery.heading.addClass('anim--in-bot');
   gallery.subheading.addClass('anim--in-bot anim--delay-80');
-
   gallery.grid.addClass('gallery-grid--animate-in');
 
 }
