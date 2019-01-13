@@ -10,7 +10,7 @@
   &:active {
     z-index: 2;
     box-shadow: $shadow-200;
-    transform: scale(0.98) translateY(2px);
+    transform: translateY(2px);
   }
 }
 

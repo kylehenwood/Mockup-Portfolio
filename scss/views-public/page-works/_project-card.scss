@@ -5,22 +5,25 @@
   align-items: center;
   justify-content: center;
   z-index: 1;
-  transition: box-shadow 80ms ease-in;
   border-radius: 4px;
   height: 320px;
   background: $color-grey-500;
   transition: 80ms ease-in;
-  box-shadow: 0 0 0 0 white, $shadow-100;
+  border: 2px solid rgba(white,0);
+  box-shadow: $shadow-100;
   @include screen-mob {
     height: 240px;
   }
   &:hover {
+    border: 2px solid white;
     box-shadow: $shadow-300;
-    box-shadow: 0 0 0 2px white, $shadow-300;
+    //box-shadow: 0 0 0 2px white, $shadow-300;
     z-index: 2;
   }
   &:active {
-    box-shadow: 0 0 0 2px white, $shadow-200;
+    border: 2px solid white;
+    box-shadow: $shadow-200;
+    //box-shadow: 0 0 0 2px white, $shadow-200;
     transform: translateY(2px);
     z-index: 2;
   }

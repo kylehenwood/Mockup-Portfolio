@@ -1,25 +1,13 @@
 <script>
 
-  // bind
+  // bind (pjax:success and document.ready)
   $(document).one('page_load',function(){
-    galleryBind();
-    // only do the animation in from post when loading from a post
-    if (gallery.animate === true) {
-      gallery.animate = false;
-      $(document).trigger('gallery-in--animate');
-    } else {
-      $(document).trigger('gallery-in--instant');
-    }
+    $(document).trigger('gallery-in--animate');
   });
 
   // out
   $(document).one('pjax:beforeReplace', function() {
-    if (gallery.animate === true) {
-      gallery.animate = false;
-      $(document).trigger('gallery-out--animate');
-    } else {
-      $(document).trigger('gallery-out--instant');
-    }
+    $(document).trigger('gallery-out--animate');
   });
 </script>
 

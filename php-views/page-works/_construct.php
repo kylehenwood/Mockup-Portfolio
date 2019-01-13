@@ -23,9 +23,9 @@
   $(document).one('pjax:beforeReplace', function() {
     // works => project
     if (works.animate === true) {
-      $(document).trigger('works-out--animate');
+      //$(document).trigger('works-out--animate');
     } else {
-      $(document).trigger('works-out--instant');
+      //$(document).trigger('works-out--instant');
     }
   });
 </script>

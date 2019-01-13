@@ -28,6 +28,4 @@ if (isset($_GET['pageID'])) {
 }
 
 // includes
-include 'navigation-mobile.php';
-include 'navigation-desktop.php';
 ?>

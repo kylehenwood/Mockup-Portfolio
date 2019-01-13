@@ -1,24 +1,23 @@
 <script>
   //--
   // In
-  $(document).one('pjax:success',function(){
-    postBind();
-    if (post.animate === true) {
-      post.animate = false;
+  $(document).one('page_load',function(){
+    // if (post.animate === true) {
+    //   post.animate = false;
       $(document).trigger('post-in--animate');
-    } else {
-      $(document).trigger('post-in--instant');
-    }
+    // } else {
+    //   $(document).trigger('post-in--instant');
+    // }
   });
   //--
   // Out
   $(document).one('pjax:beforeReplace', function() {
-    if (post.animate === true) {
-      post.animate = false;
-      $(document).trigger('post-out--animate');
-    } else {
-      $(document).trigger('post-out--instant');
-    }
+    // if (post.animate === true) {
+    //   post.animate = false;
+    //   $(document).trigger('post-out--animate');
+    // } else {
+    //   $(document).trigger('post-out--instant');
+    // }
   });
 </script>
 

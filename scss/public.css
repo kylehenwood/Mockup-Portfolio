@@ -53,94 +53,6 @@ table {
 html {
   background: black; }
 
-@keyframes fluidboxLoading {
-  0% {
-    transform: translate(-50%, -50%) rotateX(0) rotateY(0); }
-  50% {
-    transform: translate(-50%, -50%) rotateX(-180deg) rotateY(0); }
-  100% {
-    transform: translate(-50%, -50%) rotateX(-180deg) rotateY(-180deg); } }
-
-.fluidbox {
-  outline: none; }
-
-.fluidbox__overlay {
-  background-color: rgba(33, 33, 33, 0.85);
-  cursor: pointer;
-  cursor: zoom-out;
-  opacity: 0;
-  pointer-events: none;
-  position: fixed;
-  z-index: 10000;
-  top: -100%;
-  /* Negative top and bottom is to fix some Safari cases where image got blurry */
-  left: 0;
-  bottom: -100%;
-  /* Negative top and bottom is to fix some Safari cases where image got blurry */
-  right: 0;
-  /* Transition time for overlay is halved to ensure that flickering doesn't happen */
-  transition: all 0.5s ease-in-out; }
-  .fluidbox--opened .fluidbox__overlay {
-    pointer-events: auto; }
-
-.fluidbox__wrap {
-  background-position: center center;
-  background-size: cover;
-  margin: 0 auto;
-  position: relative;
-  transition: all 0.5s ease-in-out; }
-
-.fluidbox__thumb {
-  transition: opacity 0s ease-in-out 0s;
-  /* To prevent flickering, we delay the showing of the image */ }
-  .fluidbox--closed .fluidbox__thumb {
-    transition: opacity 0s ease-in-out 0s; }
-
-.fluidbox__ghost {
-  background-size: 100% 100%;
-  background-position: center center;
-  background-repeat: no-repeat;
-  position: absolute;
-  z-index: 11000;
-  transition: opacity 0s 0s, transform 0.5s 0s; }
-  .fluidbox--opened .fluidbox__ghost {
-    cursor: pointer;
-    cursor: -webkit-zoom-out;
-    cursor: -moz-zoom-out;
-    cursor: zoom-out; }
-  .fluidbox--closed .fluidbox__ghost {
-    transition: opacity 0s 0.5s, transform 0.5s 0s; }
-
-.fluidbox__loader {
-  opacity: 0;
-  perspective: 200px;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0; }
-  .fluidbox__loader::before {
-    /* You can replace this with any color you want, or even a loading gif if desired */
-    background-color: rgba(33, 33, 33, 0.85);
-    content: '';
-    transform-style: preserve-3d;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 20%;
-    padding-bottom: 20%;
-    transform: translate(-50%, -50%);
-    transition-property: transform;
-    transition-duration: 0.5s;
-    transition-delay: 0s; }
-
-.fluidbox--loading .fluidbox__loader {
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out 0.5s; }
-  .fluidbox--loading .fluidbox__loader::before {
-    animation: fluidboxLoading 1s 0s infinite ease-in-out forwards; }
-
 .clearfix:after {
   content: '';
   display: block;
@@ -726,14 +638,11 @@ html {
   z-index: 50;
   min-height: 100%;
   width: 100%;
-  background: rgba(66, 66, 66, 0);
-  transition: 200ms ease-in; }
+  background: rgba(66, 66, 66, 0); }
 
 .layout__overlay--background {
-  background: rgba(66, 66, 66, 0.8); }
-
-.layout__overlay--static {
-  position: relative; }
+  background: rgba(66, 66, 66, 0.8);
+  z-index: 100; }
 
 .page__banner {
   position: relative;
@@ -1958,7 +1867,7 @@ html {
   .gallery-thumbnail:active {
     z-index: 2;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    transform: scale(0.98) translateY(2px); }
+    transform: translateY(2px); }
 
 .gallery-thumbnail {
   position: relative;
@@ -2156,14 +2065,13 @@ html {
   display: block;
   padding: 16px;
   background: rgba(255, 255, 255, 0.2);
-  box-shadow: inset 0 0 0 0 white, 0 0 0 0 rgba(255, 255, 255, 0.2);
   transition: all 80ms ease-out; }
   .post-button-back:hover {
-    box-shadow: inset 0 0 0 0 white,0 0 0 2px white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     background: white;
     color: black; }
   .post-button-back:active {
-    box-shadow: inset 0 0 0 2px white,0 0 0 0 white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     background: white;
     color: black; }
 
@@ -2233,21 +2141,22 @@ html {
   align-items: center;
   justify-content: center;
   z-index: 1;
-  transition: box-shadow 80ms ease-in;
   border-radius: 4px;
   height: 320px;
   background: #9E9E9E;
   transition: 80ms ease-in;
-  box-shadow: 0 0 0 0 white, 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+  border: 2px solid rgba(255, 255, 255, 0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
   @media screen and (max-width: 720px) {
     .project-card {
       height: 240px; } }
   .project-card:hover {
+    border: 2px solid white;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    box-shadow: 0 0 0 2px white, 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     z-index: 2; }
   .project-card:active {
-    box-shadow: 0 0 0 2px white, 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border: 2px solid white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     transform: translateY(2px);
     z-index: 2; }
 
@@ -2257,117 +2166,6 @@ html {
   font-weight: bold;
   text-align: center;
   color: white; }
-
-.project-mask {
-  transition: 800ms cubic-bezier(0.8, 0.24, 1, 1); }
-
-.project {
-  position: relative;
-  background: #212121; }
-
-.project--standalone {
-  padding: 0; }
-
-.project__close {
-  position: absolute;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 12px; }
-
-.project-back-button {
-  position: relative;
-  border-radius: 20px;
-  font-weight: bold;
-  line-height: 16px;
-  color: white;
-  display: inline-block;
-  background: rgba(0, 0, 0, 0.2);
-  padding: 12px 24px 12px 40px;
-  box-shadow: inset 0 0 0 0 white, 0 0 0 0 black;
-  transition: all 80ms ease-out; }
-  .project-back-button:hover {
-    box-shadow: inset 0 0 0 0 white, 0 0 0 2px white;
-    background: white;
-    color: #616161; }
-  .project-back-button:active {
-    box-shadow: inset 0 0 0 2px white, 0 0 0 0 white;
-    background: white;
-    color: #616161; }
-
-.project-back-button__icon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 40px;
-  padding: 12px 16px; }
-
-.project-banner {
-  position: relative; }
-
-.project-banner__content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 100px 0;
-  height: 800px; }
-  @media screen and (max-width: 960px) {
-    .project-banner__content {
-      height: 560px; } }
-
-.anim--project-in {
-  opacity: 0;
-  animation-name: project-in;
-  animation-duration: 240ms;
-  animation-timing-function: ease-out-cubic;
-  animation-fill-mode: forwards; }
-
-@keyframes project-in {
-  000% {
-    opacity: 0.4; }
-  100% {
-    opacity: 1;
-    transform: translateY(0); } }
-
-.anim--project-out {
-  opacity: 1;
-  animation-name: project-out;
-  animation-duration: 240ms;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards; }
-
-@keyframes project-out {
-  000% {
-    opacity: 1;
-    transform: translateY(0); }
-  100% {
-    opacity: 0;
-    transform: translateY(80px); } }
-
-.project__container {
-  padding: 24px 24px; }
-
-.project__container--animate {
-  animation-name: slide-in-bottom;
-  animation-duration: 800ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards; }
-
-.project__container--grey {
-  background: #EEEEEE; }
-
-.project__container--blue {
-  background: #2196F3; }
-
-.project__container--white {
-  background: white; }
-
-.padding__container--padding-bot {
-  padding-bottom: 120px !important; }
-
-.project__container--showcase {
-  padding: 0 24px; }
 
 .about-content {
   padding: 80px 0; }
@@ -2389,40 +2187,105 @@ html {
 .project--standalone {
   padding: 0; }
 
-.project__close {
-  position: absolute;
+.project__navigation {
+  position: fixed;
   z-index: 100;
   top: 0;
   left: 0;
   width: 100%;
+  height: 64px;
   padding: 12px; }
+
+.project__navigation--active .project-navigation__title {
+  transform: translateY(0);
+  opacity: 1; }
+
+.project-navigation {
+  position: relative; }
+
+.project-navigation__back {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0; }
+
+.project-navigation__title {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  line-height: 24px;
+  padding: 8px 0;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 160ms ease-in; }
+
+.project-navigation__controls {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0; }
+
+.project-controls__next {
+  margin: 0 0 0 8px; }
+
+.project-controls__next,
+.project-controls__prev {
+  cursor: pointer;
+  float: left;
+  padding: 12px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  transition: all 80ms ease-out; }
+  .project-controls__next:hover,
+  .project-controls__prev:hover {
+    background: white;
+    color: black;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+  .project-controls__next:active,
+  .project-controls__prev:active {
+    background: white;
+    color: black;
+    transform: translateY(2px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
 
 .project-back-button {
   position: relative;
   border-radius: 20px;
-  font-weight: bold;
-  line-height: 16px;
   color: white;
-  display: inline-block;
+  display: block;
   background: rgba(0, 0, 0, 0.2);
   padding: 12px 24px 12px 40px;
-  box-shadow: inset 0 0 0 0 white, 0 0 0 0 black;
   transition: all 80ms ease-out; }
   .project-back-button:hover {
-    box-shadow: inset 0 0 0 0 white, 0 0 0 2px white;
     background: white;
-    color: #616161; }
+    color: black;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
   .project-back-button:active {
-    box-shadow: inset 0 0 0 2px white, 0 0 0 0 white;
     background: white;
-    color: #616161; }
+    color: black;
+    transform: translateY(2px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+  @media screen and (max-width: 960px) {
+    .project-back-button {
+      padding: 0; } }
 
 .project-back-button__icon {
   position: absolute;
   top: 0;
   left: 0;
   height: 40px;
-  padding: 12px 16px; }
+  padding: 12px; }
+  @media screen and (max-width: 960px) {
+    .project-back-button__icon {
+      position: static; } }
+
+.project-back-button__text {
+  font-weight: bold;
+  line-height: 16px; }
+  @media screen and (max-width: 960px) {
+    .project-back-button__text {
+      display: none; } }
 
 .project-banner {
   position: relative; }
@@ -2468,12 +2331,6 @@ html {
 
 .project__container {
   padding: 24px 24px; }
-
-.project__container--animate {
-  animation-name: slide-in-bottom;
-  animation-duration: 800ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards; }
 
 .project__container--grey {
   background: #EEEEEE; }
@@ -2647,12 +2504,14 @@ html {
   opacity: 0.3; }
 
 .scroll-card {
+  cursor: pointer;
   position: relative;
   font-size: 16px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   border-radius: 4px;
   background: white;
   background: #1E88E5;
+  border: 2px solid transparent;
   width: 240px;
   height: 320px; }
   .scroll-card:before {
@@ -2664,6 +2523,11 @@ html {
     font-size: 14px;
     line-height: 24px;
     margin-bottom: 8px; }
+  .scroll-card:hover {
+    border: 2px solid white; }
+  .scroll-card:active {
+    border: 2px solid white;
+    transform: translateY(2px); }
 
 .scroll-card--wide {
   width: 480px; }
@@ -2698,6 +2562,7 @@ html {
 
 .banner-aibek {
   position: relative;
+  z-index: 0;
   height: 800px; }
 
 .banner-aibek__background {

@@ -16,49 +16,104 @@
   padding: 0;
 }
 
-.project__banner {
-  //padding: 0 16px;
-  //background: $color-grey-800;
-}
+.project__banner {}
 
-.project__close {
-  position: absolute;
+
+.project__navigation {
+  position: fixed;
   z-index: 100;
   top: 0;
   left: 0;
   width: 100%;
+  height: 64px;
   padding: 12px;
-  //background: $color-grey-900;
 }
 
-.project__close--scroll {
-  //position: fixed;
+.project__navigation--active {
+  .project-navigation__title {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// Project Navigation
+.project-navigation {
+  position: relative;
+}
+.project-navigation__back {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
   //background: $color-grey-900;
-  //background: linear-gradient(black,transparent);
-  //background: linear-gradient(0deg,rgba(0,0,0,0),rgba(0,0,0,0.4));
+}
+.project-navigation__title {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  line-height: 24px;
+  padding: 8px 0;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 160ms ease-in;
+}
+.project-navigation__controls {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+}
+
+
+// next/prev control
+.project-controls {}
+.project-controls__next {
+  margin: 0 0 0 8px;
+}
+.project-controls__next,
+.project-controls__prev {
+  cursor: pointer;
+  float: left;
+  padding: 12px;
+  border-radius: 50%;
+  background: rgba(black,0.2);
+  transition: all 80ms ease-out;
+  &:hover {
+    background: white;
+    color: black;
+    box-shadow: $shadow-200;
+  }
+  &:active {
+    background: white;
+    color: black;
+    transform: translateY(2px);
+    box-shadow: $shadow-100;
+  }
 }
 
 // Button
 .project-back-button {
   position: relative;
   border-radius: 20px;
-  font-weight: bold;
-  line-height: 16px;
   color: white;
-  display: inline-block;
+  display: block;
   background: rgba(black,0.2);
   padding: 12px 24px 12px 40px;
-  box-shadow: inset 0 0 0 0 white, 0 0 0 0 black;
   transition: all 80ms ease-out;
   &:hover {
-    box-shadow: inset 0 0 0 0 white, 0 0 0 2px white;
     background: white;
-    color: $color-grey-700;
+    color: black;
+    box-shadow: $shadow-200;
   }
   &:active {
-    box-shadow: inset 0 0 0 2px white, 0 0 0 0 white;
     background: white;
-    color: $color-grey-700;
+    color: black;
+    transform: translateY(2px);
+    box-shadow: $shadow-100;
+  }
+  @include screen-med {
+    padding: 0;
   }
 }
 .project-back-button__icon {
@@ -66,9 +121,18 @@
   top: 0;
   left: 0;
   height: 40px;
-  padding: 12px 16px;
+  padding: 12px;
+  @include screen-med {
+    position: static;
+  }
 }
-.project-back-button__text {}
+.project-back-button__text {
+  font-weight: bold;
+  line-height: 16px;
+  @include screen-med {
+    display: none;
+  }
+}
 
 
 // Banner
@@ -130,12 +194,12 @@
   padding: 24px 24px;
 }
 
-.project__container--animate {
-  animation-name: slide-in-bottom;
-  animation-duration: 800ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-}
+// .project__container--animate {
+//   animation-name: slide-in-bottom;
+//   animation-duration: 800ms;
+//   animation-timing-function: ease-out;
+//   animation-fill-mode: forwards;
+// }
 
 .project__container--grey {
   background: $color-grey-200;

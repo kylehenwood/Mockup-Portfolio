@@ -5,28 +5,29 @@ let project = {
   page: null,
   animate: false,
   maskX: null,
-  maskY: null
+  maskY: null,
+  modal: false,
+  posts: null
 }
 
 
 // Triggers
 $(document).on('project-in--animate',function(){
-  //headerFix(project.fixed,'project__close--scroll');
-  console.log('GOOOO');
+  projectBind();
   projectAnimateIn();
 });
 $(document).on('project-out--animate',function(){
-  //headerUnfix(project.fixed,'project__close--scroll');
-  projectAnimateOut();
+  //alert("out-a")
+  //projectAnimateOut();
 });
 
 $(document).on('project-in--instant',function(){
-  //headerFix(project.fixed,'project__close--scroll');
-  projectInstantIn();
+  //projectBind();
+  //projectInstantIn();
 });
 $(document).on('project-out--instant',function(){
-  //headerUnfix(project.fixed,'project__close--scroll');
-  projectInstantOut();
+  //alert("out-i")
+  //projectInstantOut();
 });
 
 
@@ -35,16 +36,49 @@ $(document).on('project-out--instant',function(){
 function projectBind() {
   project.container = $('.js-project-container');
   project.fixed = $('.js-project-fixed');
-  project.close = $('.js-project-close');
+  project.navigation = $('.js-project-navigation');
+  project.close= $('.js-project-close');
+  project.open = true;
+  project.posts = $('.js-pjax-post');
 
+  post.parent = $(layout.project);
 
-  project.close.click(function(){
-    project.animate = true;
-    works.animate = true;
+  project.close.click(function(event){
+    // project.open = false;
+    // project.animate = true;
+    // works.animate = true;
+    event.preventDefault();
+    scrollElementLock(layout.project);
+    scrollElement(layout.wrapper);
+    scrollElementHide(layout.project);
+
+  });
+
+  // Navigation background on scroll
+  project.color = project.navigation.attr('data-bg');
+
+  let bannerHeight = 600;
+
+  $(window).scroll(function(){
+    var scrollOffset = layout.html.scrollTop() || layout.body.scrollTop();
+    if (scrollOffset > bannerHeight) {
+      project.navigation.addClass("project__navigation--active");
+      project.navigation.css({
+        'background':project.color,
+        'box-shadow':'0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)'
+      });
+    } else {
+      project.navigation.removeClass("project__navigation--active");
+      project.navigation.css({
+        'background':'none',
+        'box-shadow':'none'
+      });
+    }
   });
 }
 
-const maskVersion = 1;
+// need project UNBIND?
+
 
 // Overlay
 function projectAnimateIn() {
@@ -114,22 +148,9 @@ function projectAnimateIn() {
     });
   });
 
-  // circle.attr({
-  //   'cx':project.maskX,
-  //   'cy':project.maskY,
-  //   'r':4
-  // });
-  //
-  // setTimeout(function(){
-  //   circle.attr({
-  //     'r':$(window).width()/3
-  //   });
-  // },1)
+  scrollElementLock(layout.wrapper,true);
+  scrollElement(layout.project,false);
 
-  scrollLock(layout.project,layout.wrapper);
-  //scrollEnable(layout.project);
-
-  layout.project.show();
   project.container.addClass('anim--project-in');
   project.container.on(animationEvent,function(event){
     if ($(event.target).hasClass('anim--project-in')) {
@@ -140,13 +161,17 @@ function projectAnimateIn() {
 }
 
 function projectAnimateOut() {
-  scrollLockResume(layout.wrapper,layout.project);
+
+  scrollElementLock(layout.project,true);
+  scrollElement(layout.wrapper,true);
+
   project.container.addClass('anim--project-out');
   project.container.on(animationEvent,function(event){
     if ($(event.target).hasClass('anim--project-out')) {
       $(this).unbind();
       $(this).removeClass('anim--project-out');
-      bodyScrollComplete(layout.project);
+
+      scrollElementHide(layout.project);
     }
   });
 }

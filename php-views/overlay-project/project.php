@@ -2,14 +2,11 @@
   //--
   // In
   $(document).one('pjax:success',function(){
-    projectBind();
+    
     project.open = true;
     // works => project
 
-    //console.log(1);
-
     if (layout.project.is(":visible")) {
-      console.log(2);
       return false;
     }
 
@@ -20,20 +17,24 @@
       $(document).trigger('project-in--instant');
     }
   });
+
+
   //--
   // Out
   $(document).one('pjax:beforeReplace', function() {
     //project.open = false;
-    // project => works
-    if (project.animate === true) {
-      project.animate = false;
-      $(document).trigger('project-out--animate');
-    } else {
-      $(document).trigger('project-out--instant');
-    }
-
-    // animate project => project
-    // if (project.open === true){}
+    //
+    // if (project.open === true) {
+    //   return;
+    // }
+    //
+    // // project => works
+    // if (project.animate === true) {
+    //   project.animate = false;
+    //   $(document).trigger('project-out--animate');
+    // } else {
+    //   $(document).trigger('project-out--instant');
+    // }
   });
 </script>
 

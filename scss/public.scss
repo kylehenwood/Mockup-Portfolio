@@ -17,7 +17,7 @@ html {
 $transition-duration: 240ms;
 
 // _vendor
-@import "vendor/_fluidbox";
+//@import "vendor/_fluidbox";
 
 // _shared imports
 @import "shared/_mixin";
@@ -87,9 +87,6 @@ $transition-duration: 240ms;
 @import "views-public/page-works/_works";
 @import "views-public/page-works/_project-card";
 
-// Project
-@import "views-public/overlay-project/_project";
-
 
 //---
 // About
@@ -101,7 +98,7 @@ $transition-duration: 240ms;
 
 
 //---
-// _projects
+// Project
 @import "views-public/overlay-project/_project";
 @import "views-public/overlay-project/_banners";
 @import "views-public/overlay-project/_description";

@@ -90,9 +90,12 @@ function displayContent()	{
     include './php-views/overlay-post/_shell.php';
     include './php-views/overlay-project/_shell.php';
     include './php-views/overlay-contact/_shell.php';
+    include './php-chrome/navigation.php';
+    include './php-chrome/navigation-mobile.php';
+
 
     echo '<div class="layout__wrapper js-layout-wrapper">';
-    include './php-chrome/navigation.php';
+    include './php-chrome/navigation-desktop.php';
     echo '<div class="layout__content js-layout-content">';
     echo '<div id="js-pjax-container">';
     echo $content;

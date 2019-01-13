@@ -11,13 +11,13 @@ $(document).on('works-in--animate',function(){
   worksAnimateIn();
 });
 $(document).on('works-out--animate',function(){
-  worksAnimateOut();
+  //worksAnimateOut();
 });
 $(document).on('works-in--instant',function(){
   worksInstantIn();
 });
 $(document).on('works-out--instant',function(){
-  worksInstantOut();
+  //worksInstantOut();
 });
 
 

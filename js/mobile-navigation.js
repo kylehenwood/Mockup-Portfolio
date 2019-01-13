@@ -33,13 +33,12 @@ $(document).ready(function(){
 // open || close
 function openMobileMenu() {
   mobileOpen = true;
-  bodyScrollDisable(layout.mobile);
-  bodyScrollSet(layout.mobile);
+  scrollLock(layout.mobile,layout.wrapper);
   layout.body.addClass('layout--white');
 }
 function closeMobileMenu() {
   mobileOpen = false;;
-  bodyScrollEnable(layout.mobile);
+  scrollLockResume(layout.wrapper,layout.mobile);
   layout.mobile.hide();
   layout.body.removeClass('layout--white');
 }

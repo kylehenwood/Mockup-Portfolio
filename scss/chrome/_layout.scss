@@ -17,16 +17,9 @@ html {
   //-webkit-overflow-scrolling: touch;
 }
 
-.layout--overlay {
-  //overflow: hidden;
-  //padding: 0 15px 0 0;
-}
 
 // Header
 .layout__header {
-  // position: absolute;
-  // top: 0;
-  // left: 0;
   width: 100%;
   padding: 0 24px;
   background: $color-grey-900;
@@ -77,13 +70,10 @@ html {
   min-height: 100%;
   width: 100%;
   background: rgba($color-grey-800,0);
-  transition: 200ms ease-in;
+  //transition: 200ms ease-in;
 }
 
 .layout__overlay--background {
   background: rgba($color-grey-800,0.8);
-}
-
-.layout__overlay--static {
-  position: relative;
+  z-index: 100;
 }
