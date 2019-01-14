@@ -20,6 +20,8 @@ html {
 
 // Header
 .layout__header {
+  position: fixed;
+  z-index: 100;
   width: 100%;
   padding: 0 24px;
   background: $color-grey-900;
@@ -42,21 +44,27 @@ html {
   }
 }
 
-// Footer
-.layout__footer {
-  width: 100%;
-  padding: 40px 24px;
-  background: $color-grey-900;
-}
-
 // wrapper
 .layout__wrapper {
+  position: relative;
   width: 100%;
+  min-height: 100%;
+  padding-bottom: 128px;
 }
 .layout__wrapper--lock {
   position: fixed;
 }
 
+// Footer
+.layout__footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 128px;
+  width: 100%;
+  padding: 40px 24px;
+  background: $color-grey-900;
+}
 
 
 
@@ -74,6 +82,11 @@ html {
 }
 
 .layout__overlay--background {
-  background: rgba($color-grey-800,0.8);
+  background: rgba($color-grey-800,0.9);
+  z-index: 100;
+}
+
+.layout__overlay--white {
+  background: white;
   z-index: 100;
 }

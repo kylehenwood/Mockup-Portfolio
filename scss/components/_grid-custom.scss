@@ -138,14 +138,8 @@
   }
 
   @include screen-mob {
-    width: 50%;
-    &:nth-child(2n+1) {
-      animation-duration: 520ms;
-      animation-delay: 0ms;
-    }
-    &:nth-child(2n+2) {
-      animation-duration: 440ms;
-      animation-delay: 80ms;
-    }
+    width: 100%;
+    animation-duration: 360ms!important;
+    animation-delay: 0ms!important;
   }
 }

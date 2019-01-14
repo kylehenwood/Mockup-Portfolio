@@ -10,12 +10,13 @@ var gallery = {
 
 // Bind || Unbind
 function galleryBind() {
-  console.log('gallery-bind');
   gallery.heading = $('.js-gallery-heading');
   gallery.subheading = $('.js-gallery-subheading');
   gallery.posts = $('.js-pjax-post');
   gallery.grid = $('.js-gallery-grid');
 
+
+  console.log('set parent');
   post.parent = layout.wrapper;
 
   gallery.posts.click(function(){

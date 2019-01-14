@@ -71,63 +71,87 @@ $aibek-500: #32DCFB;
 
 //-- platform artwork
 .aibek-art {
-  padding: 64px 0;
+  padding: 320px 0 0;
   position: relative;
   z-index: 500;
 }
 
 
 .aibek-art__logo {
-  width: 400px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 160px;
-  background: white;
+  //background: white;
   border-radius: 16px;
   margin: 120px auto;
   animation-name: aibek-logo-in;
   animation-duration: 1500ms;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
+  background-image: url('../images/projects/project-aibek/title-white.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 40%;
 }
 
 
 .aibek-art__islands {
-  margin: 100px 0 0;
   position: relative;
 }
 
 .aibek-art__island-1 {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 100px;
   width: 120px;
   height: 160px;
-  background: white;
+  //background: white;
   animation-name: aibek-islands-background;
   animation-duration: 1500ms;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
+
+  background-image: url('../images/projects/project-aibek/island-left.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
 }
 .aibek-art__island-2 {
+  position: relative;
+  z-index: 5;
   width: 240px;
-  height: 160px;
-  background: white;
+  height: 240px;
+  //background: white;
   margin: 0 auto;
   animation-name: aibek-islands-foreground;
   animation-duration: 1500ms;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
+
+  background-image: url('../images/projects/project-aibek/island-middle.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .aibek-art__island-3 {
   position: absolute;
   right: 0;
-  top: 0;
-  width: 120px;
+  top: 40px;
+  width: 220px;
   height: 160px;
-  background: white;
+  //background: white;
   animation-name: aibek-islands-background;
   animation-duration: 1500ms;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
+
+  background-image: url('../images/projects/project-aibek/island-right.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 @keyframes aibek-islands-background {

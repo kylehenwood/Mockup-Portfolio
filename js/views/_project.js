@@ -6,30 +6,15 @@ let project = {
   animate: false,
   maskX: null,
   maskY: null,
-  modal: false,
+  locked: false,
   posts: null
 }
-
 
 // Triggers
 $(document).on('project-in--animate',function(){
   projectBind();
   projectAnimateIn();
 });
-$(document).on('project-out--animate',function(){
-  //alert("out-a")
-  //projectAnimateOut();
-});
-
-$(document).on('project-in--instant',function(){
-  //projectBind();
-  //projectInstantIn();
-});
-$(document).on('project-out--instant',function(){
-  //alert("out-i")
-  //projectInstantOut();
-});
-
 
 
 // bindings
@@ -52,6 +37,11 @@ function projectBind() {
     scrollElement(layout.wrapper);
     scrollElementHide(layout.project);
 
+    // if (window.history.replaceState) {
+    //    //prevents browser from storing history with each change:
+    //    window.history.replaceState('statedata', 'title', 'http://localhost:8888/Mockup-Portfolio/index.php?pageID=gallery');
+    // }
+
   });
 
   // Navigation background on scroll
@@ -59,20 +49,21 @@ function projectBind() {
 
   let bannerHeight = 600;
 
+  // bind a scrolling event every time? bad idea kyle.
   $(window).scroll(function(){
-    var scrollOffset = layout.html.scrollTop() || layout.body.scrollTop();
-    if (scrollOffset > bannerHeight) {
-      project.navigation.addClass("project__navigation--active");
-      project.navigation.css({
-        'background':project.color,
-        'box-shadow':'0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)'
-      });
-    } else {
-      project.navigation.removeClass("project__navigation--active");
-      project.navigation.css({
-        'background':'none',
-        'box-shadow':'none'
-      });
+      if (project.locked === false) {
+      var scrollOffset = layout.html.scrollTop() || layout.body.scrollTop();
+      if (scrollOffset > bannerHeight || project.modal === true) {
+        project.navigation.addClass("project__navigation--active");
+        project.navigation.css({
+          'background':project.color
+        });
+      } else {
+        project.navigation.removeClass("project__navigation--active");
+        project.navigation.css({
+          'background':'none'
+        });
+      }
     }
   });
 }
@@ -130,9 +121,9 @@ function projectAnimateIn() {
   screenPoints.diameter = screenPoints.radius*2;
 
 
-  console.log('X:'+screenPoints.x);
-  console.log('Y:'+screenPoints.y);
-  console.log('R:'+screenPoints.radius);
+  //console.log('X:'+screenPoints.x);
+  //console.log('Y:'+screenPoints.y);
+  //console.log('R:'+screenPoints.radius);
 
 
 
@@ -179,16 +170,4 @@ function projectAnimateOut() {
 
 function pythagorean(sideA, sideB){
   return Math.sqrt(Math.pow(sideA, 2) + Math.pow(sideB, 2));
-}
-
-
-function projectInstantIn() {
-  //bodyScrollDisable(layout.project);
-  layout.project.show();
-  //bodyScrollSet(layout.project);
-}
-
-function projectInstantOut() {
-  //bodyScrollEnable(layout.project);
-  layout.project.hide();
 }

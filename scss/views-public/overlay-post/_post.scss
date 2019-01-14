@@ -1,10 +1,9 @@
 .post {
   position: relative;
   min-height: 100%;
-  //background: rgba($color-grey-800,0.9);
   padding: 64px 16px;
   @include screen-med {
-    padding: 0 12px 40px;
+    padding: 12px;
   }
 }
 
@@ -37,10 +36,7 @@
   }
 }
 
-.post__description {
-  height: 800px;
-  border: 2px solid white;
-}
+.post__description {}
 
 
 

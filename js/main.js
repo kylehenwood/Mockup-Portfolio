@@ -23,6 +23,12 @@ $(document).ready(function(){
   $(document).on('pjax:end', function(){
     $(document).trigger('page_load');
   });
+
+  $(window).on('popstate',function(event){
+    // HARD LOAD URLS
+    console.log('popstate');
+  });
+
 });
 
 // Since the portfolio is powered by PJAX, these containers

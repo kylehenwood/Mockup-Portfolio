@@ -33,12 +33,14 @@ $(document).ready(function(){
 // open || close
 function openMobileMenu() {
   mobileOpen = true;
-  scrollLock(layout.mobile,layout.wrapper);
+  scrollElementLock(layout.wrapper);
+  scrollElement(layout.mobile,false);
   layout.body.addClass('layout--white');
 }
 function closeMobileMenu() {
-  mobileOpen = false;;
-  scrollLockResume(layout.wrapper,layout.mobile);
-  layout.mobile.hide();
+  mobileOpen = false;
+  scrollElementLock(layout.mobile);
+  scrollElement(layout.wrapper,true);
+  scrollElementHide(layout.mobile);
   layout.body.removeClass('layout--white');
 }

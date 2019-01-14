@@ -1,6 +1,6 @@
-<div class="layout__overlay js-layout-mobile">
+<div class="layout__overlay layout__overlay--white js-layout-mobile">
   <div class="mobile-tray">
-    
+
     <div class="mobile-tray__header">
       <div class="navigation-mobile">
       <!-- logo button -->

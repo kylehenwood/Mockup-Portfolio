@@ -4,11 +4,11 @@
   $(document).one('page_load',function(){
     $(document).trigger('gallery-in--animate');
   });
-
-  // out
-  $(document).one('pjax:beforeReplace', function() {
-    $(document).trigger('gallery-out--animate');
-  });
+  // 
+  // // out
+  // $(document).one('pjax:beforeReplace', function() {
+  //   //$(document).trigger('gallery-out--animate');
+  // });
 </script>
 
 
