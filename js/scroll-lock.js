@@ -18,7 +18,7 @@ function scrollElementLock(element,inherit) {
     'sl-offset':scrollOffset
   });
 
-  console.log(scrollOffset)
+  //console.log(scrollOffset)
 
   //
   //if (inherit === true) {
@@ -39,7 +39,7 @@ function scrollElement(element,inherit) {
 
   //alert(inherit);
 
-  element.show();
+  //element.show();
   element.css({
     'display': 'block',
     'position':'relative',

@@ -96,12 +96,12 @@ function displayContent()	{
     // include './php-views/overlay-project/_shell.php';
     // include './php-views/overlay-contact/_shell.php';
 
-    echo '<div class="layout__content" id="js-pjax-content-1" transition-state="unused">';
+    echo '<div class="layout__content" id="js-pjax-content-1">';
     echo $content;
     echo $postStandalone;
     echo $projectStandalone;
     echo '</div>';
-    echo '<div class="layout__content" id="js-pjax-content-2" transition-state="active"></div>';
+    echo '<div class="layout__content" id="js-pjax-content-2"></div>';
 
     //include './php-chrome/footer.php';
 

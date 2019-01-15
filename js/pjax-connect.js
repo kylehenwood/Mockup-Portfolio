@@ -5,17 +5,18 @@ $(document).ready(function(){
   if(typeof console === 'undefined') console = {"log":function(m){}};
 
   // Stops from scrolling to top when clicking gallery items
-  $.pjax.defaults.scrollTo = true;
+  $.pjax.defaults.scrollTo = false; //true;
   // Make sure pjax is used for "OK" connections
   $.pjax.defaults.timeout = 2000;
   // Set cache to 0, otherwise PJAX will remember the state of the previous action
   $.pjax.defaults.maxCacheLength = 0;
 
   let pjaxContainer = {
-    bool: false,
+    bool: true,
+    isAnimating: false,
     primary: '#js-pjax-content-1',
     secondary: '#js-pjax-content-2',
-    current: '#js-pjax-content-2'
+    current: '#js-pjax-content-1'
   }
 
 
@@ -29,8 +30,8 @@ $(document).ready(function(){
       $('.js-pjax-container').removeClass('js-pjax-container-2');
       $('.js-pjax-container').addClass('js-pjax-container-1');
 
-      const containerIn = $('#js-pjax-content-1');
-      const containerOut = $('#js-pjax-content-2');
+      const containerIn = $('#js-pjax-content-2');
+      const containerOut = $('#js-pjax-content-1');
       transitionAnimation(containerIn,containerOut)
 
     } else {
@@ -40,8 +41,8 @@ $(document).ready(function(){
       $('.js-pjax-container').addClass('js-pjax-container-2');
 
 
-      const containerIn = $('#js-pjax-content-2');
-      const containerOut = $('#js-pjax-content-1');
+      const containerIn = $('#js-pjax-content-1');
+      const containerOut = $('#js-pjax-content-2');
       transitionAnimation(containerIn,containerOut)
 
     }
@@ -70,7 +71,10 @@ function transitionAnimation(containerIn,containerOut) {
   containerOut.one(animationEvent,function(){
     containerOut.hide();
     containerOut.removeClass('anim--out-left');
+    $(document).trigger('container-in');
+  });
 
+  $(document).one('container-in',function() {
     containerIn.css({
       'opacity':1
     });
@@ -79,6 +83,5 @@ function transitionAnimation(containerIn,containerOut) {
     containerIn.one(animationEvent,function(){
       containerIn.removeClass('anim--in-right');
     });
-
   });
 }
