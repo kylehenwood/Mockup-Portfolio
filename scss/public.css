@@ -599,12 +599,11 @@ html {
   height: 100%;
   width: 100%;
   min-width: 320px;
-  background: #212121;
+  background: #424242;
   overflow-y: scroll;
   overflow-x: hidden; }
 
 .layout {
-  padding: 64px 0 0;
   position: relative;
   width: 100%;
   height: 100%;
@@ -628,25 +627,20 @@ html {
 
 .layout__content {
   width: 100%;
+  padding: 64px 0 0;
   background: #424242; }
 
-.layout__wrapper {
-  position: relative;
-  width: 100%;
-  min-height: 100%;
-  padding-bottom: 128px; }
-
-.layout__wrapper--lock {
-  position: fixed; }
-
-.layout__footer {
-  position: absolute;
-  bottom: 0;
+.layout__mobile-navigation {
+  display: none;
+  position: fixed;
+  z-index: 200;
+  top: 0;
   left: 0;
-  height: 128px;
   width: 100%;
-  padding: 40px 24px;
-  background: #212121; }
+  height: 100%;
+  background: white;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch; }
 
 .layout__overlay {
   display: none;
@@ -1137,6 +1131,35 @@ html {
   float: left;
   padding: 4px;
   width: 25%; }
+  .project-grid__item:nth-child(4n+1) {
+    animation-duration: 520ms;
+    animation-delay: 0ms; }
+  .project-grid__item:nth-child(4n+2) {
+    animation-duration: 440ms;
+    animation-delay: 80ms; }
+  .project-grid__item:nth-child(4n+3) {
+    animation-duration: 360ms;
+    animation-delay: 160ms; }
+  .project-grid__item:nth-child(4n+4) {
+    animation-duration: 280ms;
+    animation-delay: 240ms; }
+  @media screen and (max-width: 960px) {
+    .project-grid__item {
+      width: 33%; }
+      .project-grid__item:nth-child(3n+1) {
+        animation-duration: 520ms;
+        animation-delay: 0ms; }
+      .project-grid__item:nth-child(3n+2) {
+        animation-duration: 440ms;
+        animation-delay: 80ms; }
+      .project-grid__item:nth-child(3n+3) {
+        animation-duration: 360ms;
+        animation-delay: 160ms; } }
+  @media screen and (max-width: 720px) {
+    .project-grid__item {
+      width: 100%;
+      animation-duration: 360ms !important;
+      animation-delay: 0ms !important; } }
 
 .text-animation {
   cursor: pointer; }
@@ -2179,13 +2202,14 @@ html {
 
 .project {
   position: relative;
-  background: #212121; }
+  background: #212121;
+  margin: -64px 0 0; }
 
 .project--standalone {
-  padding: 0; }
+  padding: 0;
+  margin: 0; }
 
 .project__navigation {
-  display: none;
   position: fixed;
   z-index: 100;
   top: 0;

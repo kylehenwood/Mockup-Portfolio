@@ -2,7 +2,7 @@
 <div class="page__section">
 	<div class="center center--1120">
 
-    <ul class="gallery-grid clearfix js-gallery-grid">
+    <ul class="gallery-grid clearfix js-gallery-grid anim--in-right anim--delay-360">
 
 <?php
 	$galleryPosts = $_SESSION['gallery'];

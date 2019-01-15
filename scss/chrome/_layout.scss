@@ -3,20 +3,17 @@ html {
   height: 100%;
   width: 100%;
   min-width: 320px;
-  background: $color-grey-900;
+  background: $color-grey-800;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
 // Layout
 .layout {
-  padding: 64px 0 0;
   position: relative;
   width: 100%;
   height: 100%;
   background: $color-grey-800;
-  //overflow-y: scroll;
-  //-webkit-overflow-scrolling: touch;
 }
 
 
@@ -41,35 +38,36 @@ html {
 // Content
 .layout__content {
   width: 100%;
-  // padding: 64px 0 0;
+  padding: 64px 0 0;
   background: $color-grey-800;
   @include screen-med {
     //padding: 80px 0 0;
   }
 }
 
-// wrapper
-.layout__wrapper {
-  position: relative;
-  width: 100%;
-  min-height: 100%;
-  padding-bottom: 128px;
-}
-.layout__wrapper--lock {
-  position: fixed;
-}
-
 // Footer
-.layout__footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 128px;
-  width: 100%;
-  padding: 40px 24px;
-  background: $color-grey-900;
-}
+// .layout__footer {
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+//   height: 128px;
+//   width: 100%;
+//   padding: 40px 24px;
+//   background: $color-grey-900;
+// }
 
+.layout__mobile-navigation {
+  display: none;
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
 
 
 //------------

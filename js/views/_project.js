@@ -26,23 +26,13 @@ function projectBind() {
   project.open = true;
   project.posts = $('.js-pjax-post');
 
-  post.parent = $(layout.project);
+  //post.parent = $(layout.project);
 
-  project.close.click(function(event){
-    // project.open = false;
-    // project.animate = true;
-    // works.animate = true;
-    event.preventDefault();
-    scrollElementLock(layout.project);
-    scrollElement(layout.wrapper);
-    scrollElementHide(layout.project);
-
-    // if (window.history.replaceState) {
-    //    //prevents browser from storing history with each change:
-    //    window.history.replaceState('statedata', 'title', 'http://localhost:8888/Mockup-Portfolio/index.php?pageID=gallery');
-    // }
-
-  });
+  // project.close.click(function(event){
+  //   // project.open = false;
+  //   // project.animate = true;
+  //   // works.animate = true;
+  // });
 
   // Navigation background on scroll
   project.color = project.navigation.attr('data-bg');

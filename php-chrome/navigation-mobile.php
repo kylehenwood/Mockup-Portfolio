@@ -1,4 +1,4 @@
-<div class="layout__overlay layout__overlay--white js-layout-mobile">
+<div class="layout__mobile-navigation js-layout-mobile">
   <div class="mobile-tray">
 
     <div class="mobile-tray__header">

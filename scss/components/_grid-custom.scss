@@ -100,46 +100,46 @@
   float: left;
   padding: 4px;
   width: 25%;
-  // &:nth-child(4n+1) {
-  //   //background: yellow;
-  //   animation-duration: 520ms;
-  //   animation-delay: 0ms;
-  // }
-  // &:nth-child(4n+2) {
-  //   //background: white;
-  //   animation-duration: 440ms;
-  //   animation-delay: 80ms;
-  // }
-  // &:nth-child(4n+3) {
-  //   //background: blue;
-  //   animation-duration: 360ms;
-  //   animation-delay: 160ms;
-  // }
-  // &:nth-child(4n+4) {
-  //   //background: red;
-  //   animation-duration: 280ms;
-  //   animation-delay: 240ms;
-  // }
-  //
-  // @include screen-med {
-  //   width: 33%;
-  //   &:nth-child(3n+1) {
-  //     animation-duration: 520ms;
-  //     animation-delay: 0ms;
-  //   }
-  //   &:nth-child(3n+2) {
-  //     animation-duration: 440ms;
-  //     animation-delay: 80ms;
-  //   }
-  //   &:nth-child(3n+3) {
-  //     animation-duration: 360ms;
-  //     animation-delay: 160ms;
-  //   }
-  // }
-  //
-  // @include screen-mob {
-  //   width: 100%;
-  //   animation-duration: 360ms!important;
-  //   animation-delay: 0ms!important;
-  // }
+  &:nth-child(4n+1) {
+    //background: yellow;
+    animation-duration: 520ms;
+    animation-delay: 0ms;
+  }
+  &:nth-child(4n+2) {
+    //background: white;
+    animation-duration: 440ms;
+    animation-delay: 80ms;
+  }
+  &:nth-child(4n+3) {
+    //background: blue;
+    animation-duration: 360ms;
+    animation-delay: 160ms;
+  }
+  &:nth-child(4n+4) {
+    //background: red;
+    animation-duration: 280ms;
+    animation-delay: 240ms;
+  }
+
+  @include screen-med {
+    width: 33%;
+    &:nth-child(3n+1) {
+      animation-duration: 520ms;
+      animation-delay: 0ms;
+    }
+    &:nth-child(3n+2) {
+      animation-duration: 440ms;
+      animation-delay: 80ms;
+    }
+    &:nth-child(3n+3) {
+      animation-duration: 360ms;
+      animation-delay: 160ms;
+    }
+  }
+
+  @include screen-mob {
+    width: 100%;
+    animation-duration: 360ms!important;
+    animation-delay: 0ms!important;
+  }
 }

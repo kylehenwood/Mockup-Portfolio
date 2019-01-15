@@ -33,14 +33,9 @@ $(document).ready(function(){
 // open || close
 function openMobileMenu() {
   mobileOpen = true;
-  scrollElementLock(layout.wrapper);
-  scrollElement(layout.mobile,false);
-  layout.body.addClass('layout--white');
+  layout.mobile.show()
 }
 function closeMobileMenu() {
   mobileOpen = false;
-  scrollElementLock(layout.mobile);
-  scrollElement(layout.wrapper,true);
-  scrollElementHide(layout.mobile);
-  layout.body.removeClass('layout--white');
+  layout.mobile.hide()
 }

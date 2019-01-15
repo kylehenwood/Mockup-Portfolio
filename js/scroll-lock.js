@@ -11,7 +11,7 @@ function scrollElementLock(element,inherit) {
   element.css({
     'position':'fixed',
     'z-index':50,
-    'top': (scrollOffset*-1)+64
+    'top': (scrollOffset*-1)
 
   });
   element.attr({
@@ -60,6 +60,6 @@ function scrollElement(element,inherit) {
 
 
 function scrollElementHide(element) {
-  alert(element);
+  //alert(element);
   element.hide();
 }

@@ -70,7 +70,6 @@ function transitionAnimation(containerIn,containerOut) {
   });
 
   if (pjaxContainer.isAnimating === false) {
-    console.log('fire');
     pjaxContainer.isAnimating = true;
     containerIn.css({
       'opacity':0
@@ -96,8 +95,6 @@ function transitionAnimation(containerIn,containerOut) {
       });
     });
   } else {
-    console.log('water');
-
     pjaxContainer.isAnimating = false;
 
     containerOut.removeClass('anim--out-left');
@@ -108,7 +105,6 @@ function transitionAnimation(containerIn,containerOut) {
     containerIn.removeClass('anim--out-left');
     containerIn.removeClass('anim--in-right');
     containerIn.css({
-      'display':'block',
       'opacity':1
     });
   }

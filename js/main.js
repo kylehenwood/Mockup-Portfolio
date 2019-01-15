@@ -26,7 +26,7 @@ $(document).ready(function(){
 
   $(window).on('popstate',function(event){
     // HARD LOAD URLS
-    console.log('popstate');
+    // disable page load animations
   });
 
 });

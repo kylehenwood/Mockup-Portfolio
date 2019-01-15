@@ -1,6 +1,6 @@
 <div class="page__section page__section--grey">
 	<div class="center center--1120">
-    <ul class="project-grid clearfix js-project-grid">
+    <ul class="project-grid clearfix js-project-grid anim--in-right anim--delay-320">
 
 <?php
 $galleryProjects = $_SESSION['projects'];
