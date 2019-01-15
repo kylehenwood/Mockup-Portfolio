@@ -60,5 +60,6 @@ function scrollElement(element,inherit) {
 
 
 function scrollElementHide(element) {
+  alert(element);
   element.hide();
 }

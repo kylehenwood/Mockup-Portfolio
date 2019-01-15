@@ -1,4 +1,12 @@
 // Ensure console is defined
+let pjaxContainer = {
+  bool: true,
+  isAnimating: false,
+  primary: '#js-pjax-content-1',
+  secondary: '#js-pjax-content-2',
+  current: '#js-pjax-content-1'
+}
+
 
 $(document).ready(function(){
 
@@ -10,15 +18,6 @@ $(document).ready(function(){
   $.pjax.defaults.timeout = 2000;
   // Set cache to 0, otherwise PJAX will remember the state of the previous action
   $.pjax.defaults.maxCacheLength = 0;
-
-  let pjaxContainer = {
-    bool: true,
-    isAnimating: false,
-    primary: '#js-pjax-content-1',
-    secondary: '#js-pjax-content-2',
-    current: '#js-pjax-content-1'
-  }
-
 
   //let selectedContainer = pcontainer.current;
 
@@ -63,25 +62,54 @@ function transitionAnimation(containerIn,containerOut) {
   scrollElementLock(containerOut);
   scrollElement(containerIn);
 
-  containerIn.css({
-    'opacity':0
+  containerIn.attr({
+    'data':'active'
+  });
+  containerOut.attr({
+    'data':'inactive'
   });
 
-  containerOut.addClass('anim--out-left');
-  containerOut.one(animationEvent,function(){
-    containerOut.hide();
-    containerOut.removeClass('anim--out-left');
-    $(document).trigger('container-in');
-  });
-
-  $(document).one('container-in',function() {
+  if (pjaxContainer.isAnimating === false) {
+    console.log('fire');
+    pjaxContainer.isAnimating = true;
     containerIn.css({
+      'opacity':0
+    });
+    containerOut.addClass('anim--out-left');
+    containerOut.one(animationEvent,function(){
+      if (pjaxContainer.isAnimating === true) {
+        containerOut.hide();
+        containerOut.removeClass('anim--out-left');
+        $(document).trigger('container-in');
+      }
+    });
+
+    $(document).one('container-in',function() {
+      containerIn.css({
+        'opacity':1
+      });
+      // Animate new page in
+      containerIn.addClass('anim--in-right');
+      containerIn.one(animationEvent,function(){
+        containerIn.removeClass('anim--in-right');
+        pjaxContainer.isAnimating = false;
+      });
+    });
+  } else {
+    console.log('water');
+
+    pjaxContainer.isAnimating = false;
+
+    containerOut.removeClass('anim--out-left');
+    containerOut.removeClass('anim--in-right');
+    containerOut.hide();
+    containerOut.unbind();
+
+    containerIn.removeClass('anim--out-left');
+    containerIn.removeClass('anim--in-right');
+    containerIn.css({
+      'display':'block',
       'opacity':1
     });
-    // Animate new page in
-    containerIn.addClass('anim--in-right');
-    containerIn.one(animationEvent,function(){
-      containerIn.removeClass('anim--in-right');
-    });
-  });
+  }
 }
