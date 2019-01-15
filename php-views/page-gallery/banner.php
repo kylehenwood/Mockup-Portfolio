@@ -12,7 +12,7 @@
 			</div>
 			<div class="gallery-banner__subheading">
 				<div class="js-gallery-subheading">
-					<h4 class="heading-4 text-white">I’m a Product / UI / UX Designer living in Wellington, New Zealand. I enjoy making things that work, Helping solve problems that need solving, and helping ideas become reality.</h4>
+					<h4 class="heading-4 text-grey--300">I’m a Product / UI / UX Designer living in Wellington, New Zealand. I enjoy making things that work, Helping solve problems that need solving, and helping ideas become reality.</h4>
 				</div>
 			</div>
 		</div>

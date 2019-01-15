@@ -78,6 +78,7 @@ function displayContent()	{
       echo $project;
     }
   	echo "<title>{$title}</title>";
+
   } else {
 
     echo '<!DOCTYPE html>';
@@ -87,26 +88,26 @@ function displayContent()	{
 
     echo '<body class="layout js-layout">';
 
-    include './php-views/overlay-post/_shell.php';
-    include './php-views/overlay-project/_shell.php';
-    include './php-views/overlay-contact/_shell.php';
     include './php-chrome/navigation.php';
     include './php-chrome/navigation-mobile.php';
-
-
-    echo '<div class="layout__wrapper js-layout-wrapper">';
     include './php-chrome/navigation-desktop.php';
-    echo '<div class="layout__content js-layout-content">';
-    echo '<div id="js-pjax-container">';
+
+    // include './php-views/overlay-post/_shell.php';
+    // include './php-views/overlay-project/_shell.php';
+    // include './php-views/overlay-contact/_shell.php';
+
+    echo '<div class="layout__content" id="js-pjax-content-1" transition-state="unused">';
     echo $content;
     echo $postStandalone;
     echo $projectStandalone;
     echo '</div>';
-    echo '</div>';
-    include './php-chrome/footer.php';
-    echo '</div>';
+    echo '<div class="layout__content" id="js-pjax-content-2" transition-state="active"></div>';
+
+    //include './php-chrome/footer.php';
+
 
     echo '</body>';
+    echo '</html>';
   }
   return false;
 }

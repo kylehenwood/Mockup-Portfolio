@@ -9,6 +9,7 @@ html {
 
 // Layout
 .layout {
+  padding: 64px 0 0;
   position: relative;
   width: 100%;
   height: 100%;
@@ -20,7 +21,10 @@ html {
 
 // Header
 .layout__header {
+  position: fixed;
   z-index: 100;
+  top: 0;
+  left: 0;
   width: 100%;
   padding: 0 24px;
   background: $color-grey-900;

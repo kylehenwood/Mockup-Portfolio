@@ -10,7 +10,9 @@ function scrollElementLock(element,inherit) {
   //Fixed element
   element.css({
     'position':'fixed',
-    'top': scrollOffset*-1
+    'z-index':50,
+    'top': (scrollOffset*-1)+64
+
   });
   element.attr({
     'sl-offset':scrollOffset
@@ -19,13 +21,13 @@ function scrollElementLock(element,inherit) {
   console.log(scrollOffset)
 
   //
-  if (inherit === true) {
+  //if (inherit === true) {
     layout.html.scrollTop(0);
     layout.body.scrollTop(0);
-  } else {
-    layout.html.scrollTop(scrollOffset);
-    layout.body.scrollTop(scrollOffset);
-  }
+  // } else {
+  //   layout.html.scrollTop(scrollOffset);
+  //   layout.body.scrollTop(scrollOffset);
+  // }
 }
 
 
@@ -41,18 +43,19 @@ function scrollElement(element,inherit) {
   element.css({
     'display': 'block',
     'position':'relative',
+    'z-index':55,
     'top':0
   });
 
   //console.log(scrollPreset);
 
-  if (inherit === false) {
+  //if (inherit === false) {
     layout.html.scrollTop(0);
     layout.body.scrollTop(0);
-  } else {
-    layout.html.scrollTop(scrollPreset);
-    layout.body.scrollTop(scrollPreset);
-  }
+  // } else {
+  //   layout.html.scrollTop(scrollPreset);
+  //   layout.body.scrollTop(scrollPreset);
+  // }
 }
 
 

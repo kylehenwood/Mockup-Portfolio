@@ -16,7 +16,7 @@ function galleryBind() {
   gallery.grid = $('.js-gallery-grid');
 
 
-  console.log('set parent');
+  //console.log('set parent');
   post.parent = layout.wrapper;
 
   gallery.posts.click(function(){
