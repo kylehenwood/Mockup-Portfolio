@@ -26,13 +26,14 @@ html {
   width: 100%;
   padding: 0 24px;
   background: $color-grey-900;
-  transition: all 400ms ease-out;
+  transition: all 400ms ease-in;
   @include screen-med {
     padding: 0 16px;
   }
 }
 .layout__header--hidden {
   transform: translateY(-100%);
+  opacity: 0;
 }
 
 // Content

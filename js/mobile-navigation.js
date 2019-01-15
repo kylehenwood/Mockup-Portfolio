@@ -33,9 +33,9 @@ $(document).ready(function(){
 // open || close
 function openMobileMenu() {
   mobileOpen = true;
-  layout.mobile.show()
+  layout.mobile.fadeIn()
 }
 function closeMobileMenu() {
   mobileOpen = false;
-  layout.mobile.hide()
+  layout.mobile.fadeOut()
 }

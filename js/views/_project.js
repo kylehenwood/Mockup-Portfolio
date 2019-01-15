@@ -37,7 +37,7 @@ function projectBind() {
   // Navigation background on scroll
   project.color = project.navigation.attr('data-bg');
 
-  let bannerHeight = 600;
+  let bannerHeight = 480;
 
   // bind a scrolling event every time? bad idea kyle.
   $(window).scroll(function(){
