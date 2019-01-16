@@ -19,19 +19,19 @@
   <div class="mobile-tray__navigation">
     <ul class="mobile-navigation">
       <li class="mobile-navigation__item anim--in-bot anim--delay-40">
-        <a class="mobile-navitem js-pjax-container <?php if ($navSelectedGallery) { echo'mobile-navitem--active';} ?>" data-pjax="js-pjax-container" activeClass="mobile-navitem--active" href="index.php?pageID=gallery">
+        <a class="mobile-navitem js-pjax-container <?php if ($navSelectedGallery) { echo'mobile-navitem--active';} ?>" activeClass="mobile-navitem--active" href="index.php?pageID=gallery">
           <span class="mobile-navitem__icon"><span class="flat-icon icon--16 icon--arrow-right"></span></span>
           <span class="mobile-navitem__text">TLDR</span>
         </a>
       </li>
       <li class="mobile-navigation__item anim--in-bot anim--delay-80">
-        <a class="mobile-navitem js-pjax-container <?php if ($navSelectedProjects) { echo'mobile-navitem--active';} ?>" data-pjax="js-pjax-container" activeClass="mobile-navitem--active" href="index.php?pageID=projects">
+        <a class="mobile-navitem js-pjax-container <?php if ($navSelectedProjects) { echo'mobile-navitem--active';} ?>" activeClass="mobile-navitem--active" href="index.php?pageID=projects">
           <span class="mobile-navitem__icon"><span class="flat-icon icon--16 icon--arrow-right"></span></span>
           <span class="mobile-navitem__text">Projects</span>
         </a>
       </li>
       <li class="mobile-navigation__item anim--in-bot anim--delay-120">
-        <a class="mobile-navitem js-pjax-container <?php if ($navSelectedAbout) { echo'mobile-navitem--active';} ?>" data-pjax="js-pjax-container" activeClass="mobile-navitem--active" href="index.php?pageID=about">
+        <a class="mobile-navitem js-pjax-container <?php if ($navSelectedAbout) { echo'mobile-navitem--active';} ?>" activeClass="mobile-navitem--active" href="index.php?pageID=about">
           <span class="mobile-navitem__icon"><span class="flat-icon icon--16 icon--arrow-right"></span></span>
           <span class="mobile-navitem__text">About me</span>
         </a>
@@ -41,7 +41,7 @@
     <div class="mobile-contact">
       <div class="mobile-contact__border anim--in-bot anim--delay-160"></div>
       <div class="mobile-contact__heading anim--in-bot anim--delay-200">Get in touch?</div>
-      <a class="mobile-contact__link anim--in-bot anim--delay-240 <?php if ($navSelectedContact) { echo'mobile-contact__link--active';} ?>" data-pjax="js-pjax-contact" activeClass="mobile-contact__link--active" href="index.php?pageID=contact">
+      <a class="mobile-contact__link anim--in-bot anim--delay-240 js-pjax-container <?php if ($navSelectedContact) { echo'mobile-contact__link--active';} ?>" activeClass="mobile-contact__link--active" href="index.php?pageID=contact">
         Contact me
       </a>
     </div>

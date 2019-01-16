@@ -4,16 +4,15 @@
   $(document).one('page_load',function(){
     // if (post.animate === true) {
     //   post.animate = false;
-      $(document).trigger('post-in--animate');
-    // } else {
-    //   $(document).trigger('post-in--instant');
-    // }
+    $('.js-layout-header').addClass('layout__header--hidden');
+    //$(document).trigger('post-in--animate');
   });
   //--
   // Out
-  // $(document).on('pjax:beforeReplace', function() {
-  //   $(document).trigger('post-out--animate');
-  // });
+  $(document).on('pjax:beforeReplace', function() {
+    //$(document).trigger('post-out--animate');
+    $('.js-layout-header').removeClass('layout__header--hidden');
+  });
 </script>
 
 <?php

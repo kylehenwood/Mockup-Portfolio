@@ -2,7 +2,7 @@
   //--
   // In
   $(document).one('page_load',function(){
-    $(document).trigger('project-in--animate');
+    //$(document).trigger('project-in--animate');
     $('.js-layout-header').addClass('layout__header--hidden');
   });
   //--

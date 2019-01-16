@@ -13,12 +13,12 @@ var post = {
 // animate in
 $(document).on('post-in--animate',function(e){
   postBind();
-  postAnimateIn();
+  //postAnimateIn();
 });
 
 // animate out
 $(document).on('post-out--animate',function(e){
-  postAnimateOut();
+  //postAnimateOut();
 });
 
 
@@ -31,19 +31,7 @@ function postBind() {
   post.close = $('.js-post-close');
 
   post.close.click(function(event){
-
-    event.preventDefault();
-
-    scrollElementLock(layout.post,true);
-    scrollElement(post.parent,true);
-    scrollElementHide(layout.post);
-
-    //$(document).trigger('post-out--animate');
-
-    // if (window.history.replaceState) {
-    //    //prevents browser from storing history with each change:
-    //    window.history.replaceState('statedata', 'title', 'url');
-    // }
+    // something
   });
 }
 

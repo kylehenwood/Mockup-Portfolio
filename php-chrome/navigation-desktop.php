@@ -27,7 +27,7 @@
       </div>
 
       <div class="header__contact">
-        <a class="button-contact js-pjax-contact" href="index.php?pageID=contact">Contact Me</a>
+        <a class="button-contact js-pjax-container" href="index.php?pageID=contact">Contact Me</a>
       </div>
     </div>
 

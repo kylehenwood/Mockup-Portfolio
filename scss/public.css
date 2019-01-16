@@ -352,8 +352,7 @@ nowrap,
     margin: 8px 0 20px;
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
-    hyphens: auto;
-    color: #616161; }
+    hyphens: auto; }
     .typography p:first-child {
       margin-top: 0; }
   .typography ol {
@@ -404,7 +403,8 @@ nowrap,
 .typography ol:last-child {
   margin: 0; }
 
-.typography--on-dark {
+.typography--on-dark,
+.typography--white {
   color: #EEEEEE; }
 
 .typography--large {
@@ -2190,6 +2190,42 @@ html {
 
 .about-content {
   padding: 80px 0; }
+
+.about-page {
+  position: relative;
+  padding: 0 16px; }
+  .about-page:before {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: #616161; }
+
+.about-page__biography {
+  position: relative;
+  z-index: 5;
+  float: left;
+  padding: 400px 80px 0 0;
+  width: 520px; }
+  @media screen and (max-width: 960px) {
+    .about-page__biography {
+      padding: 400px 0 0 0;
+      width: auto;
+      float: none; } }
+
+.about-page__history {
+  position: relative;
+  z-index: 5;
+  margin-left: 520px;
+  padding: 80px 0 80px 80px;
+  height: 2000px;
+  background: #616161; }
+  @media screen and (max-width: 960px) {
+    .about-page__history {
+      margin: 0; } }
 
 .about-banner {
   padding: 100px 0; }

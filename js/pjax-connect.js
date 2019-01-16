@@ -109,3 +109,8 @@ function transitionAnimation(containerIn,containerOut) {
     });
   }
 }
+
+// Load URL (called after a setTimeout)
+function pjaxDelay(url) {
+  $.pjax({url: url, container: pjaxContainer.current})
+}

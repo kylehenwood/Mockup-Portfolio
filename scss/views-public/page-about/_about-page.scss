@@ -5,3 +5,45 @@
 .about-content {
   padding:  80px 0;
 }
+
+
+
+$biographyWidth:520px;
+
+.about-page {
+  position: relative;
+  padding: 0 16px;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: $color-grey-700;
+  }
+}
+.about-page__biography {
+  position: relative;
+  z-index: 5;
+  float: left;
+  padding: 400px 80px 0 0;
+  width: $biographyWidth;
+  @include screen-med {
+    padding: 400px 0 0 0;
+    width: auto;
+    float: none;
+  }
+}
+.about-page__history {
+  position: relative;
+  z-index: 5;
+  margin-left: $biographyWidth;
+  padding: 80px 0 80px 80px;
+  height: 2000px;
+  background: $color-grey-700;
+  @include screen-med {
+    margin: 0;
+  }
+}
