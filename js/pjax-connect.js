@@ -23,7 +23,7 @@ $(document).ready(function(){
   //let selectedContainer = pcontainer.current;
 
   // alternate pjax load containers on page loads
-  $(document).on('pjax:success popstate',function(){
+  $(document).on('pjax:success',function(){
     if (pjaxContainer.bool === true) {
       pjaxContainer.bool = false;
       pjaxContainer.current = pjaxContainer.primary;

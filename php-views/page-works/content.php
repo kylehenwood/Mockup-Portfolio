@@ -1,4 +1,4 @@
-<div class="page__section page__section--grey">
+<div class="page__section">
 	<div class="center center--1120">
     <ul class="project-grid clearfix js-project-grid anim--in-right anim--delay-320">
 

@@ -39,7 +39,6 @@ html {
 // Content
 .layout__content {
   width: 100%;
-  background: $color-grey-800;
   @include screen-med {
     //padding: 80px 0 0;
   }
@@ -67,28 +66,4 @@ html {
   background: white;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
-}
-
-
-//------------
-// Overlay
-.layout__overlay {
-  display: none;
-  //position: fixed;
-  position: relative;
-  z-index: 50;
-  min-height: 100%;
-  width: 100%;
-  background: rgba($color-grey-800,0);
-  //transition: 200ms ease-in;
-}
-
-.layout__overlay--background {
-  background: rgba($color-grey-800,0.9);
-  z-index: 100;
-}
-
-.layout__overlay--white {
-  background: white;
-  z-index: 100;
 }

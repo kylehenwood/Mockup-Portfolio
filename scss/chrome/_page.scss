@@ -17,26 +17,11 @@
   padding: 0 24px;
 }
 
-.page__banner--alpha {
-  background: $color-pink-500;
-  background: linear-gradient(to bottom, $color-pink-500, $color-purple-500); /* Standard syntax */
-}
-
 .layout__banner--beta {
   @include screen-med {
     height: auto;
   }
 }
-
-// colors
-.page__banner--pink {
-  background: $color-pink-500;
-}
-
-.page__banner--grey {
-  background: $color-grey-800;
-}
-
 
 // Section
 .page__section {
@@ -51,7 +36,4 @@
 
 .page__section--white {
   background: white;
-}
-.page__section--grey {
-  background: $color-grey-800;
 }
