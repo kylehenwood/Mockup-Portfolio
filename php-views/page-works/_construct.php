@@ -2,21 +2,21 @@
   //--
   // in
   $(document).one('page_load',function(){
-
-    var href = $('.js-project-card').attr('href');
-
-
-    $(".js-project-card").click(function() {
-
-        var href = $(this).attr('href');
-
-        // Delay setting the location for one second
-        setTimeout(function() {
-          //window.location = href
-          pjaxDelay(href);
-        },200);
-        return false;
-    });
+    // 
+    // var href = $('.js-project-card').attr('href');
+    //
+    //
+    // $(".js-project-card").click(function() {
+    //
+    //     var href = $(this).attr('href');
+    //
+    //     // Delay setting the location for one second
+    //     setTimeout(function() {
+    //       //window.location = href
+    //       pjaxDelay(href);
+    //     },200);
+    //     return false;
+    // });
 
     //worksBind();
 

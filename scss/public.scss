@@ -54,14 +54,15 @@ $transition-duration: 240ms;
 @import "components/_grid-custom";
 @import "components/_text-animation";
 
-// @import "components/_module";
+@import "components/_module";
 @import "components/_button";
 // @import "components/_button-primary";
 // @import "components/_button-pattern";
-// @import "components/_dropdown";
-// @import "components/_form";
-// @import "components/_form-grid";
-// @import "components/_form-search";
+@import "components/_dropdown";
+@import "components/_form";
+@import "components/_form-grid";
+@import "components/_form-search";
+@import "components/_form-credit";
 // @import "components/_form-checkbox";
 // @import "components/_breadcrumb";
 // @import "components/_switch";
@@ -93,6 +94,9 @@ $transition-duration: 240ms;
 @import "views-public/page-about/_about-page";
 @import "views-public/page-about/_about-banner";
 
+//---
+// Contact
+@import "views-public/page-contact/_contact";
 
 
 

@@ -13,16 +13,17 @@ $(document).ready(function(){
   if(typeof console === 'undefined') console = {"log":function(m){}};
 
   // Stops from scrolling to top when clicking gallery items
-  $.pjax.defaults.scrollTo = false; //true;
+  $.pjax.defaults.scrollTo = true; //true;
   // Make sure pjax is used for "OK" connections
   $.pjax.defaults.timeout = 2000;
   // Set cache to 0, otherwise PJAX will remember the state of the previous action
+  // -- setting to 1 allows the cache to remember the scroll position of the window.
   $.pjax.defaults.maxCacheLength = 0;
 
   //let selectedContainer = pcontainer.current;
 
   // alternate pjax load containers on page loads
-  $(document).on('pjax:success',function(){
+  $(document).on('pjax:success popstate',function(){
     if (pjaxContainer.bool === true) {
       pjaxContainer.bool = false;
       pjaxContainer.current = pjaxContainer.primary;
@@ -89,7 +90,12 @@ function transitionAnimation(containerIn,containerOut) {
       });
       // Animate new page in
       containerIn.addClass('anim--in-right');
-      containerIn.one(animationEvent,function(){
+      containerIn.one(animationEvent,function(event){
+
+        // if event was triggered by container
+        // -- unbind event listener
+        // -- proceed
+        // console.log(containerIn);
         containerIn.removeClass('anim--in-right');
         pjaxContainer.isAnimating = false;
       });
@@ -112,5 +118,19 @@ function transitionAnimation(containerIn,containerOut) {
 
 // Load URL (called after a setTimeout)
 function pjaxDelay(url) {
+  // if (pjaxContainer.bool === true) {
+  //   pjaxContainer.bool = false;
+  //   pjaxContainer.current = pjaxContainer.primary;
+  // } else {
+  //   pjaxContainer.bool = true;
+  //   pjaxContainer.current = pjaxContainer.secondary;
+  // }
   $.pjax({url: url, container: pjaxContainer.current})
+  console.log(pjaxContainer.current);
+}
+
+
+// Form Submission
+function pjaxForm(event) {
+  $.pjax.submit(event, pjaxContainer.current);
 }

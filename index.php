@@ -46,9 +46,14 @@ function displayContent()	{
       $content = setContent('./php-views/page-about/_construct.php');
       break;
 
-      case $pageName == 'Contact';
+      case $pageName == 'contact';
       $title = 'KH - Contact me';
-      $content = setContent('./php-views/page-about/_construct.php');
+      $content = setContent('./php-views/overlay-contact/_construct.php');
+      break;
+
+      case $pageName == 'sent';
+      $title = 'KH - Contact me';
+      $content = setContent('./php-views/overlay-contact/sent.php');
       break;
 
       // 404 page not found
@@ -92,17 +97,14 @@ function displayContent()	{
     include './php-chrome/navigation-mobile.php';
     include './php-chrome/navigation-desktop.php';
 
-    // include './php-views/overlay-post/_shell.php';
-    // include './php-views/overlay-project/_shell.php';
-    // include './php-views/overlay-contact/_shell.php';
-
+    echo '<div style="overflow:hidden">';
     echo '<div class="layout__content" id="js-pjax-content-1">';
     echo $content;
     echo $postStandalone;
     echo $projectStandalone;
     echo '</div>';
     echo '<div class="layout__content" id="js-pjax-content-2"></div>';
-
+    echo '</div>';
     //include './php-chrome/footer.php';
 
 

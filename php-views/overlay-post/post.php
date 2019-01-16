@@ -54,7 +54,8 @@
         <?php echo($postTitle); ?>
         </h2>
         <div class="post-heading__close">
-          <a class="post-button-back js-post-close js-pjax-container" href="index.php?pageID=gallery">
+          <!-- <a class="post-button-back js-post-close js-pjax-container" href="index.php?pageID=gallery"> -->
+          <a class="post-button-back js-post-close js-pjax-container" href="javascript:history.back()">
             <span class="flat-icon icon--16 icon--cross"></span>
           </a>
         </div>

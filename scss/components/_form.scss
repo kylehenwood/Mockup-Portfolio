@@ -1,5 +1,7 @@
 // form styles
-.form-style {}
+.form-style {
+  color: $color-grey-700;
+}
 
 .form-style--640 {
   margin: 0 auto;
@@ -11,14 +13,17 @@
 // __content
 // __footer
 .form-style__heading {
-  margin: 0 0 40px;
-  border-bottom: 1px solid $color-grey-300;
+  margin: 0 0 32px;
+  padding: 0 0 8px;
+  border-bottom: 2px solid $color-grey-300;
 }
-.form-style__content {}
+.form-style__content {
+  margin: 0 0 24px;
+}
 .form-style__footer {
-  margin: 40px 0 0;
-  padding: 24px 0 0;
-  border-top: 1px solid $color-grey-300;
+  margin: 32px 0 0;
+  padding: 32px 0 0;
+  border-top: 2px solid $color-grey-300;
 }
 
 
@@ -73,6 +78,7 @@ textarea:disabled {
 
 // Textarea
 .textarea-style {
+  display: block;
   -webkit-appearance: none;
   min-height: 100px;
   font-family: $font-family;
@@ -80,6 +86,7 @@ textarea:disabled {
   color: $text-black;
   padding: 8px 16px;
   width: 100%;
+  min-width: 100%;
   max-width: 100%;
   border-radius: 4px;
   border: 2px solid $color-grey-400;
@@ -109,7 +116,7 @@ textarea:disabled {
 .select-box__icon {
   pointer-events: none;
   position: absolute;
-  padding: 8px 16px 8px 8px;
+  padding: 12px 16px 12px 8px;
   right: 0;
   top: 0;
   width: 48px;
@@ -156,16 +163,17 @@ textarea:disabled {
 
 .form-brick {
   position: relative;
+  padding: 0 0 16px;
 }
-.form-brick--margin {
-  margin: 0 0 16px;
+.form-brick--last {
+  padding: 0;
 }
 
 .form-brick__label {
-  @include nowrap;
+  white-space: nowrap;
   display: block;
   padding: 0 0 4px;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 20px;
   //font-weight: 600;
 }

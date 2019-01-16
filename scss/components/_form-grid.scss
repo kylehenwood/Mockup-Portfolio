@@ -3,10 +3,6 @@
   margin: 0;
 }
 .form-grid__row {
-  padding: 8px 0;
-  @include screen-mob {
-    padding: 0;
-  }
   &:first-child {
     padding-top: 0;
   }
@@ -31,7 +27,7 @@
   }
   @include screen-mob {
     float: none;
-    padding: 8px 0!important;
+    padding: 0!important;
     width: 100%;
   }
 }

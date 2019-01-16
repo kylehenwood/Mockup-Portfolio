@@ -1,6 +1,7 @@
 // module
 .module {
   position: relative;
+  padding: 0 32px;
 }
 .module--sidebar {
   padding-left: 232px!important;
@@ -35,7 +36,7 @@
   font-weight: 600;
   line-height: 24px;
   padding: 4px 0;
-  @include font-size(1.6);
+  font-size: 18px;
 }
 .heading-style-big {
   color: $text-black;
@@ -46,7 +47,7 @@
 }
 
 .module__body {
-  padding: 32px;
+  padding: 16px 0 32px;
 }
 .module__body--margin {
   margin: 0 0 24px;
