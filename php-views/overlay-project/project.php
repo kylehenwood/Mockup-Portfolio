@@ -1,17 +1,8 @@
 <script>
-  //--
-  // In
-  $(document).one('page_load',function(){
-    //$(document).trigger('project-in--animate');
-    $('.js-layout-header').addClass('layout__header--hidden');
-  });
-  //--
-  // Out
-  $(document).one('pjax:beforeReplace',function(){
-    $('.js-layout-header').removeClass('layout__header--hidden');
-  });
+  // set view variables
+  view.layoutClass = 'layout--standard';
+  view.currentPage = 'work-project';
 </script>
-
 
 
 <?php

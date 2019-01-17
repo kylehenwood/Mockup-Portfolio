@@ -2,34 +2,29 @@
 $(document).ready(function(){
   mobileNavigation();
   smoothScroll();
-  textAnimation();
   bindLayout();
-  // Scroll reveal
-  // window.sr = ScrollReveal();
-  //
-  // var revealStyle = {
-  //   origin: 'bottom',
-  //   delay: 200,
-  //   distance: '120px',
-  //   easing: 'ease-out',
-  //   scale: 1,
-  //   reset: false
-  // };
-  //
-  // sr.reveal('.js-scroll-reveal', revealStyle);
-  //
+
   // trigger to listen to for page load
   $(document).trigger('page_load');
-  $(document).on('pjax:end', function(){
+
+  $(document).on('pjax:success', function(){
     $(document).trigger('page_load');
   });
 
   $(window).on('popstate',function(event){
-    // HARD LOAD URLS
-    // disable page load animations
+    console.log('popstate');
+    view.runScripts = true;
+    // Run inline JS
+    // -- problem:: I only want to run JS inside current container ;)
+    // $(document).find("script[data-exec-on-popstate]").each(function() {
+    //   $.globalEval(this.text || this.textContent || this.innerHTML || '');
+    // });
+    $(document).trigger('page_load');
   });
 
 });
+
+
 
 // Since the portfolio is powered by PJAX, these containers
 // get reused alot, having the ref in one place is helpful
@@ -38,7 +33,6 @@ var layout = {
   body: null,
   mobile: null,
   navigation: null,
-  wrapper: null,
   content: null,
   footer: null,
   post: null
@@ -48,7 +42,6 @@ function bindLayout() {
   layout.html = $('.js-html');
   layout.body = $('.js-layout');
   layout.navigation = $('.js-layout-header');
-  layout.wrapper = $('.js-layout-wrapper');
   layout.content = $('.js-layout-content');
   layout.footer = $('.js-layout-footer');
   layout.mobile = $('.js-layout-mobile');
@@ -70,36 +63,6 @@ function mobileNavigation() {
     navigation.toggleClass('navigation-mobile__navigation--visible');
   });
 }
-
-
-
-
-function textAnimation() {
-
-  // - get content
-  // - split content into array
-  // - put each character into container div inside a span tag.
-
-  var container = $('.js-text-animation');
-
-  container.each(function(){
-    var container = $(this);
-    var textCharacters = container.html();
-    var textArray = textCharacters.split('');
-
-    // empty container
-    container.html("");
-    container.addClass('text-animation');
-
-    // fill container
-    for (var i = 0; i < textArray.length; i++) {
-      console.log(textArray[i]);
-      //textArray[i] = "<span>"+textArray[i]+"</span>";
-      container.append("<span class='ta__text'>"+textArray[i]+"</span>")
-    }
-  });
-}
-
 
 
 

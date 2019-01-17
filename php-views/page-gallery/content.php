@@ -14,14 +14,8 @@
 		$postTags = implode(",",$post['tags']);
 ?>
 
-<!-- <li class="gallery-grid__item">
-	<a class="js-fluidbox" <?php echo($postColor) ?> href="<?php echo($postThumbnail) ?>">
-		<img class="gallery-thumbnail" src="<?php echo $postThumbnail ?>" title="" alt="" width="400" height="300">
-	</a>
-</li> -->
-
 <li class="gallery-grid__item">
-	<a class="gallery-thumbnail js-pjax-container" <?php echo($postColor) ?> href="<?php echo($postURL) ?>">
+	<a class="gallery-thumbnail js-pjax-link" <?php echo($postColor) ?> href="<?php echo($postURL) ?>">
 		<img class="gallery-thumbnail__image" src="<?php echo $postThumbnail ?>" width="400" height="300">
 		<ul class="gallery-thumbnail__tags">
 			<li class="js-thumbnail-tags"><?php echo $postTags; ?></li>

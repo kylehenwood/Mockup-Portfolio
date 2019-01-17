@@ -5,6 +5,10 @@
   $projectColor = '#3D325A';
 ?>
 
+<script>
+  view.layoutClass = '<?php echo($projectColor) ?>';
+</script>
+
 <div class="project js-project-container <?php echo($projectClass) ?>">
 
 <?php

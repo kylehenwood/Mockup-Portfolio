@@ -1,14 +1,7 @@
-<script>
-
-  // bind (pjax:success and document.ready)
-  $(document).one('page_load',function(){
-    $(document).trigger('gallery-in--animate');
-  });
-  // 
-  // // out
-  // $(document).one('pjax:beforeReplace', function() {
-  //   //$(document).trigger('gallery-out--animate');
-  // });
+<script data-exec-on-popstate>
+  // set view variables
+  view.layoutClass = 'layout--standard';
+  view.currentPage = 'gallery';
 </script>
 
 

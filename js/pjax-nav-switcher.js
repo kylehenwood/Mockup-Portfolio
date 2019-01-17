@@ -1,7 +1,7 @@
 // Pjax pagechange navigation highlight
 
 $(document).ready(function(){
-  const navItems = $('.js-pjax-container');
+  const navItems = $('.js-pjax-link');
   let currentItem = null;
 
   $(document).on('pjax:success',function(){

@@ -7,7 +7,7 @@
 
     <div class="project-navigation">
       <div class="project-navigation__back">
-        <a class="project-back-button js-project-close js-pjax-container" href="index.php?pageID=projects">
+        <a class="project-back-button js-project-close js-pjax-link" href="index.php?pageID=projects">
           <div class="project-back-button__icon">
             <span class="flat-icon icon--16 icon--arrow-left"></span>
           </div>

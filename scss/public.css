@@ -606,8 +606,9 @@ html {
 .layout {
   position: relative;
   width: 100%;
-  height: 100%;
-  background: #424242; }
+  min-height: 100%;
+  background: #424242;
+  transition: ease-out 400ms background; }
 
 .layout__header {
   position: fixed;
@@ -617,14 +618,13 @@ html {
   width: 100%;
   padding: 0 24px;
   background: #212121;
-  transition: all 400ms ease-in; }
+  transition: all 400ms ease-in-out; }
   @media screen and (max-width: 960px) {
     .layout__header {
       padding: 0 16px; } }
 
 .layout__header--hidden {
-  transform: translateY(-100%);
-  opacity: 0; }
+  transform: translateY(-100%); }
 
 .layout__content {
   width: 100%; }
@@ -659,7 +659,7 @@ html {
       padding: 64px 24px; } }
   @media screen and (max-width: 720px) {
     .page__section {
-      padding: 32px 16px; } }
+      padding: 16px; } }
 
 .page__section--white {
   background: white; }
@@ -2669,7 +2669,6 @@ textarea:disabled:active {
 
 .project {
   position: relative;
-  background: #212121;
   margin: -64px 0 0; }
 
 .project--standalone {
@@ -2690,6 +2689,30 @@ textarea:disabled:active {
   .project__navigation--active .project-navigation__title {
     transform: translateY(0);
     opacity: 1; }
+
+.project__container {
+  padding: 24px 24px; }
+
+.project__container--animate {
+  animation-name: slide-in-bottom;
+  animation-duration: 800ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards; }
+
+.project__container--grey {
+  background: #EEEEEE; }
+
+.project__container--blue {
+  background: #2196F3; }
+
+.project__container--white {
+  background: white; }
+
+.padding__container--padding-bot {
+  padding-bottom: 120px !important; }
+
+.project__container--showcase {
+  padding: 0 24px; }
 
 .project-navigation {
   position: relative; }
@@ -2750,7 +2773,8 @@ textarea:disabled:active {
   display: block;
   background: rgba(0, 0, 0, 0.6);
   padding: 12px 24px 12px 40px;
-  transition: all 80ms ease-out; }
+  transition: all 80ms ease-out;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.6); }
   .project-back-button:hover {
     background: white;
     color: #616161;
@@ -2793,55 +2817,6 @@ textarea:disabled:active {
   @media screen and (max-width: 960px) {
     .project-banner__content {
       height: 560px; } }
-
-.project__container {
-  padding: 24px 24px; }
-
-.project__container--animate {
-  animation-name: slide-in-bottom;
-  animation-duration: 800ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards; }
-
-.project__container--grey {
-  background: #EEEEEE; }
-
-.project__container--blue {
-  background: #2196F3; }
-
-.project__container--white {
-  background: white; }
-
-.padding__container--padding-bot {
-  padding-bottom: 120px !important; }
-
-.project__container--showcase {
-  padding: 0 24px; }
-
-.project--raygun,
-.banner--raygun {
-  background: #1E88E5; }
-
-.project--siteshot,
-.banner--siteshot {
-  background: #00897B; }
-
-.project--shnappy,
-.banner--shnappy {
-  background: #E91E63; }
-
-.project--mindscape,
-.banner--mindscape {
-  background: #7B1FA2; }
-
-.project--vanimator,
-.banner--vanimator {
-  background: linear-gradient(to right, #8D3BFC, #00B9F7);
-  /* Standard syntax */ }
-
-.project--hunchbuzz,
-.banner--hunchbuzz {
-  background: #FB8C00; }
 
 .project-description {
   position: relative;

@@ -1,11 +1,7 @@
-<script>
-  // bind
-  $(document).one('page_load',function(){
-  });
-
-  // unbind
-  $(document).one('pjax:beforeReplace', function() {
-  });
+<script data-exec-on-popstate>
+  // set view variables
+  view.layoutClass = 'layout--standard';
+  view.currentPage = '404';
 </script>
 
 <?php

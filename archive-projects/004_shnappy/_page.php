@@ -5,7 +5,12 @@
   $projectColor = '#E91E63';
   ?>
 
-  <div class="project js-project-container <?php echo($projectClass) ?>">
+  <script>
+    view.layoutClass = '<?php echo($projectColor) ?>';
+  </script>
+
+
+  <div class="project js-project-container">
 
   <?php
   include './_templates/_project-navigation.php';

@@ -1,9 +1,7 @@
-<script>
-  // bind
-  $(document).one('page_load',function(){
-    //galleryBind();
-    //$(document).trigger('gallery-open');
-  });
+<script data-exec-on-popstate>
+  // set view variables
+  view.layoutClass = 'layout--standard';
+  view.currentPage = 'gallery-post-standalone';
 </script>
 
 <?php

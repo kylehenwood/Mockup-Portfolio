@@ -1,5 +1,7 @@
-<script>
-  currentPage = 'about';
+<script data-exec-on-popstate>
+  // set view variables
+  view.layoutClass = 'layout--standard';
+  view.currentPage = 'about';
 </script>
 
 

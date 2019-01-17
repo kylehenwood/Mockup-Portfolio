@@ -19,8 +19,6 @@ function scrollElementLock(element,inherit) {
   });
 
   //console.log(scrollOffset)
-
-  //
   //if (inherit === true) {
     layout.html.scrollTop(0);
     layout.body.scrollTop(0);
@@ -56,10 +54,4 @@ function scrollElement(element,inherit) {
   //   layout.html.scrollTop(scrollPreset);
   //   layout.body.scrollTop(scrollPreset);
   // }
-}
-
-
-function scrollElementHide(element) {
-  //alert(element);
-  element.hide();
 }

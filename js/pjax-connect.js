@@ -4,71 +4,84 @@ let pjaxContainer = {
   isAnimating: false,
   primary: '#js-pjax-content-1',
   secondary: '#js-pjax-content-2',
-  current: '#js-pjax-content-1'
+  current: '#js-pjax-content-1',
 }
 
 
-$(document).ready(function(){
+// Set some pjax defaults
+// --
+// if(typeof console === 'undefined') console = {"log":function(m){}};
+// Stops from scrolling to top when clicking gallery items
+$.pjax.defaults.scrollTo = true; //true;
+// Make sure pjax is used for "OK" connections
+$.pjax.defaults.timeout = 2000;
+// Set cache to 0, otherwise PJAX will remember the state of the previous action
+// -- setting to 1 allows the cache to remember the scroll position of the window.
+$.pjax.defaults.maxCacheLength = 1;
 
-  if(typeof console === 'undefined') console = {"log":function(m){}};
 
-  // Stops from scrolling to top when clicking gallery items
-  $.pjax.defaults.scrollTo = true; //true;
-  // Make sure pjax is used for "OK" connections
-  $.pjax.defaults.timeout = 2000;
-  // Set cache to 0, otherwise PJAX will remember the state of the previous action
-  // -- setting to 1 allows the cache to remember the scroll position of the window.
-  $.pjax.defaults.maxCacheLength = 0;
 
-  //let selectedContainer = pcontainer.current;
+let switchContainer = true;
 
-  // alternate pjax load containers on page loads
-  $(document).on('pjax:success',function(){
-    if (pjaxContainer.bool === true) {
-      pjaxContainer.bool = false;
-      pjaxContainer.current = pjaxContainer.primary;
-      $('.js-pjax-container').removeClass('js-pjax-container-2');
-      $('.js-pjax-container').addClass('js-pjax-container-1');
-
-      const containerIn = $('#js-pjax-content-2');
-      const containerOut = $('#js-pjax-content-1');
-      transitionAnimation(containerIn,containerOut)
-
+// Setup
+function pjaxSetup() {
+  // set links to load content into container 2 first
+  $('.js-pjax-link').click(function(event){
+    event.preventDefault();
+    const url = $(this).attr('href');
+    if (switchContainer === true) {
+      switchContainer = false;
+      //pjaxContainer.current = pjaxContainer.secondary;
+      $.pjax({url: url, container: pjaxContainer.secondary});
     } else {
-      pjaxContainer.bool = true;
-      pjaxContainer.current = pjaxContainer.secondary;
-      $('.js-pjax-container').removeClass('js-pjax-container-1');
-      $('.js-pjax-container').addClass('js-pjax-container-2');
-
-
-      const containerIn = $('#js-pjax-content-1');
-      const containerOut = $('#js-pjax-content-2');
-      transitionAnimation(containerIn,containerOut)
-
+      switchContainer = true;
+      //pjaxContainer.current = pjaxContainer.primary;
+      $.pjax({url: url, container: pjaxContainer.primary});
     }
   });
 
-  // set links to load content into container 2 first
-  $('.js-pjax-container').addClass('js-pjax-container-2');
 
   // Pjax links + containers to load content to
-  $(document).pjax('.js-pjax-container-1', pjaxContainer.primary);
-  $(document).pjax('.js-pjax-container-2', pjaxContainer.secondary);
+  // $(document).pjax('.js-pjax-link-1', pjaxContainer.primary);
+  // $(document).pjax('.js-pjax-link-2', pjaxContainer.secondary);
+}
 
-});
 
 
+// alternate pjax load containers on page loads
+function pjaxTransition() {
+
+  // bool
+  if (pjaxContainer.bool === true) {
+    pjaxContainer.bool = false;
+    pjaxContainer.current = pjaxContainer.primary;
+    // $('.js-pjax-link').removeClass('js-pjax-link-2');
+    // $('.js-pjax-link').addClass('js-pjax-link-1');
+
+    const containerIn = $('#js-pjax-content-2');
+    const containerOut = $('#js-pjax-content-1');
+    transitionAnimation(containerIn,containerOut)
+
+  } else {
+    pjaxContainer.bool = true;
+    pjaxContainer.current = pjaxContainer.secondary;
+    // $('.js-pjax-link').removeClass('js-pjax-link-1');
+    // $('.js-pjax-link').addClass('js-pjax-link-2');
+
+    const containerIn = $('#js-pjax-content-1');
+    const containerOut = $('#js-pjax-content-2');
+    transitionAnimation(containerIn,containerOut)
+
+  }
+}
+
+
+// Transition one container in, while transitioning the other out.
 function transitionAnimation(containerIn,containerOut) {
 
+  // lock the animating out container and fix its position.
   scrollElementLock(containerOut);
   scrollElement(containerIn);
-
-  containerIn.attr({
-    'data':'active'
-  });
-  containerOut.attr({
-    'data':'inactive'
-  });
 
   if (pjaxContainer.isAnimating === false) {
     pjaxContainer.isAnimating = true;
@@ -78,8 +91,10 @@ function transitionAnimation(containerIn,containerOut) {
     containerOut.addClass('anim--out-left');
     containerOut.one(animationEvent,function(){
       if (pjaxContainer.isAnimating === true) {
-        containerOut.hide();
         containerOut.removeClass('anim--out-left');
+        containerOut.hide();
+        //containerOut.html('');
+        containerOut.unbind();
         $(document).trigger('container-in');
       }
     });
@@ -106,6 +121,7 @@ function transitionAnimation(containerIn,containerOut) {
     containerOut.removeClass('anim--out-left');
     containerOut.removeClass('anim--in-right');
     containerOut.hide();
+    //containerOut.html('');
     containerOut.unbind();
 
     containerIn.removeClass('anim--out-left');
@@ -116,21 +132,18 @@ function transitionAnimation(containerIn,containerOut) {
   }
 }
 
+
 // Load URL (called after a setTimeout)
+// -- used when the need arises to delay the page transition
+// -- for an animation or visual purposes.
 function pjaxDelay(url) {
-  // if (pjaxContainer.bool === true) {
-  //   pjaxContainer.bool = false;
-  //   pjaxContainer.current = pjaxContainer.primary;
-  // } else {
-  //   pjaxContainer.bool = true;
-  //   pjaxContainer.current = pjaxContainer.secondary;
-  // }
   $.pjax({url: url, container: pjaxContainer.current})
   console.log(pjaxContainer.current);
 }
 
 
 // Form Submission
+// -- submit a form using pjax
 function pjaxForm(event) {
   $.pjax.submit(event, pjaxContainer.current);
 }

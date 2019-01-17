@@ -1,52 +1,17 @@
-<script>
-//--
-// In
-$(document).one('page_load',function(){
-  $(document).trigger('post-in--animate');
-});
+<script data-exec-on-popstate>
+  // set view variables
+  view.layoutClass = 'layout--standard';
+  view.currentPage = 'contact';
 
-$(document).on('submit', 'js-pjax-form', function(event) {
-  console.log('form-submit');
-  event.preventDefault();
-  pjaxForm(event);
-});
 
-//--
-// Out
-$(document).on('pjax:beforeReplace', function() {
-  //$(document).trigger('post-out--animate');
-});
+
+  // $(document).on('submit', 'js-pjax-form', function(event) {
+  //   console.log('form-submit');
+  //   event.preventDefault();
+  //   pjaxForm(event);
+  // });
 </script>
 
-<?php
-// if (isset($_GET['postID'])) {
-//   $postID = $_GET['postID'];
-//
-//   //find post data based on ID
-//   $postArray = $_SESSION['gallery'];
-//   $findPost = array_search($postID, array_column($postArray, 'id'));
-//   $post = $postArray[$findPost];
-//
-//
-//   // content
-//   $postTitle = $post['title'];
-//   $postSubtitle = $post['subtitle'];
-//   $postDescription = $post['desc'];
-//   $postProject = $post['project'];
-//   $postTags = $post['tags'];
-//   $postImage = $post['image'];
-//   $postColor = "style=background-color:".$post['color'];
-//
-// } else {
-//   // POST NOT FOUND CONDITION
-//    $postTitle = 'POST NOT FOUND';
-//   // $postSubtitle = 'Subtitle';
-//   // $postDescription = 'Description';
-//   // $postProject = 'ProjectName';
-//   // $postTags = 'TagsArray';
-//   // $postImage = '#';
-// }
-?>
 
 <div class="page-contact js-post-container">
   <div class="center center--640">

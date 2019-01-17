@@ -10,7 +10,6 @@
 
 .project {
   position: relative;
-  background: $color-grey-900;
   margin: -64px 0 0;
 }
 .project--standalone {
@@ -38,6 +37,37 @@
     opacity: 1;
   }
 }
+
+.project__container {
+  padding: 24px 24px;
+}
+
+.project__container--animate {
+  animation-name: slide-in-bottom;
+  animation-duration: 800ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.project__container--grey {
+  background: $color-grey-200;
+}
+.project__container--blue {
+  background: $color-blue-500;
+}
+
+.project__container--white {
+  background: white;
+}
+
+.padding__container--padding-bot {
+  padding-bottom: 120px!important;
+}
+.project__container--showcase {
+  padding: 0 24px;
+}
+
+
 
 // Project Navigation
 .project-navigation {
@@ -106,6 +136,7 @@
   background: rgba(black,0.6);
   padding: 12px 24px 12px 40px;
   transition: all 80ms ease-out;
+  box-shadow: inset 0 0 0 2px rgba(white,0.6);
   &:hover {
     background: white;
     color: $color-grey-700;
@@ -140,11 +171,12 @@
 }
 
 
+
+
 // Banner
 .project-banner {
   position: relative;
 }
-
 .project-banner__content {
   display: flex;
   align-items: center;
@@ -154,34 +186,4 @@
   @include screen-med {
     height: 560px;
   }
-}
-
-
-.project__container {
-  padding: 24px 24px;
-}
-
-.project__container--animate {
-  animation-name: slide-in-bottom;
-  animation-duration: 800ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-}
-
-.project__container--grey {
-  background: $color-grey-200;
-}
-.project__container--blue {
-  background: $color-blue-500;
-}
-
-.project__container--white {
-  background: white;
-}
-
-.padding__container--padding-bot {
-  padding-bottom: 120px!important;
-}
-.project__container--showcase {
-  padding: 0 24px;
 }
