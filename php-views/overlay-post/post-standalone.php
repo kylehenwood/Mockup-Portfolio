@@ -28,7 +28,7 @@
 ?>
 
 <div class="post post--standalone">
-  <div class="center center--800">
+  <div class="center center--1120">
 
     <!-- heading-->
     <div class="post__heading js-post-heading">

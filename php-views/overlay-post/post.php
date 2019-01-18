@@ -35,7 +35,7 @@
 ?>
 
 <div class="post js-post-container">
-  <div class="center center--800">
+  <div class="center center--1120">
 
     <div class="post__heading js-post-heading">
       <div class="post-heading">

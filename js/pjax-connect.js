@@ -16,7 +16,7 @@ $.pjax.defaults.scrollTo = true; //true;
 $.pjax.defaults.timeout = 4000;
 // Set cache to 0, otherwise PJAX will remember the state of the previous action
 // -- setting to 1 allows the cache to remember the scroll position of the window.
-$.pjax.defaults.maxCacheLength = 0;
+$.pjax.defaults.maxCacheLength = 1;
 
 
 // bind pjax events
@@ -25,23 +25,24 @@ function pjaxBind() {
   $(document).trigger('page_load');
 
   $(document).on('pjax:success', function(){
-    //if (view.runScripts === false) {
-      console.log('page-load pjax-success');
+    console.log('pjax-success');
+  //if (view.runScripts === false) {
       $(document).trigger('page_load');
-    // } else {
+    //} else {
     //   view.runScripts = false;
     // }
   });
 
   $(window).on('popstate',function(event){
-    console.log('page-load popstate');
+    console.log('pjax-popstate');
     view.runScripts = true;
     pjaxTransition();
 
-    // load scripts on current page
-    // $(pjaxContainer.current).find("script[data-exec-on-popstate]").each(function() {
-    //   $.globalEval(this.text || this.textContent || this.innerHTML || '');
-    // });
+    //load scripts on current page
+    $(pjaxContainer.current).find("script[data-exec-on-popstate]").each(function() {
+      $.globalEval(this.text || this.textContent || this.innerHTML || '');
+      //alert('running scripts on '+pjaxContainer.current);
+    });
 
     $(document).trigger('page_load');
 
@@ -66,6 +67,31 @@ function pjaxSetup() {
       pjaxTransition();
     }
   });
+
+
+  // delay click
+  $('.js-pjax-link-delay').unbind();
+  $('.js-pjax-link-delay').click(function(event){
+    var element = $(this);
+    var others = $('.js-pjax-link-delay');
+
+    others.css({'opacity':0.4});
+    element.css({'opacity':1});
+
+    event.preventDefault();
+    const url = $(this).attr('href');
+    setTimeout(function(){
+      if (pjaxContainer.current === pjaxContainer.primary) {
+        $.pjax({url: url, container: pjaxContainer.secondary});
+        pjaxTransition();
+      } else {
+        $.pjax({url: url, container: pjaxContainer.primary});
+        pjaxTransition();
+      }
+    },200);
+  });
+
+
 }
 
 
@@ -76,14 +102,12 @@ function pjaxTransition() {
   // decide which container to place content into
   // -- then trigger the animation in
   if (pjaxContainer.current === pjaxContainer.secondary) {
-    //pjaxContainer.bool = false;
     pjaxContainer.current = pjaxContainer.primary;
     const containerIn = $('#js-pjax-content-1');
     const containerOut = $('#js-pjax-content-2');
     transitionAnimation(containerIn,containerOut)
 
   } else {
-    //pjaxContainer.bool = true;
     pjaxContainer.current = pjaxContainer.secondary;
     const containerIn = $('#js-pjax-content-2');
     const containerOut = $('#js-pjax-content-1');
@@ -110,27 +134,9 @@ function transitionAnimation(containerIn,containerOut) {
       if (pjaxContainer.isAnimating === true) {
         containerOut.removeClass('anim--out-left');
         containerOut.hide();
-        //containerOut.html('');
         containerOut.unbind();
-        $(document).trigger('container-in');
+        containerIntro(containerIn);
       }
-    });
-
-    $(document).one('container-in',function() {
-      containerIn.css({
-        'opacity':1
-      });
-      // Animate new page in
-      containerIn.addClass('anim--in-right');
-      containerIn.one(animationEvent,function(event){
-
-        // if event was triggered by container
-        // -- unbind event listener
-        // -- proceed
-        // console.log(containerIn);
-        containerIn.removeClass('anim--in-right');
-        pjaxContainer.isAnimating = false;
-      });
     });
   } else {
     pjaxContainer.isAnimating = false;
@@ -148,6 +154,24 @@ function transitionAnimation(containerIn,containerOut) {
   }
 }
 
+
+// animate X container into viewport
+function containerIntro(containerIn) {
+  containerIn.css({
+    'opacity':1
+  });
+  // Animate new page in
+  containerIn.addClass('anim--in-right');
+  containerIn.one(animationEvent,function(event){
+
+    // if event was triggered by container
+    // -- unbind event listener
+    // -- proceed
+    // console.log(containerIn);
+    containerIn.removeClass('anim--in-right');
+    pjaxContainer.isAnimating = false;
+  });
+}
 
 // Load URL (called after a setTimeout)
 // -- used when the need arises to delay the page transition

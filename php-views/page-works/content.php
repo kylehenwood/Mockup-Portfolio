@@ -12,8 +12,8 @@ foreach($galleryProjects as $project) {
 ?>
 
 <li class="project-grid__item" id="project-<?php echo($projectID) ?>">
-	<a class="project-card js-project-card js-pjax-link" href="<?php echo($projectURL) ?>" <?php echo($projectColor); ?>>
-		<div class="project-card__title anim--in-right anim--delay-320"><?php echo($projectTitle); ?></div>
+	<a class="project-card js-project-card js-pjax-link-delay" href="<?php echo($projectURL) ?>" <?php echo($projectColor); ?>>
+		<div class="project-card__title"><?php echo($projectTitle); ?></div>
 	</a>
 </li>
 

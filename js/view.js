@@ -10,58 +10,15 @@ let view = {
   runScripts: false //run inline scripts
 }
 
-// run inline scripts on page load
-// $(document).on("pjax:popstate", function() {
-//   alert('RUN SCRIPT 1');
-//   $(document).one("pjax:end", function(event) {
-//
-//     alert('RUN SCRIPT 2');
-//
-//     $(event.target).find("script[data-exec-on-popstate]").each(function() {
-//       $.globalEval(this.text || this.textContent || this.innerHTML || '');
-//
-//       alert('RUN SCRIPT 3');
-//     });
-//   });
-// });
+
 
 $(document).on('page_load',function(event){
 
-  // My current issue is that the function called onpop state calls the last known function
-  // rather than the one presented inline.
-  // -- eg
-  // -- gallery-post
-  // -- back button
-  // -- gallery page in
-  // -- gallery-post still set at page.
-  //viewSetup();
-  // $(document).find("script[data-exec-on-popstate]").each(function() {
-  //   $.globalEval(this.text || this.textContent || this.innerHTML || '');
-  // });
-  // console.log(event);
-  // console.log(view.currentPage);
+  console.log('page-loaded');
 
-  // dont run page transition on first load
-  // if (view.firstLoad === false) {
-  //   pjaxSetup();
-  //   //pjaxTransition();
-  // } else {
-  //   view.firstLoad = false;
-  //   pjaxSetup();
-  // }
 
   pjaxSetup();
 
-  // check if popstate (back|| foward history state)
-  // -- problem with inline scripts not being ran if navigated to via history
-  // if (view.runScripts === true) {
-  //   console.log('running scripts in ' + pjaxContainer.current);
-  //
-  //   $(pjaxContainer.current).attr({'TESTING':'SUCCESS'})
-  //   $(pjaxContainer.current).find("script[data-exec-on-popstate]").each(function() {
-  //     $.globalEval(this.text || this.textContent || this.innerHTML || '');
-  //   });
-  // }
 
   // change the background-color of the page based on an inline script with color.
   layoutClass();

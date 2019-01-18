@@ -1,7 +1,5 @@
 <?php
   $title = "SiteShot";
-  $projectClass = "project--siteshot";
-  $bannerClass = "banner--siteshot";
   $projectColor = '#00897B';
 ?>
 
@@ -9,8 +7,6 @@
   view.layoutClass = '<?php echo($projectColor) ?>';
 </script>
 
-
-<div class="project js-project-container">
 
   <?php
   include './_templates/_project-navigation.php';
@@ -21,5 +17,3 @@
   include './_templates/_project-section.php';
   echo '</div>';
   ?>
-
-</div>

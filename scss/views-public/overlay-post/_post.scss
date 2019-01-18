@@ -7,6 +7,10 @@
   }
 }
 
+.post--standalone {
+  padding: 128px 16px 64px;
+}
+
 // children
 .post__heading {
   top: 0;
@@ -64,6 +68,10 @@
   position: absolute;
   right: 0;
   top: 0;
+  @include screen-med {
+    right: 4px;
+    top: 4px;
+  }
 }
 
 
@@ -71,13 +79,15 @@
 // Button
 .post-button-back {
   position: relative;
+  width: 48px;
+  height: 48px;
+  padding: 16px;
   border-radius: 50%;
   font-weight: bold;
   line-height: 16px;
   color: white;
   display: block;
-  padding: 16px;
-  background: rgba(white,0.2);
+  background: rgba(black,0.4);
   transition: all 80ms ease-out;
   &:hover {
     box-shadow: $shadow-300;
@@ -88,6 +98,11 @@
     box-shadow: $shadow-100;
     background: white;
     color: black;
+  }
+  @include screen-med {
+    width: 40px;
+    height: 40px;
+    padding: 12px;
   }
 }
 

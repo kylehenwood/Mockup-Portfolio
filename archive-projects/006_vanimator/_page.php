@@ -1,7 +1,5 @@
 <?php
   $title = "VAnimator";
-  $projectClass = "project--vanimator";
-  $bannerClass = "banner--vanimator";
   $projectColor = "#7B1FA2";
   ?>
 
@@ -9,7 +7,6 @@
     view.layoutClass = '<?php echo($projectColor) ?>';
   </script>
 
-  <div class="project js-project-container">
 
   <?php
   include './_templates/_project-navigation.php';
@@ -19,5 +16,3 @@
   include './_templates/_project-gallery.php';
   echo '</div>';
   ?>
-
-  </div>

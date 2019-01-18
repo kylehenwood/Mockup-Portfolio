@@ -1,3 +1,6 @@
+<div class="project project--standalone js-project-container">
+
+
 <?php
   if (isset($_GET['projectID'])) {
     $projectID = $_GET['projectID'];
@@ -14,3 +17,5 @@
     // include 404 project not found;
   }
 ?>
+
+</div>

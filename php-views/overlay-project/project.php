@@ -4,6 +4,7 @@
   view.currentPage = 'work-project';
 </script>
 
+<div class="project js-project-container">
 
 <?php
   if (isset($_GET['projectID'])) {
@@ -21,3 +22,5 @@
     // include 404 project not found;
   }
 ?>
+
+</div>

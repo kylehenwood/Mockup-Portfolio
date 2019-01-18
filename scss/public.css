@@ -617,7 +617,7 @@ html {
   left: 0;
   width: 100%;
   padding: 0 24px;
-  background: #212121;
+  background: rgba(33, 33, 33, 0.4);
   transition: all 400ms ease-in-out; }
   @media screen and (max-width: 960px) {
     .layout__header {
@@ -642,7 +642,7 @@ html {
   -webkit-overflow-scrolling: touch; }
 
 .page {
-  padding: 64px 0 0; }
+  padding: 64px 0; }
 
 .page__banner {
   position: relative;
@@ -2377,6 +2377,9 @@ textarea:disabled:active {
     .post {
       padding: 12px; } }
 
+.post--standalone {
+  padding: 128px 16px 64px; }
+
 .post__heading {
   top: 0;
   left: 0;
@@ -2425,16 +2428,22 @@ textarea:disabled:active {
   position: absolute;
   right: 0;
   top: 0; }
+  @media screen and (max-width: 960px) {
+    .post-heading__close {
+      right: 4px;
+      top: 4px; } }
 
 .post-button-back {
   position: relative;
+  width: 48px;
+  height: 48px;
+  padding: 16px;
   border-radius: 50%;
   font-weight: bold;
   line-height: 16px;
   color: white;
   display: block;
-  padding: 16px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.4);
   transition: all 80ms ease-out; }
   .post-button-back:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
@@ -2444,6 +2453,11 @@ textarea:disabled:active {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     background: white;
     color: black; }
+  @media screen and (max-width: 960px) {
+    .post-button-back {
+      width: 40px;
+      height: 40px;
+      padding: 12px; } }
 
 .post-image-placeholder {
   position: relative;
@@ -2596,8 +2610,7 @@ textarea:disabled:active {
   position: relative; }
 
 .project--standalone {
-  padding: 0;
-  margin: 0; }
+  padding: 64px 0 0; }
 
 .project__navigation {
   position: absolute;
