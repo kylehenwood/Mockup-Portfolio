@@ -12,6 +12,13 @@ let view = {
 
 
 
+function runView() {
+  // console.log('---------');
+  // console.log('run-view');
+  // $(document).trigger('page_load');
+  // console.log('---------');
+}
+
 $(document).on('page_load',function(event){
 
   console.log('page-loaded');
@@ -37,8 +44,12 @@ $(document).on('page_load',function(event){
       hideNavigation(false);
       $(document).trigger('x');
       break;
-    case 'work-project':
+    case 'works-project':
       hideNavigation(true);
+      $(document).trigger('x');
+      break;
+    case 'works-project-standalone':
+      hideNavigation(false);
       $(document).trigger('x');
       break;
     case 'about':
@@ -54,6 +65,7 @@ $(document).on('page_load',function(event){
     default:
       // do nothing
   }
+  console.log('-----------');
 });
 
 
@@ -74,7 +86,8 @@ function hideNavigation(show) {
 // Sets the background color on page layout/body based on a variable set
 // by inline scripts on each page
 function layoutClass() {
-  //console.log(view.layoutClass);
+  console.log('layout-class: '+view.layoutClass);
+  console.log('current-page: '+view.curentPage);
 
   if (view.layoutClass === 'layout--standard' || view.layoutClass === null) {
     view.layoutClass = '#424242';

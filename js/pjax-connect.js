@@ -21,31 +21,27 @@ $.pjax.defaults.maxCacheLength = 1;
 
 // bind pjax events
 function pjaxBind() {
+
   // trigger to listen to for page load
   $(document).trigger('page_load');
 
-  $(document).on('pjax:success', function(){
-    console.log('pjax-success');
-  //if (view.runScripts === false) {
-      $(document).trigger('page_load');
-    //} else {
-    //   view.runScripts = false;
-    // }
-  });
 
+  // on popstate make sure the inline scripts are ran
   $(window).on('popstate',function(event){
-    console.log('pjax-popstate');
-    view.runScripts = true;
+    //console.log('pjax-popstate');
+
     pjaxTransition();
 
     //load scripts on current page
     $(pjaxContainer.current).find("script[data-exec-on-popstate]").each(function() {
       $.globalEval(this.text || this.textContent || this.innerHTML || '');
-      //alert('running scripts on '+pjaxContainer.current);
+      console.log('running scripts on '+pjaxContainer.current);
     });
+  });
 
+  // run page load on both pop and success from pjax
+  $(document).on('popstate pjax:success',function() {
     $(document).trigger('page_load');
-
   });
 }
 
@@ -58,11 +54,9 @@ function pjaxSetup() {
     event.preventDefault();
     const url = $(this).attr('href');
     if (pjaxContainer.current === pjaxContainer.primary) {
-      //pjaxContainer.current = pjaxContainer.secondary;
       $.pjax({url: url, container: pjaxContainer.secondary});
       pjaxTransition();
     } else {
-      //pjaxContainer.current = pjaxContainer.primary;
       $.pjax({url: url, container: pjaxContainer.primary});
       pjaxTransition();
     }
@@ -90,8 +84,6 @@ function pjaxSetup() {
       }
     },200);
   });
-
-
 }
 
 
@@ -113,7 +105,7 @@ function pjaxTransition() {
     const containerOut = $('#js-pjax-content-1');
     transitionAnimation(containerIn,containerOut)
   }
-  console.log('container-in is '+pjaxContainer.current);
+  //console.log('container-in is '+pjaxContainer.current);
 }
 
 
@@ -172,6 +164,7 @@ function containerIntro(containerIn) {
     pjaxContainer.isAnimating = false;
   });
 }
+
 
 // Load URL (called after a setTimeout)
 // -- used when the need arises to delay the page transition

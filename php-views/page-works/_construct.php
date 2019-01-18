@@ -2,6 +2,7 @@
   // set view variables
   view.layoutClass = 'layout--standard';
   view.currentPage = 'work';
+  runView();
 </script>
 
 <?php

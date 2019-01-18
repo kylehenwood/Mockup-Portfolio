@@ -5,6 +5,8 @@
 
 <script>
   view.layoutClass = '<?php echo($projectColor) ?>';
+  view.currentPage = 'works-project';
+  runView();
 </script>
 
 

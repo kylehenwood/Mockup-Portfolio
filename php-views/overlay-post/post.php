@@ -2,6 +2,7 @@
   // set view variables
   view.layoutClass = 'layout--standard';
   view.currentPage = 'gallery-post';
+  runView();
 </script>
 
 <?php

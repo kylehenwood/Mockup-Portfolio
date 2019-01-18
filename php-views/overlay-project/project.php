@@ -1,9 +1,3 @@
-<script>
-  // set view variables
-  view.layoutClass = 'layout--standard';
-  view.currentPage = 'work-project';
-</script>
-
 <div class="project js-project-container">
 
 <?php

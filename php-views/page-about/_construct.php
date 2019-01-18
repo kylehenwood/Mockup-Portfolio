@@ -2,6 +2,7 @@
   // set view variables
   view.layoutClass = 'layout--standard';
   view.currentPage = 'about';
+  runView();
 </script>
 
 
