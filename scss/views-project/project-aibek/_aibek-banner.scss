@@ -5,9 +5,9 @@ $aibek-300: #4C58B9;
 $aibek-400: #4682DA;
 $aibek-500: #32DCFB;
 
-.project--aibek {
-  background: $aibek-000;
-}
+// .project--aibek {
+//   background: $aibek-000;
+// }
 .banner--aibek {
   background: $aibek-000;
   //background: linear-gradient(to bottom, $color-blue-700, $color-purple-900); /* Standard syntax */
@@ -28,7 +28,7 @@ $aibek-500: #32DCFB;
   height: 100%;
   background: linear-gradient(to bottom, $aibek-000,$aibek-100,$aibek-200,$aibek-300,$aibek-400,$aibek-500); /* Standard syntax */
   opacity: 0;
-  animation-delay: 400ms;
+  animation-delay: 800ms;
   animation-name: aibek-background-in;
   animation-duration: 1000ms;
   animation-timing-function: ease-out;
@@ -37,7 +37,7 @@ $aibek-500: #32DCFB;
 @keyframes aibek-background-in {
   000% {
     opacity: 0;
-    transform: translateY(120px);
+    transform: translateY(40px);
   }
   100% {
     opacity: 1;

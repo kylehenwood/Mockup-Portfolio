@@ -20,8 +20,8 @@ function scrollElementLock(element,inherit) {
 
   //console.log(scrollOffset)
   //if (inherit === true) {
-    layout.html.scrollTop(0);
-    layout.body.scrollTop(0);
+  layout.html.scrollTop(0);
+  layout.body.scrollTop(0);
   // } else {
   //   layout.html.scrollTop(scrollOffset);
   //   layout.body.scrollTop(scrollOffset);
@@ -48,8 +48,8 @@ function scrollElement(element,inherit) {
   //console.log(scrollPreset);
 
   //if (inherit === false) {
-    layout.html.scrollTop(0);
-    layout.body.scrollTop(0);
+  layout.html.scrollTop(0);
+  layout.body.scrollTop(0);
   // } else {
   //   layout.html.scrollTop(scrollPreset);
   //   layout.body.scrollTop(scrollPreset);

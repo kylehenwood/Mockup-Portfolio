@@ -4,7 +4,6 @@
   view.currentPage = 'contact';
 
 
-
   // $(document).on('submit', 'js-pjax-form', function(event) {
   //   console.log('form-submit');
   //   event.preventDefault();

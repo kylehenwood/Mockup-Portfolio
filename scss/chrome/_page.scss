@@ -25,10 +25,7 @@
 
 // Section
 .page__section {
-  padding: 0 24px 80px 24px;
-  @include screen-med {
-    padding: 64px 24px;
-  }
+  padding: 0 24px;
   @include screen-mob {
     padding: 16px;
   }

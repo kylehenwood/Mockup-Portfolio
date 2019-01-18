@@ -1,4 +1,4 @@
-<div class="project__banner <?php echo $bannerClass;?>">
+<div class="project__banner">
   <div class="center center--1120">
     <div class="project-banner">
       <div class="project-banner__content">

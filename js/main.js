@@ -3,24 +3,7 @@ $(document).ready(function(){
   mobileNavigation();
   smoothScroll();
   bindLayout();
-
-  // trigger to listen to for page load
-  $(document).trigger('page_load');
-
-  $(document).on('pjax:success', function(){
-    $(document).trigger('page_load');
-  });
-
-  $(window).on('popstate',function(event){
-    console.log('popstate');
-    view.runScripts = true;
-    // Run inline JS
-    // -- problem:: I only want to run JS inside current container ;)
-    // $(document).find("script[data-exec-on-popstate]").each(function() {
-    //   $.globalEval(this.text || this.textContent || this.innerHTML || '');
-    // });
-    $(document).trigger('page_load');
-  });
+  pjaxBind();
 
 });
 

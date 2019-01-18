@@ -42,28 +42,28 @@ $(document).on('page_load',function(event){
   // console.log(view.currentPage);
 
   // dont run page transition on first load
-  if (view.firstLoad === false) {
-    //pjaxSetup();
-    console.log('TRANSITION');
-    pjaxTransition();
-  } else {
-    view.firstLoad = false;
-    pjaxSetup();
-  }
+  // if (view.firstLoad === false) {
+  //   pjaxSetup();
+  //   //pjaxTransition();
+  // } else {
+  //   view.firstLoad = false;
+  //   pjaxSetup();
+  // }
+
+  pjaxSetup();
 
   // check if popstate (back|| foward history state)
   // -- problem with inline scripts not being ran if navigated to via history
-  if (view.runScripts === true) {
-    view.runScripts = false;
-    console.log(pjaxContainer.current);
+  // if (view.runScripts === true) {
+  //   console.log('running scripts in ' + pjaxContainer.current);
+  //
+  //   $(pjaxContainer.current).attr({'TESTING':'SUCCESS'})
+  //   $(pjaxContainer.current).find("script[data-exec-on-popstate]").each(function() {
+  //     $.globalEval(this.text || this.textContent || this.innerHTML || '');
+  //   });
+  // }
 
-    $(pjaxContainer.current).attr({'TESTING':'SUCCESS'})
-
-    $(pjaxContainer.current).find("script[data-exec-on-popstate]").each(function() {
-      $.globalEval(this.text || this.textContent || this.innerHTML || '');
-    });
-  }
-
+  // change the background-color of the page based on an inline script with color.
   layoutClass();
   // Run page specific JS
   // -- God I hope this works.
@@ -114,10 +114,12 @@ function hideNavigation(show) {
 }
 
 
+// Sets the background color on page layout/body based on a variable set
+// by inline scripts on each page
 function layoutClass() {
-  console.log(view.layoutClass);
+  //console.log(view.layoutClass);
 
-  if (view.layoutClass === 'layout--standard') {
+  if (view.layoutClass === 'layout--standard' || view.layoutClass === null) {
     view.layoutClass = '#424242';
   }
   // layout.body.removeClass(view.layoutClass);

@@ -1,6 +1,5 @@
 // Ensure console is defined
 let pjaxContainer = {
-  bool: true,
   isAnimating: false,
   primary: '#js-pjax-content-1',
   secondary: '#js-pjax-content-2',
@@ -14,36 +13,59 @@ let pjaxContainer = {
 // Stops from scrolling to top when clicking gallery items
 $.pjax.defaults.scrollTo = true; //true;
 // Make sure pjax is used for "OK" connections
-$.pjax.defaults.timeout = 2000;
+$.pjax.defaults.timeout = 4000;
 // Set cache to 0, otherwise PJAX will remember the state of the previous action
 // -- setting to 1 allows the cache to remember the scroll position of the window.
-$.pjax.defaults.maxCacheLength = 1;
+$.pjax.defaults.maxCacheLength = 0;
 
 
+// bind pjax events
+function pjaxBind() {
+  // trigger to listen to for page load
+  $(document).trigger('page_load');
 
-let switchContainer = true;
+  $(document).on('pjax:success', function(){
+    //if (view.runScripts === false) {
+      console.log('page-load pjax-success');
+      $(document).trigger('page_load');
+    // } else {
+    //   view.runScripts = false;
+    // }
+  });
+
+  $(window).on('popstate',function(event){
+    console.log('page-load popstate');
+    view.runScripts = true;
+    pjaxTransition();
+
+    // load scripts on current page
+    // $(pjaxContainer.current).find("script[data-exec-on-popstate]").each(function() {
+    //   $.globalEval(this.text || this.textContent || this.innerHTML || '');
+    // });
+
+    $(document).trigger('page_load');
+
+  });
+}
+
 
 // Setup
 function pjaxSetup() {
-  // set links to load content into container 2 first
+  // alternate which container content is loaded into when a .js-pjax-link is clicked.
+  $('.js-pjax-link').unbind();
   $('.js-pjax-link').click(function(event){
     event.preventDefault();
     const url = $(this).attr('href');
-    if (switchContainer === true) {
-      switchContainer = false;
+    if (pjaxContainer.current === pjaxContainer.primary) {
       //pjaxContainer.current = pjaxContainer.secondary;
       $.pjax({url: url, container: pjaxContainer.secondary});
+      pjaxTransition();
     } else {
-      switchContainer = true;
       //pjaxContainer.current = pjaxContainer.primary;
       $.pjax({url: url, container: pjaxContainer.primary});
+      pjaxTransition();
     }
   });
-
-
-  // Pjax links + containers to load content to
-  // $(document).pjax('.js-pjax-link-1', pjaxContainer.primary);
-  // $(document).pjax('.js-pjax-link-2', pjaxContainer.secondary);
 }
 
 
@@ -51,28 +73,23 @@ function pjaxSetup() {
 // alternate pjax load containers on page loads
 function pjaxTransition() {
 
-  // bool
-  if (pjaxContainer.bool === true) {
-    pjaxContainer.bool = false;
+  // decide which container to place content into
+  // -- then trigger the animation in
+  if (pjaxContainer.current === pjaxContainer.secondary) {
+    //pjaxContainer.bool = false;
     pjaxContainer.current = pjaxContainer.primary;
-    // $('.js-pjax-link').removeClass('js-pjax-link-2');
-    // $('.js-pjax-link').addClass('js-pjax-link-1');
-
-    const containerIn = $('#js-pjax-content-2');
-    const containerOut = $('#js-pjax-content-1');
-    transitionAnimation(containerIn,containerOut)
-
-  } else {
-    pjaxContainer.bool = true;
-    pjaxContainer.current = pjaxContainer.secondary;
-    // $('.js-pjax-link').removeClass('js-pjax-link-1');
-    // $('.js-pjax-link').addClass('js-pjax-link-2');
-
     const containerIn = $('#js-pjax-content-1');
     const containerOut = $('#js-pjax-content-2');
     transitionAnimation(containerIn,containerOut)
 
+  } else {
+    //pjaxContainer.bool = true;
+    pjaxContainer.current = pjaxContainer.secondary;
+    const containerIn = $('#js-pjax-content-2');
+    const containerOut = $('#js-pjax-content-1');
+    transitionAnimation(containerIn,containerOut)
   }
+  console.log('container-in is '+pjaxContainer.current);
 }
 
 
@@ -121,7 +138,6 @@ function transitionAnimation(containerIn,containerOut) {
     containerOut.removeClass('anim--out-left');
     containerOut.removeClass('anim--in-right');
     containerOut.hide();
-    //containerOut.html('');
     containerOut.unbind();
 
     containerIn.removeClass('anim--out-left');

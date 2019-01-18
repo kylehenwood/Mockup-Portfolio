@@ -10,7 +10,7 @@
 
 .project {
   position: relative;
-  margin: -64px 0 0;
+  //margin: -64px 0 0;
 }
 .project--standalone {
   padding: 0;
@@ -21,7 +21,8 @@
 
 
 .project__navigation {
-  position: fixed;
+  //position: fixed;
+  position: absolute;
   z-index: 1000;
   top: 0;
   left: 0;
@@ -43,11 +44,26 @@
 }
 
 .project__container--animate {
-  animation-name: slide-in-bottom;
+  opacity: 0;
+  animation-name: project-content-in;
+  animation-delay: 400ms;
   animation-duration: 800ms;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }
+
+
+@keyframes project-content-in {
+  000% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 
 .project__container--grey {
   background: $color-grey-200;
@@ -112,7 +128,7 @@
   float: left;
   padding: 12px;
   border-radius: 50%;
-  background: rgba(black,0.6);
+  background: rgba(black,0.4);
   transition: all 80ms ease-out;
   &:hover {
     background: white;
@@ -133,10 +149,9 @@
   border-radius: 20px;
   color: white;
   display: block;
-  background: rgba(black,0.6);
+  background: rgba(black,0.4);
   padding: 12px 24px 12px 40px;
   transition: all 80ms ease-out;
-  box-shadow: inset 0 0 0 2px rgba(white,0.6);
   &:hover {
     background: white;
     color: $color-grey-700;
