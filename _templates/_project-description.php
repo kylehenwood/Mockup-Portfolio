@@ -1,4 +1,4 @@
-<div class="project__container project__container--grey">
+<div class="project__description">
 
   <div class="center center--1120">
 

@@ -43,8 +43,7 @@
         <?php echo($postTitle); ?>
         </h2>
         <div class="post-heading__close">
-          <a class="post-button-back js-post-close js-pjax-link" href="index.php?pageID=gallery">
-          <!-- <a class="post-button-back js-post-close js-pjax-link" href="javascript:history.back()"> -->
+          <a class="post-button-back js-post-close js-pjax-link" href="index.php?pageID=gallery#post-<?php echo($postID) ?>">
             <span class="flat-icon icon--16 icon--cross"></span>
           </a>
         </div>

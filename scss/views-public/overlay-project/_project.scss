@@ -64,7 +64,6 @@
   }
 }
 
-
 .project__container--grey {
   background: $color-grey-200;
 }
@@ -83,7 +82,10 @@
   padding: 0 24px;
 }
 
-
+.project__description {
+  padding: 24px 0;
+  background: $color-grey-200;
+}
 
 // Project Navigation
 .project-navigation {
