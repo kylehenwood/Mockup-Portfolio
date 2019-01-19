@@ -3,6 +3,8 @@
   $projectColor = "#7B1FA2";
 ?>
 
+<div class="js-project" project-id="project-vanimator">
+
 <?php
   include './_templates/_project-navigation.php';
   include './_templates/_project-banner.php';
@@ -11,3 +13,5 @@
   include './_templates/_project-gallery.php';
   echo '</div>';
 ?>
+
+</div>

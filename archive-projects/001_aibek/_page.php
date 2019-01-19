@@ -3,6 +3,8 @@
   $projectColor = '#3D325A';
 ?>
 
+<div class="js-project" project-id="project-aibek">
+
 <?php
 
 include './_templates/_project-navigation.php';
@@ -13,3 +15,6 @@ include './_templates/_project-description.php';
 include './_templates/_project-gallery.php';
 echo '</div>';
 ?>
+
+
+</div>

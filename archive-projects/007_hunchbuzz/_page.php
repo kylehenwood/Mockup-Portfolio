@@ -3,6 +3,8 @@
   $projectColor = "#FB8C00";
 ?>
 
+<div class="js-project" project-id="project-hunchbuzz">
+
 <?php
   include './_templates/_project-navigation.php';
   include './_templates/_project-banner.php';
@@ -11,3 +13,5 @@
   include './_templates/_project-gallery.php';
   echo '</div>';
 ?>
+
+</div>

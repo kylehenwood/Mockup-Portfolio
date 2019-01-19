@@ -58,6 +58,13 @@ function pjaxSetup() {
   });
 
 
+  // back buttons
+  $('.js-pjax-back').click(function(event){
+    event.preventDefault();
+    window.history.back();
+  });
+
+
   // delay click
   $('.js-pjax-link-delay').unbind();
   $('.js-pjax-link-delay').click(function(event){
