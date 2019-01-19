@@ -157,7 +157,7 @@
     var sequenceId
 
     // No custom configuration was passed, but a sequence interval instead.
-    // let’s shuffle things around to make sure everything works.
+    // let’s shuffle things around to make sure everything work.
     if (config !== undefined && typeof config === 'number') {
       interval = config
       config = {}

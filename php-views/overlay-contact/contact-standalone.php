@@ -1,11 +1,3 @@
-<script>
-  // bind
-  $(document).one('page_load',function(){
-    //galleryBind();
-    //$(document).trigger('gallery-open');
-  });
-</script>
-
 <?php
   if (isset($_GET['postID'])) {
     $postID = $_GET['postID'];

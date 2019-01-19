@@ -42,7 +42,7 @@
 		// Check if dependencies are loaded
 		// 1. Ben Almen's debounce/throttle plugin
 		if (!$.isFunction($.throttle)) {
-			console.warn('Fluidbox: The jQuery debounce/throttle plugin is not found/loaded. Even though Fluidbox works without it, the window resize event will fire extremely rapidly in browsers, resulting in significant degradation in performance upon viewport resize.');
+			console.warn('Fluidbox: The jQuery debounce/throttle plugin is not found/loaded. Even though Fluidbox work without it, the window resize event will fire extremely rapidly in browsers, resulting in significant degradation in performance upon viewport resize.');
 		}
 
 		// ---------------------------------------------------------------------------------------------------------------------- //

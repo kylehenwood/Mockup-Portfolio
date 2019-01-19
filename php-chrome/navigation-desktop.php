@@ -13,7 +13,7 @@
             <span class="navigation__item-line"></span>
           </a>
           <span class="navigation__space"></span>
-          <a class="navigation__item js-pjax-link <?php if ($navSelectedProjects) { echo'navigation__item--active';} ?>" activeClass="navigation__item--active" href="index.php?pageID=projects">
+          <a class="navigation__item js-pjax-link <?php if ($navSelectedProjects) { echo'navigation__item--active';} ?>" activeClass="navigation__item--active" href="index.php?pageID=work">
             <span class="navigation__item-text">Projects</span>
             <span class="navigation__item-line"></span>
           </a>

@@ -31,7 +31,7 @@
 //   // project.close.click(function(event){
 //   //   // project.open = false;
 //   //   // project.animate = true;
-//   //   // works.animate = true;
+//   //   // work.animate = true;
 //   // });
 //
 //   // Navigation background on scroll

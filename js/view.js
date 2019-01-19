@@ -21,17 +21,20 @@ function runView() {
 
 $(document).on('page_load',function(event){
 
+  console.log('---------');
   console.log('page-loaded');
-
 
   pjaxSetup();
 
+  const currentPage = $(pjaxContainer.current).find('.js-page-class').attr('page-id');
+  console.log('current-page: '+currentPage);
 
   // change the background-color of the page based on an inline script with color.
   layoutClass();
   // Run page specific JS
-  // -- God I hope this works.
-  switch(view.currentPage) {
+  // -- God I hope this work.
+  // switch(view.currentPage) {
+  switch(currentPage) {
     case 'gallery':
       hideNavigation(false);
       $(document).trigger('x');
@@ -44,11 +47,11 @@ $(document).on('page_load',function(event){
       hideNavigation(false);
       $(document).trigger('x');
       break;
-    case 'works-project':
+    case 'work-project':
       hideNavigation(true);
       $(document).trigger('x');
       break;
-    case 'works-project-standalone':
+    case 'work-project-standalone':
       hideNavigation(false);
       $(document).trigger('x');
       break;
@@ -65,7 +68,7 @@ $(document).on('page_load',function(event){
     default:
       // do nothing
   }
-  console.log('-----------');
+  console.log('---------');
 });
 
 
@@ -86,8 +89,7 @@ function hideNavigation(show) {
 // Sets the background color on page layout/body based on a variable set
 // by inline scripts on each page
 function layoutClass() {
-  console.log('layout-class: '+view.layoutClass);
-  console.log('current-page: '+view.curentPage);
+  //console.log('layout-class: '+view.layoutClass);
 
   if (view.layoutClass === 'layout--standard' || view.layoutClass === null) {
     view.layoutClass = '#424242';

@@ -12,7 +12,7 @@
   //include 'examples-studio.php';
   //include '/php-components/partial-quote.php';
 ?>
-<div class="about-page">
+<div class="about-page js-page-class" page-id="about">
 <div class="center center--1120">
   <!--
   Biography

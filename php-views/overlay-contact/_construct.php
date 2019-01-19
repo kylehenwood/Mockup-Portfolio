@@ -1,18 +1,4 @@
-<script data-exec-on-popstate>
-  // set view variables
-  view.layoutClass = 'layout--standard';
-  view.currentPage = 'contact';
-
-  runView();
-  // $(document).on('submit', 'js-pjax-form', function(event) {
-  //   console.log('form-submit');
-  //   event.preventDefault();
-  //   pjaxForm(event);
-  // });
-</script>
-
-
-<div class="page-contact js-post-container">
+<div class="page-contact js-page-class" page-id="contact">
   <div class="center center--640">
 
 

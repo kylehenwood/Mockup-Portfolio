@@ -1,4 +1,4 @@
-<div class="project project--standalone js-project-container">
+<div class="project project--standalone js-page-class" page-id="work-project-standalone">
 
 
 <?php

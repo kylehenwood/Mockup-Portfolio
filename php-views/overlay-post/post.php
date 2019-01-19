@@ -1,10 +1,3 @@
-<script>
-  // set view variables
-  view.layoutClass = 'layout--standard';
-  view.currentPage = 'gallery-post';
-  runView();
-</script>
-
 <?php
   if (isset($_GET['postID'])) {
     $postID = $_GET['postID'];
@@ -35,7 +28,7 @@
   }
 ?>
 
-<div class="post js-post-container">
+<div class="post js-post-container js-page-class" page-id="gallery-post">
   <div class="center center--1120">
 
     <div class="post__heading js-post-heading">

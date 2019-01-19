@@ -7,7 +7,7 @@ $galleryProjects = $_SESSION['projects'];
 foreach($galleryProjects as $project) {
 	$projectID = $project['id'];
 	$projectColor = "style=background-color:".$project['color'];
-	$projectURL = "index.php?pageID=projects&projectID=".$projectID;
+	$projectURL = "index.php?pageID=work&projectID=".$projectID;
 	$projectTitle = $project['cardTitle'];
 ?>
 

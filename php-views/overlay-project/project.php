@@ -1,4 +1,4 @@
-<div class="project js-project-container">
+<div class="project js-project-container js-page-class" page-id="work-project">
 
 <?php
   if (isset($_GET['projectID'])) {

@@ -1,9 +1,3 @@
-<script data-exec-on-popstate>
-  // set view variables
-  view.layoutClass = 'layout--standard';
-  view.currentPage = 'gallery-post-standalone';
-</script>
-
 <?php
   if (isset($_GET['postID'])) {
     $postID = $_GET['postID'];
@@ -27,7 +21,7 @@
   }
 ?>
 
-<div class="post post--standalone">
+<div class="post post--standalone js-page-class" page-id="gallery-post">
   <div class="center center--1120">
 
     <!-- heading-->

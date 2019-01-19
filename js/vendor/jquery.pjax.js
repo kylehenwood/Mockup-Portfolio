@@ -148,7 +148,7 @@ function handleSubmit(event, container, options) {
 // Loads a URL with ajax, puts the response body inside a container,
 // then pushState()'s the loaded URL.
 //
-// Works just like $.ajax in that it accepts a jQuery ajax
+// work just like $.ajax in that it accepts a jQuery ajax
 // settings object (with keys like url, type, data, etc).
 //
 // Accepts these extra keys:

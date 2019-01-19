@@ -29,7 +29,7 @@ function displayContent()	{
       }
       break;
 
-      case $pageName == 'projects';
+      case $pageName == 'work';
       if (isset($_GET['projectID'])) {
         $projectID = $_GET['projectID'];
         $title = 'KH - '.$_GET['projectID'];
@@ -37,7 +37,7 @@ function displayContent()	{
         $projectStandalone = setContent('./php-views/overlay-project/project-standalone.php');
       } else {
         $title = 'KH - Projects';
-        $content = setContent('./php-views/page-works/_construct.php');
+        $content = setContent('./php-views/page-work/_construct.php');
       }
       break;
 

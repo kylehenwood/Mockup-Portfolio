@@ -33,10 +33,10 @@ function pjaxBind() {
     pjaxTransition();
 
     //load scripts on current page
-    $(pjaxContainer.current).find("script[data-exec-on-popstate]").each(function() {
-      $.globalEval(this.text || this.textContent || this.innerHTML || '');
-      console.log('running scripts on '+pjaxContainer.current);
-    });
+    // $(pjaxContainer.current).find("script[data-exec-on-popstate]").each(function() {
+    //   $.globalEval(this.text || this.textContent || this.innerHTML || '');
+    //   //console.log('running scripts on '+pjaxContainer.current);
+    // });
   });
 
   // run page load on both pop and success from pjax

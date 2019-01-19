@@ -23,7 +23,7 @@
 
 	<!-- components -->
 	<script type="text/javascript" src="js/views/_gallery.js"></script>
-	<script type="text/javascript" src="js/views/_works.js"></script>
+	<script type="text/javascript" src="js/views/_work.js"></script>
 	<script type="text/javascript" src="js/views/_post.js"></script>
 	<script type="text/javascript" src="js/views/_project.js"></script>
 

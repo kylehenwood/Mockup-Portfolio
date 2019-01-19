@@ -3,14 +3,6 @@
   $projectColor = '#3D325A';
 ?>
 
-<script>
-  view.layoutClass = '<?php echo($projectColor) ?>';
-  view.currentPage = 'works-project';
-  runView();
-</script>
-
-
-
 <?php
 
 include './_templates/_project-navigation.php';
