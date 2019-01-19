@@ -13,7 +13,7 @@ let pjaxContainer = {
 // Stops from scrolling to top when clicking gallery items
 $.pjax.defaults.scrollTo = true; //true;
 // Make sure pjax is used for "OK" connections
-$.pjax.defaults.timeout = 4000;
+$.pjax.defaults.timeout = 2000;
 // Set cache to 0, otherwise PJAX will remember the state of the previous action
 // -- setting to 1 allows the cache to remember the scroll position of the window.
 $.pjax.defaults.maxCacheLength = 1;
@@ -28,19 +28,14 @@ function pjaxBind() {
 
   // on popstate make sure the inline scripts are ran
   $(window).on('popstate',function(event){
-    //console.log('pjax-popstate');
+    console.log('pjax-popstate');
 
     pjaxTransition();
-
-    //load scripts on current page
-    // $(pjaxContainer.current).find("script[data-exec-on-popstate]").each(function() {
-    //   $.globalEval(this.text || this.textContent || this.innerHTML || '');
-    //   //console.log('running scripts on '+pjaxContainer.current);
-    // });
+    $(document).trigger('page_load');
   });
 
   // run page load on both pop and success from pjax
-  $(document).on('popstate pjax:success',function() {
+  $(document).on('pjax:success',function() {
     $(document).trigger('page_load');
   });
 }
