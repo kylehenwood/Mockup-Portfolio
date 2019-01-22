@@ -15,6 +15,7 @@ html {
   min-height: 100%;
   background: $color-grey-800;
   transition: ease-out 400ms background;
+  //padding: 0 4px;
 }
 
 
@@ -26,7 +27,7 @@ html {
   left: 0;
   width: 100%;
   padding: 0 24px;
-  background: rgba($color-grey-900,0.1);
+  background: rgb(62, 62, 62);
   transition: all 400ms ease-in-out;
   @include screen-med {
     padding: 0 16px;

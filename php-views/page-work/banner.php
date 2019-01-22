@@ -4,7 +4,7 @@
 
     <div class="works-banner">
 			<div class="works-banner__heading">
-				<div class="anim--in-right anim--delay-240">
+				<div class="js-anim-z1">
 					<h1 class="heading-1 text-white">Projects I've worked on.</h1>
 				</div>
 			</div>

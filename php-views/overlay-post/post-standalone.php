@@ -21,7 +21,7 @@
   }
 ?>
 
-<div class="post post--standalone js-page-class" page-id="gallery-post">
+<div class="post post--standalone js-page-class" page-id="gallery-post-standalone">
   <div class="center center--1120">
 
     <!-- heading-->

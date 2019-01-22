@@ -20,8 +20,7 @@
 
 
 .project__navigation {
-  //position: fixed;
-  position: absolute;
+  position: fixed;
   z-index: 1000;
   top: 0;
   left: 0;
@@ -84,6 +83,9 @@
 .project__description {
   padding: 24px 0;
   background: $color-grey-200;
+  @include screen-med {
+    padding: 0;
+  }
 }
 
 // Project Navigation

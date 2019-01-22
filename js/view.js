@@ -30,6 +30,11 @@ $(document).on('page_load',function(event){
       hideNavigation(true);
       $(document).trigger('x');
       break;
+    case 'gallery-post-standalone':
+      view.layoutColor = '#424242';
+      hideNavigation(false);
+      $(document).trigger('x');
+      break;
     case 'work':
       view.layoutColor = '#424242';
       hideNavigation(false);
@@ -97,14 +102,33 @@ function findProject() {
       view.layoutColor = '#424242';
       // do nothing
   }
+
+  // project button test
+  var button = $(pjaxContainer.current).find('.js-project-back');
+
+  button.attr({
+    'sl-scroll': scrollLock.offset
+  });
+  scrollLock.offset = null;
+
+  button.click(function(){
+    scrollLock.scrollTo = button.attr('sl-scroll');
+    scrollTo();
+  });
+
 }
 
 // Hide Navigation
 function hideNavigation(show) {
   //alert(show);
   if (show === true) {
-    layout.navigation.addClass('layout__header--hidden');
+    layout.navigation.addClass('anim--out-y1');
   } else {
-    layout.navigation.removeClass('layout__header--hidden');
+    layout.navigation.addClass('anim--in-y1');
   }
+
+  // remove animation classes
+  layout.navigation.one(animationEvent,function(){
+    $(this).removeClass('anim--in-y1 anim--out-y1');
+  });
 }

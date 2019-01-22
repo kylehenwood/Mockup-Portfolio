@@ -118,30 +118,41 @@ function transitionAnimation(containerIn,containerOut) {
   scrollElementLock(containerOut);
   scrollElement(containerIn);
 
+
+
   if (pjaxContainer.isAnimating === false) {
     pjaxContainer.isAnimating = true;
-    containerIn.css({
-      'opacity':0
-    });
-    containerOut.addClass('anim--out-left');
+    // containerIn.css({
+    //   'opacity':0
+    // });
+
+    contentOut(containerOut);
+
+    containerOut.addClass('anim--fade-out');
     containerOut.one(animationEvent,function(){
       if (pjaxContainer.isAnimating === true) {
-        containerOut.removeClass('anim--out-left');
+        containerOut.removeClass('anim--fade-out');
         containerOut.hide();
+        //containerOut.html('');
         containerOut.unbind();
+        contentStopAnimation();
         containerIntro(containerIn);
       }
     });
   } else {
+
+    contentStopAnimation();
+
     pjaxContainer.isAnimating = false;
 
-    containerOut.removeClass('anim--out-left');
-    containerOut.removeClass('anim--in-right');
+    containerOut.removeClass('anim--fade-out');
+    containerOut.removeClass('anim--fade-in');
+    //containerOut.html('');
     containerOut.hide();
     containerOut.unbind();
 
-    containerIn.removeClass('anim--out-left');
-    containerIn.removeClass('anim--in-right');
+    containerIn.removeClass('anim--fade-out');
+    containerIn.removeClass('anim--fade-in');
     containerIn.css({
       'opacity':1
     });
@@ -151,18 +162,21 @@ function transitionAnimation(containerIn,containerOut) {
 
 // animate X container into viewport
 function containerIntro(containerIn) {
-  containerIn.css({
-    'opacity':1
-  });
+  // containerIn.css({
+  //   'opacity':1
+  // });
   // Animate new page in
-  containerIn.addClass('anim--in-right');
+
+  contentIn (containerIn);
+
+  containerIn.addClass('anim--fade-in');
   containerIn.one(animationEvent,function(event){
 
     // if event was triggered by container
     // -- unbind event listener
     // -- proceed
     // console.log(containerIn);
-    containerIn.removeClass('anim--in-right');
+    containerIn.removeClass('anim--fade-in');
     pjaxContainer.isAnimating = false;
   });
 }
@@ -181,4 +195,111 @@ function pjaxDelay(url) {
 // -- submit a form using pjax
 function pjaxForm(event) {
   $.pjax.submit(event, pjaxContainer.current);
+}
+
+
+
+
+
+
+// Animation Controller
+// -- animate sections of content in
+function contentIn(container,direction) {
+  alert('content--in');
+  const z1 = container.find('.js-z1');
+  const z2 = container.find('.js-z2');
+  const z3 = container.find('.js-z3');
+  const z4 = container.find('.js-z4');
+  const z5 = container.find('.js-z5');
+
+  if (direction === 'vertical') {
+    z1.addClass('anim--in-y1');
+    z2.addClass('anim--in-y2');
+    z3.addClass('anim--in-y3');
+    z4.addClass('anim--in-y4');
+    z5.addClass('anim--in-y5');
+  } else {
+    z1.addClass('anim--in-z1');
+    z2.addClass('anim--in-z2');
+    z3.addClass('anim--in-z3');
+    z4.addClass('anim--in-z4');
+    z5.addClass('anim--in-z5');
+  }
+
+  // remove animation classes
+  // -- forseeable issue with caching on next/previous quick clicks.
+  // -- eg adding in a page thats animating out
+  z1.one(animationEvent,function(){
+    z1.removeClass('anim--in-y1 anim--in-z1');
+  });
+  z2.one(animationEvent,function(){
+    z2.removeClass('anim--in-y2 anim--in-z2');
+  });
+  z3.one(animationEvent,function(){
+    z3.removeClass('anim--in-y3 anim--in-z3');
+  });
+  z4.one(animationEvent,function(){
+    z4.removeClass('anim--in-y5 anim--in-z5');
+  });
+  z5.one(animationEvent,function(){
+    z5.removeClass('anim--in-y5 anim--in-z5');
+  });
+}
+
+// -- animate sections of content out
+function contentOut(container,direction) {
+  alert('content--out');
+  const z1 = container.find('.js-z1');
+  const z2 = container.find('.js-z2');
+  const z3 = container.find('.js-z3');
+  const z4 = container.find('.js-z4');
+  const z5 = container.find('.js-z5');
+
+  if (direction === 'vertical') {
+    z1.addClass('anim--out-y1');
+    z2.addClass('anim--out-y2');
+    z3.addClass('anim--out-y3');
+    z4.addClass('anim--out-y4');
+    z5.addClass('anim--out-y5');
+  } else {
+    z1.addClass('anim--out-z1');
+    z2.addClass('anim--out-z2');
+    z3.addClass('anim--out-z3');
+    z4.addClass('anim--out-z4');
+    z5.addClass('anim--out-z5');
+  }
+
+  // remove animation classes
+  // -- forseeable issue with caching on next/previous quick clicks.
+  // -- eg adding in a page thats animating out
+  z1.one(animationEvent,function(){
+    z1.removeClass('anim--out-y1 anim--out-z1');
+  });
+  z2.one(animationEvent,function(){
+    z2.removeClass('anim--out-y2 anim--out-z2');
+  });
+  z3.one(animationEvent,function(){
+    z3.removeClass('anim--out-y3 anim--out-z3');
+  });
+  z4.one(animationEvent,function(){
+    z4.removeClass('anim--out-y5 anim--out-z5');
+  });
+  z5.one(animationEvent,function(){
+    z5.removeClass('anim--out-y5 anim--out-z5');
+  });
+}
+
+// remove all z-animation classes in the DOM
+function contentStopAnimation() {
+  // const z1 = $('.js-z1');
+  // const z2 = $('.js-z2');
+  // const z3 = $('.js-z3');
+  // const z4 = $('.js-z4');
+  // const z5 = $('.js-z5');
+  //
+  // z1.removeClass('anim--out-y1 anim--out-z1 anim--in-y1 anim--in-z1');
+  // z2.removeClass('anim--out-y2 anim--out-z2 anim--in-y2 anim--in-z2');
+  // z3.removeClass('anim--out-y3 anim--out-z3 anim--in-y3 anim--in-z3');
+  // z4.removeClass('anim--out-y4 anim--out-z4 anim--in-y4 anim--in-z4');
+  // z5.removeClass('anim--out-y5 anim--out-z5 anim--in-y5 anim--in-z5');
 }

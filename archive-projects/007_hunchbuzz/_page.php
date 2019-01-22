@@ -11,6 +11,7 @@
   echo '<div class="project__container--animate">';
   include './_templates/_project-description.php';
   include './_templates/_project-gallery.php';
+  include './_templates/_project-showcase.php';
   echo '</div>';
 ?>
 

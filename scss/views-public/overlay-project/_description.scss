@@ -11,7 +11,7 @@
   margin: -120px 0 0 0;
   @include screen-med {
     flex-direction: column;
-    margin: 0 -24px 40px;
+    margin: 0;
     border-radius: 0;
     box-shadow: none;
     padding: 40px 24px;
@@ -30,5 +30,6 @@
   width: 400px;
   @include screen-med {
     width: 100%;
+    margin: 0 ;
   }
 }

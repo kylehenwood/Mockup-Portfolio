@@ -2,6 +2,11 @@
 // but still allow the element passed to be scrollable.
 //
 
+var scrollLock = {
+  offset: null,
+  scrollTo: null
+}
+
 // Lock element scroll
 function scrollElementLock(element,inherit) {
 
@@ -10,7 +15,7 @@ function scrollElementLock(element,inherit) {
   //Fixed element
   element.css({
     'position':'fixed',
-    'z-index':50,
+    'z-index':55,
     'top': (scrollOffset*-1)
 
   });
@@ -18,10 +23,12 @@ function scrollElementLock(element,inherit) {
     'sl-offset':scrollOffset
   });
 
+  scrollLock.offset = scrollOffset;
+
   //console.log(scrollOffset)
   //if (inherit === true) {
-  layout.html.scrollTop(0);
-  layout.body.scrollTop(0);
+  // layout.html.scrollTop(0);
+  // layout.body.scrollTop(0);
   // } else {
   //   layout.html.scrollTop(scrollOffset);
   //   layout.body.scrollTop(scrollOffset);
@@ -41,17 +48,17 @@ function scrollElement(element,inherit) {
   element.css({
     'display': 'block',
     'position':'relative',
-    'z-index':55,
+    'z-index':50,
     'top':0
   });
 
-  //console.log(scrollPreset);
-
-  //if (inherit === false) {
   layout.html.scrollTop(0);
   layout.body.scrollTop(0);
-  // } else {
-  //   layout.html.scrollTop(scrollPreset);
-  //   layout.body.scrollTop(scrollPreset);
-  // }
+
+}
+
+
+function scrollTo() {
+  layout.html.scrollTop(scrollLock.scrollTo);
+  layout.body.scrollTop(scrollLock.scrollTo);
 }
