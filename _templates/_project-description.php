@@ -2,7 +2,7 @@
 
   <div class="center center--1120">
 
-    <div class="project-description">
+    <div class="project-description js-anim-z1">
       <div class="project-description__about">
         <div class="typography">
           <h4>About this project.</h4>

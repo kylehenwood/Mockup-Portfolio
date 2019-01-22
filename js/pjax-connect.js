@@ -4,6 +4,7 @@ let pjaxContainer = {
   primary: '#js-pjax-content-1',
   secondary: '#js-pjax-content-2',
   current: '#js-pjax-content-1',
+  direction: 'horizontal'
 }
 
 
@@ -16,7 +17,7 @@ $.pjax.defaults.scrollTo = true; //true;
 $.pjax.defaults.timeout = 2000;
 // Set cache to 0, otherwise PJAX will remember the state of the previous action
 // -- setting to 1 allows the cache to remember the scroll position of the window.
-$.pjax.defaults.maxCacheLength = 1;
+$.pjax.defaults.maxCacheLength = 0;
 
 
 // bind pjax events
@@ -122,18 +123,19 @@ function transitionAnimation(containerIn,containerOut) {
 
   if (pjaxContainer.isAnimating === false) {
     pjaxContainer.isAnimating = true;
-    // containerIn.css({
-    //   'opacity':0
-    // });
+    containerIn.css({
+      'opacity':0
+    });
 
-    contentOut(containerOut);
+    setTimeout(function(){
+      contentOut(containerOut);
+    },1);
 
     containerOut.addClass('anim--fade-out');
     containerOut.one(animationEvent,function(){
       if (pjaxContainer.isAnimating === true) {
         containerOut.removeClass('anim--fade-out');
         containerOut.hide();
-        //containerOut.html('');
         containerOut.unbind();
         contentStopAnimation();
         containerIntro(containerIn);
@@ -162,13 +164,13 @@ function transitionAnimation(containerIn,containerOut) {
 
 // animate X container into viewport
 function containerIntro(containerIn) {
-  // containerIn.css({
-  //   'opacity':1
-  // });
+  containerIn.css({
+    'opacity':1
+  });
   // Animate new page in
-
-  contentIn (containerIn);
-
+  setTimeout(function(){
+    contentIn(containerIn);
+  },1);
   containerIn.addClass('anim--fade-in');
   containerIn.one(animationEvent,function(event){
 
@@ -205,12 +207,15 @@ function pjaxForm(event) {
 // Animation Controller
 // -- animate sections of content in
 function contentIn(container,direction) {
-  alert('content--in');
-  const z1 = container.find('.js-z1');
-  const z2 = container.find('.js-z2');
-  const z3 = container.find('.js-z3');
-  const z4 = container.find('.js-z4');
-  const z5 = container.find('.js-z5');
+  console.log('content--in');
+  const z1 = container.find('.js-anim-z1');
+  const z2 = container.find('.js-anim-z2');
+  const z3 = container.find('.js-anim-z3');
+  const z4 = container.find('.js-anim-z4');
+  const z5 = container.find('.js-anim-z5');
+
+  var direction = 'vertical';
+  z5.attr({'found':'yep'});
 
   if (direction === 'vertical') {
     z1.addClass('anim--in-y1');
@@ -248,12 +253,14 @@ function contentIn(container,direction) {
 
 // -- animate sections of content out
 function contentOut(container,direction) {
-  alert('content--out');
-  const z1 = container.find('.js-z1');
-  const z2 = container.find('.js-z2');
-  const z3 = container.find('.js-z3');
-  const z4 = container.find('.js-z4');
-  const z5 = container.find('.js-z5');
+  console.log('content--out');
+  const z1 = container.find('.js-anim-z1');
+  const z2 = container.find('.js-anim-z2');
+  const z3 = container.find('.js-anim-z3');
+  const z4 = container.find('.js-anim-z4');
+  const z5 = container.find('.js-anim-z5');
+
+  var direction = 'vertical';
 
   if (direction === 'vertical') {
     z1.addClass('anim--out-y1');
@@ -291,11 +298,11 @@ function contentOut(container,direction) {
 
 // remove all z-animation classes in the DOM
 function contentStopAnimation() {
-  // const z1 = $('.js-z1');
-  // const z2 = $('.js-z2');
-  // const z3 = $('.js-z3');
-  // const z4 = $('.js-z4');
-  // const z5 = $('.js-z5');
+  // const z1 = $('.js-anim-z1');
+  // const z2 = $('.js-anim-z2');
+  // const z3 = $('.js-anim-z3');
+  // const z4 = $('.js-anim-z4');
+  // const z5 = $('.js-anim-z5');
   //
   // z1.removeClass('anim--out-y1 anim--out-z1 anim--in-y1 anim--in-z1');
   // z2.removeClass('anim--out-y2 anim--out-z2 anim--in-y2 anim--in-z2');

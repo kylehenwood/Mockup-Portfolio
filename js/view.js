@@ -11,11 +11,6 @@ $(document).on('page_load',function(event){
   console.log('---------');
   console.log('page-loaded');
 
-  pjaxSetup();
-
-  const currentPage = $(pjaxContainer.current).find('.js-page-class').attr('page-id');
-  console.log('current-page: '+currentPage);
-
   // Run page specific JS
   // -- God I hope this work.
   // switch(view.currentPage) {
@@ -61,6 +56,11 @@ $(document).on('page_load',function(event){
       // do nothing
   }
 
+  pjaxSetup();
+
+  const currentPage = $(pjaxContainer.current).find('.js-page-class').attr('page-id');
+  console.log('current-page: '+currentPage);
+  
   // Sets the background color on page layout/body
   layout.body.css({'background':view.layoutColor});
 

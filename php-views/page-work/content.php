@@ -1,6 +1,6 @@
 <div class="page__section">
 	<div class="center center--1120">
-    <ul class="project-grid clearfix js-project-grid js-anim-z5">
+    <ul class="project-grid clearfix js-project-grid js-anim-z4">
 
 <?php
 $galleryProjects = $_SESSION['projects'];
@@ -13,49 +13,14 @@ foreach($galleryProjects as $project) {
 
 <li class="project-grid__item" id="project-<?php echo($projectID) ?>">
 	<a class="project-card js-project-card js-pjax-link-delay" href="<?php echo($projectURL) ?>" <?php echo($projectColor); ?>>
-		<div class="project-card__title anim--in-z1"><?php echo($projectTitle); ?></div>
+		<div class="project-card__title js-anim-z1"><?php echo($projectTitle); ?></div>
 	</a>
 </li>
 
 <?php
 }
 ?>
-<?php
-$galleryProjects = $_SESSION['projects'];
-foreach($galleryProjects as $project) {
-	$projectID = $project['id'];
-	$projectColor = "style=background-color:".$project['color'];
-	$projectURL = "index.php?pageID=work&projectID=".$projectID;
-	$projectTitle = $project['cardTitle'];
-?>
 
-<li class="project-grid__item" id="project-<?php echo($projectID) ?>">
-	<a class="project-card js-project-card js-pjax-link-delay" href="<?php echo($projectURL) ?>" <?php echo($projectColor); ?>>
-		<div class="project-card__title anim--in-z1"><?php echo($projectTitle); ?></div>
-	</a>
-</li>
-
-<?php
-}
-?>
-<?php
-$galleryProjects = $_SESSION['projects'];
-foreach($galleryProjects as $project) {
-	$projectID = $project['id'];
-	$projectColor = "style=background-color:".$project['color'];
-	$projectURL = "index.php?pageID=work&projectID=".$projectID;
-	$projectTitle = $project['cardTitle'];
-?>
-
-<li class="project-grid__item" id="project-<?php echo($projectID) ?>">
-	<a class="project-card js-project-card js-pjax-link-delay" href="<?php echo($projectURL) ?>" <?php echo($projectColor); ?>>
-		<div class="project-card__title anim--in-z1"><?php echo($projectTitle); ?></div>
-	</a>
-</li>
-
-<?php
-}
-?>
 		</ul>
   </div>
 </div>
