@@ -2441,7 +2441,7 @@ textarea:disabled:active {
 @keyframes fade-in {
   000% {
     opacity: 0; }
-  020% {
+  080% {
     opacity: 1; }
   100% {
     opacity: 1; } }
