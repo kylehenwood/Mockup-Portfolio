@@ -2441,7 +2441,7 @@ textarea:disabled:active {
 @keyframes fade-in {
   000% {
     opacity: 0; }
-  040% {
+  020% {
     opacity: 1; }
   100% {
     opacity: 1; } }
@@ -2456,7 +2456,7 @@ textarea:disabled:active {
 @keyframes fade-out {
   000% {
     opacity: 1; }
-  040% {
+  020% {
     opacity: 1; }
   100% {
     opacity: 0; } }

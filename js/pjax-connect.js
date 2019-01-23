@@ -4,7 +4,6 @@ let pjaxContainer = {
   primary: '#js-pjax-content-1',
   secondary: '#js-pjax-content-2',
   current: '#js-pjax-content-1',
-  direction: 'horizontal'
 }
 
 
@@ -119,17 +118,13 @@ function transitionAnimation(containerIn,containerOut) {
   scrollElementLock(containerOut);
   scrollElement(containerIn);
 
-
-
   if (pjaxContainer.isAnimating === false) {
     pjaxContainer.isAnimating = true;
     containerIn.css({
       'opacity':0
     });
 
-    setTimeout(function(){
-      contentOut(containerOut);
-    },1);
+    contentOut(containerOut);
 
     containerOut.addClass('anim--fade-out');
     containerOut.one(animationEvent,function(){
@@ -168,9 +163,8 @@ function containerIntro(containerIn) {
     'opacity':1
   });
   // Animate new page in
-  setTimeout(function(){
-    contentIn(containerIn);
-  },1);
+  contentIn(containerIn);
+
   containerIn.addClass('anim--fade-in');
   containerIn.one(animationEvent,function(event){
 
@@ -214,8 +208,8 @@ function contentIn(container,direction) {
   const z4 = container.find('.js-anim-z4');
   const z5 = container.find('.js-anim-z5');
 
-  var direction = 'vertical';
-  z5.attr({'found':'yep'});
+  //var direction = 'vertical';
+  //z5.attr({'found':'yep'});
 
   if (direction === 'vertical') {
     z1.addClass('anim--in-y1');
@@ -260,7 +254,7 @@ function contentOut(container,direction) {
   const z4 = container.find('.js-anim-z4');
   const z5 = container.find('.js-anim-z5');
 
-  var direction = 'vertical';
+  //var direction = 'vertical';
 
   if (direction === 'vertical') {
     z1.addClass('anim--out-y1');
