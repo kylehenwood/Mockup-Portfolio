@@ -119,17 +119,26 @@ function findProject() {
 
 }
 
+// // Hide Navigation
+// function hideNavigation(show) {
+//   //alert(show);
+//   if (show === true) {
+//     layout.navigation.addClass('anim--in-y1');
+//   } else {
+//     layout.navigation.addClass('anim--out-y1');
+//   }
+//
+//   // remove animation classes
+//   layout.navigation.one(animationEvent,function(){
+//     $(this).removeClass('anim--in-y1 anim--out-y1');
+//   });
+// }
 // Hide Navigation
 function hideNavigation(show) {
   //alert(show);
   if (show === true) {
-    layout.navigation.addClass('anim--in-y1');
+    layout.navigation.addClass('layout__header--hidden');
   } else {
-    layout.navigation.addClass('anim--out-y1');
+    layout.navigation.removeClass('layout__header--hidden');
   }
-
-  // remove animation classes
-  layout.navigation.one(animationEvent,function(){
-    $(this).removeClass('anim--in-y1 anim--out-y1');
-  });
 }

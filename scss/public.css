@@ -624,7 +624,8 @@ html {
       padding: 0 16px; } }
 
 .layout__header--hidden {
-  transform: translateY(-100%); }
+  transform: translateY(-100%);
+  opacity: 0; }
 
 .layout__content {
   width: 100%; }

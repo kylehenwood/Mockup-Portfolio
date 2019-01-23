@@ -1,10 +1,14 @@
 <div class="layout__header js-layout-header">
 
+  <div class="center center--1120">
+
     <div class="header">
       <div class="header__logo">
         <!--<a class="logo js-pjax-link <?php if ($navSelectedGallery) { echo'logo--active';} ?>" data-pjax="js-pjax-link" activeClass="logo--active" href="index.php"></a> -->
 
-        <a class="logo"></a>
+        <a class="logo">
+          <!-- Kyle Henwood -->
+        </a>
       </div>
       <div class="header__navigation">
         <div class="navigation">
@@ -46,6 +50,6 @@
       <!-- account button -->
     </div>
 
-
+  </div>
 
 </div>

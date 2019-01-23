@@ -16,7 +16,7 @@ $.pjax.defaults.scrollTo = true; //true;
 $.pjax.defaults.timeout = 2000;
 // Set cache to 0, otherwise PJAX will remember the state of the previous action
 // -- setting to 1 allows the cache to remember the scroll position of the window.
-$.pjax.defaults.maxCacheLength = 0;
+$.pjax.defaults.maxCacheLength = 1;
 
 
 // bind pjax events
@@ -31,6 +31,7 @@ function pjaxBind() {
     console.log('pjax-popstate');
 
     pjaxTransition();
+    contentStopAnimation();
     $(document).trigger('page_load');
   });
 
@@ -292,15 +293,15 @@ function contentOut(container,direction) {
 
 // remove all z-animation classes in the DOM
 function contentStopAnimation() {
-  // const z1 = $('.js-anim-z1');
-  // const z2 = $('.js-anim-z2');
-  // const z3 = $('.js-anim-z3');
-  // const z4 = $('.js-anim-z4');
-  // const z5 = $('.js-anim-z5');
-  //
-  // z1.removeClass('anim--out-y1 anim--out-z1 anim--in-y1 anim--in-z1');
-  // z2.removeClass('anim--out-y2 anim--out-z2 anim--in-y2 anim--in-z2');
-  // z3.removeClass('anim--out-y3 anim--out-z3 anim--in-y3 anim--in-z3');
-  // z4.removeClass('anim--out-y4 anim--out-z4 anim--in-y4 anim--in-z4');
-  // z5.removeClass('anim--out-y5 anim--out-z5 anim--in-y5 anim--in-z5');
+  const z1 = $('.js-anim-z1');
+  const z2 = $('.js-anim-z2');
+  const z3 = $('.js-anim-z3');
+  const z4 = $('.js-anim-z4');
+  const z5 = $('.js-anim-z5');
+
+  z1.removeClass('anim--out-y1 anim--out-z1 anim--in-y1 anim--in-z1');
+  z2.removeClass('anim--out-y2 anim--out-z2 anim--in-y2 anim--in-z2');
+  z3.removeClass('anim--out-y3 anim--out-z3 anim--in-y3 anim--in-z3');
+  z4.removeClass('anim--out-y4 anim--out-z4 anim--in-y4 anim--in-z4');
+  z5.removeClass('anim--out-y5 anim--out-z5 anim--in-y5 anim--in-z5');
 }
