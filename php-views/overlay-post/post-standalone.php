@@ -25,7 +25,7 @@
   <div class="center center--1120">
 
     <!-- heading-->
-    <div class="post__heading js-post-heading">
+    <div class="post__heading js-post-heading js-anim-z1">
       <div class="post-heading">
         <h2 class="post-heading__title">
           <?php echo($postTitle); ?>
@@ -34,12 +34,12 @@
     </div>
 
     <!-- image -->
-    <div class="post__image js-post-image">
+    <div class="post__image js-post-image js-anim-z3">
       <div class="post-image-placeholder" <?php echo $postColor ?> ></div>
     </div>
 
     <!-- description -->
-    <div class="post__description js-post-description">
+    <div class="post__description js-post-description js-anim-z1">
       <div class="typography typography--on-dark">
       <?php echo($postDescription) ?>
       </div>

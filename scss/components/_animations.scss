@@ -266,8 +266,8 @@ $animation-speed: 240ms;
 
 
 // z-index animations
-$zbase: 40px;
-$zduration: 400ms;
+$zbase: 24px;
+$zduration: 320ms;
 $z1: 1;
 $z2: 1.6;
 $z3: 2.2;
@@ -436,214 +436,48 @@ $z5: 3.4;
   }
 }
 
-// ----
-// Vertical transition
-// ----
-// -- IN
-// 1
-.anim--in-y1 {
-  animation-name: in-y1;
-  animation-duration: $zduration;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-}
-@keyframes in-y1 {
-  000% {
-    transform: translateY($zbase*$z1);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-// 2
-.anim--in-y2 {
-  animation-name: in-y2;
-  animation-duration: $zduration;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-}
-@keyframes in-y2 {
-  000% {
-    transform: translateY($zbase*$z2);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-// 3
-.anim--in-y3 {
-  animation-name: in-y3;
-  animation-duration: $zduration;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-}
-@keyframes in-y3 {
-  000% {
-    transform: translateY($zbase*$z3);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-// 4
-.anim--in-y4 {
-  animation-name: in-y4;
-  animation-duration: $zduration;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-}
-@keyframes in-y4 {
-  000% {
-    transform: translateY($zbase*$z4);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-// 5
-.anim--in-y5 {
-  animation-name: in-y5;
-  animation-duration: $zduration;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-}
-@keyframes in-y5 {
-  000% {
-    transform: translateY($zbase*$z5);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-// -- OUT
-// 1
-.anim--out-y1 {
-  animation-name: out-y1;
-  animation-duration: $zduration;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
-}
-@keyframes out-y1 {
-  000% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-$zbase*$z1);
-  }
-}
-
-// 2
-.anim--out-y2 {
-  animation-name: out-y2;
-  animation-duration: $zduration;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
-}
-@keyframes out-y2 {
-  000% {
-    transform: translateY(0)
-  }
-  100% {
-    transform: translateY(-$zbase*$z2);
-  }
-}
-
-// 3
-.anim--out-y3 {
-  animation-name: out-y3;
-  animation-duration: $zduration;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
-}
-@keyframes out-y3 {
-  000% {
-    transform: translateY(0)
-  }
-  100% {
-    transform: translateY(-$zbase*$z3);
-  }
-}
-
-// 4
-.anim--out-y4 {
-  animation-name: out-y4;
-  animation-duration: $zduration;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
-}
-@keyframes out-y4 {
-  000% {
-    transform: translateY(0)
-  }
-  100% {
-    transform: translateY(-$zbase*$z4);
-  }
-}
-
-// 5
-.anim--out-y5 {
-  animation-name: out-z5;
-  animation-duration: $zduration;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
-}
-@keyframes out-y5 {
-  000% {
-    transform: translateY(0)
-  }
-  100% {
-    transform: translateY(-$zbase*$z5);
-  }
-}
-
-
-
-
-
-
 
 // fade
-.anim--fade-in {
+.anim--page-in {
   opacity: 0;
-  animation-name: fade-in;
+  animation-name: page-in;
   animation-duration: $zduration;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }
-@keyframes fade-in {
+@keyframes page-in {
   000% {
     opacity: 0;
+    transform: translateX(40px);
   }
   080% {
     opacity: 1;
   }
   100% {
     opacity: 1;
+    transform: translateX(0);
   }
 }
 
 
 // fade
-.anim--fade-out {
+.anim--page-out {
   opacity: 1;
-  animation-name: fade-out;
+  animation-name: page-out;
   animation-duration: $zduration;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
 }
-@keyframes fade-out {
+@keyframes page-out {
   000% {
     opacity: 1;
+    transform: translateX(0);
   }
   020% {
     opacity: 1;
   }
   100% {
     opacity: 0;
+    transform: translateX(-40px);
   }
 }

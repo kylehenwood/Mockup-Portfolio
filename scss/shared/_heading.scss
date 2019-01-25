@@ -4,7 +4,7 @@
 
 // Heading styles
 .heading-1 {
-  font-size: 40px;
+  font-size: 56px;
   font-weight: 800;
   font-family: $font-family-heading;
   line-height: 1.2;
@@ -18,7 +18,7 @@
 }
 
 .heading-2 {
-  font-size: 32px;
+  font-size: 40px;
   font-weight: bold;
   font-family: $font-family-heading;
   line-height: 1.2;
@@ -31,7 +31,7 @@
 }
 
 .heading-3 {
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
   font-family: $font-family-heading;
   line-height: 1.4;
@@ -40,7 +40,7 @@
   }
 }
 .heading-4 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 1.4;
   @include screen-mob {

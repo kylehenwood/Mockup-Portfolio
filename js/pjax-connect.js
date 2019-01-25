@@ -30,6 +30,8 @@ function pjaxBind() {
   $(window).on('popstate',function(event){
     console.log('pjax-popstate');
 
+    pjaxContainer.isAnimating = true;
+
     pjaxTransition();
     contentStopAnimation();
     $(document).trigger('page_load');
@@ -93,21 +95,25 @@ function pjaxSetup() {
 
 // alternate pjax load containers on page loads
 function pjaxTransition() {
+  let containerIn;
+  let containerOut;
 
   // decide which container to place content into
   // -- then trigger the animation in
   if (pjaxContainer.current === pjaxContainer.secondary) {
     pjaxContainer.current = pjaxContainer.primary;
-    const containerIn = $('#js-pjax-content-1');
-    const containerOut = $('#js-pjax-content-2');
-    transitionAnimation(containerIn,containerOut)
+    containerIn = $('#js-pjax-content-1');
+    containerOut = $('#js-pjax-content-2');
 
   } else {
     pjaxContainer.current = pjaxContainer.secondary;
-    const containerIn = $('#js-pjax-content-2');
-    const containerOut = $('#js-pjax-content-1');
-    transitionAnimation(containerIn,containerOut)
+    containerIn = $('#js-pjax-content-2');
+    containerOut = $('#js-pjax-content-1');
   }
+
+  // setTimeout(function(){
+    transitionAnimation(containerIn,containerOut);
+  // },200);
   //console.log('container-in is '+pjaxContainer.current);
 }
 
@@ -127,30 +133,34 @@ function transitionAnimation(containerIn,containerOut) {
 
     contentOut(containerOut);
 
-    containerOut.addClass('anim--fade-out');
+    containerOut.addClass('anim--page-out');
     containerOut.one(animationEvent,function(){
       if (pjaxContainer.isAnimating === true) {
-        containerOut.removeClass('anim--fade-out');
+        containerOut.removeClass('anim--page-out');
         containerOut.hide();
         containerOut.unbind();
+
+        // remove z-index animation classes from elements
         contentStopAnimation();
-        containerIntro(containerIn);
+
+        //setTimeout(function(){
+          containerIntro(containerIn);
+        //},200);
       }
     });
   } else {
 
-    contentStopAnimation();
-
     pjaxContainer.isAnimating = false;
 
-    containerOut.removeClass('anim--fade-out');
-    containerOut.removeClass('anim--fade-in');
-    //containerOut.html('');
+    contentStopAnimation();
+
+    containerOut.removeClass('anim--page-out');
+    containerOut.removeClass('anim--page-in');
     containerOut.hide();
     containerOut.unbind();
 
-    containerIn.removeClass('anim--fade-out');
-    containerIn.removeClass('anim--fade-in');
+    containerIn.removeClass('anim--page-out');
+    containerIn.removeClass('anim--page-in');
     containerIn.css({
       'opacity':1
     });
@@ -163,17 +173,18 @@ function containerIntro(containerIn) {
   containerIn.css({
     'opacity':1
   });
+
   // Animate new page in
   contentIn(containerIn);
 
-  containerIn.addClass('anim--fade-in');
+  containerIn.addClass('anim--page-in');
   containerIn.one(animationEvent,function(event){
 
     // if event was triggered by container
     // -- unbind event listener
     // -- proceed
     // console.log(containerIn);
-    containerIn.removeClass('anim--fade-in');
+    containerIn.removeClass('anim--page-in');
     pjaxContainer.isAnimating = false;
   });
 }
@@ -211,38 +222,30 @@ function contentIn(container,direction) {
 
   //var direction = 'vertical';
   //z5.attr({'found':'yep'});
+  z1.addClass('anim--in-z1');
+  z2.addClass('anim--in-z2');
+  z3.addClass('anim--in-z3');
+  z4.addClass('anim--in-z4');
+  z5.addClass('anim--in-z5');
 
-  if (direction === 'vertical') {
-    z1.addClass('anim--in-y1');
-    z2.addClass('anim--in-y2');
-    z3.addClass('anim--in-y3');
-    z4.addClass('anim--in-y4');
-    z5.addClass('anim--in-y5');
-  } else {
-    z1.addClass('anim--in-z1');
-    z2.addClass('anim--in-z2');
-    z3.addClass('anim--in-z3');
-    z4.addClass('anim--in-z4');
-    z5.addClass('anim--in-z5');
-  }
 
   // remove animation classes
   // -- forseeable issue with caching on next/previous quick clicks.
   // -- eg adding in a page thats animating out
   z1.one(animationEvent,function(){
-    z1.removeClass('anim--in-y1 anim--in-z1');
+    z1.removeClass('anim--in-z1');
   });
   z2.one(animationEvent,function(){
-    z2.removeClass('anim--in-y2 anim--in-z2');
+    z2.removeClass('anim--in-z2');
   });
   z3.one(animationEvent,function(){
-    z3.removeClass('anim--in-y3 anim--in-z3');
+    z3.removeClass('anim--in-z3');
   });
   z4.one(animationEvent,function(){
-    z4.removeClass('anim--in-y5 anim--in-z5');
+    z4.removeClass('anim--in-z5');
   });
   z5.one(animationEvent,function(){
-    z5.removeClass('anim--in-y5 anim--in-z5');
+    z5.removeClass('anim--in-z5');
   });
 }
 
@@ -257,37 +260,29 @@ function contentOut(container,direction) {
 
   //var direction = 'vertical';
 
-  if (direction === 'vertical') {
-    z1.addClass('anim--out-y1');
-    z2.addClass('anim--out-y2');
-    z3.addClass('anim--out-y3');
-    z4.addClass('anim--out-y4');
-    z5.addClass('anim--out-y5');
-  } else {
-    z1.addClass('anim--out-z1');
-    z2.addClass('anim--out-z2');
-    z3.addClass('anim--out-z3');
-    z4.addClass('anim--out-z4');
-    z5.addClass('anim--out-z5');
-  }
+  z1.addClass('anim--out-z1');
+  z2.addClass('anim--out-z2');
+  z3.addClass('anim--out-z3');
+  z4.addClass('anim--out-z4');
+  z5.addClass('anim--out-z5');
 
   // remove animation classes
   // -- forseeable issue with caching on next/previous quick clicks.
   // -- eg adding in a page thats animating out
   z1.one(animationEvent,function(){
-    z1.removeClass('anim--out-y1 anim--out-z1');
+    z1.removeClass('anim--out-z1');
   });
   z2.one(animationEvent,function(){
-    z2.removeClass('anim--out-y2 anim--out-z2');
+    z2.removeClass('anim--out-z2');
   });
   z3.one(animationEvent,function(){
-    z3.removeClass('anim--out-y3 anim--out-z3');
+    z3.removeClass('anim--out-z3');
   });
   z4.one(animationEvent,function(){
-    z4.removeClass('anim--out-y5 anim--out-z5');
+    z4.removeClass('anim--out-z5');
   });
   z5.one(animationEvent,function(){
-    z5.removeClass('anim--out-y5 anim--out-z5');
+    z5.removeClass('anim--out-z5');
   });
 }
 
@@ -299,9 +294,9 @@ function contentStopAnimation() {
   const z4 = $('.js-anim-z4');
   const z5 = $('.js-anim-z5');
 
-  z1.removeClass('anim--out-y1 anim--out-z1 anim--in-y1 anim--in-z1');
-  z2.removeClass('anim--out-y2 anim--out-z2 anim--in-y2 anim--in-z2');
-  z3.removeClass('anim--out-y3 anim--out-z3 anim--in-y3 anim--in-z3');
-  z4.removeClass('anim--out-y4 anim--out-z4 anim--in-y4 anim--in-z4');
-  z5.removeClass('anim--out-y5 anim--out-z5 anim--in-y5 anim--in-z5');
+  z1.removeClass('anim--out-z1 anim--in-z1');
+  z2.removeClass('anim--out-z2 anim--in-z2');
+  z3.removeClass('anim--out-z3 anim--in-z3');
+  z4.removeClass('anim--out-z4 anim--in-z4');
+  z5.removeClass('anim--out-z5 anim--in-z5');
 }

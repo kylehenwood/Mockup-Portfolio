@@ -17,8 +17,8 @@ function scrollElementLock(element,inherit) {
     'position':'fixed',
     'z-index':55,
     'top': (scrollOffset*-1)
-
   });
+  
   element.attr({
     'sl-offset':scrollOffset
   });

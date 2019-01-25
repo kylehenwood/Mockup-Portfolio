@@ -12,7 +12,7 @@
   - About Me
   - Social links?
   -->
-  <div class="about-page__biography">
+  <div class="about-page__biography js-anim-z1">
     <div class="typography typography--white">
 
           <h1>HTML Ipsum Presents</h1>
@@ -53,7 +53,7 @@
   - Link to CV (Locked)
 
   -->
-  <div class="about-page__history">
+  <div class="about-page__history js-anim-z3">
   </div>
 </div>
 </div>

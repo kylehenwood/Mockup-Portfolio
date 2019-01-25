@@ -27,7 +27,7 @@ html {
   left: 0;
   width: 100%;
   padding: 0 24px;
-  background: rgb(62, 62, 62);
+  background: rgba($color-grey-900,0.4);
   transition: all 400ms ease-in-out;
   @include screen-med {
     padding: 0 16px;
@@ -41,6 +41,7 @@ html {
 // Content
 .layout__content {
   width: 100%;
+  padding: 4px;
   @include screen-med {
     //padding: 80px 0 0;
   }

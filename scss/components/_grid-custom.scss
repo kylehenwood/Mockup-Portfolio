@@ -25,6 +25,9 @@
   float: left;
   padding: 4px;
   width: 25%;
+  @include screen-med {
+    width: 50%;
+  }
   @include screen-mob {
     width: 100%;
   }

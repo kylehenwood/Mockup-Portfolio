@@ -31,7 +31,7 @@
 <div class="post js-post-container js-page-class" page-id="gallery-post">
   <div class="center center--1120">
 
-    <div class="post__heading js-post-heading anim--in-z1">
+    <div class="post__heading js-post-heading js-anim-z1">
       <div class="post-heading">
         <h2 class="post-heading__title">
         <?php echo($postTitle); ?>
@@ -44,11 +44,11 @@
       </div>
     </div>
 
-    <div class="post__image js-post-image anim--in-z5">
+    <div class="post__image js-post-image js-anim-z3">
       <div class="post-image-placeholder" <?php echo $postColor ?>></div>
     </div>
 
-    <div class="post__description js-post-description anim--in-z1">
+    <div class="post__description js-post-description js-anim-z1">
       <div class="typography typography--on-dark">
       <?php echo($postDescription) ?>
       </div>

@@ -270,7 +270,7 @@ pre {
     display: block !important; }
 
 .heading-1 {
-  font-size: 40px;
+  font-size: 56px;
   font-weight: 800;
   font-family: "gilroy", "Signika", "Open-Sans", helvetica, arial;
   line-height: 1.2;
@@ -283,7 +283,7 @@ pre {
       font-size: 24px; } }
 
 .heading-2 {
-  font-size: 32px;
+  font-size: 40px;
   font-weight: bold;
   font-family: "gilroy", "Signika", "Open-Sans", helvetica, arial;
   line-height: 1.2; }
@@ -295,7 +295,7 @@ pre {
       font-size: 22px; } }
 
 .heading-3 {
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
   font-family: "gilroy", "Signika", "Open-Sans", helvetica, arial;
   line-height: 1.4; }
@@ -304,7 +304,7 @@ pre {
       font-size: 20px; } }
 
 .heading-4 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 1.4; }
   @media screen and (max-width: 720px) {
@@ -617,7 +617,7 @@ html {
   left: 0;
   width: 100%;
   padding: 0 24px;
-  background: #3e3e3e;
+  background: rgba(33, 33, 33, 0.4);
   transition: all 400ms ease-in-out; }
   @media screen and (max-width: 960px) {
     .layout__header {
@@ -628,7 +628,8 @@ html {
   opacity: 0; }
 
 .layout__content {
-  width: 100%; }
+  width: 100%;
+  padding: 4px; }
 
 .layout__mobile-navigation {
   display: none;
@@ -1055,6 +1056,9 @@ html {
   float: left;
   padding: 4px;
   width: 25%; }
+  @media screen and (max-width: 960px) {
+    .project-grid__item {
+      width: 50%; } }
   @media screen and (max-width: 720px) {
     .project-grid__item {
       width: 100%; } }
@@ -2194,67 +2198,67 @@ textarea:disabled:active {
 
 .anim--in-z1 {
   animation-name: in-z1;
-  animation-duration: 400ms;
+  animation-duration: 320ms;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards; }
 
 @keyframes in-z1 {
   000% {
-    transform: translateX(40px); }
+    transform: translateX(24px); }
   100% {
     transform: translateX(0); } }
 
 .anim--in-z2 {
   animation-name: in-z2;
-  animation-duration: 400ms;
+  animation-duration: 320ms;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards; }
 
 @keyframes in-z2 {
   000% {
-    transform: translateX(64px); }
+    transform: translateX(38.4px); }
   100% {
     transform: translateX(0); } }
 
 .anim--in-z3 {
   animation-name: in-z3;
-  animation-duration: 400ms;
+  animation-duration: 320ms;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards; }
 
 @keyframes in-z3 {
   000% {
-    transform: translateX(88px); }
+    transform: translateX(52.8px); }
   100% {
     transform: translateX(0); } }
 
 .anim--in-z4 {
   animation-name: in-z4;
-  animation-duration: 400ms;
+  animation-duration: 320ms;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards; }
 
 @keyframes in-z4 {
   000% {
-    transform: translateX(112px); }
+    transform: translateX(67.2px); }
   100% {
     transform: translateX(0); } }
 
 .anim--in-z5 {
   animation-name: in-z5;
-  animation-duration: 400ms;
+  animation-duration: 320ms;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards; }
 
 @keyframes in-z5 {
   000% {
-    transform: translateX(136px); }
+    transform: translateX(81.6px); }
   100% {
     transform: translateX(0); } }
 
 .anim--out-z1 {
   animation-name: out-z1;
-  animation-duration: 400ms;
+  animation-duration: 320ms;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards; }
 
@@ -2262,11 +2266,11 @@ textarea:disabled:active {
   000% {
     transform: translateX(0); }
   100% {
-    transform: translateX(-40px); } }
+    transform: translateX(-24px); } }
 
 .anim--out-z2 {
   animation-name: out-z2;
-  animation-duration: 400ms;
+  animation-duration: 320ms;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards; }
 
@@ -2274,11 +2278,11 @@ textarea:disabled:active {
   000% {
     transform: translateX(0); }
   100% {
-    transform: translateX(-64px); } }
+    transform: translateX(-38.4px); } }
 
 .anim--out-z3 {
   animation-name: out-z3;
-  animation-duration: 400ms;
+  animation-duration: 320ms;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards; }
 
@@ -2286,11 +2290,11 @@ textarea:disabled:active {
   000% {
     transform: translateX(0); }
   100% {
-    transform: translateX(-88px); } }
+    transform: translateX(-52.8px); } }
 
 .anim--out-z4 {
   animation-name: out-z4;
-  animation-duration: 400ms;
+  animation-duration: 320ms;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards; }
 
@@ -2298,11 +2302,11 @@ textarea:disabled:active {
   000% {
     transform: translateX(0); }
   100% {
-    transform: translateX(-112px); } }
+    transform: translateX(-67.2px); } }
 
 .anim--out-z5 {
   animation-name: out-z5;
-  animation-duration: 400ms;
+  animation-duration: 320ms;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards; }
 
@@ -2310,157 +2314,41 @@ textarea:disabled:active {
   000% {
     transform: translateX(0); }
   100% {
-    transform: translateX(-136px); } }
+    transform: translateX(-81.6px); } }
 
-.anim--in-y1 {
-  animation-name: in-y1;
-  animation-duration: 400ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards; }
-
-@keyframes in-y1 {
-  000% {
-    transform: translateY(40px); }
-  100% {
-    transform: translateY(0); } }
-
-.anim--in-y2 {
-  animation-name: in-y2;
-  animation-duration: 400ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards; }
-
-@keyframes in-y2 {
-  000% {
-    transform: translateY(64px); }
-  100% {
-    transform: translateY(0); } }
-
-.anim--in-y3 {
-  animation-name: in-y3;
-  animation-duration: 400ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards; }
-
-@keyframes in-y3 {
-  000% {
-    transform: translateY(88px); }
-  100% {
-    transform: translateY(0); } }
-
-.anim--in-y4 {
-  animation-name: in-y4;
-  animation-duration: 400ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards; }
-
-@keyframes in-y4 {
-  000% {
-    transform: translateY(112px); }
-  100% {
-    transform: translateY(0); } }
-
-.anim--in-y5 {
-  animation-name: in-y5;
-  animation-duration: 400ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards; }
-
-@keyframes in-y5 {
-  000% {
-    transform: translateY(136px); }
-  100% {
-    transform: translateY(0); } }
-
-.anim--out-y1 {
-  animation-name: out-y1;
-  animation-duration: 400ms;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards; }
-
-@keyframes out-y1 {
-  000% {
-    transform: translateY(0); }
-  100% {
-    transform: translateY(-40px); } }
-
-.anim--out-y2 {
-  animation-name: out-y2;
-  animation-duration: 400ms;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards; }
-
-@keyframes out-y2 {
-  000% {
-    transform: translateY(0); }
-  100% {
-    transform: translateY(-64px); } }
-
-.anim--out-y3 {
-  animation-name: out-y3;
-  animation-duration: 400ms;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards; }
-
-@keyframes out-y3 {
-  000% {
-    transform: translateY(0); }
-  100% {
-    transform: translateY(-88px); } }
-
-.anim--out-y4 {
-  animation-name: out-y4;
-  animation-duration: 400ms;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards; }
-
-@keyframes out-y4 {
-  000% {
-    transform: translateY(0); }
-  100% {
-    transform: translateY(-112px); } }
-
-.anim--out-y5 {
-  animation-name: out-z5;
-  animation-duration: 400ms;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards; }
-
-@keyframes out-y5 {
-  000% {
-    transform: translateY(0); }
-  100% {
-    transform: translateY(-136px); } }
-
-.anim--fade-in {
+.anim--page-in {
   opacity: 0;
-  animation-name: fade-in;
-  animation-duration: 400ms;
+  animation-name: page-in;
+  animation-duration: 320ms;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards; }
 
-@keyframes fade-in {
+@keyframes page-in {
   000% {
-    opacity: 0; }
+    opacity: 0;
+    transform: translateX(40px); }
   080% {
     opacity: 1; }
   100% {
-    opacity: 1; } }
+    opacity: 1;
+    transform: translateX(0); } }
 
-.anim--fade-out {
+.anim--page-out {
   opacity: 1;
-  animation-name: fade-out;
-  animation-duration: 400ms;
+  animation-name: page-out;
+  animation-duration: 320ms;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards; }
 
-@keyframes fade-out {
+@keyframes page-out {
   000% {
-    opacity: 1; }
+    opacity: 1;
+    transform: translateX(0); }
   020% {
     opacity: 1; }
   100% {
-    opacity: 0; } }
+    opacity: 0;
+    transform: translateX(-40px); } }
 
 .gallery-image {
   position: relative;
@@ -2828,24 +2716,12 @@ textarea:disabled:active {
 .about-page {
   position: relative;
   padding: 0 16px; }
-  .about-page:before {
-    content: '';
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 50%;
-    height: 100%;
-    background: #616161; }
-  @media screen and (max-width: 960px) {
-    .about-page:before {
-      display: none; } }
 
 .about-page__biography {
   position: relative;
   z-index: 5;
   float: left;
-  padding: 400px 80px 0 0;
+  padding: 240px 80px 0 0;
   width: 520px; }
   @media screen and (max-width: 960px) {
     .about-page__biography {
@@ -2858,8 +2734,7 @@ textarea:disabled:active {
   z-index: 5;
   margin-left: 520px;
   padding: 80px 0 80px 80px;
-  height: 2000px;
-  background: #616161; }
+  height: 2000px; }
   @media screen and (max-width: 960px) {
     .about-page__history {
       margin: 0; } }
