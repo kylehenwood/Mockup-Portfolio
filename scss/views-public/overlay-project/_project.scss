@@ -41,14 +41,14 @@
   padding: 24px 24px;
 }
 
-.project__container--animate {
-  opacity: 0;
-  animation-name: project-content-in;
-  animation-delay: 400ms;
-  animation-duration: 800ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-}
+// .project__container--animate {
+//   opacity: 0;
+//   animation-name: project-content-in;
+//   animation-delay: 400ms;
+//   animation-duration: 800ms;
+//   animation-timing-function: ease-out;
+//   animation-fill-mode: forwards;
+// }
 
 
 @keyframes project-content-in {

@@ -31,10 +31,17 @@ function displayContent()	{
 
       case $pageName == 'work';
       if (isset($_GET['projectID'])) {
-        $projectID = $_GET['projectID'];
-        $title = 'KH - '.$_GET['projectID'];
-        $project = setContent('./php-views/overlay-project/project.php');
-        $projectStandalone = setContent('./php-views/overlay-project/project-standalone.php');
+        if (isset($_GET['subpageID'])) {
+          $subpageID = $_GET['subpageID'];
+          $title = 'KH - '.$_GET['projectID'];
+          $post = setContent('./php-views/overlay-project-subpage/_template.php');
+          $postStandalone = setContent('./php-views/overlay-project-subpage/_template.php');
+        } else {
+          $projectID = $_GET['projectID'];
+          $title = 'KH - '.$_GET['projectID'];
+          $project = setContent('./php-views/overlay-project/project.php');
+          $projectStandalone = setContent('./php-views/overlay-project/project-standalone.php');
+        }
       } else {
         $title = 'KH - Projects';
         $content = setContent('./php-views/page-work/_construct.php');

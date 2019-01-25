@@ -1,4 +1,4 @@
-<div class="project__container project__container--white project__container--showcase">
+<div class="project__container project__container--white">
   <div class="center center--1120">
 
     <div class="project-showcase">

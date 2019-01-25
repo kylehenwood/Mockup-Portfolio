@@ -15,7 +15,6 @@ html {
   min-height: 100%;
   background: $color-grey-800;
   transition: ease-out 400ms background;
-  //padding: 0 4px;
 }
 
 
@@ -41,7 +40,7 @@ html {
 // Content
 .layout__content {
   width: 100%;
-  padding: 4px;
+  padding: 8px;
   @include screen-med {
     //padding: 80px 0 0;
   }

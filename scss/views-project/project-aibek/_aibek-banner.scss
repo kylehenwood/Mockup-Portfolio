@@ -37,11 +37,9 @@ $aibek-500: #32DCFB;
 @keyframes aibek-background-in {
   000% {
     opacity: 0;
-    transform: translateY(40px);
   }
   100% {
     opacity: 1;
-    transform: translateX(0);
   }
 }
 
@@ -86,10 +84,10 @@ $aibek-500: #32DCFB;
   //background: white;
   border-radius: 16px;
   margin: 120px auto;
-  animation-name: aibek-logo-in;
-  animation-duration: 1500ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
+  // animation-name: aibek-logo-in;
+  // animation-duration: 1500ms;
+  // animation-timing-function: ease-out;
+  // animation-fill-mode: forwards;
   background-image: url('../images/projects/project-aibek/title-white.svg');
   background-repeat: no-repeat;
   background-position: center;
@@ -108,10 +106,10 @@ $aibek-500: #32DCFB;
   width: 120px;
   height: 160px;
   //background: white;
-  animation-name: aibek-islands-background;
-  animation-duration: 1500ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
+  // animation-name: aibek-islands-background;
+  // animation-duration: 1500ms;
+  // animation-timing-function: ease-out;
+  // animation-fill-mode: forwards;
 
   background-image: url('../images/projects/project-aibek/island-left.png');
   background-repeat: no-repeat;
@@ -126,10 +124,10 @@ $aibek-500: #32DCFB;
   height: 240px;
   //background: white;
   margin: 0 auto;
-  animation-name: aibek-islands-foreground;
-  animation-duration: 1500ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
+  // animation-name: aibek-islands-foreground;
+  // animation-duration: 1500ms;
+  // animation-timing-function: ease-out;
+  // animation-fill-mode: forwards;
 
   background-image: url('../images/projects/project-aibek/island-middle.png');
   background-repeat: no-repeat;
@@ -143,10 +141,10 @@ $aibek-500: #32DCFB;
   width: 220px;
   height: 160px;
   //background: white;
-  animation-name: aibek-islands-background;
-  animation-duration: 1500ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
+  // animation-name: aibek-islands-background;
+  // animation-duration: 1500ms;
+  // animation-timing-function: ease-out;
+  // animation-fill-mode: forwards;
 
   background-image: url('../images/projects/project-aibek/island-right.png');
   background-repeat: no-repeat;
@@ -154,35 +152,35 @@ $aibek-500: #32DCFB;
   background-size: cover;
 }
 
-@keyframes aibek-islands-background {
-  000% {
-    opacity: 0;
-    transform: translateY(80px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes aibek-islands-foreground {
-  000% {
-    opacity: 0;
-    transform: translateY(120px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes aibek-logo-in {
-  000% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
+// @keyframes aibek-islands-background {
+//   000% {
+//     opacity: 0;
+//     transform: translateY(80px);
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: translateX(0);
+//   }
+// }
+//
+// @keyframes aibek-islands-foreground {
+//   000% {
+//     opacity: 0;
+//     transform: translateY(120px);
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: translateX(0);
+//   }
+// }
+//
+// @keyframes aibek-logo-in {
+//   000% {
+//     opacity: 0;
+//     transform: translateY(40px);
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: translateX(0);
+//   }
+// }
