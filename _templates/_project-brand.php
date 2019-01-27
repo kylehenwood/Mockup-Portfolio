@@ -17,8 +17,7 @@
   <div class="project-gallery">
 
     <?php
-
-    $templink = 'index.php?pageID=work&projectID=1&subpageID=0';
+    $templink = 'index.php?pageID=work&projectID=3&subpageID=0';
 
     ?>
 
@@ -27,28 +26,28 @@
       <div class="center center--1120">
         <ul class="scroll-list">
           <li class="scroll-list__item">
-            <a class="scroll-card" href="<?php echo $templink ?>"></a>
+            <a class="scroll-card js-pjax-link" href="<?php echo $templink ?>"></a>
           </li>
           <li class="scroll-list__item">
-            <a class="scroll-card" href="<?php echo $templink ?>"></a>
+            <a class="scroll-card js-pjax-link" href="<?php echo $templink ?>"></a>
           </li>
           <li class="scroll-list__item">
-            <a class="scroll-card scroll-card--wide" href="<?php echo $templink ?>"></a>
+            <a class="scroll-card scroll-card--wide js-pjax-link" href="<?php echo $templink ?>"></a>
           </li>
           <li class="scroll-list__item">
-            <a class="scroll-card" href="<?php echo $templink ?>"></a>
+            <a class="scroll-card js-pjax-link" href="<?php echo $templink ?>"></a>
           </li>
           <li class="scroll-list__item">
-            <a class="scroll-card" href="<?php echo $templink ?>"></a>
+            <a class="scroll-card js-pjax-link" href="<?php echo $templink ?>"></a>
           </li>
           <li class="scroll-list__item">
-            <a class="scroll-card scroll-card--wide" href="<?php echo $templink ?>"></a>
+            <a class="scroll-card scroll-card--wide js-pjax-link" href="<?php echo $templink ?>"></a>
           </li>
           <li class="scroll-list__item">
-            <a class="scroll-card" href="<?php echo $templink ?>"></a>
+            <a class="scroll-card js-pjax-link" href="<?php echo $templink ?>"></a>
           </li>
           <li class="scroll-list__item">
-            <a class="scroll-card" href="<?php echo $templink ?>"></a>
+            <a class="scroll-card js-pjax-link" href="<?php echo $templink ?>"></a>
           </li>
         </ul>
       </div>

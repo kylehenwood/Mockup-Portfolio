@@ -80,12 +80,14 @@ function findProject() {
 
     case 'project-aibek':
       view.layoutColor = '#3D325A';
+      $(document).trigger('project-loaded');
       break;
     case 'project-raygun':
       view.layoutColor = '#1E88E5';
       break;
     case 'project-siteshot':
       view.layoutColor = '#00897B';
+
       break;
     case 'project-shnappy':
       view.layoutColor = '#E91E63';
@@ -119,20 +121,13 @@ function findProject() {
 
 }
 
-// // Hide Navigation
-// function hideNavigation(show) {
-//   //alert(show);
-//   if (show === true) {
-//     layout.navigation.addClass('anim--in-y1');
-//   } else {
-//     layout.navigation.addClass('anim--out-y1');
-//   }
-//
-//   // remove animation classes
-//   layout.navigation.one(animationEvent,function(){
-//     $(this).removeClass('anim--in-y1 anim--out-y1');
-//   });
-// }
+
+$(document).on('project-loaded',function(){
+  alert('BIND AIBEK');
+
+});
+
+
 // Hide Navigation
 function hideNavigation(show) {
   //alert(show);
