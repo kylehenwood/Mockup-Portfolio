@@ -2,77 +2,37 @@
 var works = {
   page: null,
   cards: null,
-  animate: false
 }
 
 
 // Triggers
-$(document).on('works-in--animate',function(){
-  worksAnimateIn();
+$(document).on('page-works',function(){
+ worksBind();
 });
-$(document).on('works-out--animate',function(){
-  //worksAnimateOut();
-});
-$(document).on('works-in--instant',function(){
-  worksInstantIn();
-});
-$(document).on('works-out--instant',function(){
-  //worksInstantOut();
-});
-
-
-$(document).on('works-stagger-in',function(){
-  worksStaggerIn();
-});
-
 
 // this is called as soon as the works.php file is loaded
 function worksBind() {
   works.page = $('.js-page-works');
   works.cards = $('.js-project-card');
 
+  // remove the fade on all cards
+  // -- happens when navigated to via popstate
+  works.cards.removeClass('project-card--fade');
+
   // Animate transition on card click
   works.cards.click(function(e){
-    works.animate = true;
-    project.animate = true;
-    project.maskX = e.pageX;
-    project.maskY = e.pageY - $(document).scrollTop();
+
+    alert('fade');
+
+    var element = $(this);
+
+    works.cards.addClass('project-card--fade');
+    element.removeClass('project-card--fade');
+
   });
 
-  // works get mouse click position on card click.
-
-
-}
-
-// Animations
-function worksAnimateIn() {
-  works.page.addClass('anim--works-in');
-  works.page.one(animationEvent,function(event){
-    $(this).removeClass('anim--works-in');
+  // remove the fade before replaced
+  $(document).one('pjax:beforeReplace pjax:popstate',function(){
+    //works.cards.removeClass('project-card--fade');
   });
-}
-function worksAnimateOut() {
-  works.page.addClass('anim--works-out');
-  works.page.one(animationEvent,function(event){
-    $(this).removeClass('anim--works-out');
-  });
-}
-
-function worksInstantIn() {
-  // works.page.addClass('anim--works-in');
-  // works.page.one(animationEvent,function(event){
-  //   $(this).removeClass('anim--works-in');
-  // });
-}
-function worksInstantOut() {
-  // works.page.addClass('anim--works-out');
-  // works.page.one(animationEvent,function(event){
-  //   $(this).removeClass('anim--works-out');
-  // });
-}
-
-
-// Stagger in
-function worksStaggerIn() {
-  //works.cards.addClass('anim--slide-down');
 }

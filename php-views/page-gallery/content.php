@@ -24,11 +24,19 @@
 	</a>
 </li>
 
-
 <?php
 	}
 ?>
 
-</ul>
+
+			<!-- <li class="gallery-grid__item">
+				<a class="gallery-thumbnail js-pjax-gallery" href="images/4-32.jpg">
+					<img class="gallery-thumbnail__image" src="images/4-32.jpg" width="400" height="300">
+				</a>
+			</li> -->
+
+
+
+		</ul>
   </div>
 </div>

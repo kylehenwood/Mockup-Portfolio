@@ -35,7 +35,7 @@ $(document).on('page_load',function(event){
     case 'work':
       view.layoutColor = '#424242';
       hideNavigation(false);
-      $(document).trigger('x');
+      $(document).trigger('page-works');
       break;
     case 'work-project':
       findProject();
@@ -123,7 +123,7 @@ function findProject() {
 
 
 $(document).on('project-loaded',function(){
-  alert('BIND AIBEK');
+  //alert('BIND AIBEK');
 
 });
 

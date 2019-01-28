@@ -44,14 +44,14 @@
       </div>
     </div>
 
-    <div class="post__image js-post-image js-anim-z3">
-      <div class="post-image-placeholder" <?php echo $postColor ?>></div>
-    </div>
-
     <div class="post__description js-post-description js-anim-z1">
       <div class="typography typography--on-dark">
       <?php echo($postDescription) ?>
       </div>
+    </div>
+
+    <div class="post__image js-post-image js-anim-z4">
+      <div class="post-image-placeholder" <?php echo $postColor ?>></div>
     </div>
 
   </div>

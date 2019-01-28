@@ -4,6 +4,7 @@ let pjaxContainer = {
   primary: '#js-pjax-content-1',
   secondary: '#js-pjax-content-2',
   current: '#js-pjax-content-1',
+  gallery: '#js-pjax-gallery'
 }
 
 
@@ -28,8 +29,8 @@ function pjaxBind() {
 
   // on popstate make sure the inline scripts are ran
   $(window).on('popstate',function(event){
-    console.log('pjax-popstate');
-
+    //console.log('pjax-popstate');
+    // no animation allowed on popstate navigation
     pjaxContainer.isAnimating = true;
 
     pjaxTransition();
@@ -61,6 +62,13 @@ function pjaxSetup() {
   });
 
 
+  // gallery element click
+  $('.js-pjax-gallery').click(function(event){
+    event.preventDefault();
+    $.pjax({url: url, container: pjaxContainer.gallery});
+  });
+
+
   // back buttons
   $('.js-pjax-back').click(function(event){
     event.preventDefault();
@@ -71,14 +79,15 @@ function pjaxSetup() {
   // delay click
   $('.js-pjax-link-delay').unbind();
   $('.js-pjax-link-delay').click(function(event){
-    var element = $(this);
-    var others = $('.js-pjax-link-delay');
-
-    others.css({'opacity':0.4});
-    element.css({'opacity':1});
 
     event.preventDefault();
     const url = $(this).attr('href');
+    const delayLength = 200;
+
+    // if (delayLength === null || delayLength === undefined) {
+    //   delayLength = 200;
+    // }
+
     setTimeout(function(){
       if (pjaxContainer.current === pjaxContainer.primary) {
         $.pjax({url: url, container: pjaxContainer.secondary});
@@ -87,7 +96,7 @@ function pjaxSetup() {
         $.pjax({url: url, container: pjaxContainer.primary});
         pjaxTransition();
       }
-    },200);
+    },delayLength);
   });
 }
 

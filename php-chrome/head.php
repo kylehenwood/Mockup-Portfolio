@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="js/vendor/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="js/vendor/jquery.pjax.js"></script>
 	<script type="text/javascript" src="js/vendor/modernizr-2.6.2.min.js"></script>
-	<!-- <script type="text/javascript" src="js/vendor/scrollreveal.js"></script> -->
+
 	<!-- ui -->
 	<script type="text/javascript" src="js/pjax-connect.js"></script>
 	<script type="text/javascript" src="js/mobile-navigation.js"></script>
