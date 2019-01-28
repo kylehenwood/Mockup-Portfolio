@@ -17,7 +17,7 @@ $.pjax.defaults.scrollTo = true; //true;
 $.pjax.defaults.timeout = 2000;
 // Set cache to 0, otherwise PJAX will remember the state of the previous action
 // -- setting to 1 allows the cache to remember the scroll position of the window.
-$.pjax.defaults.maxCacheLength = 1;
+$.pjax.defaults.maxCacheLength = 0;
 
 
 // bind pjax events

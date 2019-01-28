@@ -104,8 +104,6 @@ function displayContent()	{
     include './php-chrome/navigation-mobile.php';
     include './php-chrome/navigation-desktop.php';
 
-    echo '<div class="layout__overlay" id="js-pjax-modal"></div>';
-
     echo '<div style="overflow:hidden">';
     echo '<div class="layout__content" id="js-pjax-content-1">';
     echo $content;

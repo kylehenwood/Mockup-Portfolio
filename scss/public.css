@@ -687,6 +687,7 @@ html {
   margin: 0 auto; }
 
 .header__contact {
+  display: none;
   position: absolute;
   top: 0;
   right: 0;
@@ -1034,11 +1035,11 @@ html {
       margin: 0 12px 0 0; } }
 
 .gallery-grid {
-  margin: -4px; }
+  margin: -2px; }
 
 .gallery-grid__item {
   float: left;
-  padding: 4px;
+  padding: 2px;
   width: 25%; }
   @media screen and (max-width: 960px) {
     .gallery-grid__item {
@@ -1048,13 +1049,13 @@ html {
       width: 50%; } }
 
 .project-grid {
-  margin: -4px;
+  margin: -2px;
   transform-style: preserve-3d;
   perspective: 800px; }
 
 .project-grid__item {
   float: left;
-  padding: 4px;
+  padding: 2px;
   width: 25%; }
   @media screen and (max-width: 960px) {
     .project-grid__item {
@@ -2407,7 +2408,6 @@ textarea:disabled:active {
   display: block;
   overflow: hidden;
   z-index: 1;
-  border-radius: 4px;
   background: #9E9E9E; }
   .gallery-thumbnail img {
     opacity: 0; }
@@ -2684,7 +2684,6 @@ textarea:disabled:active {
   align-items: center;
   justify-content: center;
   z-index: 1;
-  border-radius: 4px;
   height: 320px;
   background: #9E9E9E;
   transition: 80ms ease-in;
@@ -3046,6 +3045,7 @@ textarea:disabled:active {
 
 .scroll-card {
   cursor: pointer;
+  display: block;
   position: relative;
   font-size: 16px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);

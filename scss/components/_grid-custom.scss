@@ -1,10 +1,10 @@
 // Gallery Grid
 .gallery-grid {
-  margin: -4px;
+  margin: -2px;
 }
 .gallery-grid__item {
   float: left;
-  padding: 4px;
+  padding: 2px;
   width: 25%;
   @include screen-med {
     width: 33%;
@@ -17,13 +17,13 @@
 
 // Project Grid
 .project-grid {
-  margin: -4px;
+  margin: -2px;
   transform-style: preserve-3d;
   perspective: 800px;
 }
 .project-grid__item {
   float: left;
-  padding: 4px;
+  padding: 2px;
   width: 25%;
   @include screen-med {
     width: 50%;
