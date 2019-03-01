@@ -22,7 +22,7 @@ function displayContent()	{
         $postID = $_GET['postID'];
         $title = 'KH - '.$_GET['postID'];
         $post = setContent('./php-views/overlay-post/post.php');
-        $postStandalone = setContent('./php-views/overlay-post/post-standalone.php');
+        $postStandalone = setContent('./php-views/overlay-post/post-standalonse.php');
       } else {
         $title = 'KH - TLDR';
         $content = setContent('./php-views/page-gallery/_construct.php');
