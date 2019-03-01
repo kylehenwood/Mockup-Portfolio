@@ -1,0 +1,117 @@
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title><?php echo $title; ?></title>
+	<link rel="stylesheet" type="text/css" href="scss/public.css" />
+	<link rel="icon" type="image/png" href="mark_favicon.png" />
+
+	<!-- vendor || required -->
+	<script type="text/javascript" src="js/vendor/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/vendor/jquery.pjax.js"></script>
+	<script type="text/javascript" src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+	<!-- ui -->
+	<script type="text/javascript" src="js/pjax-connect.js"></script>
+	<script type="text/javascript" src="js/mobile-navigation.js"></script>
+	<script type="text/javascript" src="js/pjax-nav-switcher.js"></script>
+	<script type="text/javascript" src="js/scroll-lock.js"></script>
+	<script type="text/javascript" src="js/header-fixed.js"></script>
+	<!-- init -->
+	<script type="text/javascript" src="js/useful.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/view.js"></script>
+
+	<!-- components -->
+	<script type="text/javascript" src="js/views/_gallery.js"></script>
+	<script type="text/javascript" src="js/views/_work.js"></script>
+	<script type="text/javascript" src="js/views/_post.js"></script>
+	<script type="text/javascript" src="js/views/_project.js"></script>
+
+	<!-- <script type="text/javascript" src="js/_scale-card.js"></script> -->
+
+</head>
+<body>
+
+<!-- Navigation -->
+<div class="layout__header js-layout-header">
+
+  <div class="center center--1120">
+
+    <div class="header">
+      <div class="header__logo">
+        <!--<a class="logo js-pjax-link <?php if ($navSelectedGallery) { echo'logo--active';} ?>" data-pjax="js-pjax-link" activeClass="logo--active" href="index.php"></a> -->
+
+        <a class="logo">
+          <!-- Kyle Henwood -->
+        </a>
+      </div>
+      <div class="header__navigation">
+        <div class="navigation">
+          <a class="navigation__item js-pjax-link <?php if ($navSelectedGallery) { echo'navigation__item--active';} ?>" activeClass="navigation__item--active" href="index.php?pageID=gallery">
+            <span class="navigation__item-text">TLDR</span>
+            <span class="navigation__item-line"></span>
+          </a>
+          <span class="navigation__space"></span>
+          <a class="navigation__item js-pjax-link <?php if ($navSelectedProjects) { echo'navigation__item--active';} ?>" activeClass="navigation__item--active" href="index.php?pageID=work">
+            <span class="navigation__item-text">Projects</span>
+            <span class="navigation__item-line"></span>
+          </a>
+          <span class="navigation__space"></span>
+          <a class="navigation__item js-pjax-link <?php if ($navSelectedAbout) { echo'navigation__item--active';} ?>" activeClass="navigation__item--active" href="index.php?pageID=about">
+            <span class="navigation__item-text">Who am I?</span>
+            <span class="navigation__item-line"></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="header__contact">
+        <a class="button-contact js-pjax-link" href="index.php?pageID=contact">Contact Me</a>
+      </div>
+    </div>
+
+    <div class="navigation-mobile">
+      <!-- logo button -->
+      <div class="navigation-mobile__logo">
+        <a class="mobile-logo"></a>
+      </div>
+
+      <!-- menu button -->
+      <div class="navigation-mobile__button">
+        <a class="mobile-header-button js-mobile-menu-button">
+          <span class="flat-icon icon--16 icon--menu"></span>
+        </a>
+      </div>
+
+      <!-- account button -->
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- footer -->
+<div class="layout__footer js-layout-footer">
+  <div class="center center--1120">
+    <div class="footer clearfix">
+
+      <div class="footer__content">
+        <div class="footer-content">
+          <h4 class="footer-content__heading">Please don't steal my work.</h4>
+          <p class="footer-content__copyright">&copy; Kyle Henwood {{2018}}</p>
+        </div>
+      </div>
+
+      <div class="footer__social">
+        <div class="footer-social clearfix">
+          <a class="footer-social__link" href="#twitter"></a>
+          <a class="footer-social__link" href="#facebook"></a>
+          <a class="footer-social__link" href="#dribbble"></a>
+          <a class="footer-social__link" href="#instagram"></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
