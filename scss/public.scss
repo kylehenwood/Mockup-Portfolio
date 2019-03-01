@@ -35,16 +35,13 @@ $transition-duration: 240ms;
 
 // _layout
 @import "chrome/_layout";
-
-// _common
-// common components used repetitively across many pages.
 @import "chrome/_header";
 @import "chrome/_footer";
-
 
 // _components
 @import "components/_button";
 @import "components/_animations";
 
-
 // _views
+@import "views/_index";
+@import "views/_cv"
