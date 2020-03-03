@@ -1,0 +1,57 @@
+// simple page structure
+.page {
+  padding: 64px 0 0;
+}
+.page__banner {}
+.page__content {}
+.page__section {}
+.page__quote {}
+
+
+
+
+
+// Banner
+.page__banner {
+  position: relative;
+  padding: 0 24px;
+}
+
+.page__banner--alpha {
+  background: $color-pink-500;
+  background: linear-gradient(to bottom, $color-pink-500, $color-purple-500); /* Standard syntax */
+}
+
+.layout__banner--beta {
+  @include screen-med {
+    height: auto;
+  }
+}
+
+// colors
+.page__banner--pink {
+  background: $color-pink-500;
+}
+
+.page__banner--grey {
+  background: $color-grey-800;
+}
+
+
+// Section
+.page__section {
+  padding: 0 24px 80px 24px;
+  @include screen-med {
+    padding: 64px 24px;
+  }
+  @include screen-mob {
+    padding: 32px 16px;
+  }
+}
+
+.page__section--white {
+  background: white;
+}
+.page__section--grey {
+  background: $color-grey-800;
+}

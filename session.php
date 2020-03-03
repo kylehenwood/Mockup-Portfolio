@@ -2,8 +2,18 @@
 
 session_start();
 
+$colorYellow = '#FF9800';
+$colorPurple = '#9C27B0';
+$colorBlue = '#2196F3';
+$colorGreen = '#4CAF50';
+$colorTeal = '#009688';
+$colorPink = '#E91E63';
+
+
+// ---
+// GALLERY => POST
 // get all gallery content into an array
-$galleryFolder = "php-thumbnails";
+$galleryFolder = "archive-posts";
 $galleryItems = array_diff(scandir($galleryFolder), array('..', '.'));
 $galleryArray = array();
 
@@ -23,7 +33,8 @@ foreach ($galleryItems as $galleryItem) {
     "project" => $project,
     "tags" => $tags,
     "thumb" => $thumbDir.'/'.$thumbnail,
-    "image" => $thumbDir.'/'.$image
+    "image" => $thumbDir.'/'.$image,
+    "color" => $color
   );
 
   // that then pushed that folders content to the $galleryArray
@@ -33,5 +44,37 @@ foreach ($galleryItems as $galleryItem) {
 
 $_SESSION['gallery'] = $galleryArray;
 unset($galleryArray);
+
+
+
+
+// ---
+// PROJECTS
+// - Gather all projects from the projects folder and construct an array.
+$projectFolder = "archive-projects";
+$projects = array_diff(scandir($projectFolder), array('..', '.'));
+$projectArray = array();
+
+foreach ($projects as $project) {
+  $directory = './'.$projectFolder.'/'.$project;
+  $construct = $directory.'/_construct.php';
+  $page = $directory.'/_page.php';
+  // include construct file inside each thumbnail
+  include $construct;
+
+  // Push folder data to array
+  $tempArray = array(
+    "id" => $id,
+    "cardTitle" => $cardTitle,
+    "color" => $color,
+    "page" => $page
+  );
+
+  array_push($projectArray,$tempArray);
+  unset($tempArray);
+}
+
+$_SESSION['projects'] = $projectArray;
+unset($projectArray);
 
 ?>

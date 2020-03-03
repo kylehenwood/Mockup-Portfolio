@@ -1,8 +1,6 @@
-<!-- mobile menu -->
-<div class="layout__mobile-menu js-layout-mobile">
-
+<div class="layout__overlay js-layout-mobile">
   <div class="mobile-tray">
-    <div class="mobile-tray__transition"></div>
+    
     <div class="mobile-tray__header">
       <div class="navigation-mobile">
       <!-- logo button -->
@@ -17,8 +15,8 @@
       </div>
     </div>
   </div>
-  <div class="mobile-tray__navigation">
 
+  <div class="mobile-tray__navigation">
     <ul class="mobile-navigation">
       <li class="mobile-navigation__item anim--in-bot anim--delay-40">
         <a class="mobile-navitem js-pjax-container <?php if ($navSelectedGallery) { echo'mobile-navitem--active';} ?>" data-pjax="js-pjax-container" activeClass="mobile-navitem--active" href="index.php?pageID=gallery">
@@ -49,9 +47,4 @@
     </div>
   </div>
 </div>
-
-
 </div>
-
-
-<!-- overlay -->

@@ -14,6 +14,11 @@ html {
   background: black;
 }
 
+$transition-duration: 240ms;
+
+// _vendor
+@import "vendor/_fluidbox";
+
 // _shared imports
 @import "shared/_mixin";
 @import "shared/_color";
@@ -22,11 +27,8 @@ html {
 @import "shared/_type";
 @import "shared/heading";
 @import "shared/_useful";
-@import "shared/_grid";
-@import "shared/_grid-custom";
 @import "shared/_hr";
 @import "shared/_typography";
-@import "shared/_text-animation";
 
 
 // _icon
@@ -36,11 +38,8 @@ html {
 
 
 // _layout
-@import "layout/_layout";
-@import "layout/_layout-mobile";
-@import "layout/_layout-footer";
-@import "layout/_layout-sections";
-@import "layout/_layout-banners";
+@import "chrome/_layout";
+@import "chrome/_page";
 
 
 // _common
@@ -52,22 +51,21 @@ html {
 
 
 // _components
-@import "components/_section-quote";
-@import "components/_section-signup";
-@import "components/_section-help";
-@import "components/_module";
+@import "components/_grid-custom";
+@import "components/_text-animation";
+
+// @import "components/_module";
 @import "components/_button";
-@import "components/_button-primary";
-@import "components/_button-pattern";
-@import "components/_dropdown";
-@import "components/_form";
-@import "components/_form-grid";
-@import "components/_form-search";
-@import "components/_form-checkbox";
-@import "components/_breadcrumb";
-@import "components/_switch";
-@import "components/_switch-control";
-@import "components/_page-alert";
+// @import "components/_button-primary";
+// @import "components/_button-pattern";
+// @import "components/_dropdown";
+// @import "components/_form";
+// @import "components/_form-grid";
+// @import "components/_form-search";
+// @import "components/_form-checkbox";
+// @import "components/_breadcrumb";
+// @import "components/_switch";
+// @import "components/_switch-control";
 @import "components/_animations";
 
 
@@ -80,17 +78,38 @@ html {
 @import "views-public/page-gallery/_gallery-banner";
 
 // Post
-@import "views-public/page-post/_post";
+@import "views-public/overlay-post/_post";
+
 
 //---
-// Projects
-@import "views-public/page-projects/_projects-page";
-@import "views-public/page-projects/_projects-banner";
+// Works
+@import "views-public/page-works/_works";
+@import "views-public/page-works/_project-card";
 
 // Project
-@import "views-public/page-project/_project";
+@import "views-public/overlay-project/_project";
+
 
 //---
 // About
 @import "views-public/page-about/_about-page";
 @import "views-public/page-about/_about-banner";
+
+
+
+
+
+//---
+// _projects
+@import "views-public/overlay-project/_project";
+@import "views-public/overlay-project/_banners";
+@import "views-public/overlay-project/_description";
+@import "views-public/overlay-project/_brand";
+@import "views-public/overlay-project/_showcase";
+@import "views-public/overlay-project/_gallery";
+
+
+
+//---
+// Project specific CSS
+@import "views-public/project-aibek/_aibek-banner";

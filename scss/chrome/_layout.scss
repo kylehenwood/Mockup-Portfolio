@@ -1,0 +1,84 @@
+// layout
+html {
+  height: 100%;
+  width: 100%;
+  min-width: 320px;
+  background: $color-grey-900;
+}
+
+// Layout
+.layout {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  background: $color-grey-900;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.layout--white {
+  background: white;
+}
+.layout--grey {
+  background: $color-grey-800;
+}
+.layout--scroll-lock {
+  overflow: hidden;
+}
+.layout--overlay {
+  .layout__header,
+  .layout__content,
+  .layout__footer {
+    display: none;
+  }
+}
+
+// Header
+.layout__header {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 24px;
+  background: $color-grey-900;
+  //background: rgba(black,0.1);
+  //box-shadow: inset 0 -1px 0 rgba(white,0.3);
+  @include screen-med {
+    padding: 0 16px;
+  }
+}
+
+// Content
+.layout__content {
+  width: 100%;
+  background: $color-grey-800;
+  @include screen-med {
+    padding: 80px 0 0;
+  }
+}
+.layout__content--scroll-lock {
+  position: fixed;
+  overflow: hidden;
+}
+
+// Footer
+.layout__footer {
+  width: 100%;
+  padding: 40px 24px;
+  background: $color-grey-900;
+}
+
+//------------
+// Overlay
+.layout__overlay {
+  display: none;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.layout__overlay--scroll-lock {
+  position: fixed;
+  overflow: hidden;
+}

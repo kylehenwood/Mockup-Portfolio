@@ -1,0 +1,156 @@
+//---------------
+// Banner Headings
+//---------------
+
+.project-mask {
+  transition: 800ms cubic-bezier(0.8, 0.24, 1, 1);
+}
+
+//--
+
+.project {
+  position: relative;
+  //padding: 72px 0 0;
+  background: $color-grey-900;
+}
+.project--standalone {
+  padding: 0;
+}
+
+.project__banner {
+  //padding: 0 16px;
+  //background: $color-grey-800;
+}
+
+.project__close {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px;
+  //background: $color-grey-900;
+}
+
+.project__close--scroll {
+  //position: fixed;
+  //background: $color-grey-900;
+  //background: linear-gradient(black,transparent);
+  //background: linear-gradient(0deg,rgba(0,0,0,0),rgba(0,0,0,0.4));
+}
+
+// Button
+.project-back-button {
+  position: relative;
+  border-radius: 20px;
+  font-weight: bold;
+  line-height: 16px;
+  color: white;
+  display: inline-block;
+  padding: 12px 24px 12px 40px;
+  box-shadow: inset 0 0 0 2px rgba(white,0.6),0 0 0 0 rgba(white,0.6);
+  transition: all 80ms ease-out;
+  &:hover {
+    box-shadow: inset 0 0 0 0 rgba(white,1),0 0 0 2px rgba(white,1);
+    background: white;
+    color: $color-grey-700;
+  }
+  &:active {
+    box-shadow: inset 0 0 0 2px rgba(white,1),0 0 0 0 rgba(white,1);
+    background: white;
+    color: $color-grey-700;
+  }
+}
+.project-back-button__icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40px;
+  padding: 12px 16px;
+}
+.project-back-button__text {}
+
+
+// Banner
+.project-banner {
+  position: relative;
+}
+
+.project-banner__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0;
+  height: 800px;
+  @include screen-med {
+    height: 560px;
+  }
+}
+
+
+.anim--project-in {
+  opacity: 0;
+  //animation-delay: 80ms;
+  animation-name: project-in;
+  animation-duration: $transition-duration;
+  animation-timing-function: ease-out-cubic;
+  animation-fill-mode: forwards;
+}
+@keyframes project-in {
+  000% {
+    opacity: 0.4;
+    //transform: translateY(80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.anim--project-out {
+  opacity: 1;
+  animation-name: project-out;
+  animation-duration: $transition-duration;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+@keyframes project-out {
+  000% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+}
+
+
+.project__container {
+  padding: 24px 24px;
+}
+
+.project__container--animate {
+  animation-name: slide-in-bottom;
+  animation-duration: 800ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.project__container--grey {
+  background: $color-grey-200;
+}
+.project__container--blue {
+  background: $color-blue-500;
+}
+
+.project__container--white {
+  background: white;
+}
+
+.padding__container--padding-bot {
+  padding-bottom: 120px!important;
+}
+.project__container--showcase {
+  padding: 0 24px;
+}

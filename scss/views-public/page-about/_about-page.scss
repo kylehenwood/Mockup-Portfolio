@@ -2,39 +2,6 @@
 // Example Page
 //---------------
 
-
-// Example website section
-.example-website {
-  background: $color-grey-500;
-  border-radius: 4px;
-  height: 400px;
-  box-shadow: $shadow-100;
-  transition: all 80ms ease-in;
-  @include screen-mob() {
-    height: 320px;
-  }
-}
-
-.website-example {}
-.website-example__title {
-  text-transform: uppercase;
-  color: $color-grey-500;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 1.4;
-  margin: 0 0 16px;
-}
-.website-example__heading {
-  margin: 0 0 16px;
-}
-.website-example__content {
-  margin: 0 0 48px;
-  @include screen-mob {
-    margin: 0 0 24px;
-  }
-}
-.website-example__link {
-  @include screen-mob {
-    display: none;
-  }
+.about-content {
+  padding:  80px 0;
 }

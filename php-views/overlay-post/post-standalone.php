@@ -23,93 +23,95 @@
     $postProject = $post['project'];
     $postTags = $post['tags'];
     $postImage = $post['image'];
+    $postColor = "style=background-color:".$post['color'];
 
   } else {
      $postTitle = 'POST NOT FOUND';
   }
 ?>
 
-<div class="layout__content">
-<div class="center center--1120">
-<div class="gallery">
-  <div class="gallery__heading">
-    <div class="gallery-heading">
-      <div class="gallery-heading__title js-gallery-heading">
-        <h1 class="heading-1 text-white"><?php echo($postTitle); ?></h1>
-      </div>
-      <div class="gallery-heading__subheading js-gallery-subheading">
-        <h4 class="heading-subtitle text-white"><?php echo($postSubtitle); ?></h4>
+<div class="post">
+
+  <!-- heading start -->
+  <div class="post__heading">
+    <div class="center center--1120">
+      <div class="post-heading">
+        <h2 class="post-heading__title">
+          <?php echo($postTitle); ?>
+        </h2>
       </div>
     </div>
   </div>
+  <!-- heading end -->
 
-  <div class="gallery__image">
-    <div class="gallery-selected">
-      <div class="gallery-selected__image js-gallery-image">
-        <div class="gallery-image-container"></div>
-      </div>
+  <!-- image start -->
+  <div class="post__image">
+    <div class="center center--1120">
+      <div class="post-image-placeholder js-post-image" <?php echo $postColor ?> ></div>
     </div>
   </div>
+  <!-- image end -->
 
-
-  <div class="gallery__project js-gallery-projects">
-    <div class="tile-select">
-      <div class="tile-select__heading">
-        <h2 class="heading-3 text-white">More from this project</h2>
-      </div>
-      <div class="tile-select__tiles">
-        <div class="gallery-grid clearfix">
-          <div class="gallery-grid__item">
-            <div class="gallery-image">
-              <img src="images/4-3.jpg" width="400" height="300">
+  <!-- project start -->
+  <div class="post__extras">
+    <div class="center center--1120">
+      <div class="tile-select">
+        <div class="tile-select__heading">
+          <h2 class="heading-3 text-white">More from this project</h2>
+        </div>
+        <div class="tile-select__tiles">
+          <div class="gallery-grid clearfix">
+            <div class="gallery-grid__item">
+              <div class="gallery-image">
+                <img src="images/4-3.jpg" width="400" height="300">
+              </div>
+            </div>
+            <div class="gallery-grid__item">
+              <div class="gallery-image">
+              <img src="images/4-3.jpg" width="400" height="300"></div>
+            </div>
+            <div class="gallery-grid__item">
+              <div class="gallery-image">
+              <img src="images/4-3.jpg" width="400" height="300"></div>
+            </div>
+            <div class="gallery-grid__item">
+              <div class="gallery-image">
+              <img src="images/4-3.jpg" width="400" height="300"></div>
             </div>
           </div>
-          <div class="gallery-grid__item">
-            <div class="gallery-image">
-            <img src="images/4-3.jpg" width="400" height="300"></div>
-          </div>
-          <div class="gallery-grid__item">
-            <div class="gallery-image">
-            <img src="images/4-3.jpg" width="400" height="300"></div>
-          </div>
-          <div class="gallery-grid__item">
-            <div class="gallery-image">
-            <img src="images/4-3.jpg" width="400" height="300"></div>
+        </div>
+      </div>
+      <!-- project end -->
+
+      <!-- similar start -->
+      <div class="tile-select">
+        <div class="tile-select__heading">
+          <h2 class="heading-3 text-white">Similar things</h2>
+        </div>
+        <div class="tile-select__tiles">
+          <div class="gallery-grid clearfix">
+            <div class="gallery-grid__item">
+              <div class="gallery-image">
+                <img src="images/4-3.jpg" width="400" height="300">
+              </div>
+            </div>
+            <div class="gallery-grid__item">
+              <div class="gallery-image">
+              <img src="images/4-3.jpg" width="400" height="300"></div>
+            </div>
+            <div class="gallery-grid__item">
+              <div class="gallery-image">
+              <img src="images/4-3.jpg" width="400" height="300"></div>
+            </div>
+            <div class="gallery-grid__item">
+              <div class="gallery-image">
+              <img src="images/4-3.jpg" width="400" height="300"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <!-- similar end -->
 
-
-  <div class="gallery__similar js-gallery-similar">
-    <div class="tile-select">
-      <div class="tile-select__heading">
-        <h2 class="heading-3 text-white">Similar things</h2>
-      </div>
-      <div class="tile-select__tiles">
-        <div class="gallery-grid clearfix">
-          <div class="gallery-grid__item">
-            <div class="gallery-image">
-              <img src="images/4-3.jpg" width="400" height="300">
-            </div>
-          </div>
-          <div class="gallery-grid__item">
-            <div class="gallery-image">
-            <img src="images/4-3.jpg" width="400" height="300"></div>
-          </div>
-          <div class="gallery-grid__item">
-            <div class="gallery-image">
-            <img src="images/4-3.jpg" width="400" height="300"></div>
-          </div>
-          <div class="gallery-grid__item">
-            <div class="gallery-image">
-            <img src="images/4-3.jpg" width="400" height="300"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
 </div>

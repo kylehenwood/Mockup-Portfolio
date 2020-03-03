@@ -4,7 +4,20 @@ $(document).ready(function(){
   smoothScroll();
   textAnimation();
   bindLayout();
-
+  // Scroll reveal
+  // window.sr = ScrollReveal();
+  //
+  // var revealStyle = {
+  //   origin: 'bottom',
+  //   delay: 200,
+  //   distance: '120px',
+  //   easing: 'ease-out',
+  //   scale: 1,
+  //   reset: false
+  // };
+  //
+  // sr.reveal('.js-scroll-reveal', revealStyle);
+  //
   // trigger to listen to for page load
   $(document).trigger('page_load');
   $(document).on('pjax:end', function(){
@@ -78,9 +91,6 @@ function textAnimation() {
     }
   });
 }
-
-
-
 
 
 

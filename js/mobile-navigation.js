@@ -1,40 +1,45 @@
 // Mobile navigation
-// window.resize = close all
-// buttons
+let mobileOpen = false;
 
 $(document).ready(function(){
 
   // Elements
-  const mobileNavToggle = $('.js-mobile-menu-button');
+  const mobileMenuButton = $('.js-mobile-menu-button');
 
-  let mobileNavOpen = false;
-
-  mobileNavToggle.on('click',function(){
-
-    if (mobileNavOpen === true) {
-
-      // remove classes when animate out completes.
-      mobileNavOpen = false;
-      layout.mobile.removeClass('layout__mobile-menu--show');
-      bodyScrollEnable(layout.mobile);
-
+  mobileMenuButton.on('click',function(){
+    if (mobileOpen === true) {
+      closeMobileMenu();
     } else {
-
-      // remove classes when animate out completes.
-      mobileNavOpen = true;
-      layout.mobile.addClass('layout__mobile-menu--show');
-      bodyScrollDisable(layout.mobile);
-
+      openMobileMenu();
     }
   });
+
 
   // close on pjax complete
   $(window).on('pjax:success',function(){
-    if (mobileNavOpen === true) {
-      mobileNavOpen = false;
-      bodyScrollEnable(layout.mobile);
-      layout.mobile.removeClass('layout__mobile-menu--show');
-      layout.body.focus();
+    if (mobileOpen === true) {
+      closeMobileMenu();
+    }
+  });
+  // close on resize
+  $(window).resize(function(){
+    if (mobileOpen === true) {
+      closeMobileMenu();
     }
   });
 });
+
+
+// open || close
+function openMobileMenu() {
+  mobileOpen = true;
+  bodyScrollDisable(layout.mobile);
+  bodyScrollSet(layout.mobile);
+  layout.body.addClass('layout--white');
+}
+function closeMobileMenu() {
+  mobileOpen = false;;
+  bodyScrollEnable(layout.mobile);
+  layout.mobile.hide();
+  layout.body.removeClass('layout--white');
+}

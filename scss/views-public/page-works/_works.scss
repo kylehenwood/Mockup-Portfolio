@@ -1,0 +1,71 @@
+//---------------
+// Banner Headings
+//---------------
+
+// Projects Banner
+.works-banner {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 100px 0;
+  @include screen-med {
+    display: block;
+    padding: 80px 0 0;
+  }
+  @include screen-mob {
+    padding: 64px 0 0;
+  }
+}
+
+.works-banner__heading {
+  overflow: hidden;
+}
+
+
+
+
+// works page in/out animations
+.anim--works-in {
+  transform-origin: 50% 50%;
+  opacity: 1;
+  animation-name: works-in;
+  //animation-delay: 80ms;
+  animation-duration: $transition-duration;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+@keyframes works-in {
+  000% {
+    opacity: 0.4;
+    //transform: translateX(80px);
+    //transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    //transform: translateX(0);
+    //transform: scale(1);
+  }
+}
+
+
+.anim--works-out {
+  transform-origin: 50%;
+  opacity: 1;
+  animation-name: works-out;
+  //animation-delay: 0;
+  animation-duration: $transition-duration;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+@keyframes works-out {
+  000% {
+    opacity: 1;
+    //transform: translateX(0);
+    //transform: scale(1);
+  }
+  100% {
+    opacity: 0.4;
+    //transform: translateX(80px);
+    //transform: scale(0.9);
+  }
+}

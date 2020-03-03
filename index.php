@@ -23,10 +23,9 @@ function displayContent()	{
         $title = 'KH - '.$_GET['postID'];
         $post = setContent('./php-views/overlay-post/post.php');
         $postStandalone = setContent('./php-views/overlay-post/post-standalone.php');
-        $content = null;
       } else {
         $title = 'KH - TLDR';
-        $content = setContent('./php-views/gallery/_construct.php');
+        $content = setContent('./php-views/page-gallery/_construct.php');
       }
       break;
 
@@ -36,33 +35,32 @@ function displayContent()	{
         $title = 'KH - '.$_GET['projectID'];
         $project = setContent('./php-views/overlay-project/project.php');
         $projectStandalone = setContent('./php-views/overlay-project/project-standalone.php');
-        $content = null;
       } else {
         $title = 'KH - Projects';
-        $content = setContent('./php-views/projects/_construct.php');
+        $content = setContent('./php-views/page-works/_construct.php');
       }
       break;
 
       case $pageName == 'about';
       $title = 'KH - About';
-      $content = setContent('./php-views/about/_construct.php');
+      $content = setContent('./php-views/page-about/_construct.php');
       break;
 
       case $pageName == 'Contact';
       $title = 'KH - Contact me';
-      $content = setContent('./php-views/about/_construct.php');
+      $content = setContent('./php-views/page-about/_construct.php');
       break;
 
       // 404 page not found
       default:
       $title = '404 Page not found';
-      $content = setContent('./php-views/404/_construct.php');
+      $content = setContent('./php-views/page-404/_construct.php');
       break;
     }
   } else {
     // no page id set -> home page
     $title = 'KH - TLDR';
-    $content = setContent('./php-views/gallery/_construct.php');
+    $content = setContent('./php-views/page-gallery/_construct.php');
   }
 
 
@@ -82,18 +80,29 @@ function displayContent()	{
   	echo "<title>{$title}</title>";
   } else {
 
-    include './php-chrome/navigation.php';
+    echo '<!DOCTYPE html>';
+    echo '<html class="js-html svg">';
+
+    include './php-chrome/head.php';
+
+    echo '<body class="layout js-layout">';
+
     include './php-views/overlay-post/_shell.php';
     include './php-views/overlay-project/_shell.php';
     include './php-views/overlay-contact/_shell.php';
+    include './php-chrome/navigation.php';
 
-    echo '<div id="js-pjax-container" class="layout__content js-layout-content">';
+    echo '<div class="layout__content js-layout-content">';
+    echo '<div id="js-pjax-container">';
     echo $content;
     echo $postStandalone;
     echo $projectStandalone;
     echo '</div>';
+    echo '</div>';
 
     include './php-chrome/footer.php';
+
+    echo '</body>';
   }
   return false;
 }
