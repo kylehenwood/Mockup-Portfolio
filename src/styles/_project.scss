@@ -1,0 +1,323 @@
+﻿@use 'tokens' as *;
+
+// Per-project tokens. Each `.project-page--<color>` sets the hero
+// background + foreground AND the page-level background. The vibrant
+// colour fills the entire page; content regions (info card, body, others)
+// sit on top with their own surfaces. This means the new view-transition
+// snapshot is vibrant wherever a content region doesn't cover, so the
+// pinhole / stage-clear flood reveals the project colour on screen edges
+// regardless of where the user clicked.
+.project-page {
+  --project-hero: #{$color-bg-elevated};
+  --project-hero-fg: #{$color-fg};
+
+  background: var(--project-hero);
+
+  &--yellow {
+    --project-hero: #FFD603;
+    --project-hero-fg: #013D54;
+  }
+  &--pink   { --project-hero: #{$color-pink};   --project-hero-fg: #{$color-fg}; }
+  &--blue   { --project-hero: #{$color-blue};   --project-hero-fg: #{$color-fg}; }
+  &--teal   { --project-hero: #{$color-teal};   --project-hero-fg: #{$color-fg}; }
+  &--green  { --project-hero: #{$color-green};  --project-hero-fg: #{$color-fg}; }
+  &--orange { --project-hero: #{$color-orange}; --project-hero-fg: #{$color-fg}; }
+  &--purple { --project-hero: #{$color-purple}; --project-hero-fg: #{$color-fg}; }
+}
+
+// ---- Hero band -------------------------------------------------------------
+// Large full-bleed band in the project's colour. Title vertically centred,
+// back link absolute top-left. Bottom padding leaves room for the floating
+// info card to overlap from below.
+
+.project-hero {
+  background: var(--project-hero);
+  color: var(--project-hero-fg);
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(420px, 65vh, 640px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 0 9rem;
+}
+
+.project-hero__inner {
+  @include container;
+  position: relative;
+  text-align: center;
+}
+
+// Modal-style close button. Rendered by Layout on /projects/:slug routes
+// in place of the primary header. Fixed to the top-right of the viewport
+// so it stays in reach while the page scrolls.
+.project-close {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 60;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  color: $color-fg;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background 160ms ease, transform 160ms ease;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: scale(1.05);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 3px;
+  }
+}
+
+.project-close__icon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+  }
+
+  &::before { transform: translateY(-50%) rotate(45deg); }
+  &::after  { transform: translateY(-50%) rotate(-45deg); }
+}
+
+.project-hero__title {
+  font-size: clamp(2.75rem, 7vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+  font-weight: 700;
+}
+
+// ---- Floating info card ----------------------------------------------------
+
+.project-body__info {
+  @include container;
+  // Lives inside .project-body, which has padding-top: 4rem. The -11rem
+  // pulls the card up past that padding so it still overlaps the hero
+  // band by 7rem (the visual the design used when this was a sibling).
+  // margin-bottom replaces the padding contribution above body content.
+  margin-top: -11rem;
+  margin-bottom: 7rem;
+  position: relative;
+  z-index: 2;
+}
+
+.project-body__info-inner {
+  background: $color-bg-elevated;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2.5rem;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+
+  @include screen-md {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.project-body__info-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: $color-fg-muted;
+  margin: 0 0 1rem;
+}
+
+.project-body__info-role {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+  color: $color-fg;
+}
+
+.project-body__info-summary {
+  margin: 0 0 1.25rem;
+  color: $color-fg-muted;
+  line-height: 1.55;
+}
+
+.project-body__info-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 0;
+  font-size: 0.875rem;
+  color: $color-fg-muted;
+
+  dt {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    color: $color-fg-subtle;
+    margin-bottom: 0.25rem;
+  }
+
+  dd {
+    margin: 0;
+    color: $color-fg;
+    font-weight: 500;
+  }
+}
+
+// ---- Tags ------------------------------------------------------------------
+
+.project-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  background: rgba($color-blue, 0.18);
+  color: $color-fg;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+// ---- Body region -----------------------------------------------------------
+// Full-width dark band that sits on the vibrant page background. The
+// background colour and the content rise into place together â€” slides up
+// from below + fades in. Delayed so it lands after the stage-clear flood
+// has begun fading; for other transitions it's just an entry flourish.
+
+@keyframes project-body-in {
+  from { transform: translateY(20%); opacity: 0; }
+  to   { transform: translateY(0);   opacity: 1; }
+}
+
+.project-body {
+  background: $color-bg-elevated;
+  padding: 4rem 0 5rem;
+  animation: project-body-in 800ms cubic-bezier(0.16, 1, 0.3, 1) 700ms both;
+}
+
+.project-body__inner {
+  width: calc(100% - #{$gutter * 2});
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-body { animation: none; }
+}
+
+.project-section {
+  padding: 2rem 0;
+
+  & + & { border-top: 1px solid $color-border; }
+
+  &:first-child { padding-top: 0; }
+  &:last-child  { padding-bottom: 0; }
+}
+
+.project-section__badge {
+  display: inline-block;
+  padding: 0.125rem 0.625rem;
+  background: rgba($color-purple, 0.25);
+  color: $color-fg;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+}
+
+.project-section__title {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+
+.project-section__body {
+  margin: 0;
+  color: $color-fg-muted;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+// ---- Other case studies (prev / next) -------------------------------------
+
+.project-others {
+  background: $color-bg-deep;
+  padding: 4rem 0;
+}
+
+.project-others__inner {
+  @include container;
+}
+
+.project-others__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem;
+  color: $color-fg;
+}
+
+.project-others__pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+
+  @include screen-md { grid-template-columns: 1fr; }
+}
+
+.project-others__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 200px;
+  padding: 1.5rem;
+  border-radius: $radius-md;
+  color: $color-fg;
+  transition: transform 200ms ease;
+
+  &:hover { transform: translateY(-3px); }
+}
+
+.project-others__direction {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  opacity: 0.85;
+
+  &--right { text-align: right; }
+}
+
+.project-others__name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+

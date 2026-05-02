@@ -1,0 +1,72 @@
+@use 'tokens' as *;
+
+.project-card {
+  position: relative;
+  display: block;
+  background: $color-bg-elevated;
+  border-radius: $radius-md;
+  overflow: hidden;
+  aspect-ratio: 304 / 344;
+  text-decoration: none;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.project-card--feature {
+  grid-column: span 2;
+  aspect-ratio: 641 / 344;
+
+  @media (max-width: 720px) { grid-column: span 2; }
+  @media (max-width: 460px) { grid-column: span 1; aspect-ratio: 304 / 344; }
+}
+
+.project-card__cover {
+  position: absolute;
+  inset: 0;
+}
+
+.project-card__cover-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-card__cover-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: rgba($color-fg, 0.85);
+  letter-spacing: -0.02em;
+
+  &--pink   { background: linear-gradient(135deg, $color-pink, $color-purple); }
+  &--blue   { background: linear-gradient(135deg, $color-blue, $color-teal); color: rgba($color-fg, 0); }
+  &--teal   { background: linear-gradient(135deg, $color-teal, $color-green); }
+  &--green  { background: linear-gradient(135deg, $color-green, #80d8b0); }
+  &--orange { background: linear-gradient(135deg, $color-orange, $color-pink); }
+  &--purple { background: linear-gradient(135deg, $color-purple, $color-blue); }
+  &--yellow { background: #FFD603; color: rgba(0, 0, 0, 0.85); }
+}
+
+.project-card__title-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
+  color: $color-fg;
+}
+
+.project-card__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}

@@ -1,0 +1,236 @@
+@use 'tokens' as *;
+
+.ds-hero {
+  background: $color-bg-elevated;
+  border-bottom: 1px solid $color-border;
+}
+
+.ds-hero__inner {
+  @include container;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.ds-hero__eyebrow {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $color-accent;
+  margin-bottom: 0.75rem;
+}
+
+.ds-hero__title {
+  font-size: 2.25rem;
+  margin: 0 0 0.75rem;
+}
+
+.ds-hero__lede {
+  margin: 0;
+  max-width: 60ch;
+  color: $color-fg-muted;
+
+  code { background: rgba($color-fg, 0.06); padding: 0.05rem 0.35rem; border-radius: 4px; }
+}
+
+.ds {
+  @include container;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+
+  @include screen-md {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.ds__sidebar {
+  position: sticky;
+  top: calc(#{$header-height} + 1.5rem);
+  align-self: start;
+  font-size: 0.9375rem;
+
+  @include screen-md {
+    position: static;
+  }
+}
+
+.ds__sidebar-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $color-fg-subtle;
+  margin-bottom: 1rem;
+}
+
+.ds__sidebar-group + .ds__sidebar-group { margin-top: 1.25rem; }
+
+.ds__sidebar-heading {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $color-fg-muted;
+  margin-bottom: 0.5rem;
+}
+
+.ds__sidebar-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li + li { margin-top: 0.25rem; }
+
+  a {
+    color: $color-fg-muted;
+    transition: color 120ms ease;
+
+    &:hover { color: $color-fg; }
+  }
+}
+
+.ds__undocumented {
+  color: $color-fg-subtle;
+  font-family: $font-mono;
+  font-size: 0.875rem;
+}
+
+.ds__main { min-width: 0; }
+
+.ds__category {
+  margin-bottom: 4rem;
+
+  &:last-child { margin-bottom: 0; }
+}
+
+.ds__category-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $color-fg-subtle;
+  border-bottom: 1px solid $color-border;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.ds__hint {
+  color: $color-fg-muted;
+  font-size: 0.9375rem;
+  margin-bottom: 0.75rem;
+}
+
+.ds__undoc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li + li { margin-top: 0.25rem; }
+}
+
+// ---- Component card -------------------------------------------------------
+
+.ds-component {
+  background: $color-bg-elevated;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  padding: 1.75rem 1.75rem 1.5rem;
+  margin-bottom: 2rem;
+
+  &:last-child { margin-bottom: 0; }
+}
+
+.ds-component__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.ds-component__name {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.ds-component__file {
+  background: transparent;
+  color: $color-fg-subtle;
+  padding: 0;
+  font-size: 0.8125rem;
+}
+
+.ds-component__description {
+  color: $color-fg-muted;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  max-width: 70ch;
+  margin-bottom: 1.5rem;
+}
+
+.ds-component__subhead {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $color-fg-subtle;
+  margin: 1.5rem 0 0.75rem;
+}
+
+// ---- Props table ----------------------------------------------------------
+
+.ds-props {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+
+  th, td {
+    text-align: left;
+    padding: 0.625rem 0.75rem;
+    border-bottom: 1px solid $color-border;
+    vertical-align: top;
+  }
+
+  th {
+    font-weight: 600;
+    color: $color-fg-muted;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  td:first-child code,
+  td:nth-child(2) code {
+    background: $color-bg-deep;
+  }
+
+  tr:last-child td { border-bottom: 0; }
+}
+
+// ---- Preview frame --------------------------------------------------------
+
+.ds-preview {
+  margin-top: 1.25rem;
+
+  &:first-of-type { margin-top: 0; }
+}
+
+.ds-preview__label {
+  font-size: 0.8125rem;
+  color: $color-fg-muted;
+  margin-bottom: 0.5rem;
+}
+
+.ds-preview__frame {
+  position: relative;
+  background: $color-bg;
+  border: 1px dashed $color-border;
+  border-radius: $radius-sm;
+  padding: 1.5rem;
+  overflow: hidden;
+
+  // Reset any sticky positioning a child might use so it doesn't escape the frame
+  > * { position: relative !important; top: auto !important; }
+}

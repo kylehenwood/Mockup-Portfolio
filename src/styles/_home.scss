@@ -1,0 +1,156 @@
+@use 'tokens' as *;
+
+// ---- Hero ------------------------------------------------------------------
+
+.home-hero {
+  width: 100%;
+  background: $color-bg;
+  scroll-margin-top: $header-height;
+}
+
+.home-hero__inner {
+  @include container;
+  padding-top: 5rem;
+  padding-bottom: 4rem;
+  max-width: 975px;
+
+  @include screen-sm {
+    padding-top: 3rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+.home-hero__title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 2rem;
+}
+
+.home-hero__lede {
+  font-size: 1.25rem;
+  line-height: 1.55;
+  color: $color-fg-muted;
+  margin: 0 0 1.5rem;
+  max-width: 60ch;
+
+  @include screen-sm { font-size: 1.0625rem; }
+}
+
+// ---- Section shell ---------------------------------------------------------
+
+.home-section {
+  width: 100%;
+  scroll-margin-top: $header-height;
+
+  @include screen-sm { scroll-margin-top: $header-height-mobile; }
+}
+
+.home-section__inner {
+  @include container;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
+  @include screen-sm {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+.home-section__head {
+  margin-bottom: 2rem;
+}
+
+.home-section__head--minor {
+  margin-top: 4rem;
+}
+
+.home-section__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5rem;
+}
+
+.home-section__title--minor {
+  font-size: 1.25rem;
+}
+
+.home-section__sub {
+  margin: 0;
+  color: $color-fg-muted;
+  font-size: 1rem;
+}
+
+// ---- Project grids ---------------------------------------------------------
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+
+  @media (max-width: 1024px) { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 720px)  { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 460px)  { grid-template-columns: 1fr; }
+}
+
+.project-grid--quad {
+  margin-top: 1.5rem;
+}
+
+// ---- About / Who am I -----------------------------------------------------
+
+.home-about {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 4rem;
+
+  @include screen-md {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.home-about__body {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: $color-fg;
+
+  p { margin: 0 0 1.25rem; }
+}
+
+.home-about__sidebar {
+  font-size: 0.9375rem;
+  color: $color-fg-muted;
+
+  dt {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $color-fg-subtle;
+    margin-top: 1.25rem;
+  }
+
+  dt:first-child { margin-top: 0; }
+
+  dd {
+    margin: 0.25rem 0 0;
+    color: $color-fg;
+  }
+}
+
+// ---- Showreel placeholder --------------------------------------------------
+
+.home-showreel {
+  background: $color-bg-elevated;
+  border: 1px dashed $color-border;
+  border-radius: $radius-md;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.home-showreel__placeholder {
+  margin: 0;
+  color: $color-fg-muted;
+  font-size: 1rem;
+}
