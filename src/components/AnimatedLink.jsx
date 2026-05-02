@@ -51,7 +51,7 @@ export default function AnimatedLink({
       markRootClass('vt-zoom-out');
     } else if (fromPost && !toPost) {
       // Leaving a blog post for anything that isn't another post.
-      markRootClass('vt-zoom-out');
+      markRootClass('vt-post-close');
     } else if (!fromPost && toPost) {
       // Drilling into a blog post from a non-post page (e.g. /blog list).
       markRootClass('vt-zoom-in');

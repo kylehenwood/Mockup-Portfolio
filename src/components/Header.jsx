@@ -36,9 +36,13 @@ export default function Header({ onMenuOpen }) {
   // Tab clicks pick a slide direction based on the destination's NAV index
   // relative to the current pathname's index. Forward in nav order →
   // slide-left (page moves leftward, new content enters from the right).
-  // Backward → slide-right. Same index but different pathname (e.g. project
-  // detail back to /) is treated as backward.
+  // Backward → slide-right.
+  // Detail pages (project, post) are excluded — leaving one always uses the
+  // close zoom from AnimatedLink, regardless of which header tab was clicked.
   const handleTabClick = (item) => {
+    if (/^\/projects\//.test(location.pathname)) return;
+    if (/^\/posts\//.test(location.pathname) || /^\/blog\/[^/]+/.test(location.pathname)) return;
+
     const currentIdx = navIndex(location.pathname);
     const targetIdx = NAV.findIndex((n) => n.to === item.to);
     if (currentIdx === -1 || targetIdx === -1) return;

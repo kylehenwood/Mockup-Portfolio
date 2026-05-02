@@ -9,12 +9,13 @@ export default function Home() {
         <div className="home-hero__inner">
           <h1 className="home-hero__title">Hey, I’m Kyle</h1>
           <p className="home-hero__lede">
-            Developer turned Designer, I have a love for systemised and functional design.
-            I believe all interfaces should tell a story, be accessible and maintainable.
+            I’m a creative person who likes to build things — turning ideas into products
+            people can pick up and use.
           </p>
           <p className="home-hero__lede">
-            Design is a practice often seen as a final point of call in a product decision.
-            I believe it should be the first.
+            My work is the structured and systemised application of design principles:
+            clear constraints, repeatable patterns, and decisions that hold up as the
+            product grows.
           </p>
         </div>
       </section>

@@ -13,6 +13,13 @@ export default function ProjectCard({ project, feature = false }) {
   ].filter(Boolean).join(' ');
 
   const handleClick = (e) => {
+    // Stash the home page's scroll position so closing the project can
+    // return the user to where they were. Read on the next visit to '/'
+    // by Layout, then cleared.
+    try {
+      sessionStorage.setItem('home-scroll', String(window.scrollY));
+    } catch { /* sessionStorage may be unavailable (private mode) */ }
+
     // Opt the persistent header into this transition — entering a project
     // is the one navigation where we want the header to animate with the
     // page rather than stay put. Cleared automatically post-transition.

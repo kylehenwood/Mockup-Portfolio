@@ -2,9 +2,14 @@
 
 // =============================================================================
 // View Transitions — five swappable modes selected via TransitionPicker.
-// Active mode is reflected on <html data-transition="…">; CSS gates each
-// mode's keyframes by attribute selector. AnimatedLink stores the click
-// position as --vt-x / --vt-y for transitions that originate from it.
+// Active mode is reflected on <html data-transition="…">. The picker mode
+// only governs the project-OPEN transition: every mode rule below is
+// additionally gated on `.vt-into-project` (set by ProjectCard before the
+// navigation). Closing a project, header tab nav, drilling into a post,
+// etc. all use their own dedicated classes (.vt-zoom-out, .vt-slide-*,
+// .vt-zoom-in) and ignore the picker mode entirely.
+// AnimatedLink stores the click position as --vt-x / --vt-y for
+// transitions that originate from it.
 // =============================================================================
 
 // ---- Shared keyframes ------------------------------------------------------
@@ -19,15 +24,6 @@
 @keyframes vt-fade-in {
   from { opacity: 0; }
   to   { opacity: 1; }
-}
-
-@keyframes vt-zoom-down-out {
-  from { opacity: 1; transform: scale(1); }
-  to   { opacity: 0; transform: scale(0.94); }
-}
-@keyframes vt-zoom-up-in {
-  from { opacity: 0; transform: scale(1.06); }
-  to   { opacity: 1; transform: scale(1); }
 }
 
 @keyframes vt-card-lifts-out {
@@ -45,12 +41,12 @@
 }
 
 @keyframes vt-curtain-out {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-100%); }
+  from { transform: translateY(0);    opacity: 1; }
+  to   { transform: translateY(-100%); opacity: 0; }
 }
 @keyframes vt-curtain-in {
-  from { transform: translateY(100%); }
-  to   { transform: translateY(0); }
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
 }
 
 // ---- Default fallback (used when no mode is set) ---------------------------
@@ -103,18 +99,10 @@
   to   { opacity: 1; transform: translateY(0);    }
 }
 
-// Default stage-clear (no flood) — basic zoom-fade for any same-mode
-// navigation that isn't a project-card click.
-html[data-transition="stage-clear"]::view-transition-old(root) {
-  animation: vt-zoom-down-out 520ms cubic-bezier(0.4, 0, 0.2, 1) both;
-}
-html[data-transition="stage-clear"]::view-transition-new(root) {
-  animation: vt-zoom-up-in 620ms cubic-bezier(0.16, 1, 0.3, 1) 160ms both;
-}
-
 // Flood active. Wildcard catches every named-old element (the sibling
 // cards marked home-sib-N + home-hero); root + named exemptions below
-// override per-name via source order.
+// override per-name via source order. (Already implicitly gated to
+// project-open via the .vt-stage-clear class set by ProjectCard.)
 html[data-transition="stage-clear"].vt-stage-clear::view-transition-old(*) {
   animation: sc-card-drift-out 600ms cubic-bezier(0.65, 0, 0.35, 1) both;
 }
@@ -167,29 +155,23 @@ html[data-transition="stage-clear"].vt-stage-clear::view-transition-new(project-
 //                  or leaving a blog post (not going to another post).
 //   .vt-zoom-in  — entering a blog post from a non-post page.
 
-// Going back / closing: old page scales UP toward the viewer and fades,
-// revealing the destination underneath. Reads as "lifting off" — the
-// inverse of drilling in.
-@keyframes vt-page-zoom-out {
-  from { opacity: 1; transform: scale(1);    }
-  to   { opacity: 0; transform: scale(1.12); }
-}
-
 @keyframes vt-page-zoom-in {
   from { opacity: 0; transform: scale(0.88); }
   to   { opacity: 1; transform: scale(1);    }
 }
 
-// Zoom out: old page scales up + fades on top; new page is static below.
+// Going back / closing a project: destination "zooms in" — scales up from
+// a smaller state to natural size as it fades on top; the project page
+// fades out underneath. Reads as the new view focusing into place.
 html.vt-zoom-out::view-transition-old(root) {
-  animation: vt-page-zoom-out 600ms cubic-bezier(0.4, 0, 0.2, 1) both;
-  z-index: 2;
+  animation: vt-fade-out 360ms ease both;
 }
 html.vt-zoom-out::view-transition-new(root) {
-  animation: none;
+  animation: vt-page-zoom-in 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  z-index: 2;
 }
 
-// Zoom in: new page scales up + fades over the top; old page fades out below.
+// Drilling into a detail page (e.g. blog post): same zoom-in feel.
 html.vt-zoom-in::view-transition-old(root) {
   animation: vt-fade-out 320ms ease both;
 }
@@ -198,22 +180,42 @@ html.vt-zoom-in::view-transition-new(root) {
   z-index: 2;
 }
 
+// Closing a blog post: post shrinks + fades out on top while the
+// destination fades in from a slightly larger state, also shrinking
+// down to its natural size. Coordinated "pull back the camera" feel.
+@keyframes vt-post-close-out {
+  from { opacity: 1; transform: scale(1);    }
+  to   { opacity: 0; transform: scale(0.88); }
+}
+@keyframes vt-post-close-in {
+  from { opacity: 0; transform: scale(1.12); }
+  to   { opacity: 1; transform: scale(1);    }
+}
+
+html.vt-post-close::view-transition-old(root) {
+  animation: vt-post-close-out 520ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  z-index: 2;
+}
+html.vt-post-close::view-transition-new(root) {
+  animation: vt-post-close-in 520ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
 
 // ---- Mode: card-lifts — bigger scale, slower, more dramatic ---------------
 
-html[data-transition="card-lifts"]::view-transition-old(root) {
+html[data-transition="card-lifts"].vt-into-project::view-transition-old(root) {
   animation: vt-card-lifts-out 720ms cubic-bezier(0.7, 0, 0.3, 1) both;
 }
-html[data-transition="card-lifts"]::view-transition-new(root) {
+html[data-transition="card-lifts"].vt-into-project::view-transition-new(root) {
   animation: vt-card-lifts-in 820ms cubic-bezier(0.16, 1, 0.3, 1) 320ms both;
 }
 
 // ---- Mode: pinhole — radial clip from click point -------------------------
 
-html[data-transition="pinhole"]::view-transition-old(root) {
+html[data-transition="pinhole"].vt-into-project::view-transition-old(root) {
   animation: vt-fade-out 320ms ease both;
 }
-html[data-transition="pinhole"]::view-transition-new(root) {
+html[data-transition="pinhole"].vt-into-project::view-transition-new(root) {
   animation: vt-pinhole-in 880ms cubic-bezier(0.65, 0, 0.35, 1) both;
   // Pinhole expands; old layer underneath is faded so we see the new one
   // emerge cleanly. Without this the old layer reads as a flicker.
@@ -222,11 +224,11 @@ html[data-transition="pinhole"]::view-transition-new(root) {
 
 // ---- Mode: curtain-wipe — vertical slide cross -----------------------------
 
-html[data-transition="curtain-wipe"]::view-transition-old(root) {
-  animation: vt-curtain-out 600ms cubic-bezier(0.65, 0, 0.35, 1) both;
+html[data-transition="curtain-wipe"].vt-into-project::view-transition-old(root) {
+  animation: vt-curtain-out 1000ms cubic-bezier(0.65, 0, 0.35, 1) both;
 }
-html[data-transition="curtain-wipe"]::view-transition-new(root) {
-  animation: vt-curtain-in 600ms cubic-bezier(0.65, 0, 0.35, 1) both;
+html[data-transition="curtain-wipe"].vt-into-project::view-transition-new(root) {
+  animation: vt-curtain-in 1000ms cubic-bezier(0.65, 0, 0.35, 1) both;
   z-index: 2;
 }
 

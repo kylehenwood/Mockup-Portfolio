@@ -17,13 +17,12 @@
   view-transition-name: site-header;
 }
 
-// The header has its own snapshot so it stays still during slides between
-// base pages. For drill-style transitions (project entry flood, project /
-// post zoom-out, post zoom-in) we want the whole page to animate as one,
+// Header has its own snapshot so it stays still on every navigation —
+// slides between base pages, drilling into a post, closing a project.
+// Project OPEN is the one exception: the picker-mode entry effects
+// (flood, card-lifts, pinhole, curtain-wipe) treat the page as one,
 // so the header drops its snapshot and joins root.
-html.vt-into-project .header,
-html.vt-zoom-out .header,
-html.vt-zoom-in .header {
+html.vt-into-project .header {
   view-transition-name: none;
 }
 
