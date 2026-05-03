@@ -26,6 +26,21 @@
   to   { opacity: 1; }
 }
 
+// ---- Live-DOM backdrop -----------------------------------------------------
+// Element added by startViewTransition() while a transition is in flight.
+// Covers the live DOM (which has already been scrolled to the top of the
+// destination page) so it can't bleed through any snapshot opacity dip.
+// View-transition snapshots live in the top layer, so they always render
+// above this regardless of z-index.
+
+.vt-backdrop {
+  position: fixed;
+  inset: 0;
+  background: $color-bg;
+  z-index: 9999;
+  pointer-events: none;
+}
+
 @keyframes vt-card-lifts-out {
   from { opacity: 1; transform: scale(1) translateY(0); }
   to   { opacity: 0; transform: scale(0.88) translateY(-2vh); }
@@ -35,29 +50,29 @@
   to   { opacity: 1; transform: scale(1); }
 }
 
-@keyframes vt-pinhole-in {
-  from { clip-path: circle(0% at var(--vt-x, 50%) var(--vt-y, 50%)); }
-  to   { clip-path: circle(150% at var(--vt-x, 50%) var(--vt-y, 50%)); }
-}
-
-@keyframes vt-curtain-out {
-  from { transform: translateY(0);    opacity: 1; }
-  to   { transform: translateY(-100%); opacity: 0; }
-}
-@keyframes vt-curtain-in {
-  from { transform: translateY(100%); opacity: 0; }
-  to   { transform: translateY(0);    opacity: 1; }
-}
-
 // ---- Default fallback (used when no mode is set) ---------------------------
+// All page animations target ::view-transition-old/new(site-content) — the
+// content wrapper around <Outlet> in Layout. Header (in root) stays still
+// across navigations.
 
-::view-transition-old(root),
-::view-transition-new(root) {
+::view-transition-old(site-content),
+::view-transition-new(site-content) {
   animation-duration: 460ms;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-// ---- Mode: stage-clear — pinhole flood in the project's colour -------------
+// Don't interpolate the group's bounding box. .site-content's on-screen
+// position changes across routes (different DOM structure on project
+// routes, scroll resets, varying content heights) — letting the UA
+// animate between those bboxes makes the snapshots visibly scroll
+// vertically during the transition. Pinning the group to the new bbox
+// keeps the old / new snapshots in place; only the explicit transform /
+// opacity animations on the snapshots themselves run.
+::view-transition-group(site-content) {
+  animation: none;
+}
+
+// ---- Mode: stage-clear — flood in the project's colour --------------------
 //
 // When the user clicks a project card, ProjectCard.jsx adds `.vt-stage-clear`
 // to <html>. That class makes the project page's `.project-flood` overlay
@@ -81,55 +96,42 @@
   100% { opacity: 0; }
 }
 
-// Sibling cards drift down + fade as the flood begins.
-@keyframes sc-card-drift-out {
-  from { opacity: 1; transform: translateY(0)    scale(1);    }
-  to   { opacity: 0; transform: translateY(20vh) scale(0.92); }
-}
-
-// Home hero ("Hey, I'm Kyle") fades up while the flood expands.
-@keyframes sc-hero-fade {
-  from { opacity: 1; transform: translateY(0); }
-  to   { opacity: 0; transform: translateY(-1.5rem); }
-}
-
 // Project page rises in once the flood has covered most of the screen.
 @keyframes sc-page-rise {
   from { opacity: 0; transform: translateY(40px); }
   to   { opacity: 1; transform: translateY(0);    }
 }
 
-// Flood active. Wildcard catches every named-old element (the sibling
-// cards marked home-sib-N + home-hero); root + named exemptions below
-// override per-name via source order. (Already implicitly gated to
-// project-open via the .vt-stage-clear class set by ProjectCard.)
+// Flood active. Wildcard catches every named-old element (sibling cards
+// marked home-sib-N + home-hero) and fades them out — no movement, the
+// focus belongs to the flood expanding from the click point. Frame and
+// picker keep their snapshots but opt out below.
 html[data-transition="stage-clear"].vt-stage-clear::view-transition-old(*) {
-  animation: sc-card-drift-out 600ms cubic-bezier(0.65, 0, 0.35, 1) both;
+  animation: vt-fade-out 400ms ease both;
 }
 
-// Old root: just fades (the home page background underneath the named
-// elements). The clicked card itself joins root and is covered by the flood.
-html[data-transition="stage-clear"].vt-stage-clear::view-transition-old(root) {
+// Old content: just fades (the home page background underneath the named
+// elements). The clicked card itself joins site-content and is covered
+// by the flood.
+html[data-transition="stage-clear"].vt-stage-clear::view-transition-old(site-content) {
   animation: vt-fade-out 600ms ease both;
 }
 
-// Hero: distinct fade animation (up + opacity).
-html[data-transition="stage-clear"].vt-stage-clear::view-transition-old(home-hero) {
-  animation: sc-hero-fade 400ms cubic-bezier(0.4, 0, 0.2, 1) both;
-}
-
-// Picker stays put — it has its own viewTransitionName which the
-// wildcard above would otherwise drift away.
+// Picker and frame stay put — both have their own viewTransitionNames
+// which the wildcard above would otherwise fade out.
 html[data-transition="stage-clear"].vt-stage-clear::view-transition-old(transition-picker),
 html[data-transition="stage-clear"].vt-stage-clear::view-transition-new(transition-picker),
-html[data-transition="stage-clear"].vt-stage-clear::view-transition-group(transition-picker) {
+html[data-transition="stage-clear"].vt-stage-clear::view-transition-group(transition-picker),
+html[data-transition="stage-clear"].vt-stage-clear::view-transition-old(site-frame),
+html[data-transition="stage-clear"].vt-stage-clear::view-transition-new(site-frame),
+html[data-transition="stage-clear"].vt-stage-clear::view-transition-group(site-frame) {
   animation: none;
 }
 
-// New root: project page rises into view once the flood has covered most
-// of the screen. Delay matches the flood's hold-and-fade phase so the page
-// emerges from beneath the lifting flood.
-html[data-transition="stage-clear"].vt-stage-clear::view-transition-new(root) {
+// New content: project page rises into view once the flood has covered
+// most of the screen. Delay matches the flood's hold-and-fade phase so
+// the page emerges from beneath the lifting flood.
+html[data-transition="stage-clear"].vt-stage-clear::view-transition-new(site-content) {
   animation: sc-page-rise 600ms cubic-bezier(0.16, 1, 0.3, 1) 600ms both;
 }
 
@@ -163,19 +165,19 @@ html[data-transition="stage-clear"].vt-stage-clear::view-transition-new(project-
 // Going back / closing a project: destination "zooms in" — scales up from
 // a smaller state to natural size as it fades on top; the project page
 // fades out underneath. Reads as the new view focusing into place.
-html.vt-zoom-out::view-transition-old(root) {
+html.vt-zoom-out::view-transition-old(site-content) {
   animation: vt-fade-out 360ms ease both;
 }
-html.vt-zoom-out::view-transition-new(root) {
+html.vt-zoom-out::view-transition-new(site-content) {
   animation: vt-page-zoom-in 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
   z-index: 2;
 }
 
 // Drilling into a detail page (e.g. blog post): same zoom-in feel.
-html.vt-zoom-in::view-transition-old(root) {
+html.vt-zoom-in::view-transition-old(site-content) {
   animation: vt-fade-out 320ms ease both;
 }
-html.vt-zoom-in::view-transition-new(root) {
+html.vt-zoom-in::view-transition-new(site-content) {
   animation: vt-page-zoom-in 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
   z-index: 2;
 }
@@ -192,51 +194,163 @@ html.vt-zoom-in::view-transition-new(root) {
   to   { opacity: 1; transform: scale(1);    }
 }
 
-html.vt-post-close::view-transition-old(root) {
+html.vt-post-close::view-transition-old(site-content) {
   animation: vt-post-close-out 520ms cubic-bezier(0.4, 0, 0.2, 1) both;
   z-index: 2;
 }
-html.vt-post-close::view-transition-new(root) {
+html.vt-post-close::view-transition-new(site-content) {
   animation: vt-post-close-in 520ms cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 
 // ---- Mode: card-lifts — bigger scale, slower, more dramatic ---------------
 
-html[data-transition="card-lifts"].vt-into-project::view-transition-old(root) {
+html[data-transition="card-lifts"].vt-into-project::view-transition-old(site-content) {
   animation: vt-card-lifts-out 720ms cubic-bezier(0.7, 0, 0.3, 1) both;
 }
-html[data-transition="card-lifts"].vt-into-project::view-transition-new(root) {
+html[data-transition="card-lifts"].vt-into-project::view-transition-new(site-content) {
   animation: vt-card-lifts-in 820ms cubic-bezier(0.16, 1, 0.3, 1) 320ms both;
 }
 
-// ---- Mode: pinhole — radial clip from click point -------------------------
+// ---- Project-body entrance (shared across active entry modes) -------------
+// .project-body has its own view-transition-name during a project entry
+// (set in _project.scss), so each mode can give it a delayed translate +
+// fade independent of the root reveal.
 
-html[data-transition="pinhole"].vt-into-project::view-transition-old(root) {
-  animation: vt-fade-out 320ms ease both;
-}
-html[data-transition="pinhole"].vt-into-project::view-transition-new(root) {
-  animation: vt-pinhole-in 880ms cubic-bezier(0.65, 0, 0.35, 1) both;
-  // Pinhole expands; old layer underneath is faded so we see the new one
-  // emerge cleanly. Without this the old layer reads as a flicker.
-  z-index: 2;
+@keyframes vt-body-rise {
+  from { transform: translateY(20%); opacity: 0; }
+  to   { transform: translateY(0);   opacity: 1; }
 }
 
-// ---- Mode: curtain-wipe — vertical slide cross -----------------------------
-
-html[data-transition="curtain-wipe"].vt-into-project::view-transition-old(root) {
-  animation: vt-curtain-out 1000ms cubic-bezier(0.65, 0, 0.35, 1) both;
+// Stage-clear: rises as the flood lifts (root sc-page-rise also runs at 600ms).
+html[data-transition="stage-clear"].vt-stage-clear::view-transition-new(project-body) {
+  animation: vt-body-rise 700ms cubic-bezier(0.16, 1, 0.3, 1) 700ms both;
 }
-html[data-transition="curtain-wipe"].vt-into-project::view-transition-new(root) {
-  animation: vt-curtain-in 1000ms cubic-bezier(0.65, 0, 0.35, 1) both;
-  z-index: 2;
+
+// Card-lifts: settles in just behind the root scale-in (root delay 320ms, 820ms).
+html[data-transition="card-lifts"].vt-into-project::view-transition-new(project-body) {
+  animation: vt-body-rise 700ms cubic-bezier(0.16, 1, 0.3, 1) 400ms both;
+}
+
+// ---- Mode: aura-bloom — soft colour wash bloom -----------------------------
+//
+// Reuses the .project-flood element (rendered on every project page) but
+// restyles it in this mode as a heavily blurred radial wash in the project's
+// `--project-hero` colour rather than a solid flood. The .vt-aura-bloom
+// class — added by ProjectCard before the transition — makes the wash
+// visible in the new snapshot, where it blooms up to peak then fades away
+// to reveal the project page rising in beneath it.
+
+// Bloom peaks low and finishes in the gap between the old page leaving
+// and the new page arriving at full opacity, so it never overlaps the
+// project content — once the project is opaque it fully covers the wash.
+@keyframes vt-aura-bloom-fade {
+  0%   { opacity: 0;   }
+  35%  { opacity: 0.4; }
+  100% { opacity: 0;   }
+}
+
+// Project snaps to full opacity quickly (20% in) so it covers the bloom
+// the moment it appears — only the translate / scale continues after.
+@keyframes vt-aura-page-rise {
+  0%   { opacity: 0; transform: translateY(28px) scale(0.97); }
+  20%  { opacity: 1; transform: translateY(22px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+// Home grid zooms out and fades as the user clicks into a project.
+@keyframes vt-aura-zoom-out {
+  from { opacity: 1; transform: scale(1);    }
+  to   { opacity: 0; transform: scale(0.88); }
+}
+
+// Restyle .project-flood as a soft, multi-radial wash. Stays opacity 0
+// outside the bloom window — the .vt-aura-bloom class flips it on for
+// the new snapshot capture, then the keyframe animates it.
+html[data-transition="aura-bloom"] .project-flood {
+  background:
+    radial-gradient(ellipse 80% 70% at 50% 50%, var(--project-hero), transparent 70%),
+    radial-gradient(ellipse 60% 55% at 20% 25%, var(--project-hero), transparent 65%),
+    radial-gradient(ellipse 60% 55% at 80% 80%, var(--project-hero), transparent 65%);
+  filter: blur(60px) saturate(160%);
+  mix-blend-mode: screen;
+}
+
+html[data-transition="aura-bloom"].vt-aura-bloom .project-flood {
+  opacity: 1;
+}
+
+// Layering: bloom (project-flood) BENEATH site-content so the wash never
+// hides the project page; project-body, frame, and picker explicitly
+// above so the explicit z-index doesn't push them down.
+html[data-transition="aura-bloom"].vt-aura-bloom::view-transition-group(project-flood) {
+  z-index: 5;
+}
+html[data-transition="aura-bloom"].vt-aura-bloom::view-transition-group(site-content) {
+  z-index: 10;
+}
+html[data-transition="aura-bloom"].vt-aura-bloom::view-transition-group(project-body) {
+  z-index: 20;
+}
+html[data-transition="aura-bloom"].vt-aura-bloom::view-transition-group(transition-picker) {
+  z-index: 200;
+}
+html[data-transition="aura-bloom"].vt-aura-bloom::view-transition-group(site-frame) {
+  z-index: 2000;
+}
+html[data-transition="aura-bloom"].vt-aura-bloom::view-transition-new(project-flood) {
+  animation: vt-aura-bloom-fade 750ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+// Old content (home grid) zooms out and fades, revealing the bloom
+// underneath. New content (project page) rises in on top — its opacity
+// ramps to 1 fast so it fully masks the bloom.
+html[data-transition="aura-bloom"].vt-aura-bloom::view-transition-old(site-content) {
+  animation: vt-aura-zoom-out 500ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+html[data-transition="aura-bloom"].vt-aura-bloom::view-transition-new(site-content) {
+  animation: vt-aura-page-rise 700ms cubic-bezier(0.16, 1, 0.3, 1) 350ms both;
+}
+
+// Project body lifts in just behind the bloom, mirroring the other modes.
+html[data-transition="aura-bloom"].vt-aura-bloom::view-transition-new(project-body) {
+  animation: vt-body-rise 700ms cubic-bezier(0.16, 1, 0.3, 1) 450ms both;
+}
+
+// Frame and picker stay still — same as every other entry mode.
+html[data-transition="aura-bloom"].vt-aura-bloom::view-transition-old(transition-picker),
+html[data-transition="aura-bloom"].vt-aura-bloom::view-transition-new(transition-picker),
+html[data-transition="aura-bloom"].vt-aura-bloom::view-transition-group(transition-picker),
+html[data-transition="aura-bloom"].vt-aura-bloom::view-transition-old(site-frame),
+html[data-transition="aura-bloom"].vt-aura-bloom::view-transition-new(site-frame),
+html[data-transition="aura-bloom"].vt-aura-bloom::view-transition-group(site-frame) {
+  animation: none;
+}
+
+// ---- Project-to-project override -----------------------------------------
+// AnimatedLink marks .vt-project-to-project when going from one project
+// directly into another. The new project still gets its mode-specific
+// entry animation (stage-clear / card-lifts / aura-bloom), but the old
+// project's root + body snapshots stay static — no fade / scale /
+// translate out — so it reads as the new project layering on top of the
+// old rather than crossfading two project pages. The browser removes the
+// old snapshots when the transition completes. Place this after every
+// per-mode rule so it wins on equal specificity via source order.
+//
+// project-flood is intentionally excluded so stage-clear's old flood can
+// keep its default fade behaviour (sits on top of the project anyway, so
+// holding it static would block the new flood underneath it).
+
+html.vt-into-project.vt-project-to-project::view-transition-old(site-content),
+html.vt-into-project.vt-project-to-project::view-transition-old(project-body) {
+  animation: none;
 }
 
 // ---- Menu navigation slides ------------------------------------------------
 // Header / MobileNav set `.vt-slide-left` or `.vt-slide-right` on <html>
 // before the transition based on the destination's NAV index relative to
-// the current route. Only the root snapshot moves; the persistent header
-// (view-transition-name: site-header) stays put on its own layer.
+// the current route. Only the content region (.site-content) slides —
+// the header and footer stay put because they live in root.
 
 // Soft "push": old slides 10% in one direction, new slides 10% in from the
 // opposite. New is stacked above old (z-index: 2) and the layout background
@@ -263,24 +377,19 @@ html[data-transition="curtain-wipe"].vt-into-project::view-transition-new(root) 
 $vt-slide-duration: 420ms;
 $vt-slide-easing: cubic-bezier(0.65, 0, 0.35, 1);
 
-html.vt-slide-left::view-transition-old(root) {
+html.vt-slide-left::view-transition-old(site-content) {
   animation: vt-slide-out-left $vt-slide-duration $vt-slide-easing both;
 }
-html.vt-slide-left::view-transition-new(root) {
+html.vt-slide-left::view-transition-new(site-content) {
   animation: vt-slide-in-left $vt-slide-duration $vt-slide-easing both;
   z-index: 2;
 }
-html.vt-slide-right::view-transition-old(root) {
+html.vt-slide-right::view-transition-old(site-content) {
   animation: vt-slide-out-right $vt-slide-duration $vt-slide-easing both;
 }
-html.vt-slide-right::view-transition-new(root) {
+html.vt-slide-right::view-transition-new(site-content) {
   animation: vt-slide-in-right $vt-slide-duration $vt-slide-easing both;
   z-index: 2;
-}
-
-// Header sits above the sliding root and stays still during the slide.
-::view-transition-group(site-header) {
-  z-index: 100;
 }
 
 // ---- Reduced motion --------------------------------------------------------
@@ -288,6 +397,8 @@ html.vt-slide-right::view-transition-new(root) {
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(*),
   ::view-transition-new(*),
+  ::view-transition-old(site-content),
+  ::view-transition-new(site-content),
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation: none !important;
@@ -339,8 +450,8 @@ html.vt-stage-clear .project-flood {
 
 .transition-picker {
   position: fixed;
-  right: 1rem;
-  bottom: 1rem;
+  right: calc(var(--frame) + 1rem);
+  bottom: calc(var(--frame) + 1rem);
   z-index: 200;
   display: flex;
   align-items: center;
@@ -398,17 +509,18 @@ html.vt-stage-clear .project-flood {
   animation: none;
 }
 
-// Header & footer persist across page transitions — independent snapshots,
-// no animation. `.vt-into-project` (set by ProjectCard before entering a
-// project) clears their view-transition-name so they fall back into the
-// root snapshot and animate with the page instead.
-::view-transition-group(site-header),
+// Footer keeps its own snapshot and stays static through every navigation.
+// Header has no view-transition-name — it animates with root (cross-fade),
+// which is what we want for the active-tab indicator and avoids the
+// disappear / pop seen during project entry / close when the header had
+// its own snapshot.
 ::view-transition-group(site-footer) {
   animation: none;
 }
-::view-transition-old(site-header),
-::view-transition-new(site-header),
 ::view-transition-old(site-footer),
 ::view-transition-new(site-footer) {
   animation: none;
 }
+
+
+

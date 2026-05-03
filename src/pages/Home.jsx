@@ -1,3 +1,4 @@
+import { Outlet } from 'react-router-dom';
 import ProjectCard from '../components/ProjectCard.jsx';
 import { professionalProjects, personalProjects } from '../projects/index.js';
 
@@ -9,13 +10,12 @@ export default function Home() {
         <div className="home-hero__inner">
           <h1 className="home-hero__title">Hey, I’m Kyle</h1>
           <p className="home-hero__lede">
-            I’m a creative person who likes to build things — turning ideas into products
-            people can pick up and use.
+            I’m a creative who builds things — turning ideas into products anyone can
+            pick up, use and enjoy.
           </p>
           <p className="home-hero__lede">
-            My work is the structured and systemised application of design principles:
-            clear constraints, repeatable patterns, and decisions that hold up as the
-            product grows.
+            I apply structured and systemised application of design principles: clear
+            constraints, repeatable patterns, and decisions that hold up as ideas expand.
           </p>
         </div>
       </section>
@@ -49,6 +49,17 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Nested-route slot. On /projects/:slug the Outlet renders the
+          Project component as a fixed overlay (driven by the
+          .layout__project wrapper + .layout--project-active class on the
+          parent .layout). On /, the Outlet is empty and this div is a
+          no-op. Keeping the home content mounted underneath means
+          state, scroll, and view-transition snapshots all survive a
+          project open / close round-trip. */}
+      <div className="layout__project">
+        <Outlet />
+      </div>
     </>
   );
 }

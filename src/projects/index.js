@@ -22,6 +22,12 @@ export const projects = [
     feature: true,
     cover: null,
     component: null,
+    style: {
+      frame:  '#013D54',
+      logo:   '#FFD603',
+      logoFg: '#013D54',
+      banner: '#FFD603',
+    },
   },
   {
     slug: 'raygun',
@@ -35,6 +41,12 @@ export const projects = [
     feature: true,
     cover: null,
     component: null,
+    style: {
+      frame:  '#053975',
+      logo:   '#CD0051',
+      logoFg: '#FFFFFF',
+      banner: '#031F3F',
+    },
   },
   {
     slug: 'optimal-workshop-secondary',
@@ -47,6 +59,12 @@ export const projects = [
     color: 'yellow',
     cover: null,
     component: null,
+    style: {
+      frame:  '#013D54',
+      logo:   '#FFD603',
+      logoFg: '#013D54',
+      banner: '#FFD603',
+    },
   },
   {
     slug: 'my-fundraiser',
@@ -97,6 +115,12 @@ export const projects = [
     color: 'pink',
     cover: null,
     component: Aibek,
+    style: {
+      frame:  '#2F2748',
+      logo:   '#FFFFFF',
+      logoFg: '#2F2748',
+      banner: '#3E335C',
+    },
   },
   {
     slug: 'siteshot',

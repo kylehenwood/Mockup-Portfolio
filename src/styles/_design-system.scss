@@ -1,14 +1,22 @@
 @use 'tokens' as *;
 
 .ds-hero {
-  background: $color-bg-elevated;
-  border-bottom: 1px solid $color-border;
+  // Outer wrapper provides the page gutter and top spacing. The hero
+  // itself is a centered, contained rounded card — not a full-bleed band.
+  @include container;
+  padding-top: 2.5rem;
 }
 
 .ds-hero__inner {
-  @include container;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  background: $color-bg-elevated;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: 3rem;
+
+  @include screen-sm {
+    padding: 2rem 1.5rem;
+    border-radius: $radius-md;
+  }
 }
 
 .ds-hero__eyebrow {
@@ -233,4 +241,157 @@
 
   // Reset any sticky positioning a child might use so it doesn't escape the frame
   > * { position: relative !important; top: auto !important; }
+}
+
+// ---- Tabs (shared between Components + Project styleguide) ----------------
+
+.ds-tabs {
+  display: inline-flex;
+  gap: 0.25rem;
+  margin-top: 1.5rem;
+  padding: 0.25rem;
+  background: $color-bg-deep;
+  border: 1px solid $color-border;
+  border-radius: 999px;
+}
+
+.ds-tabs__tab {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.875rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $color-fg-muted;
+  transition: color 120ms ease, background 120ms ease;
+
+  &:hover { color: $color-fg; }
+}
+
+.ds-tabs__tab--active {
+  background: $color-bg-elevated;
+  color: $color-fg;
+}
+
+// ---- Project styleguide page ---------------------------------------------
+
+.ds__main--full { grid-column: 1 / -1; }
+
+.ds-projects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+
+  @include screen-md { grid-template-columns: 1fr; }
+}
+
+.ds-project {
+  background: $color-bg-elevated;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.ds-project__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ds-project__title {
+  font-size: 1.25rem;
+  margin: 0 0 0.25rem;
+}
+
+.ds-project__slug {
+  background: transparent;
+  color: $color-fg-subtle;
+  padding: 0;
+  font-size: 0.8125rem;
+}
+
+.ds-project__hero {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  flex: none;
+}
+
+.ds-project__swatches {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.875rem;
+
+  @media (max-width: 540px) { grid-template-columns: 1fr; }
+}
+
+// ---- Swatch ---------------------------------------------------------------
+
+.ds-swatch {
+  display: flex;
+  align-items: stretch;
+  gap: 0.75rem;
+  padding: 0.625rem;
+  background: $color-bg-deep;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+}
+
+.ds-swatch__chip {
+  flex: none;
+  width: 56px;
+  border-radius: $radius-sm;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+.ds-swatch__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.ds-swatch__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $color-fg;
+}
+
+.ds-swatch__badge {
+  display: inline-block;
+  padding: 0.05rem 0.4rem;
+  background: rgba($color-accent, 0.18);
+  color: $color-accent;
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 999px;
+}
+
+.ds-swatch__hex {
+  background: transparent;
+  padding: 0;
+  font-size: 0.8125rem;
+  color: $color-fg-muted;
+  font-feature-settings: 'tnum' 1;
+}
+
+.ds-swatch__note {
+  font-size: 0.75rem;
+  color: $color-fg-subtle;
+  line-height: 1.35;
 }

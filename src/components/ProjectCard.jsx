@@ -1,9 +1,11 @@
+import { useEffect } from 'react';
 import AnimatedLink from './AnimatedLink.jsx';
 import { useTransitionMode } from '../state/transition.js';
 import {
   markRootClass,
   markViewTransitionName,
 } from '../utils/viewTransition.js';
+import { resolveProjectStyle } from '../utils/projectPalette.js';
 
 export default function ProjectCard({ project, feature = false }) {
   const mode = useTransitionMode();
@@ -11,6 +13,29 @@ export default function ProjectCard({ project, feature = false }) {
     'project-card',
     feature ? 'project-card--feature' : '',
   ].filter(Boolean).join(' ');
+  const auraColor = resolveProjectStyle(project).banner;
+
+  // Card hover paints the body with this project's banner colour as a
+  // soft, blurred wash. Writes go to :root so they cascade to the
+  // .ambient-aura element in Layout. On mouse leave we REMOVE the inline
+  // overrides instead of zeroing them — that lets the cascade fall back
+  // to the @property initial values (logo colour at a subtle opacity),
+  // so the ambient aura is always on and just intensifies on hover.
+  const handleMouseEnter = () => {
+    document.documentElement.style.setProperty('--aura-color', auraColor);
+    document.documentElement.style.setProperty('--aura-opacity', '0.22');
+  };
+  const handleMouseLeave = () => {
+    document.documentElement.style.removeProperty('--aura-color');
+    document.documentElement.style.removeProperty('--aura-opacity');
+  };
+  // Reset the aura if the card unmounts mid-hover (e.g. route change
+  // before mouseleave fires). Drops the inline overrides so the cascade
+  // returns to the brand-pink default.
+  useEffect(() => () => {
+    document.documentElement.style.removeProperty('--aura-color');
+    document.documentElement.style.removeProperty('--aura-opacity');
+  }, []);
 
   const handleClick = (e) => {
     // Stash the home page's scroll position so closing the project can
@@ -24,6 +49,15 @@ export default function ProjectCard({ project, feature = false }) {
     // is the one navigation where we want the header to animate with the
     // page rather than stay put. Cleared automatically post-transition.
     markRootClass('vt-into-project');
+
+    // Aura-bloom: the project page's .project-flood overlay is restyled
+    // in CSS (in aura-bloom mode) as a soft, blurred radial wash in the
+    // project's colour. The .vt-aura-bloom class makes it visible in the
+    // new snapshot where the keyframe animates the bloom in and out.
+    if (mode === 'aura-bloom') {
+      markRootClass('vt-aura-bloom');
+      return;
+    }
 
     if (mode !== 'stage-clear') return;
 
@@ -53,6 +87,8 @@ export default function ProjectCard({ project, feature = false }) {
       to={`/projects/${project.slug}`}
       className={className}
       onClick={handleClick}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <div className="project-card__cover">
         {project.cover ? (

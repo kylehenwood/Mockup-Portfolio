@@ -1,6 +1,7 @@
 ﻿import { useParams } from 'react-router-dom';
 import AnimatedLink from '../components/AnimatedLink.jsx';
 import { projects, projectsBySlug } from '../projects/index.js';
+import { resolveProjectStyle } from '../utils/projectPalette.js';
 import NotFound from './NotFound.jsx';
 
 
@@ -22,13 +23,35 @@ export default function Project() {
   const Body = project.component;
   const sections = project.sections ?? PLACEHOLDER_SECTIONS;
   const tags = project.tags ?? PLACEHOLDER_TAGS;
+  const palette = resolveProjectStyle(project);
 
   const idx = projects.findIndex((p) => p.slug === slug);
   const prev = idx > 0 ? projects[idx - 1] : null;
   const next = idx < projects.length - 1 ? projects[idx + 1] : null;
 
   return (
-    <article className={`project-page project-page--${project.color || 'pink'}`}>
+    <>
+      {/* Fixed full-viewport background layer. The only thing that
+          animates on project enter / close — fades the project's banner
+          colour in / out behind the article. The article itself stays
+          in document flow so the body element does the scrolling. */}
+      <div
+        className="project-bg"
+        aria-hidden="true"
+        style={{ background: palette.banner }}
+      />
+      <AnimatedLink
+        to="/"
+        className="project-close"
+        aria-label="Close project"
+      >
+        <span className="project-close__icon" aria-hidden="true" />
+      </AnimatedLink>
+      <article
+        className={`project-page project-page--${project.color || 'pink'}`}
+        role="region"
+        aria-label={`${project.title} — case study`}
+      >
       {/* Stage-clear flood overlay. Normally invisible; the .vt-stage-clear
           class (added by ProjectCard during a project-card click) makes
           this element visible long enough to be captured in the new view
@@ -123,7 +146,8 @@ export default function Project() {
           </div>
         </div>
       </section>
-    </article>
+      </article>
+    </>
   );
 }
 

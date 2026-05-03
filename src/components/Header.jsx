@@ -1,7 +1,6 @@
-import { useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import AnimatedLink from './AnimatedLink.jsx';
-import { startViewTransition, markRootClass } from '../utils/viewTransition.js';
+import { markRootClass } from '../utils/viewTransition.js';
 
 const NAV = [
   { to: '/', label: 'Projects', matchPrefix: '/projects' },
@@ -26,12 +25,6 @@ function navIndex(pathname) {
 
 export default function Header({ onMenuOpen }) {
   const location = useLocation();
-
-  const handleBrandClick = useCallback((e) => {
-    if (location.pathname !== '/') return; // let the link navigate
-    e.preventDefault();
-    startViewTransition(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  }, [location.pathname]);
 
   // Tab clicks pick a slide direction based on the destination's NAV index
   // relative to the current pathname's index. Forward in nav order →
@@ -59,10 +52,6 @@ export default function Header({ onMenuOpen }) {
   return (
     <header className="header">
       <div className="header__inner">
-        <AnimatedLink to="/" className="header__brand" onClick={handleBrandClick}>
-          Kyle Henwood
-        </AnimatedLink>
-
         <nav className="header__nav" aria-label="Primary">
           {NAV.map((item) => (
             <AnimatedLink
@@ -94,7 +83,7 @@ export default function Header({ onMenuOpen }) {
 export const meta = {
   name: 'Header',
   category: 'Chrome',
-  description: 'Sticky top bar with brand, route-based primary nav, contact button, and a mobile menu trigger. Tab clicks set a left/right slide direction on <html> based on tab order so navigation reads as horizontal motion. Rendered once by Layout.',
+  description: 'Sticky top bar with left-aligned route-based primary nav, contact button, and a mobile menu trigger. Tab clicks set a left/right slide direction on <html> based on tab order so navigation reads as horizontal motion. Rendered once by Layout.',
   props: [
     { name: 'onMenuOpen', type: '() => void', description: 'Called when the mobile menu button is pressed.' },
   ],

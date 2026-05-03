@@ -3,57 +3,37 @@
 // ---- Header ----------------------------------------------------------------
 
 .header {
+  // Sticky (not fixed) so the header takes part in normal flow. That way
+  // .layout__main doesn't need a compensating padding-top, and removing
+  // the wrapper on project routes doesn't shift content vertically — the
+  // site-content lives at the same offset whether the header is there or
+  // not, so opening a project no longer "jumps" the page.
   position: sticky;
-  top: 0;
+  top: var(--frame);
   z-index: 50;
   width: 100%;
+  // Always tint to the regular site background, regardless of the active
+  // project palette — the header sits on the home / base routes only and
+  // should read as part of the site shell, not the project banner.
   background: rgba($color-bg, 0.85);
   backdrop-filter: saturate(180%) blur(12px);
   -webkit-backdrop-filter: saturate(180%) blur(12px);
-  border-bottom: 1px solid $color-border;
-  // Snapshot independently so it persists across page transitions instead
-  // of being recreated. The animation-none rules in _view-transitions.scss
-  // hold it visually stable. Project navigation opts out via .vt-into-project.
-  view-transition-name: site-header;
-}
-
-// Header has its own snapshot so it stays still on every navigation —
-// slides between base pages, drilling into a post, closing a project.
-// Project OPEN is the one exception: the picker-mode entry effects
-// (flood, card-lifts, pinhole, curtain-wipe) treat the page as one,
-// so the header drops its snapshot and joins root.
-html.vt-into-project .header {
-  view-transition-name: none;
 }
 
 .header__inner {
   @include container;
+  // Container mixin contributes left/right gutter padding; the header
+  // wants the bar edge-to-edge inside the container so override it back.
+  padding-left: 0;
+  padding-right: 0;
   display: flex;
   align-items: center;
   gap: 1rem;
   height: $header-height;
+  border-bottom: 1px solid $color-border;
 
   @include screen-sm {
     height: $header-height-mobile;
-  }
-}
-
-.header__brand {
-  font-weight: 800;
-  font-size: 1.0625rem;
-  letter-spacing: -0.02em;
-  color: $color-fg;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-right: auto;
-
-  &::before {
-    content: '';
-    width: 12px;
-    height: 12px;
-    border-radius: 3px;
-    background: $color-accent;
   }
 }
 
@@ -61,6 +41,8 @@ html.vt-into-project .header {
   display: flex;
   align-items: stretch;
   gap: 0.25rem;
+  // Push the contact button and menu trigger to the right edge.
+  margin-right: auto;
 
   @include screen-sm { display: none; }
 }
@@ -74,7 +56,6 @@ html.vt-into-project .header {
   font-weight: 500;
   color: $color-fg-muted;
   border-radius: $radius-sm;
-  transition: color 120ms ease, background 120ms ease;
   cursor: pointer;
 
   &:hover { color: $color-fg; }
@@ -89,7 +70,6 @@ html.vt-into-project .header {
     border-radius: 2px;
     background: $color-accent;
     opacity: 0;
-    transition: opacity 120ms ease;
   }
 }
 
@@ -109,7 +89,6 @@ html.vt-into-project .header {
   font-size: 0.875rem;
   font-weight: 600;
   color: $color-fg;
-  transition: filter 120ms ease;
 
   &:hover { filter: brightness(1.08); }
 
@@ -220,16 +199,13 @@ html.vt-into-project .header {
 // ---- Footer ----------------------------------------------------------------
 
 .footer {
-  border-top: 1px solid $color-border;
-  margin-top: 4rem;
-  background: $color-bg-deep;
-  // Persist across page transitions, same as the header. Project navigation
-  // opts out via .vt-into-project so the footer animates with the page.
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--frame-color);
+  transition: background 460ms cubic-bezier(0.4, 0, 0.2, 1);
+  // Persistent snapshot on every navigation. Page animations now target
+  // site-content (not root), so the footer stays still throughout — no
+  // need to drop the snapshot for project entry / close like before.
   view-transition-name: site-footer;
-}
-
-html.vt-into-project .footer {
-  view-transition-name: none;
 }
 
 .footer__inner {

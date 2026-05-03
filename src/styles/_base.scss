@@ -4,6 +4,19 @@
 
 html, body { margin: 0; padding: 0; }
 
+:root {
+  --frame: #{$frame-thickness};
+  // Frame + logo colours — overridden per-project from Layout when the
+  // route is /projects/:slug, otherwise fall back to the site defaults.
+  --frame-color: #{$color-frame};
+  --logo-color: #{$color-logo};
+  --logo-fg-color: #{$color-fg};
+
+  @media (max-width: $bp-sm) {
+    --frame: #{$frame-thickness-mobile};
+  }
+}
+
 html {
   background: $color-bg;
   -webkit-text-size-adjust: 100%;
@@ -71,12 +84,147 @@ code {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: $color-bg;
+  // Site background stays a constant — only the project overlay paints
+  // its own banner colour, animating in as the overlay opens.
+  background-color: $color-bg;
+  padding-top: var(--frame);
+  position: relative;
 }
+
+// .layout__main always mounts; .layout__project only mounts while a
+// project is active. The two states are reflected by .layout--project-active
+// on .layout. When a project is active, .layout__main is pulled out of
+// flow (absolute, anchored to .layout) so its dormant header / nav don't
+// add to body height, and .layout__project becomes a fixed-position
+// overlay with its OWN scroll container — body scroll stays anchored
+// to wherever the home grid was, so closing a project lands the user
+// right back where they left off without any save / restore dance.
+// View-transition snapshots carry the open / close animation across
+// the swap.
 
 .layout__main {
   flex: 1;
   width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.layout__project {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  z-index: 100;
+}
+
+.layout--project-active {
+  .layout__main {
+    position: absolute;
+    inset: 0;
+    // Header / nav inside the dormant main shouldn't intercept clicks
+    // while the project is in focus.
+    pointer-events: none;
+
+    // Re-enable interactions on the persistent chrome that should still
+    // respond (logo / brand link, mobile menu trigger). The project
+    // page sits visually above on z-index, so anything outside that
+    // box (e.g. the brand link tucked under the frame corner) stays
+    // reachable.
+    > * {
+      pointer-events: auto;
+    }
+  }
+
+  .layout__project {
+    // Independent scroll container: body scrollY stays parked at the
+    // home grid's position behind the overlay, and the project always
+    // opens at its own top regardless of how far down the home grid
+    // was scrolled.
+    position: fixed;
+    inset: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+  }
+}
+
+// Wrapper around the routed Outlet — its own view-transition snapshot so
+// page transitions (zoom, slide, mode-specific entries) animate just the
+// content region. Header lives outside this, in root, so it stays still
+// across navigations instead of riding the scaled / translated content.
+.site-content {
+  view-transition-name: site-content;
+}
+
+// Ambient aura — a soft, blurred wash of colour behind page content.
+// Driven by --aura-color + --aura-opacity, both animatable via @property
+// so transitions interpolate smoothly. The defaults below give every
+// page a subtle wash in the brand logo colour; ProjectCard inline-sets
+// the vars on hover (project banner colour at higher opacity) so the
+// home grid previews each project's palette as the cursor moves over it.
+// Removing the inline override on mouse leave returns the cascade to
+// these defaults — transitions handle the crossfade.
+@property --aura-color {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #CD0051; // $color-logo — brand pink
+}
+
+@property --aura-opacity {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0.1; // subtle ambient base; hover raises this
+}
+
+.ambient-aura {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  // Sit above the site frame ($frame-thickness bars, z-index 1000) so the
+  // colour wash extends across the full viewport — bleeding into the frame
+  // edges as well as the body region. Below the view-transition snapshot
+  // (z-index 2000) so it doesn't disturb page transitions.
+  z-index: 1001;
+  background:
+    radial-gradient(ellipse 70% 55% at 25% 20%, var(--aura-color), transparent 65%),
+    radial-gradient(ellipse 60% 50% at 80% 85%, var(--aura-color), transparent 65%);
+  filter: blur(60px) saturate(160%);
+  // Lifted above content; multiply blends the wash into whatever sits
+  // beneath (frame, page bg, content) without flattening it to a flat tint.
+  mix-blend-mode: screen;
+  opacity: var(--aura-opacity);
+  transition:
+    --aura-color 460ms cubic-bezier(0.4, 0, 0.2, 1),
+    --aura-opacity 460ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 460ms cubic-bezier(0.4, 0, 0.2, 1);
+  // Independent view-transition snapshot. Without this, .vt-backdrop
+  // (z-index 9999, added to body for every transition to mask snapshot
+  // opacity dips) covers the aura — it disappears for the entire
+  // navigation. Snapshots live in the browser's top layer, above all
+  // regular DOM including the backdrop, so a named snapshot stays
+  // visible. Held static via animation: none in _view-transitions.scss.
+  view-transition-name: ambient-aura;
+}
+
+// Project routes have their own banner colour — the ambient aura would
+// fight that, so fade it out while a project is active. The opacity
+// transition above carries the fade smoothly in / out as the user
+// enters / leaves a project.
+.layout--project-active .ambient-aura {
+  opacity: 0;
+}
+
+// Hold the aura snapshot static during page transitions, and stack it
+// above the content snapshot so the browser-applied root fade can't
+// drop it. Below site-frame (z-index 2000) so the frame still sits on
+// top, above the project-flood group (z-index 1000) so the aura
+// remains visible during a project entry.
+::view-transition-group(ambient-aura) {
+  animation: none;
+  z-index: 1500;
+}
+::view-transition-old(ambient-aura),
+::view-transition-new(ambient-aura) {
+  animation: none;
 }
 
 .container {

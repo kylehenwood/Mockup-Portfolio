@@ -40,6 +40,38 @@ function cleanupMarks() {
   markedRootClasses.clear();
 }
 
+// Lock the .layout's height to whatever it currently is, so the next
+// React commit doesn't shrink the document when the destination page
+// has less content than the source. Without this, the footer reflows
+// upward instantly — onto the old page's snapshot, overlapping its
+// content during the out animation. Returns a release fn.
+function lockLayoutHeight() {
+  const layout = document.querySelector('.layout');
+  if (!layout) return () => {};
+  const h = layout.offsetHeight;
+  if (!h) return () => {};
+  const prev = layout.style.minHeight;
+  layout.style.minHeight = `${h}px`;
+  return () => { layout.style.minHeight = prev; };
+}
+
+// Cover the live DOM with an opaque backdrop while a transition is
+// running. Without this, mid-transition opacity dips on the snapshots
+// let the underlying DOM bleed through — and because Layout has already
+// scrolled the new page to the top inside the flushSync window, that
+// underlying view is the new page at scroll 0, which reads visually as
+// "the current page jumped to the top". The backdrop sits below the
+// view-transition top layer (snapshots are unaffected) but above every
+// regular DOM element, so all the user sees during the dip is the
+// site background.
+function addTransitionBackdrop() {
+  const bd = document.createElement('div');
+  bd.className = 'vt-backdrop';
+  bd.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(bd);
+  return () => bd.remove();
+}
+
 export function startViewTransition(callback) {
   const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
   if (reduced || typeof document.startViewTransition !== 'function') {
@@ -47,6 +79,8 @@ export function startViewTransition(callback) {
     cleanupMarks();
     return;
   }
+  const releaseLayoutHeight = lockLayoutHeight();
+  const releaseBackdrop = addTransitionBackdrop();
   const transition = document.startViewTransition(() => {
     flushSync(() => {
       callback();
@@ -54,5 +88,9 @@ export function startViewTransition(callback) {
   });
   // `finished` resolves when all transition animations have finished.
   // `finally` runs on both success and skip-transition cases.
-  transition.finished.finally(cleanupMarks);
+  transition.finished.finally(() => {
+    releaseBackdrop();
+    releaseLayoutHeight();
+    cleanupMarks();
+  });
 }

@@ -1,5 +1,6 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { startViewTransition, markRootClass } from '../utils/viewTransition.js';
+import { getTransitionMode } from '../state/transition.js';
 
 // Drop-in replacement for react-router-dom's <Link>. Intercepts the click,
 // captures click position as CSS vars, decides which transition to play
@@ -32,8 +33,8 @@ export default function AnimatedLink({
     if (/^(https?:|mailto:|tel:)/.test(to)) return;
 
     e.preventDefault();
-    // Capture click position for transitions that originate from it
-    // (e.g. pinhole). Stored as CSS vars on the html root.
+    // Capture click position for transitions that originate from it.
+    // Stored as CSS vars on the html root.
     const root = document.documentElement;
     root.style.setProperty('--vt-x', `${e.clientX}px`);
     root.style.setProperty('--vt-y', `${e.clientY}px`);
@@ -55,6 +56,22 @@ export default function AnimatedLink({
     } else if (!fromPost && toPost) {
       // Drilling into a blog post from a non-post page (e.g. /blog list).
       markRootClass('vt-zoom-in');
+    } else if (toProject) {
+      // Going into a project from anywhere (home grid, prev/next inside
+      // another project). The picker-mode entry rules are gated on
+      // .vt-into-project, so this triggers the active mode (stage-clear /
+      // card-lifts / aura-bloom). ProjectCard also sets this on home-grid
+      // clicks; setting twice is a no-op. For stage-clear, also flip the
+      // flood class so the .project-flood overlay snapshots as visible.
+      markRootClass('vt-into-project');
+      if (fromProject) {
+        // Project-to-project: keep the old project static and let the new
+        // one animate in on top. CSS rule lives in _view-transitions.scss.
+        markRootClass('vt-project-to-project');
+      }
+      if (getTransitionMode() === 'stage-clear') {
+        markRootClass('vt-stage-clear');
+      }
     }
     // Project → another project, post → another post, and any non-detail
     // navigation falls through to whatever class the click handler set

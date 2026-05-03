@@ -1,3 +1,5 @@
+import { DsTabs } from './ProjectStyleguide.jsx';
+
 // Auto-discover every component in src/components/. Each file may export a
 // `meta` object that describes how it should appear on this page. Components
 // without a `meta` export are listed as undocumented so the omission is
@@ -42,6 +44,7 @@ export default function DesignSystem() {
             Every reusable piece of UI in the app, with props and live previews.
             Auto-generated from each component’s <code>meta</code> export.
           </p>
+          <DsTabs active="components" />
         </div>
       </header>
 

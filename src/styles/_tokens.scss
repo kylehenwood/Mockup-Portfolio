@@ -11,6 +11,15 @@ $color-border: rgba(255, 255, 255, 0.08);
 $color-accent: #E91E63;     // pink-500 from legacy
 $color-accent-hover: #F06292;
 
+// Site frame — wraps the viewport, color-matched to the header/footer.
+// Defaults to black; per-project overrides recolour it via --frame-color.
+$color-frame: #000000;
+$color-logo: #CD0051;       // .palette/red/500 from Figma
+$frame-thickness: 8px;
+$frame-thickness-mobile: 6px;
+$frame-corner: 160px;
+$frame-corner-mobile: 96px;
+
 // Tile / card colors (used as gradients on gallery + project cards)
 $color-pink: #E91E63;
 $color-purple: #9C27B0;

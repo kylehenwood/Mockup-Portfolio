@@ -8,10 +8,9 @@ const KEY = 'transition-mode';
 const DEFAULT = 'stage-clear';
 
 export const TRANSITION_MODES = [
-  { value: 'stage-clear',  label: 'Stage clear → theme flood' },
-  { value: 'card-lifts',   label: 'Card lifts, page rebuilds' },
-  { value: 'pinhole',      label: 'Pinhole (radial wipe)' },
-  { value: 'curtain-wipe', label: 'Curtain wipe' },
+  { value: 'stage-clear', label: 'Stage clear → theme flood' },
+  { value: 'card-lifts',  label: 'Card lifts, page rebuilds' },
+  { value: 'aura-bloom',  label: 'Aura bloom (soft colour wash)' },
 ];
 
 const VALID = TRANSITION_MODES.map((m) => m.value);

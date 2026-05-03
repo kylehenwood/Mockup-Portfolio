@@ -1,17 +1,39 @@
 ﻿@use 'tokens' as *;
 
+// Project pages render as an in-flow overlay that sits above the header
+// (z-index 50) but below the site frame (z-index 1000). It uses the
+// document body for scroll — its own height contributes to body scroll —
+// so as the user scrolls, the overlay scrolls with the page like normal
+// content. The header stays attached to the site (fixed at top), tucked
+// under the overlay via stacking, and the frame remains on top of all.
+// Fixed full-viewport background layer rendered alongside (not wrapping)
+// the project article. Paints the project's banner colour behind the
+// article. NO view-transition-name — it stays part of root so it animates
+// in lockstep with the article above it (otherwise the bg would reach
+// full opacity before the article, and the banner would shine through
+// the still-fading body region).
+.project-bg {
+  position: fixed;
+  inset: 0;
+  // Above the header (50) and mobile nav (100), below the article (which
+  // sits at z-index 90) and the site frame / aura.
+  z-index: 80;
+  pointer-events: none;
+  background: $color-bg;
+}
+
+// Article sits above the fixed bg layer in flow, so the body scrolls it.
+.project-page {
+  position: relative;
+  z-index: 90;
+}
+
 // Per-project tokens. Each `.project-page--<color>` sets the hero
-// background + foreground AND the page-level background. The vibrant
-// colour fills the entire page; content regions (info card, body, others)
-// sit on top with their own surfaces. This means the new view-transition
-// snapshot is vibrant wherever a content region doesn't cover, so the
-// pinhole / stage-clear flood reveals the project colour on screen edges
-// regardless of where the user clicked.
+// background + foreground. The project page itself has NO background —
+// the overlay above carries the site/page wash colour.
 .project-page {
   --project-hero: #{$color-bg-elevated};
   --project-hero-fg: #{$color-fg};
-
-  background: var(--project-hero);
 
   &--yellow {
     --project-hero: #FFD603;
@@ -24,6 +46,7 @@
   &--orange { --project-hero: #{$color-orange}; --project-hero-fg: #{$color-fg}; }
   &--purple { --project-hero: #{$color-purple}; --project-hero-fg: #{$color-fg}; }
 }
+
 
 // ---- Hero band -------------------------------------------------------------
 // Large full-bleed band in the project's colour. Title vertically centred,
@@ -53,9 +76,9 @@
 // so it stays in reach while the page scrolls.
 .project-close {
   position: fixed;
-  top: 1.25rem;
-  right: 1.25rem;
-  z-index: 60;
+  top: calc(var(--frame) + 0.75rem);
+  right: calc(var(--frame) + 0.75rem);
+  z-index: 95;
   width: 44px;
   height: 44px;
   display: inline-flex;
@@ -205,30 +228,26 @@
 }
 
 // ---- Body region -----------------------------------------------------------
-// Full-width dark band that sits on the vibrant page background. The
-// background colour and the content rise into place together â€” slides up
-// from below + fades in. Delayed so it lands after the stage-clear flood
-// has begun fading; for other transitions it's just an entry flourish.
-
-@keyframes project-body-in {
-  from { transform: translateY(20%); opacity: 0; }
-  to   { transform: translateY(0);   opacity: 1; }
-}
+// Full-width dark band that sits on the vibrant page background. The body
+// opts into its own view-transition snapshot during any project entry
+// (vt-into-project) so each picker mode can give it a distinct entrance
+// animation independent of the root reveal. Per-mode rules live in
+// _view-transitions.scss. Outside of project entry the name is absent so
+// regular navigations are unaffected.
 
 .project-body {
   background: $color-bg-elevated;
   padding: 4rem 0 5rem;
-  animation: project-body-in 800ms cubic-bezier(0.16, 1, 0.3, 1) 700ms both;
+}
+
+html.vt-into-project .project-body {
+  view-transition-name: project-body;
 }
 
 .project-body__inner {
   width: calc(100% - #{$gutter * 2});
   max-width: 720px;
   margin: 0 auto;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .project-body { animation: none; }
 }
 
 .project-section {
